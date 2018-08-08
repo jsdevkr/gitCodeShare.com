@@ -19,11 +19,13 @@
   },
   "homepage": "https://github.com/jsdevkr/gitCodeShare.com#readme",
   "dependencies": {
+    "@types/isomorphic-fetch": "0.0.34",
     "@types/node": "^10.5.7",
     "@types/react": "^16.4.8",
     "@types/react-dom": "^16.0.7",
     "@zeit/next-typescript": "^1.1.0",
     "fork-ts-checker-webpack-plugin": "^0.4.4",
+    "isomorphic-fetch": "^2.2.1",
     "mobx": "^5.0.3",
     "mobx-react": "^5.2.3",
     "mobx-state-tree": "^3.0.2",
