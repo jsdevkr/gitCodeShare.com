@@ -17,6 +17,13 @@ module.exports = withPlugins([
       },
     },
   ],
-  [withLess],
   [withSass],
+  [
+    withLess,
+    {
+      lessLoaderOptions: {
+        javascriptEnabled: true,
+      },
+    },
+  ],
 ]);

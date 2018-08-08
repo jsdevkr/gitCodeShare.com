@@ -1,0 +1,16 @@
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+  @include media-medium-and-up() {
+    width: 90%;
+  }
+
+  @include media-large-and-up() {
+    width: 85%;
+  }
+
+  @include media-extra-large-and-up() {
+    width: 80%;
+  }
+}
