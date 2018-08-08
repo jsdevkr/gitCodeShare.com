@@ -1,0 +1,41 @@
+{
+  "name": "gitcodeshare.com",
+  "version": "0.1.0",
+  "description": "https://contributhon.kr/project#gitshare",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsdevkr/gitCodeShare.com.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jsdevkr/gitCodeShare.com/issues"
+  },
+  "homepage": "https://github.com/jsdevkr/gitCodeShare.com#readme",
+  "dependencies": {
+    "@types/node": "^10.5.7",
+    "@types/react": "^16.4.8",
+    "@types/react-dom": "^16.0.7",
+    "@zeit/next-typescript": "^1.1.0",
+    "fork-ts-checker-webpack-plugin": "^0.4.4",
+    "mobx": "^5.0.3",
+    "mobx-react": "^5.2.3",
+    "mobx-state-tree": "^3.0.2",
+    "next": "^6.1.1",
+    "prettier": "^1.14.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "styled-components": "^3.4.2",
+    "styled-normalize": "^8.0.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.14.0",
+    "typescript": "^3.0.1",
+    "typescript-styled-plugin": "^0.10.0"
+  }
+}
