@@ -1,4 +1,5 @@
 # Contributhon 2018 - gitCodeShare.com (a.k.a gitShare)
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 https://contributhon.kr/project#gitshare
@@ -15,28 +16,28 @@ http://bit.ly/2vLCtbX
 2. Run `npm i` to download required packages.
 3. Build and start the application: `npm run dev`
 4. If you contributed something new, run `npm run contributors:add <your GitHub username> <contirbution type>` to add yourself [below](#contributors)
-    - contribution type
-      - blog: 📝
-      - bug: 🐛
-      - code: 💻
-      - design: 🎨
-      - doc: 📖
-      - eventOrganizing: 📋
-      - example: 💡
-      - financial: 💵
-      - fundingFinding: 🔍
-      - ideas: 🤔
-      - infra: 🚇
-      - platform: 📦
-      - plugin: 🔌
-      - question: 💬
-      - review: 👀
-      - talk: 📢
-      - test: ⚠️
-      - tool: 🔧
-      - translation: 🌍
-      - tutorial: ✅
-      - video: 📹
+   - contribution type
+     - blog: 📝
+     - bug: 🐛
+     - code: 💻
+     - design: 🎨
+     - doc: 📖
+     - eventOrganizing: 📋
+     - example: 💡
+     - financial: 💵
+     - fundingFinding: 🔍
+     - ideas: 🤔
+     - infra: 🚇
+     - platform: 📦
+     - plugin: 🔌
+     - question: 💬
+     - review: 👀
+     - talk: 📢
+     - test: ⚠️
+     - tool: 🔧
+     - translation: 🌍
+     - tutorial: ✅
+     - video: 📹
 5. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
 
 We follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
