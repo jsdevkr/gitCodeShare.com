@@ -3,12 +3,14 @@ lib/
 bin/
 dist/
 node_modules/
+.next/
+.idea/
+.vs/
 *.xcodeproj
 *.swp
 *.pyc
 *.VC.db
 *.VC.VC.opendb
-.vs/
 *.vcxproj
 *.vcxproj.user
 *.vcxproj.filters
@@ -17,4 +19,3 @@ node_modules/
 debug.log
 *debug.log
 Bundled*.js
-.next/
