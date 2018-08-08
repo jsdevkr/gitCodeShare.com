@@ -7,7 +7,6 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "prettier": "prettier --write **/*",
     "precommit": "lint-staged && npm run contributors:build && git add README.md",
     "contributors:add": "all-contributors add",
     "contributors:build": "all-contributors generate"
@@ -24,8 +23,12 @@
   "homepage": "https://github.com/jsdevkr/gitCodeShare.com#readme",
   "lint-staged": {
     "linters": {
-      "*.{js,jsx,ts,tsx}": [
-        "prettier",
+      "*.{js,jsx}": [
+        "prettier --parser flow --write",
+        "git add"
+      ],
+      "*.{ts,tsx}": [
+        "prettier --parser typescript --write",
         "git add"
       ]
     }
@@ -50,6 +53,7 @@
   },
   "devDependencies": {
     "all-contributors-cli": "^5.4.0",
+    "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "prettier": "^1.14.0",
     "tslint": "^5.11.0",
