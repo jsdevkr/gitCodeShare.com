@@ -1,5 +1,5 @@
 # Contributhon 2018 - gitCodeShare.com (a.k.a gitShare)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 https://contributhon.kr/project#gitshare
 
@@ -23,6 +23,6 @@ We follows the [all-contributors](https://github.com/kentcdodds/all-contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/7310854?v=4" width="100px;"/><br /><sub><b>Dongwoo Gim</b></sub>](http://www.sowk.net)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=gimdongwoo "Code") |
-| :---: |
+| [<img src="https://avatars0.githubusercontent.com/u/7310854?v=4" width="100px;"/><br /><sub><b>Dongwoo Gim</b></sub>](http://www.sowk.net)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=gimdongwoo "Code") | [<img src="https://avatars0.githubusercontent.com/u/5884902?v=4" width="100px;"/><br /><sub><b>Thomas</b></sub>](http://ax5.io, axisj.com, axboot.com)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=thomasJang "Code") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
