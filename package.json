@@ -6,18 +6,30 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prettier": "prettier --write *",
+    "precommit": "lint-staged && npm run contributors:build && git add README.md",
+    "contributors:add": "all-contributors add",
+    "contributors:build": "all-contributors generate"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jsdevkr/gitCodeShare.com.git"
   },
-  "author": "",
+  "author": "jsdev.kr",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jsdevkr/gitCodeShare.com/issues"
   },
   "homepage": "https://github.com/jsdevkr/gitCodeShare.com#readme",
+  "lint-staged": {
+    "linters": {
+      "*.{js,jsx,ts,tsx}": [
+        "prettier",
+        "git add"
+      ]
+    }
+  },
   "dependencies": {
     "@types/isomorphic-fetch": "0.0.34",
     "@types/node": "^10.5.7",
@@ -30,14 +42,18 @@
     "mobx-react": "^5.2.3",
     "mobx-state-tree": "^3.0.2",
     "next": "^6.1.1",
-    "prettier": "^1.14.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "styled-components": "^3.4.2",
     "styled-normalize": "^8.0.0",
+    "typescript": "^3.0.1"
+  },
+  "devDependencies": {
+    "all-contributors-cli": "^5.4.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.14.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.14.0",
-    "typescript": "^3.0.1",
     "typescript-styled-plugin": "^0.10.0"
   }
 }
