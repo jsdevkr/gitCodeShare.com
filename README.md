@@ -9,7 +9,7 @@ https://contributhon.kr/project#gitshare
 
 http://bit.ly/2vLCtbX
 
-## Wee need your contribution.
+## We need your contribution.
 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local
 2. Run `npm i` to download required packages.
