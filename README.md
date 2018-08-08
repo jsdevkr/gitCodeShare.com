@@ -14,15 +14,43 @@ http://bit.ly/2vLCtbX
 1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local
 2. Run `npm i` to download required packages.
 3. Build and start the application: `npm run dev`
-4. If you contributed something new, run `npm run contributors:add <your GitHub username>` to add yourself [below](#contributors)
-5. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
+4. If you contributed something new, run `npm run contributors:add <your GitHub username> <contirbution type>` to add yourself [below](#contributors)
+    - contribution type
+      - blog: 📝
+      - bug: 🐛
+      - code: 💻
+      - design: 🎨
+      - doc: 📖
+      - eventOrganizing: 📋
+      - example: 💡
+      - financial: 💵
+      - fundingFinding: 🔍
+      - ideas: 🤔
+      - infra: 🚇
+      - platform: 📦
+      - plugin: 🔌
+      - question: 💬
+      - review: 👀
+      - talk: 📢
+      - test: ⚠️
+      - tool: 🔧
+      - translation: 🌍
+      - tutorial: ✅
+      - video: 📹
+1. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
 
 We follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
 
 ## Contributors
 
+<!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/7310854?v=4" width="100px;"/><br /><sub><b>Dongwoo Gim</b></sub>](http://www.sowk.net)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=gimdongwoo "Code") | [<img src="https://avatars0.githubusercontent.com/u/5884902?v=4" width="100px;"/><br /><sub><b>Thomas</b></sub>](http://ax5.io, axisj.com, axboot.com)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=thomasJang "Code") |
+| [<img src="https://avatars0.githubusercontent.com/u/7310854?v=4" width="100px;"/><br /><sub><b>Dongwoo Gim</b></sub>](http://www.sowk.net)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=gimdongwoo "Code") | [<img src="https://avatars0.githubusercontent.com/u/5884902?v=4" width="100px;"/><br /><sub><b>Thomas</b></sub>](http://ax5.io, axisj.com, axboot.com)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=thomasJang "Code") [📖](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=thomasJang "Documentation") |
 | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
+<!-- prettier-ignore-end -->
+
+## License
+
+MIT License, 2018 JSDEV.KR, CONTRIBUTHON
