@@ -16,31 +16,25 @@ http://bit.ly/2vLCtbX
 2. Run `npm i` to download required packages.
 3. Build and start the application: `npm run dev`
 4. If you contributed something new, run `npm run contributors:add <your GitHub username> <contirbution type>` to add yourself [below](#contributors)
-   - contribution type
-     - blog: 📝
-     - bug: 🐛
-     - code: 💻
-     - design: 🎨
-     - doc: 📖
-     - eventOrganizing: 📋
-     - example: 💡
-     - financial: 💵
-     - fundingFinding: 🔍
-     - ideas: 🤔
-     - infra: 🚇
-     - platform: 📦
-     - plugin: 🔌
-     - question: 💬
-     - review: 👀
-     - talk: 📢
-     - test: ⚠️
-     - tool: 🔧
-     - translation: 🌍
-     - tutorial: ✅
-     - video: 📹
 5. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
 
-We follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
+### contribution type
+
+| type               | command                                              | type                | command                                               |
+| ------------------ | ---------------------------------------------------- | ------------------- | ----------------------------------------------------- |
+| blog: 📝           | `npm run contributors:add <username> blog`           | bug: 🐛             | `npm run contributors:add <username> bug`             |
+| code: 💻           | `npm run contributors:add <username> code`           | design: 🎨          | `npm run contributors:add <username> design`          |
+| doc: 📖            | `npm run contributors:add <username> doc`            | eventOrganizing: 📋 | `npm run contributors:add <username> eventOrganizing` |
+| example: 💡        | `npm run contributors:add <username> example`        | financial: 💵       | `npm run contributors:add <username> financial`       |
+| fundingFinding: 🔍 | `npm run contributors:add <username> fundingFinding` | ideas: 🤔           | `npm run contributors:add <username> ideas`           |
+| infra: 🚇          | `npm run contributors:add <username> infra`          | platform: 📦        | `npm run contributors:add <username> platform`        |
+| plugin: 🔌         | `npm run contributors:add <username> plugin`         | question: 💬        | `npm run contributors:add <username> question`        |
+| review: 👀         | `npm run contributors:add <username> review`         | talk: 📢            | `npm run contributors:add <username> talk`            |
+| test: ⚠️           | `npm run contributors:add <username> test`           | tool: 🔧            | `npm run contributors:add <username> tool`            |
+| translation: 🌍    | `npm run contributors:add <username> translation`    | tutorial: ✅        | `npm run contributors:add <username> tutorial`        |
+| video: 📹          | `npm run contributors:add <username> video`          |                     |                                                       |
+
+> We follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
 
 ## Contributors
 
