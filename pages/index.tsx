@@ -2,8 +2,14 @@ import * as React from 'react';
 import '../assets/styles/app.ts';
 import { Button, Icon, Card, Form, Input, Checkbox } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
+import { StyledFlexContainer, RoundedButton } from '../styledComponents';
 
 const FormItem = Form.Item;
+const FlexContainer = StyledFlexContainer({
+  align: 'center',
+  justify: 'center',
+  height: '100vh',
+});
 
 interface IProps extends FormComponentProps {}
 
@@ -21,7 +27,7 @@ class App extends React.Component<IProps> {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <div>
+      <FlexContainer>
         <Card
           title={
             <span>
@@ -80,18 +86,18 @@ class App extends React.Component<IProps> {
               <a className="login-form-forgot" href="">
                 Forgot password
               </a>
-              <Button
+              <RoundedButton
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"
               >
                 Log in
-              </Button>
+              </RoundedButton>
               Or <a href="">register now!</a>
             </FormItem>
           </Form>
         </Card>
-      </div>
+      </FlexContainer>
     );
   }
 }
