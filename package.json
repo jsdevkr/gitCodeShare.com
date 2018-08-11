@@ -41,6 +41,7 @@
     "@zeit/next-less": "^0.3.0",
     "@zeit/next-sass": "^0.2.0",
     "@zeit/next-typescript": "^1.1.0",
+    "antd": "3.7.1",
     "fork-ts-checker-webpack-plugin": "^0.4.4",
     "isomorphic-fetch": "^2.2.1",
     "less": "^3.8.1",
@@ -52,7 +53,7 @@
     "node-sass": "^4.9.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "styled-components": "^3.4.2",
+    "styled-components": "3.3.2",
     "styled-normalize": "^8.0.0",
     "typescript": "^3.0.1"
   },
