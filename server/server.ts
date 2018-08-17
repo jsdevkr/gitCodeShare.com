@@ -1,11 +1,11 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const next = require('next');
-const puppeteer = require('puppeteer');
+import express from 'express';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import next from 'next';
+import puppeteer from 'puppeteer';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
