@@ -17,11 +17,6 @@ const handle = app.getRequestHandler();
 
 process.on('SIGINT', () => process.exit());
 
-if (!dev) {
-  const LOGS_ID = `${process.env.LOGS_SECRET_PREFIX}:${process.env.NOW_URL}`;
-  require('now-logs')(LOGS_ID);
-}
-
 function wrap(handler: any) {
   return (req, res) =>
     handler(req, res).catch(err => {
