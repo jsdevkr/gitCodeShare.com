@@ -29,6 +29,7 @@
       ],
       "*.{ts,tsx}": [
         "prettier --parser typescript --write",
+        "tslint --fix",
         "git add"
       ]
     }

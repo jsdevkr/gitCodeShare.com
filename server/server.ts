@@ -7,6 +7,9 @@ import bodyParser from 'body-parser';
 import next from 'next';
 import puppeteer from 'puppeteer';
 
+import ImageHandler from './handlers/image';
+import unsplashHandler from './handlers/unsplash';
+
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -44,11 +47,10 @@ const puppeteerParams = dev
 app
   .prepare()
   .then(puppeteer.launch.bind(puppeteer, puppeteerParams))
-  .then(browser => {
+  .then((browser: any) => {
     // set up
     const server = express();
-    const imageHandler = require('./handlers/image')(browser);
-    const unsplashHandler = require('./handlers/unsplash');
+    const imageHandler = ImageHandler(browser);
 
     if (dev) {
       server.use(morgan('tiny'));

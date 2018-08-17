@@ -1,5 +1,6 @@
 require('isomorphic-fetch');
-const { default: Unsplash, toJson } = require('unsplash-js');
+const Unsplash = require('unsplash-js').default;
+const { toJson } = require('unsplash-js');
 
 const WALLPAPER_COLLECTION_ID = 136026;
 
@@ -34,8 +35,10 @@ const downloadImage = imageId =>
     .then(client.photos.downloadPhoto)
     .then(toJson);
 
-module.exports = {
+const exported = {
   randomImages: (req, res) => getRandomImages().then(imgs => res.json(imgs)),
   downloadImage: (req, res) =>
     downloadImage(req.params.imageId).then(url => res.json(url)),
 };
+
+export default exported;
