@@ -13,6 +13,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
+          <link rel="shortcut icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="/_next/static/style.css" />
           {this.props.styleTags}
         </Head>
