@@ -39,6 +39,48 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Parkkkkk",
+      "name": "hyeock gu",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/39560643?v=4",
+      "profile": "https://github.com/Parkkkkk",
+      "contributions": [
+        "code",
+        "review",
+        "doc"
+      ]
+    },
+    {
+      "login": "aeei",
+      "name": "Kelly Kim",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/18022843?v=4",
+      "profile": "https://github.com/aeei",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "siosio34",
+      "name": "young je",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7166022?v=4",
+      "profile": "https://github.com/siosio34",
+      "contributions": [
+        "review"
+      ]
+    },
+    {
+      "login": "ysm0622",
+      "name": "Chris Yang",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18487241?v=4",
+      "profile": "https://github.com/ysm0622",
+      "contributions": [
+        "code",
+        "review",
+        "ideas"
+      ]
     }
   ]
 }
