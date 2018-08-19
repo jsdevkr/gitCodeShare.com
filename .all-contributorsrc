@@ -32,6 +32,17 @@
       ]
     },
     {
+      "login": "Parkkkkk",
+      "name": "hyeock gu",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/39560643?v=4",
+      "profile": "https://github.com/Parkkkkk",
+      "contributions": [
+        "code",
+        "review",
+        "doc"
+      ]
+    },
+    {
       "login": "aeei",
       "name": "Kelly Kim",
       "avatar_url": "https://avatars0.githubusercontent.com/u/18022843?v=4",
@@ -60,7 +71,6 @@
         "code",
         "review",
         "ideas"
-
       ]
     }
   ]
