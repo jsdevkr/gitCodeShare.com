@@ -1,11 +1,14 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
-const express = require('express');
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
-const next = require('next');
-const puppeteer = require('puppeteer');
+import express from 'express';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import next from 'next';
+import puppeteer from 'puppeteer';
+
+import ImageHandler from './handlers/image';
+import unsplashHandler from './handlers/unsplash';
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -13,11 +16,6 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 process.on('SIGINT', () => process.exit());
-
-if (!dev) {
-  const LOGS_ID = `${process.env.LOGS_SECRET_PREFIX}:${process.env.NOW_URL}`;
-  require('now-logs')(LOGS_ID);
-}
 
 function wrap(handler: any) {
   return (req, res) =>
@@ -44,11 +42,10 @@ const puppeteerParams = dev
 app
   .prepare()
   .then(puppeteer.launch.bind(puppeteer, puppeteerParams))
-  .then(browser => {
+  .then((browser: any) => {
     // set up
     const server = express();
-    const imageHandler = require('./handlers/image')(browser);
-    const unsplashHandler = require('./handlers/unsplash');
+    const imageHandler = ImageHandler(browser);
 
     if (dev) {
       server.use(morgan('tiny'));
