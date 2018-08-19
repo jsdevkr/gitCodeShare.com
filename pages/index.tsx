@@ -1,11 +1,9 @@
 import * as React from 'react';
+import 'isomorphic-unfetch';
 import '../assets/styles/app.ts';
 import { Button, Icon, Card, Form, Input, Checkbox } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
-import {
-  StyledFlexContainer,
-  RoundedButton,
-} from '../components/styledComponents';
+import { StyledFlexContainer, RoundedButton } from '../components/styledComponents';
 
 const FormItem = Form.Item;
 const FlexContainer = StyledFlexContainer({
@@ -17,6 +15,12 @@ const FlexContainer = StyledFlexContainer({
 interface IProps extends FormComponentProps {}
 
 class App extends React.Component<IProps> {
+  static async getInitialProps() {
+    // NOTE : fetch base url
+    console.log(process.env.BACKEND_URL);
+    return Promise.resolve({});
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -54,28 +58,15 @@ class App extends React.Component<IProps> {
           <Form onSubmit={this.handleSubmit} className="login-form">
             <FormItem>
               {getFieldDecorator('userName', {
-                rules: [
-                  { required: true, message: 'Please input your username!' },
-                ],
-              })(
-                <Input
-                  prefix={
-                    <Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />
-                  }
-                  placeholder="Username"
-                />,
-              )}
+                rules: [{ required: true, message: 'Please input your username!' }],
+              })(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />)}
             </FormItem>
             <FormItem>
               {getFieldDecorator('password', {
-                rules: [
-                  { required: true, message: 'Please input your Password!' },
-                ],
+                rules: [{ required: true, message: 'Please input your Password!' }],
               })(
                 <Input
-                  prefix={
-                    <Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />
-                  }
+                  prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                   type="password"
                   placeholder="Password"
                 />,
@@ -89,11 +80,7 @@ class App extends React.Component<IProps> {
               <a className="login-form-forgot" href="">
                 Forgot password
               </a>
-              <RoundedButton
-                type="primary"
-                htmlType="submit"
-                className="login-form-button"
-              >
+              <RoundedButton type="primary" htmlType="submit" className="login-form-button">
                 Log in
               </RoundedButton>
               Or <a href="">register now!</a>
