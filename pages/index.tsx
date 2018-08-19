@@ -1,6 +1,7 @@
 import * as React from 'react';
 import 'isomorphic-unfetch';
-import '../assets/styles/app.ts';
+import '../assets/styles/app';
+
 import { Button, Icon, Card, Form, Input, Checkbox } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
 import { StyledFlexContainer, RoundedButton } from '../components/styledComponents';
