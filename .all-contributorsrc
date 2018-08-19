@@ -30,6 +30,15 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "andrew",
+      "name": "Andrew Nesbitt",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1060?v=4",
+      "profile": "http://nesbitt.io",
+      "contributions": [
+        "code"
+      ]
     }
   ]
 }
