@@ -41,8 +41,6 @@ http://bit.ly/2vLCtbX
 <!-- prettier-ignore-start -->
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/7310854?v=4" width="100px;"/><br /><sub><b>Dongwoo Gim</b></sub>](https://github.com/gimdongwoo)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=gimdongwoo "Code") [🔧](#tool-gimdongwoo "Tools") [🤔](#ideas-gimdongwoo "Ideas, Planning, & Feedback") | [<img src="https://avatars0.githubusercontent.com/u/5884902?v=4" width="100px;"/><br /><sub><b>Thomas</b></sub>](https://github.com/thomasJang)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=thomasJang "Code") [📖](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=thomasJang "Documentation") [🤔](#ideas-thomasJang "Ideas, Planning, & Feedback") | [<img src="https://avatars0.githubusercontent.com/u/18022843?v=4" width="100px;"/><br /><sub><b>Kelly Kim</b></sub>](https://github.com/aeei)<br />[💻](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=aeei "Code") [📖](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=aeei "Documentation") [⚠️](https://github.com/jsdev.kr/gitcodeshare.com/commits?author=aeei "Tests") |
-| :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- prettier-ignore-end -->
 

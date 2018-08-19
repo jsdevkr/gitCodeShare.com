@@ -2,7 +2,10 @@ import * as React from 'react';
 import '../assets/styles/app.ts';
 import { Button, Icon, Card, Form, Input, Checkbox } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';
-import { StyledFlexContainer, RoundedButton } from '../styledComponents';
+import {
+  StyledFlexContainer,
+  RoundedButton,
+} from '../components/styledComponents';
 
 const FormItem = Form.Item;
 const FlexContainer = StyledFlexContainer({
