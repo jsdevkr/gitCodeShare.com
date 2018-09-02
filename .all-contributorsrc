@@ -81,6 +81,15 @@
         "review",
         "ideas"
       ]
+    },
+    {
+      "login": "rjs1197",
+      "name": "Rayleigh",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/24822072?v=4",
+      "profile": "http://rayleigh.xyz",
+      "contributions": [
+        "talk"
+      ]
     }
   ]
 }
