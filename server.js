@@ -2,7 +2,16 @@
 require('ts-node/register');
 require('@babel/register')({
   extensions: ['.ts'],
-  presets: ['@babel/preset-env'],
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+  ],
 });
 
 // Import the rest of our application.
