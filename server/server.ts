@@ -82,10 +82,10 @@ app
       }),
     );
     server.use(passport.initialize());
-    server.use('/_next', function(req: express.Request, res: express.Response, _next: express.NextFunction) {
+    server.use('/_next', (req, res, _next) => {
       passport.session()(req, res, _next);
     });
-    server.use('/static', function(req: express.Request, res: express.Response, _next: express.NextFunction) {
+    server.use('/static', (req, res, _next) => {
       passport.session()(req, res, _next);
     });
 
