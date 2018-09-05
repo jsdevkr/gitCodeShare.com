@@ -90,6 +90,17 @@
       "contributions": [
         "talk"
       ]
+    },
+    {
+      "login": "likelionWonHo",
+      "name": "Wonho Kim",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18139217?v=4",
+      "profile": "https://github.com/likelionWonHo",
+      "contributions": [
+        "code",
+        "talk",
+        "question"
+      ]
     }
   ]
 }
