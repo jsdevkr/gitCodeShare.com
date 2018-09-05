@@ -5,8 +5,19 @@ import { FormComponentProps } from 'antd/lib/form';
 import { RoundedButton } from '../styledComponents';
 import { Sample } from '../components';
 
+const FormItem = Form.Item;
+const FlexContainer = StyledFlexContainer({
+  align: 'center',
+  justify: 'center',
+});
+
 interface IProps extends FormComponentProps {}
 
+function test(t: any) {
+  return t;
+}
+
+@test
 class App extends React.Component<IProps> {
   /*
   static async getInitialProps() {

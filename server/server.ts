@@ -14,8 +14,8 @@ import ImageHandler from './handlers/image';
 import unsplashHandler from './handlers/unsplash';
 import gistHandler from './handlers/gist';
 
-import redis from 'redis';
-import connectRedis from 'connect-redis';
+// import redis from 'redis';
+// import connectRedis from 'connect-redis';
 import uuid from 'uuid/v4';
 import * as passportConfig from './handlers/passport';
 
@@ -24,8 +24,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const RedisStore = connectRedis(session);
-const client = redis.createClient({ host: process.env.REDIS_HOST, port: parseInt(process.env.REDIS_PORT) });
+// const RedisStore = connectRedis(session);
+// const client = redis.createClient({ host: process.env.REDIS_HOST, port: parseInt(process.env.REDIS_PORT) });
 
 process.on('SIGINT', () => process.exit());
 
@@ -66,10 +66,10 @@ app
         genid: function() {
           return uuid();
         },
-        store: new RedisStore({
-          client: client,
-          logErrors: true,
-        }),
+        // store: new RedisStore({
+        //   client: client,
+        //   logErrors: true,
+        // }),
         secret: process.env.SESSION_SECRET,
         saveUninitialized: false, // don't create session until something stored,
         resave: false, // don't save session if unmodified
@@ -82,12 +82,11 @@ app
       }),
     );
     server.use(passport.initialize());
-    server.use(function(req, res, next) {
-      if (req.url.match('/_next/*') || req.url.match('/static/*')) {
-        next();
-      } else {
-        passport.session()(req, res, next);
-      }
+    server.use('/_next', function(req: express.Request, res: express.Response, _next: express.NextFunction) {
+      passport.session()(req, res, _next);
+    });
+    server.use('/static', function(req: express.Request, res: express.Response, _next: express.NextFunction) {
+      passport.session()(req, res, _next);
     });
 
     // api endpoints
@@ -108,11 +107,11 @@ app
       });
     });
 
-    server.get('/logout', (req, res, next) => {
+    server.get('/logout', (req, res, _next) => {
       req.session.destroy(err => {
         if (err) {
           console.log(err);
-          return next(err);
+          return _next(err);
         }
       });
       req.logout();

@@ -9,6 +9,7 @@
     "start": "node server.js",
     "precommit": "lint-staged && npm run contributors:build && git add README.md",
     "postinstall": "npm run build",
+    "export": "next export",
     "contributors:add": "all-contributors add",
     "contributors:build": "all-contributors generate"
   },
