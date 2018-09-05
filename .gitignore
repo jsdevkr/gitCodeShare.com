@@ -19,3 +19,5 @@ node_modules/
 debug.log
 *debug.log
 Bundled*.js
+.env*
+!.env.example
