@@ -7,6 +7,11 @@ import { Sample } from '../components';
 
 interface IProps extends FormComponentProps {}
 
+function test(t: any) {
+  return t;
+}
+
+@test
 class App extends React.Component<IProps> {
   /*
   static async getInitialProps() {
