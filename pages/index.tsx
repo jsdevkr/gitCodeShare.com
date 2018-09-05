@@ -1,5 +1,4 @@
 import * as React from 'react';
-import 'isomorphic-unfetch';
 
 // import { Button, Icon, Card, Form, Input, Checkbox } from 'antd';
 import { FormComponentProps } from 'antd/lib/form';

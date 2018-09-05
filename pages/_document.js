@@ -1,3 +1,4 @@
+import 'isomorphic-unfetch';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import '../assets/styles/app';
