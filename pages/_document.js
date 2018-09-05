@@ -1,5 +1,7 @@
+import 'isomorphic-unfetch';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import '../assets/styles/app';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
