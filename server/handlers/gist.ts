@@ -5,14 +5,19 @@ import { Request, Response, NextFunction } from 'express';
 import request from 'request';
 import { name, version } from './../../package.json';
 
+const headers: { Authorization?: string } = {};
 const PERSONAL_ACCESS_TOKEN: string = process.env.PERSONAL_ACCESS_TOKEN;
-const putStar = (gist_id: string): void => {
+if (PERSONAL_ACCESS_TOKEN) {
+  headers.Authorization = `token ${PERSONAL_ACCESS_TOKEN}`;
+}
+
+const putStar = (gistId: string): void => {
   request.put(
-    `https://api.github.com/gists/${gist_id}/star`,
+    `https://api.github.com/gists/${gistId}/star`,
     {
       json: true,
       headers: {
-        Authorization: `token ${PERSONAL_ACCESS_TOKEN}`,
+        ...headers,
         'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
@@ -30,7 +35,7 @@ const getStarred = (req: Request, res: Response, next: NextFunction) => {
     {
       json: true,
       headers: {
-        Authorization: `token ${PERSONAL_ACCESS_TOKEN}`,
+        ...headers,
         'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
@@ -50,7 +55,7 @@ const getGists = (req: Request, res: Response, next: NextFunction) => {
     {
       json: true,
       headers: {
-        Authorization: `token ${PERSONAL_ACCESS_TOKEN}`,
+        ...headers,
         'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
@@ -70,7 +75,7 @@ const getGist = (req: Request, res: Response, next: NextFunction) => {
     {
       json: true,
       headers: {
-        Authorization: `token ${PERSONAL_ACCESS_TOKEN}`,
+        ...headers,
         'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },

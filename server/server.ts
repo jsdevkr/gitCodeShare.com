@@ -15,7 +15,7 @@ import connectRedis from 'connect-redis';
 import uuid from 'uuid/v4';
 import * as passportConfig from './handlers/passport';
 
-const port = parseInt(process.env.PORT, 10) || 3030;
+const port = parseInt(process.env.BACKEND_PORT, 10) || 3030;
 const dev = process.env.NODE_ENV !== 'production';
 
 const RedisStore = connectRedis(session);
@@ -77,12 +77,7 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
     }),
   );
   server.use(passport.initialize());
-  server.use('/_next', (req, res, _next) => {
-    passport.session()(req, res, _next);
-  });
-  server.use('/static', (req, res, _next) => {
-    passport.session()(req, res, _next);
-  });
+  server.use(passport.session());
 
   // api endpoints
   server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
@@ -90,11 +85,11 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   server.get('/unsplash/download/:imageId', wrap(unsplashHandler.downloadImage));
 
   server.get('/auth/github', passport.authenticate('github'));
-  server.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res, _next) => {
+  server.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res, next) => {
     req.login(req.user, err => {
       if (err) {
         console.log(err);
-        return _next(err);
+        return next(err);
       }
       req.session.save(() => {
         res.redirect('/');
