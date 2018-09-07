@@ -129,6 +129,7 @@ app
     server.delete('/gists/:gist_id', passportConfig.isAuthenticated, gistHandler.deleteGist);
 
     // if root, render webpage from next
+    server.get('/editor', (req, res) => app.render(req, res, '/editor'));
     server.get('/*', (req, res) => app.render(req, res, '/', req.query));
 
     // otherwise, try and get gist

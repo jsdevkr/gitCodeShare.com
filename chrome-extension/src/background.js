@@ -1,4 +1,5 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+  console.log('test');
   if (changeInfo.status !== 'complete') return;
 
   chrome.tabs.executeScript(
@@ -15,4 +16,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       });
     },
   );
+});
+
+chrome.runtime.onMessage.addListener((req, sender, res) => {
+  res({ hi: 'hi' });
 });
