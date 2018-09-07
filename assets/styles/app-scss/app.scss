@@ -2,3 +2,5 @@
 @import './core/_index.scss';
 @import './components/_index.scss';
 
+@import '~codemirror/lib/codemirror.css';
+@import '~codemirror/theme/material.css';
