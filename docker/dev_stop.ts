@@ -6,7 +6,7 @@ async function dockerStop() {
   // const dockerode = require('dockerode');
 
   const kill = require('kill-port');
-  await kill(parseInt(process.env.PORT, 10) || 3000);
+  await kill(parseInt(process.env.PORT, 10) || 3030);
 
   // const prod = process.env.NODE_ENV === 'production';
   const opts = {
