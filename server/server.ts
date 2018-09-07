@@ -14,8 +14,8 @@ import ImageHandler from './handlers/image';
 import unsplashHandler from './handlers/unsplash';
 import gistHandler from './handlers/gist';
 
-// import redis from 'redis';
-// import connectRedis from 'connect-redis';
+import redis from 'redis';
+import connectRedis from 'connect-redis';
 import uuid from 'uuid/v4';
 import * as passportConfig from './handlers/passport';
 
@@ -24,10 +24,12 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-// const RedisStore = connectRedis(session);
-// const client = redis.createClient({ host: process.env.REDIS_HOST, port: parseInt(process.env.REDIS_PORT) });
-
-process.on('SIGINT', () => process.exit());
+const RedisStore = connectRedis(session);
+const redisConfig = {
+  host: process.env.REDIS_HOST || '127.0.0.1',
+  port: parseInt(process.env.REDIS_PORT, 10) || 6379,
+};
+const client = redis.createClient(redisConfig);
 
 function wrap(handler: any) {
   return (req, res) =>
@@ -58,7 +60,7 @@ app
       server.use(morgan('tiny'));
     }
 
-    server.use(cookieParser(process.env.COOKIE_SECRET));
+    server.use(cookieParser(process.env.COOKIE_SECRET || 'gitCodeShare'));
     server.use(bodyParser.json());
     server.use(bodyParser.urlencoded({ extended: false }));
     server.use(
@@ -66,11 +68,11 @@ app
         genid: function() {
           return uuid();
         },
-        // store: new RedisStore({
-        //   client: client,
-        //   logErrors: true,
-        // }),
-        secret: process.env.SESSION_SECRET,
+        store: new RedisStore({
+          client: client,
+          logErrors: true,
+        }),
+        secret: process.env.SESSION_SECRET || 'gitCodeShare',
         saveUninitialized: false, // don't create session until something stored,
         resave: false, // don't save session if unmodified
         cookie: {

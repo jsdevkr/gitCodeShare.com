@@ -58,7 +58,7 @@ passport.deserializeUser<any, any>((user, done) => {
 passport.use(
   new GithubStrategy(
     {
-      clientID: process.env.OAUTH_GITHUB_CLIENT_ID,
+      clientID: process.env.OAUTH_GITHUB_CLIENT_ID || 'gitCodeShare',
       clientSecret: process.env.OAUTH_GITHUB_CLIENT_SECRET,
       callbackURL: process.env.OAUTH_GITHUB_CALLBACK_URL,
       scope: [Scope.GIST, Scope.USER_EMAIL],
