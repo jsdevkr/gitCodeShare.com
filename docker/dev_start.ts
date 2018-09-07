@@ -1,7 +1,13 @@
+require('dotenv').config();
+
 async function dockerRun() {
   const path = require('path');
   const compose = require('docker-compose');
   // const dockerode = require('dockerode');
+
+  const kill = require('kill-port');
+  await kill(parseInt(process.env.FRONT_PORT, 10) || 3000);
+  await kill(parseInt(process.env.BACKEND_PORT, 10) || 3030);
 
   // const prod = process.env.NODE_ENV === 'production';
   const opts = {

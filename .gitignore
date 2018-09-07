@@ -1,6 +1,5 @@
 build/
 lib/
-bin/
 dist/
 node_modules/
 .next/
