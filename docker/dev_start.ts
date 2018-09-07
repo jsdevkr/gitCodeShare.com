@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 async function dockerRun() {
   const path = require('path');
   const compose = require('docker-compose');
