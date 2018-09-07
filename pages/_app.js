@@ -1,6 +1,8 @@
 import App, { Container } from 'next/app';
 import React from 'react';
 import { ThemeProvider, theme } from '../styledComponents';
+import { UIWrapper, AlertModal } from '../components';
+import StoreProvider from '../stores/StoreProvider';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -17,9 +19,14 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <Container>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <StoreProvider>
+          <ThemeProvider theme={theme}>
+            <UIWrapper>
+              <Component {...pageProps} />
+              <AlertModal />
+            </UIWrapper>
+          </ThemeProvider>
+        </StoreProvider>
       </Container>
     );
   }
