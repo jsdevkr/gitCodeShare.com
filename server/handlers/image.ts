@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-const PORT = parseInt(process.env.PORT, 10) || 3000;
+const PORT = parseInt(process.env.PORT, 10) || 3030;
 const ARBITRARY_WAIT_TIME = 500;
 
 export default function(browser: puppeteer.Browser) {

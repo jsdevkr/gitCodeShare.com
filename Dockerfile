@@ -9,7 +9,7 @@ RUN npm i --production
 
 COPY ./ /app
 
-EXPOSE 3000
+EXPOSE 3000 3030
 EXPOSE 9229 9230
 
 CMD ["npm", "start"]
