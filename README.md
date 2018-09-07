@@ -12,11 +12,12 @@ http://bit.ly/2vLCtbX
 
 ## We need your contribution.
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local
-2. Run `npm i` to download required packages.
-3. Build and start the application: `npm run dev`
-4. If you contributed something new, run `npm run contributors:add <your GitHub username> <contirbution type>` to add yourself [below](#contributors)
-5. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
+1. Prerequisite : [Node.js LTS](https://nodejs.org/en/download/), [Docker & docker-compose](https://store.docker.com/search?type=edition&offering=community)
+2. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local
+3. Run `npm i` to download required packages.
+4. Build and start the application: `npm run dev` (Stop the docker application `npm run devstop`)
+5. If you contributed something new, run `npm run contributors:add <your GitHub username> <contirbution type>` to add yourself [below](#contributors)
+6. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
 
 ### contribution type
 
@@ -31,7 +32,7 @@ http://bit.ly/2vLCtbX
 | plugin: 🔌         | `npm run contributors:add <username> plugin`         | question: 💬        | `npm run contributors:add <username> question`        |
 | review: 👀         | `npm run contributors:add <username> review`         | talk: 📢            | `npm run contributors:add <username> talk`            |
 | test: ⚠️           | `npm run contributors:add <username> test`           | tool: 🔧            | `npm run contributors:add <username> tool`            |
-| translation: 🌍    | `npm run contributors:add <username> translation`    | tutorial: ✅        | `npm run contributors:add <username> tutorial`        |
+| translation: 🌍    | `npm run contributors:add <username> translation`    | tutorial: ✅         | `npm run contributors:add <username> tutorial`        |
 | video: 📹          | `npm run contributors:add <username> video`          |                     |                                                       |
 
 > We follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
