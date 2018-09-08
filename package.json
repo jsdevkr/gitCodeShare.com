@@ -17,6 +17,7 @@
     "prod:backend": "node ./bin/server.js",
     "precommit": "lint-staged && npm run contributors:build && git add README.md",
     "postinstall": "npm run build",
+    "export": "next export",
     "contributors:add": "all-contributors add",
     "contributors:build": "all-contributors generate"
   },
@@ -44,6 +45,7 @@
     }
   },
   "dependencies": {
+    "@types/codemirror": "0.0.60",
     "@types/connect-redis": "^0.0.7",
     "@types/cookie-parser": "^1.4.1",
     "@types/dockerode": "^2.5.5",
@@ -68,6 +70,7 @@
     "@zeit/next-typescript": "^1.1.0",
     "antd": "^3.9.1",
     "body-parser": "^1.18.3",
+    "codemirror": "^5.40.0",
     "connect-redis": "^3.3.3",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.0.0",
@@ -88,10 +91,12 @@
     "passport-github": "^1.1.0",
     "puppeteer": "^1.8.0",
     "react": "^16.5.0",
+    "react-codemirror2": "^5.1.0",
     "react-dom": "^16.5.0",
     "redis": "^2.8.0",
     "styled-components": "^3.4.5",
     "styled-normalize": "^8.0.0",
+    "tohash": "^1.0.2",
     "ts-node": "^7.0.1",
     "typescript": "^3.0.3",
     "unsplash-js": "^4.8.0",
