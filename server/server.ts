@@ -116,13 +116,6 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   server.post('/gists', passportConfig.isAuthenticated, gistHandler.postGist);
   server.delete('/gists/:gist_id', passportConfig.isAuthenticated, gistHandler.deleteGist);
 
-  // if root, render webpage from next
-  // server.get('/editor', (req, res) => app.render(req, res, '/editor'));
-  // server.get('/*', (req, res) => app.render(req, res, '/', req.query));
-
-  // otherwise, try and get gist
-  // server.get('*', handle as any);
-
   server.listen(port, '0.0.0.0', err => {
     if (err) {
       throw err;
