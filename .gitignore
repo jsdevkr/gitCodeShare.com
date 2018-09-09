@@ -20,3 +20,4 @@ debug.log
 Bundled*.js
 .env*
 !.env.example
+*.pem

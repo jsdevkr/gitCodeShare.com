@@ -14,5 +14,13 @@
     "default_title": "gitCodeShare",
     "default_popup": "src/popup.html"
   },
-  "permissions": ["tabs", "activeTab", "https://www.facebook.com/*"]
+  "content_scripts": [{
+    "js": ["src/index.js"],
+    "matches": ["*://*.facebook.com/*"],
+    "all_frames": true
+  }],
+  "permissions": ["storage", "tabs", "activeTab", "*://*.facebook.com/*"],
+  "web_accessible_resources": [
+    "src/frame.html"
+  ]
 }
