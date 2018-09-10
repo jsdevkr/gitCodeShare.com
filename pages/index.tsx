@@ -32,6 +32,9 @@ class App extends React.Component<IProps> {
         <RoundedButton
           onClick={() => {
             setSpinning(true);
+            setTimeout(() => {
+              setSpinning(false);
+            }, 1000);
           }}
         >
           Button spinning
