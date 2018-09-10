@@ -139,6 +139,14 @@ export const LANGUAGES: ILANGUAGE[] = [
     mode: 'htmlmixed',
   },
   {
+    name: 'Http',
+    mode: 'http',
+  },
+  {
+    name: 'Idl',
+    mode: 'idl',
+  },
+  {
     name: 'Java',
     mode: 'clike',
     mime: 'text/x-java',
@@ -154,6 +162,10 @@ export const LANGUAGES: ILANGUAGE[] = [
     mode: 'javascript',
     mime: 'application/json',
     short: 'json',
+  },
+  {
+    name: 'Jinja2',
+    mode: 'jinja2',
   },
   {
     name: 'JSX',
@@ -176,6 +188,10 @@ export const LANGUAGES: ILANGUAGE[] = [
   {
     name: 'Lisp',
     mode: 'commonlisp',
+  },
+  {
+    name: 'LiveScript',
+    mode: 'livescript',
   },
   {
     name: 'Lua',
@@ -320,6 +336,10 @@ export const LANGUAGES: ILANGUAGE[] = [
     mode: 'xml',
   },
   {
+    name: 'Xquery',
+    mode: 'xquery',
+  },
+  {
     name: 'YAML',
     mode: 'yaml',
   },
@@ -333,8 +353,28 @@ export interface ITHEME {
 
 export const THEMES: ITHEME[] = [
   {
+    id: '3024-day',
+    name: '3024 Day',
+  },
+  {
     id: '3024-night',
     name: '3024 Night',
+  },
+  {
+    id: 'abcedf',
+    name: 'Abcdef',
+  },
+  {
+    id: 'ambiance-mobile',
+    name: 'Ambiance Mobile',
+  },
+  {
+    id: 'ambiance',
+    name: 'Ambiance',
+  },
+  {
+    id: 'bespin',
+    name: 'Bespin',
   },
   {
     id: 'blackboard',
@@ -353,16 +393,64 @@ export const THEMES: ITHEME[] = [
     name: 'Cobalt',
   },
   {
+    id: 'colorforth',
+    name: 'Colorforth',
+  },
+  {
     id: 'dracula',
     name: 'Dracula',
   },
   {
+    id: 'darcula',
+    name: 'Darcula',
+  },
+  {
     id: 'duotone-dark',
-    name: 'Duotone',
+    name: 'Duotone (Dark)',
+  },
+  {
+    id: 'duotone-light',
+    name: 'Duotone (Light)',
+  },
+  {
+    id: 'eclipse',
+    name: 'Eclipse',
+  },
+  {
+    id: 'elegant',
+    name: 'Elegant',
+  },
+  {
+    id: 'erlang-dark',
+    name: 'Erlang (Dark)',
+  },
+  {
+    id: 'gruvbox-dark',
+    name: 'Gruvbox (Dark)',
   },
   {
     id: 'hopscotch',
     name: 'Hopscotch',
+  },
+  {
+    id: 'icecoder',
+    name: 'Icecoder',
+  },
+  {
+    id: 'idea',
+    name: 'Idea',
+  },
+  {
+    id: 'isotope',
+    name: 'Isotope',
+  },
+  {
+    id: 'lesser-dark',
+    name: 'Lesser (Dark)',
+  },
+  {
+    id: 'liquibyte',
+    name: 'Liquibyte',
   },
   {
     id: 'lucario',
