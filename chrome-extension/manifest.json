@@ -16,10 +16,10 @@
   },
   "content_scripts": [{
     "js": ["src/index.js"],
-    "matches": ["*://*.facebook.com/*"],
+    "matches": ["*://*.facebook.com/*", "*://localhost/*"],
     "all_frames": true
   }],
-  "permissions": ["storage", "tabs", "activeTab", "*://*.facebook.com/*"],
+  "permissions": ["storage", "tabs", "activeTab", "*://*.facebook.com/*", "*://*.localhost:*/*"],
   "web_accessible_resources": [
     "src/frame.html"
   ]
