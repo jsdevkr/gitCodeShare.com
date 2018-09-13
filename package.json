@@ -90,6 +90,7 @@
     "passport-github": "^1.1.0",
     "puppeteer": "^1.8.0",
     "react": "^16.5.0",
+    "react-animations": "^1.0.0",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.5.0",
     "redis": "^2.8.0",
