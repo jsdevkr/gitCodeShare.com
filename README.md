@@ -10,6 +10,10 @@ https://contributhon.kr/project#gitshare
 
 http://bit.ly/2vLCtbX
 
+## Docs
+
+https://github.com/kosslab-kr/gitCodeShare.com/blob/master/docs/index.md
+
 ## We need your contribution.
 
 1. Prerequisite : [Node.js LTS](https://nodejs.org/en/download/), [Docker & docker-compose](https://store.docker.com/search?type=edition&offering=community)
