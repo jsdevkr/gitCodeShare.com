@@ -7,7 +7,6 @@ import puppeteer from 'puppeteer';
 import morgan from 'morgan';
 
 import ImageHandler from './handlers/image';
-import unsplashHandler from './handlers/unsplash';
 import gistHandler from './handlers/gist';
 
 import redis from 'redis';
@@ -81,8 +80,6 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
 
   // api endpoints
   server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
-  server.get('/unsplash/random', wrap(unsplashHandler.randomImages));
-  server.get('/unsplash/download/:imageId', wrap(unsplashHandler.downloadImage));
 
   server.get('/auth/github', passport.authenticate('github'));
   server.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res, next) => {
