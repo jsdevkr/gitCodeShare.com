@@ -1,7 +1,12 @@
 import * as React from 'react';
+import { keyframes } from 'styled-components';
 import { styled, RoundedButton } from '../styledComponents';
 
+import { slideInUp } from 'react-animations';
+
 interface IProps {}
+
+const myAnimation = keyframes`${slideInUp}`;
 
 const Component = styled.div`
   margin: 50px;
@@ -9,6 +14,7 @@ const Component = styled.div`
   [data-title] {
     font-size: 20px;
     color: ${props => props.theme.primaryColor};
+    animation: 0.6s ease-in-out ${myAnimation};
   }
   [data-item] {
     border: 1px solid ${props => props.theme.primaryColor};

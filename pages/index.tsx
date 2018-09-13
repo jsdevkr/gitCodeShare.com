@@ -3,8 +3,10 @@ import 'isomorphic-unfetch';
 // import { observable } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
-import { RoundedButton } from '../styledComponents';
-import { Sample } from '../components';
+import { MainNav, MainFooter, Sample } from '../components';
+import { MainPageCarousel, SContainer } from '../styledComponents';
+import { Layout } from 'antd';
+import { observable } from 'mobx';
 
 interface IProps {
   appStore?: IAppStore;
@@ -13,6 +15,8 @@ interface IProps {
 @inject('appStore')
 @observer
 class App extends React.Component<IProps> {
+  @observable
+  active = true;
   /*
   static async getInitialProps() {
     // NOTE : fetch base url
@@ -22,31 +26,37 @@ class App extends React.Component<IProps> {
   }
   */
 
+  handleActive = () => {
+    this.active = !this.active;
+  };
+
   render() {
-    const { appStore } = this.props;
-    const { spinning, setSpinning, alert } = appStore;
+    const { Content } = Layout;
     return (
-      <>
-        {spinning}
-        <Sample />
-        <RoundedButton
-          onClick={() => {
-            setSpinning(true);
-            setTimeout(() => {
-              setSpinning(false);
-            }, 1000);
-          }}
-        >
-          Button spinning
-        </RoundedButton>
-        <RoundedButton
-          onClick={() => {
-            alert('success');
-          }}
-        >
-          Button alert
-        </RoundedButton>
-      </>
+      <Layout>
+        {this.active ? <MainNav /> : null}
+        <Content>
+          <SContainer>
+            <Sample />
+            <MainPageCarousel>
+              <div>
+                <h3>1</h3>
+              </div>
+              <div>
+                <h3>2</h3>
+              </div>
+              <div>
+                <h3>3</h3>
+              </div>
+              <div>
+                <h3>4</h3>
+              </div>
+              <button onClick={this.handleActive}>토글</button>
+            </MainPageCarousel>
+          </SContainer>
+        </Content>
+        <MainFooter />
+      </Layout>
     );
   }
 }
