@@ -8,8 +8,7 @@
   ],
   "imageSize": 100,
   "commit": true,
-  "contributors": [
-    {
+  "contributors": [{
       "login": "gimdongwoo",
       "name": "Dongwoo Gim",
       "avatar_url": "https://avatars0.githubusercontent.com/u/7310854?v=4",
@@ -109,6 +108,16 @@
       "profile": "https://github.com/jiniC",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "songyiYu",
+      "name": "songyiYu",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/9947963?s=400&v=4",
+      "profile": "https://github.com/songyiYu",
+      "contributions": [
+        "code",
+        "question"
       ]
     }
   ]

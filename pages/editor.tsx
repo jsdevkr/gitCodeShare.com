@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import {
   LANGUAGES,
@@ -19,28 +18,40 @@ if (typeof navigator !== 'undefined') {
 interface IEditorProps {}
 interface IEditorState extends EditorConfiguration {
   language: string;
+  themeName: string;
 }
 
 class Editor extends React.Component<IEditorProps, IEditorState> {
   state = {
-    ...DEFAULT_SETTINGS,
     value: DEFAULT_CODE,
     mode: DEFAULT_LANGUAGE.mode,
     theme: DEFAULT_THEME.id,
     language: DEFAULT_LANGUAGE.name,
     themeName: DEFAULT_THEME.name,
-    lineNumbers: true,
-    scrollBarStyle: null,
-    viewportMargin: Infinity,
-    lineWrapping: true,
   };
 
   render() {
+    const options = {
+      ...DEFAULT_SETTINGS,
+      mode: this.state.mode,
+      theme: this.state.theme,
+      lineNumbers: true,
+      scrollBarStyle: null,
+      viewportMargin: Infinity,
+      lineWrapping: true,
+    };
+
     const handleLanguageMenuClick = e => {
-      this.setState({ mode: e.item.props.menu.mode });
+      this.setState({
+        mode: e.item.props.menu.mode,
+        language: e.item.props.menu.name,
+      });
     };
     const handleThemeMenuClick = e => {
-      this.setState({ theme: e.item.props.menu.id });
+      this.setState({
+        theme: e.item.props.menu.id,
+        themeName: e.item.props.menu.name,
+      });
     };
     const menu = (menuItems, clickHandler) => (
       <Menu onClick={clickHandler}>
@@ -59,7 +70,7 @@ class Editor extends React.Component<IEditorProps, IEditorState> {
             this.setState({ value });
           }}
           value={this.state.value}
-          options={this.state}
+          options={options}
         />
         <Dropdown overlay={menu(THEMES, handleThemeMenuClick)} trigger={['click']}>
           <Button style={{ marginLeft: 8 }}>
