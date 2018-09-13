@@ -13,6 +13,14 @@ module.exports = withPlugins([
         // Do not run type checking twice:
         if (options.isServer) config.plugins.push(new ForkTsCheckerWebpackPlugin());
 
+        // Add entry point for chrome extention TODO: What about HTML?
+        // const entryFactory = config.entry;
+        // config.entry = () =>
+        //   entryFactory().then(entry => {
+        //     entry['main.js'] = ['./chrome-extension/src/index.ts', ...entry['main.js']];
+        //     return entry;
+        //   });
+
         return config;
       },
     },

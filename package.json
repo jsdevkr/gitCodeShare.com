@@ -44,6 +44,7 @@
     }
   },
   "dependencies": {
+    "@types/chrome": "0.0.73",
     "@types/codemirror": "0.0.60",
     "@types/connect-redis": "^0.0.7",
     "@types/cookie-parser": "^1.4.1",
