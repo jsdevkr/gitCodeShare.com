@@ -3,8 +3,8 @@ import 'isomorphic-unfetch';
 // import { observable } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
-import { RoundedButton } from '../styledComponents';
-import { Sample } from '../components';
+import { MainNav, MainFooter, Main } from '../components';
+import { Layout } from 'antd';
 
 interface IProps {
   appStore?: IAppStore;
@@ -23,30 +23,12 @@ class App extends React.Component<IProps> {
   */
 
   render() {
-    const { appStore } = this.props;
-    const { spinning, setSpinning, alert } = appStore;
     return (
-      <>
-        {spinning}
-        <Sample />
-        <RoundedButton
-          onClick={() => {
-            setSpinning(true);
-            setTimeout(() => {
-              setSpinning(false);
-            }, 1000);
-          }}
-        >
-          Button spinning
-        </RoundedButton>
-        <RoundedButton
-          onClick={() => {
-            alert('success');
-          }}
-        >
-          Button alert
-        </RoundedButton>
-      </>
+      <Layout>
+        <MainNav />
+        <Main />
+        <MainFooter />
+      </Layout>
     );
   }
 }
