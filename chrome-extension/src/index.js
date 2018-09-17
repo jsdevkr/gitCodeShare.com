@@ -14,10 +14,15 @@ function gitCodeShare() {
   iframe.style.cssText = 'position:fixed;top:10%;right:10%;display:none;' + 'width:80%;height:70%;z-index:1000;';
   document.body.appendChild(iframe);
 
-  // TODO: this button inject to suitable position!
+  // TODO: this button inject to suitable position in facebook!
   const triggerBtn = document.createElement('button');
-  triggerBtn.innerHTML = 'Toggle!';
-  document.getElementsByTagName('body')[0].appendChild(triggerBtn);
+  triggerBtn.innerHTML = 'GitCodeShare!!!';
+  const feedInfo = document
+    .getElementById('feedx_sprouts_container')
+    .getElementsByTagName('div')[0]
+    .getElementsByTagName('div')[0];
+  feedInfo.appendChild(triggerBtn);
+
   triggerBtn.addEventListener('click', () => {
     iframe.style.display = iframe.style.display === 'none' ? 'block' : 'none';
   });
