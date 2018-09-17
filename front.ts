@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import next from 'next';
+import proxy from 'http-proxy-middleware';
 
 const port = parseInt(process.env.FRONT_PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -24,8 +25,8 @@ app.prepare().then(() => {
   }
 
   const filePath = path.join(__dirname, '.next', 'service-worker.js');
+  server.use('/api', proxy({ target: 'http://localhost:3030' }));
   server.get('/service-worker.js', (req, res) => app.serveStatic(req, res, filePath));
-
   server.get('*', (req, res) => handle(req, res));
 
   server.listen(port, '0.0.0.0', err => {

@@ -81,18 +81,22 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   // api endpoints
   server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
 
-  server.get('/auth/github', passport.authenticate('github'));
-  server.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res, next) => {
-    req.login(req.user, err => {
-      if (err) {
-        console.log(err);
-        return next(err);
-      }
-      req.session.save(() => {
-        res.redirect('/');
+  server.get('/api/auth/github', passport.authenticate('github'));
+  server.get(
+    '/api/auth/github/callback',
+    passport.authenticate('github', { failureRedirect: 'http://localhost:3000' }),
+    (req, res, next) => {
+      req.login(req.user, err => {
+        if (err) {
+          console.log(err);
+          return next(err);
+        }
+        req.session.save(() => {
+          res.redirect('http://localhost:3000');
+        });
       });
-    });
-  });
+    },
+  );
 
   server.get('/logout', (req, res, _next) => {
     req.session.destroy(err => {
