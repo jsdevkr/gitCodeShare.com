@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { styled, SContainer, PageContent, RoundedButton } from '../../styledComponents';
+import { styled, SContainer, PageContent, PageSection, RoundedButton } from '../../styledComponents';
 import { Carousel } from 'antd';
 
-const Section = styled.section`
-  &[data-sect-carousel] {
-    padding: 0;
-  }
+interface IProps {
+  className?: string;
+}
 
+const CarouselSection = styled(PageSection as any)`
   & {
-    padding: 2rem 0;
+    padding: 0;
   }
 
   .ant-carousel {
@@ -26,19 +26,14 @@ const Section = styled.section`
       }
     }
   }
-
-  [data-title] {
-    color: #000;
-    font-size: 2rem;
-    text-align: center;
-  }
 `;
 
-class Main extends Component {
+class MainPage extends Component<IProps> {
   render() {
+    const { className } = this.props;
     return (
-      <PageContent>
-        <Section data-sect-carousel>
+      <PageContent className={className}>
+        <CarouselSection>
           <Carousel>
             <div>
               <h3 data-title>Share your code beautifully. Anywhere.</h3>
@@ -49,15 +44,15 @@ class Main extends Component {
               <RoundedButton icon="plus">Add GitCodeShare to Chrome</RoundedButton>
             </div>
           </Carousel>
-        </Section>
-        <Section>
+        </CarouselSection>
+        <PageSection>
           <SContainer>
             <h3 data-title>Why GitCodeShare?</h3>
           </SContainer>
-        </Section>
+        </PageSection>
       </PageContent>
     );
   }
 }
 
-export default Main;
+export default MainPage;

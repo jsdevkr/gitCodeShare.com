@@ -3,7 +3,7 @@ import 'isomorphic-unfetch';
 // import { observable } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
-import { MainNav, MainFooter, Main } from '../components';
+import { MainNav, MainFooter, MainPage } from '../components';
 import { Layout } from 'antd';
 
 interface IProps {
@@ -26,7 +26,7 @@ class App extends React.Component<IProps> {
     return (
       <Layout>
         <MainNav />
-        <Main />
+        <MainPage />
         <MainFooter />
       </Layout>
     );

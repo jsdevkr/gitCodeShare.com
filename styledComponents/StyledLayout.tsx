@@ -19,4 +19,16 @@ const PageContent = styled(Content as any)`
   min-height: calc(100vh - 128px);
 `;
 
-export { MContainer, SContainer, PageContent };
+const PageSection = styled.section`
+  & {
+    padding: 2rem 0;
+  }
+
+  [data-title] {
+    color: #000;
+    font-size: 2rem;
+    text-align: center;
+  }
+`;
+
+export { MContainer, SContainer, PageContent, PageSection };
