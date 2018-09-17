@@ -80,7 +80,6 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
 
   // api endpoints
   server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
-
   server.get('/profile', (req, res) => {
     res.send('hello server');
   });
@@ -95,7 +94,8 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
           return next(err);
         }
         req.session.save(() => {
-          res.redirect('http://localhost:3000');
+          // redirect to localhost:3000(front)
+          res.redirect(`${req.protocol}://${req.hostname}:${process.env.FRONT_PORT}`);
         });
       });
     },
