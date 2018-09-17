@@ -81,6 +81,9 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   // api endpoints
   server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
 
+  server.get('/profile', (req, res) => {
+    res.send('hello server');
+  });
   server.get('/api/auth/github', passport.authenticate('github'));
   server.get(
     '/api/auth/github/callback',
