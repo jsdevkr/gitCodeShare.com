@@ -5,3 +5,4 @@ export { MContainer, SContainer, PageContent, PageSection } from './StyledLayout
 export { RoundedButton, GithubButton, BorderlessButton } from './StyledButton';
 export { MainNavMenu } from './StyledMenu';
 export { GithubBadge } from './StyledBadge';
+export { SCard, SCardMeta } from './StyledCard';
