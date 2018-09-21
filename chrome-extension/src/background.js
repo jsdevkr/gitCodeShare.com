@@ -1,11 +1,10 @@
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  console.log(changeInfo);
   if (changeInfo.status !== 'complete') return;
 
   chrome.tabs.executeScript(
     tabId,
     {
-      code: 'const injected = window.gitCodeShare; window.gitCodeShare = true; injected;',
+      code: 'var injected = window.gitCodeShare; window.gitCodeShare = true; injected;',
       runAt: 'document_start',
     },
     res => {
