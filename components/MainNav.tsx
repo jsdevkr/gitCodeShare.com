@@ -3,9 +3,9 @@ import {
   styled,
   GithubButton,
   GithubBadge,
-  BorderlessButton,
+  SmDownloadButton,
   MainNavMenu,
-  MContainer,
+  SContainer,
   FlexRightBox,
 } from '../styledComponents';
 import { Layout } from 'antd';
@@ -21,11 +21,11 @@ const Nav = styled(Header as any)`
   justify-content: flex-start;
   align-items: center;
   flex-flow: row wrap;
-  height: 64px;
-  background-color: #fff;
+  height: 70px;
+  background-color: ${props => props.theme.primaryColor};
 `;
 
-const NavContainer = styled(MContainer as any)`
+const NavContainer = styled(SContainer as any)`
   display: inherit;
   align-items: center;
 
@@ -37,26 +37,32 @@ const NavContainer = styled(MContainer as any)`
   [data-align] {
     display: inherit;
     align-items: center;
+  }
 
-    button {
-      margin: 0;
+  [data-violet] {
+    color: ${props => props.theme.colorPalette.blueViolet};
+    &.ant-badge {
+      background-color: ${props => props.theme.colorPalette.blueViolet};
+    }
+  }
+
+  [data-magenta] {
+    color: ${props => props.theme.colorPalette.deepMagenta};
+    &.ant-badge {
+      background-color: ${props => props.theme.colorPalette.deepMagenta};
     }
   }
 `;
 
 const RightBox = styled(FlexRightBox as any)`
   & {
-    button,
-    img,
-    div {
+    button {
+      margin-right: 30px;
+    }
+    [data-align] {
       margin-right: 15px;
     }
   }
-`;
-
-const GithubButtonWithBadge = styled(GithubButton as any)`
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
 `;
 
 class MainNav extends Component<IProps> {
@@ -85,15 +91,18 @@ class MainNav extends Component<IProps> {
             </MainNavMenu.Item>
           </MainNavMenu>
           <RightBox>
-            <BorderlessButton icon="chrome">Add to Chrome</BorderlessButton>
-            <img src="/static/github_icon.png" alt="깃허브 아이콘" />
+            <SmDownloadButton icon="chrome">Add to Chrome</SmDownloadButton>
             <div data-align>
-              <GithubButtonWithBadge icon="github">Star</GithubButtonWithBadge>
-              <GithubBadge count={18} />
+              <GithubButton data-violet icon="github">
+                Star
+              </GithubButton>
+              <GithubBadge data-violet count={18} />
             </div>
             <div data-align>
-              <GithubButtonWithBadge icon="github">Fork</GithubButtonWithBadge>
-              <GithubBadge count={7} />
+              <GithubButton data-magenta icon="github">
+                Fork
+              </GithubButton>
+              <GithubBadge data-magenta count={7} />
             </div>
           </RightBox>
         </NavContainer>

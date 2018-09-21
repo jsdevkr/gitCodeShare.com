@@ -3,7 +3,7 @@
       path {
         stroke-dasharray: 1000;
         stroke-dashoffset: 1000;
-        animation: dash 10s linear infinite;
+        animation: dash 20s linear infinite alternate;
       }
 
       @keyframes dash {
