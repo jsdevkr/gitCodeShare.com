@@ -2,30 +2,36 @@ import styled from 'styled-components';
 import { Badge } from 'antd';
 
 const InlineFlexBadge = styled(Badge as any)`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const GithubBadge: typeof InlineFlexBadge = styled(InlineFlexBadge as any)`
   &.ant-badge {
-    padding: 3px 10px;
-    border: 1px solid rgba(27, 31, 35, 0.2);
-    border-left: 0;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     .ant-badge-count {
       display: inherit;
       justify-content: inherit;
       align-items: inherit;
-      padding: 0;
-      height: 18px;
+      border-radius: inherit;
+      border-color: inherit;
+      background-color: inherit;
       box-shadow: none;
-      background-color: #fff;
-      font-size: 12px;
-      font-weight: 600;
-      color: #24292e;
+    }
+  }
+`;
+
+const RoundedBadge: typeof InlineFlexBadge = styled(InlineFlexBadge as any)`
+  &.ant-badge {
+    border-radius: 4px;
+  }
+`;
+
+const GithubBadge: typeof RoundedBadge = styled(RoundedBadge as any)`
+  &.ant-badge {
+    .ant-badge-count {
+      width: 25px;
+      height: 25px;
+      font-size: 11px;
+      color: ${props => props.theme.colorPalette.patternsBlue};
     }
   }
 ` as any;
