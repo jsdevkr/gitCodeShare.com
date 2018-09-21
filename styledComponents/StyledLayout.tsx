@@ -3,6 +3,10 @@ import { Layout } from 'antd';
 
 const { Content } = Layout;
 
+const SLayout = styled(Layout as any)`
+  background-color: ${props => props.theme.primaryColor};
+`;
+
 const MContainer = styled.div`
   width: 90%;
   max-width: 1440px;
@@ -10,25 +14,27 @@ const MContainer = styled.div`
 `;
 
 const SContainer = styled.div`
-  width: 90%;
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
 const PageContent = styled(Content as any)`
-  min-height: calc(100vh - 128px);
+  min-height: calc(100vh - 270px);
 `;
 
 const PageSection = styled.section`
   & {
     padding: 2rem 0;
+    background-color: ${props => props.theme.primaryColor};
   }
 
   [data-title] {
-    color: #000;
-    font-size: 2rem;
+    color: ${props => props.theme.primaryTextColor};
+    font-size: 46px;
+    font-weight: bold;
     text-align: center;
   }
 `;
 
-export { MContainer, SContainer, PageContent, PageSection };
+export { SLayout, MContainer, SContainer, PageContent, PageSection };

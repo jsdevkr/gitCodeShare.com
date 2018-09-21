@@ -4,7 +4,7 @@ import 'isomorphic-unfetch';
 import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
 import { MainNav, MainFooter, MainPage } from '../components';
-import { Layout } from 'antd';
+import { SLayout } from '../styledComponents';
 
 interface IProps {
   appStore?: IAppStore;
@@ -24,11 +24,11 @@ class App extends React.Component<IProps> {
 
   render() {
     return (
-      <Layout>
+      <SLayout>
         <MainNav />
         <MainPage />
         <MainFooter />
-      </Layout>
+      </SLayout>
     );
   }
 }

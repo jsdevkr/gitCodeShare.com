@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { styled, MContainer, MainNavMenu, FlexRightBox } from '../styledComponents';
+import { styled, SContainer, MainNavMenu, FlexRightBox } from '../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
 
@@ -11,11 +11,11 @@ const FooterWrap = styled(Footer as any)`
   justify-content: flex-start;
   align-items: center;
   flex-flow: row wrap;
-  height: 64px;
-  background-color: #fff;
+  height: 200px;
+  background-color: ${props => props.theme.primaryColor};
 `;
 
-const FooterContainer = styled(MContainer as any)`
+const FooterContainer = styled(SContainer as any)`
   display: inherit;
 
   address {
