@@ -38,9 +38,11 @@ const PageSection = styled.section`
 `;
 
 const TitleSection = styled.div`
-  padding: 5rem 10rem 8rem;
+  padding: 5rem 0 8rem;
   text-align: center;
   position: relative;
+  max-width: 620px;
+  margin: 0 auto;
 
   &:after {
     position: absolute;

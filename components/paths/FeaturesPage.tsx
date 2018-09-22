@@ -27,6 +27,8 @@ const FlexSection = styled.div`
   overflow: hidden;
   justify-content: center;
   max-height: 1390px;
+  max-width: 770px;
+  margin: 0 auto;
 `;
 
 const MoreButton = styled(DownloadButton as any)`
