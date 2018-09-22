@@ -1,3 +1,3 @@
 # Table of contents
 
-- [Setting .env](./set-dotenv)
+- [Setting .env](./set-dotenv.md)
