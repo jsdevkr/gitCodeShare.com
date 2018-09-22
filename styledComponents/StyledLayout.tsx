@@ -37,4 +37,33 @@ const PageSection = styled.section`
   }
 `;
 
-export { SLayout, MContainer, SContainer, PageContent, PageSection };
+const TitleSection = styled.div`
+  padding: 5rem 0 8rem;
+  text-align: center;
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto;
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    width: 1px;
+    height: 61px;
+    background-color: ${props => props.theme.colorPalette.patternsBlue};
+    content: '';
+  }
+
+  [data-title] {
+    color: ${props => props.theme.primaryTextColor};
+    font-size: 46px;
+  }
+
+  [data-subtitle] {
+    color: ${props => props.theme.primaryTextColor};
+    font-size: 12px;
+    line-height: 25px;
+  }
+`;
+
+export { SLayout, MContainer, SContainer, PageContent, PageSection, TitleSection };
