@@ -6,3 +6,4 @@ export { default as AlertModal } from './AlertModal';
 export { default as MainPage } from './paths/MainPage';
 export { default as ContributorsPage } from './paths/ContributorsPage';
 export { default as FeaturesPage } from './paths/FeaturesPage';
+export { default as ViewsPage } from './paths/ViewsPage';

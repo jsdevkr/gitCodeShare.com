@@ -76,4 +76,23 @@ const DownloadButton: typeof RoundedButton = styled(RoundedButton as any)`
   }
 `;
 
-export { RoundedButton, GithubButton, BorderlessButton, DownloadButton, SmDownloadButton };
+const LineButton: typeof RoundedButton = styled(RoundedButton as any)`
+  &.ant-btn {
+    max-width: 111px;
+    width: 100%;
+    height: 40px;
+    background-color: ${props => props.theme.primaryColor};
+    border-color: ${props => props.theme.colorPalette.neonBlue};
+    margin-left: 15px;
+
+    &:first-child {
+      margin-left: auto;
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+`;
+
+export { RoundedButton, GithubButton, BorderlessButton, DownloadButton, SmDownloadButton, LineButton };

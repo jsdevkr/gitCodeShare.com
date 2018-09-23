@@ -66,4 +66,78 @@ const SCardMetaDetail = styled(Card.Meta)`
   }
 `;
 
-export { SCard, SCardMeta, SCardMetaDetail };
+const UserCard = styled(Card)`
+  &.ant-card {
+    background-color: transparent;
+    width: 225px;
+    height: 85px;
+    margin: auto 0;
+  }
+
+  &.ant-card-bordered {
+    border: 0;
+  }
+
+  .ant-card-body {
+    padding: 0;
+    position: relative;
+  }
+`;
+
+const UserCardMeta = styled(Card.Meta)`
+  .ant-card-meta-avatar {
+    width: 85px;
+    height: 85px;
+    padding: 0;
+    margin-right: 19px;
+
+    .ant-avatar {
+      width: 100%;
+      height: 100%;
+
+      &:before {
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+        content: '';
+      }
+    }
+
+    img {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .ant-card-meta-detail {
+    padding-top: 5px;
+
+    & > div:not(:last-child) {
+      margin-bottom: 2px;
+    }
+  }
+
+  .ant-card-meta-title {
+    color: ${props => props.theme.primaryTextColor};
+    font-size: 14px;
+    line-height: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ant-card-meta-description {
+    color: ${props => props.theme.primaryTextColor};
+    font-size: 12px;
+    line-height: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+`;
+
+export { SCard, SCardMeta, SCardMetaDetail, UserCard, UserCardMeta };
