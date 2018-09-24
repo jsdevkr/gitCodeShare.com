@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { DropDownMenu } from '../styledComponents';
+import { DropDownMenu as StyledDropDownMenu } from '../styledComponents';
 
 export const DropdownMenu = (menuItems, clickHandler) => (
-  <DropDownMenu onClick={clickHandler} theme="dark">
+  <StyledDropDownMenu onClick={clickHandler} theme="dark">
     {menuItems.map(menu => (
-      <DropDownMenu.Item key={menu.name} menu={menu}>
+      <StyledDropDownMenu.Item key={menu.name} menu={menu}>
         {menu.name}
-      </DropDownMenu.Item>
+      </StyledDropDownMenu.Item>
     ))}
-  </DropDownMenu>
+  </StyledDropDownMenu>
 );

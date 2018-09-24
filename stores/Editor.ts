@@ -33,8 +33,8 @@ const Font = types.model('Font', {
 export interface ILanguage extends Instance<typeof Language> {}
 
 const detectedLanguage = debounce(code => {
-  const detectedLanguage = highlightAuto(code).language;
-  const language = LANGUAGES_MODE_HASH[detectedLanguage] || LANGUAGES_SHORT_HASH[detectedLanguage];
+  const _detectedLanguage = highlightAuto(code).language;
+  const language = LANGUAGES_MODE_HASH[_detectedLanguage] || LANGUAGES_SHORT_HASH[_detectedLanguage];
   return language && (language.mime || language.mode);
 }, 100);
 

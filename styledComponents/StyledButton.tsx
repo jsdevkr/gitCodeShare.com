@@ -95,4 +95,18 @@ const LineButton: typeof RoundedButton = styled(RoundedButton as any)`
   }
 `;
 
-export { RoundedButton, GithubButton, BorderlessButton, DownloadButton, SmDownloadButton, LineButton };
+const DropDownButton: typeof RoundedButton = styled(RoundedButton as any)`
+  &.ant-btn {
+    min-width: 150px;
+    height: 30px;
+    border: solid 1px #dbe3e9;
+    justify-content: space-between;
+    padding: 6px 10px;
+    transition: none;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+`;
+
+export { RoundedButton, GithubButton, BorderlessButton, DownloadButton, SmDownloadButton, LineButton, DropDownButton };
