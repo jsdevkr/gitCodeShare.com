@@ -8,9 +8,8 @@ export {
   BorderlessButton,
   DownloadButton,
   SmDownloadButton,
-  DropDownButton,
+  LineButton,
 } from './StyledButton';
-export { MainNavMenu, DropDownMenu } from './StyledMenu';
+export { MainNavMenu } from './StyledMenu';
 export { GithubBadge } from './StyledBadge';
-export { SCard, SCardMeta, SCardMetaDetail } from './StyledCard';
-export { EditorDropDown } from './StyledDropDown';
+export { SCard, SCardMeta, SCardMetaDetail, UserCard, UserCardMeta } from './StyledCard';

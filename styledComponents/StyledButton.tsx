@@ -76,19 +76,24 @@ const DownloadButton: typeof RoundedButton = styled(RoundedButton as any)`
   }
 `;
 
-const DropDownButton: typeof RoundedButton = styled(RoundedButton as any)`
+const LineButton: typeof RoundedButton = styled(RoundedButton as any)`
   &.ant-btn {
-    min-width: 150px;
-    height: 30px;
-    border: solid 1px #dbe3e9;
-    justify-content: space-between;
-    padding: 6px 10px;
-    transition: none;
+    max-width: 111px;
+    width: 100%;
+    height: 40px;
+    background-color: ${props => props.theme.primaryColor};
+    border-color: ${props => props.theme.colorPalette.neonBlue};
+    margin-left: 15px;
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+    &:first-child {
+      margin-left: auto;
+    }
+
+    span {
+      font-size: 14px;
     }
   }
 `;
 
-export { RoundedButton, GithubButton, BorderlessButton, DownloadButton, SmDownloadButton, DropDownButton };
+export { RoundedButton, GithubButton, BorderlessButton, DownloadButton, SmDownloadButton, LineButton };
+
