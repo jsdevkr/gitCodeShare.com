@@ -1,3 +1,4 @@
+import { Editor } from './Editor';
 import { Instance, types, flow } from 'mobx-state-tree';
 import ApiProvider from '../providers/ApiProvider';
 
@@ -15,6 +16,7 @@ export const AppStore = types
     spinningTip: types.optional(types.string, ''),
     // alert
     alertMessages: types.optional(types.array(AlertMessage), []),
+    editor: types.optional(Editor, {}),
   })
   .actions(self => {
     const init = flow(function*() {
