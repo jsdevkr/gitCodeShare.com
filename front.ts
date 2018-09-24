@@ -24,9 +24,25 @@ app.prepare().then(() => {
     server.use(morgan('tiny'));
   }
 
+  server.use(
+    '/api',
+    proxy({
+      target: `http://localhost:${process.env.BACKEND_PORT || 3030}`,
+      onError: (err, req, res) => {
+        if (!res.headersSent) {
+          if (typeof res.writeHead === 'function') {
+            res.writeHead(500, { 'content-type': 'application/json' });
+          }
+        }
+        const json = { error: 'proxy_error', reason: err.message };
+        res.end(JSON.stringify(json));
+      },
+    }),
+  );
+
   const filePath = path.join(__dirname, '.next', 'service-worker.js');
-  server.use('/api', proxy({ target: 'http://localhost:3030' }));
   server.get('/service-worker.js', (req, res) => app.serveStatic(req, res, filePath));
+
   server.get('*', (req, res) => handle(req, res));
 
   server.listen(port, '0.0.0.0', err => {

@@ -16,10 +16,10 @@ https://github.com/kosslab-kr/gitCodeShare.com/blob/master/docs/index.md
 
 ## We need your contribution.
 
-1. Prerequisite : [Node.js LTS](https://nodejs.org/en/download/), [Docker & docker-compose](https://store.docker.com/search?type=edition&offering=community)
+1. Prerequisite : [Node.js LTS](https://nodejs.org/en/download/)
 2. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your GitHub account and then [clone](https://help.github.com/articles/cloning-a-repository/) it to your local
 3. Run `npm i` to download required packages.
-4. Build and start the application: `npm run dev` (Stop the docker application `npm run devstop`)
+4. Build and start the application: `npm run dev`
 5. If you contributed something new, run `npm run contributors:add <your GitHub username> <contirbution type>` to add yourself [below](#contributors)
 6. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
 

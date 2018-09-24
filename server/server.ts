@@ -9,20 +9,13 @@ import morgan from 'morgan';
 import ImageHandler from './handlers/image';
 import gistHandler from './handlers/gist';
 
-import redis from 'redis';
-import connectRedis from 'connect-redis';
 import uuid from 'uuid/v4';
 import * as passportConfig from './handlers/passport';
 
+const MemoryStore = require('memorystore')(session);
+
 const port = parseInt(process.env.BACKEND_PORT, 10) || 3030;
 const dev = process.env.NODE_ENV !== 'production';
-
-const RedisStore = connectRedis(session);
-const redisConfig = {
-  host: process.env.REDIS_HOST || '127.0.0.1',
-  port: parseInt(process.env.REDIS_PORT, 10) || 6379,
-};
-const client = redis.createClient(redisConfig);
 
 process.on('SIGINT', () => process.exit());
 
@@ -60,9 +53,8 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
       genid: function() {
         return uuid();
       },
-      store: new RedisStore({
-        client: client,
-        logErrors: true,
+      store: new MemoryStore({
+        checkPeriod: 86400000, // prune expired entries every 24h
       }),
       secret: process.env.SESSION_SECRET || 'gitCodeShare',
       saveUninitialized: false, // don't create session until something stored,

@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  # Redis
-  redis:
-    container_name: gcs_redis
-    image: redis:4
-    ports:
-      - 6379:6379
