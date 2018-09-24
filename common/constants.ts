@@ -9,11 +9,11 @@ export interface ILANGUAGE {
   short?: string;
 }
 
-export const LANGUAGES: ILANGUAGE[] = [
-  // {
-  //   name: 'Auto',
-  //   mode: 'auto',
-  // },
+export const LANGUAGES = [
+  {
+    name: 'Auto',
+    mode: 'auto',
+  },
   // {
   //   name: 'Apache',
   //   mode: 'apache',
@@ -436,11 +436,36 @@ export const THEMES: ITHEME[] = [
   },
 ];
 
-export const THEMES_HASH = tohash(THEMES, 'id');
-export const LANGUAGES_HASH = tohash(LANGUAGES, 'name');
+export interface IFONTS {
+  id: string;
+  name: string;
+}
 
-export const DEFAULT_THEME = THEMES_HASH.dracula;
-export const DEFAULT_LANGUAGE = LANGUAGES_HASH.JavaScript;
+export const FONTS: IFONTS[] = [
+  { id: 'Anonymous Pro', name: 'Anonymous Pro' },
+  { id: 'Droid Sans Mono', name: 'Droid Sans Mono' },
+  { id: 'Fantasque Sans Mono', name: 'Fantasque Sans Mono' },
+  { id: 'Fira Code', name: 'Fira Code' },
+  { id: 'Hack', name: 'Hack' },
+  { id: 'IBM Plex Mono', name: 'IBM Plex Mono' },
+  { id: 'Inconsolata', name: 'Inconsolata' },
+  { id: 'Iosevka', name: 'Iosevka' },
+  { id: 'Monoid', name: 'Monoid' },
+  { id: 'Source Code Pro', name: 'Source Code Pro' },
+  { id: 'Space Mono', name: 'Space Mono' },
+  { id: 'Ubuntu Mono', name: 'Ubuntu Mono' },
+];
+
+export const THEMES_ID_HASH = tohash(THEMES, 'id');
+export const THEMES_NAME_HASH = tohash(THEMES, 'name');
+export const LANGUAGES_MODE_HASH = tohash(LANGUAGES, 'mode');
+export const LANGUAGES_NAME_HASH = tohash(LANGUAGES, 'name');
+export const LANGUAGES_SHORT_HASH = tohash(LANGUAGES, 'short');
+export const FONTS_HASH = tohash(FONTS, 'id');
+
+export const DEFAULT_THEME = THEMES_ID_HASH.dracula;
+export const DEFAULT_LANGUAGE = LANGUAGES_NAME_HASH.JavaScript;
+export const DEFAULT_FONT = FONTS_HASH['Fira Code'];
 export const DEFAULT_CODE = `// This is javascript code.
 const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
 
@@ -465,16 +490,16 @@ export const DEFAULT_SETTINGS: EditorConfiguration = {
   // dropShadow: true,
   // dropShadowOffsetY: '20px',
   // dropShadowBlurRadius: '68px',
-  theme: DEFAULT_THEME.id,
-  mode: DEFAULT_LANGUAGE.mode,
+  // theme: DEFAULT_THEME.id,
+  // mode: DEFAULT_LANGUAGE.mode,
   // windowTheme: 'none',
   // language: DEFAULT_LANGUAGE.mode,
-  // fontFamily: 'Hack',
+  // fontFamily: 'Fira Code',
   // fontSize: '14px',
   // lineHeight: '133%',
   // windowControls: true,
   // widthAdjustment: true,s
-  lineNumbers: true,
+  // lineNumbers: true,
   // exportSize: '2x',
   // titleBar: '',
   // watermark: false,

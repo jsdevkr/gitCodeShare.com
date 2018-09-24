@@ -1,90 +1,195 @@
 import * as React from 'react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
-import {
-  LANGUAGES,
-  THEMES,
-  DEFAULT_LANGUAGE,
-  DEFAULT_THEME,
-  DEFAULT_CODE,
-  DEFAULT_SETTINGS,
-} from '../common/constants';
-import { Menu, Dropdown, Button, Icon } from 'antd';
-import { EditorConfiguration } from 'codemirror';
+import { LANGUAGES, THEMES, FONTS } from '../common/constants';
+import { observer, inject } from 'mobx-react';
+import { Dropdown, Button, Icon, InputNumber } from 'antd';
+import { DropDownButton, EditorDropDown, styled } from '../styledComponents';
+import { DropdownMenu } from '../components/DropdownMenu';
+import { IAppStore } from 'stores/AppStore';
 
 if (typeof navigator !== 'undefined') {
-  LANGUAGES.map(lang => require(`codemirror/mode/${lang.mode}/${lang.mode}`));
+  LANGUAGES.filter(lang => lang.mode !== 'auto').map(lang => require(`codemirror/mode/${lang.mode}/${lang.mode}`));
 }
 
-interface IEditorProps {}
-interface IEditorState extends EditorConfiguration {
-  language: string;
-  themeName: string;
+declare module 'react' {
+  interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
+    jsx?: boolean;
+  }
 }
 
-class Editor extends React.Component<IEditorProps, IEditorState> {
-  state = {
-    value: DEFAULT_CODE,
-    mode: DEFAULT_LANGUAGE.mode,
-    theme: DEFAULT_THEME.id,
-    language: DEFAULT_LANGUAGE.name,
-    themeName: DEFAULT_THEME.name,
-  };
+const EditorContainer = styled.div`
+  position: relative;
+  max-width: 860px;
+  min-height: 500px;
+  border-radius: 4px;
+  border: solid 1px #dbe3e9;
+  margin: 20px;
+  overflow: hidden;
+`;
 
+const EditorHeader = styled.div`
+  display: flex;
+  position: relative;
+  background-color: black;
+  min-width: 100%;
+  border-bottom: solid 1px #dbe3e9;
+  height: 60px;
+  align-items: center;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+`;
+
+const EditorBody = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #202020;
+  min-width: 100%;
+  min-height: 440px;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+`;
+
+const OptionsButton = styled(Button as any)`
+  &.ant-btn {
+    position: absolute;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 0px;
+    height: 60px;
+    border-top-right-radius: 1px;
+    transition: none;
+    justify-self: right;
+    padding: 0 28px;
+
+    &:hover {
+      color: inherit;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .anticon {
+      margin-left: 0px;
+      vertical-align: -0.2em;
+      font-size: 18px;
+    }
+  }
+`;
+
+const OptionCloseButton = styled(Button as any)`
+  &.ant-btn {
+    height: 60px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    transition: none;
+    padding: 0 28px;
+
+    &:hover {
+      color: inherit;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .anticon {
+      margin-left: 0px;
+      font-size: 18px;
+    }
+  }
+`;
+
+const OptionDrawer = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 370px;
+  background-color: #000000;
+  border-left: solid 1px #dbe3e9;
+  box-shadow: -7px 0 5px 0 rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  transition: right 0.3s cubic-bezier(0.9, 0, 0.3, 0.7);
+`;
+
+const OptionItem = styled.div`
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin-left: 30px;
+`;
+
+interface IEditorProps {
+  appStore?: IAppStore;
+}
+
+@inject('appStore')
+@observer
+export default class Editor extends React.Component<IEditorProps> {
   render() {
+    const { editor } = this.props.appStore;
+
     const options = {
-      ...DEFAULT_SETTINGS,
-      mode: this.state.mode,
-      theme: this.state.theme,
-      lineNumbers: true,
+      mode: editor.languageMode,
+      theme: editor.theme.id,
+      lineNumbers: editor.lineNumbers,
       scrollBarStyle: null,
       viewportMargin: Infinity,
       lineWrapping: true,
     };
 
-    const handleLanguageMenuClick = e => {
-      this.setState({
-        mode: e.item.props.menu.mode,
-        language: e.item.props.menu.name,
-      });
-    };
-    const handleThemeMenuClick = e => {
-      this.setState({
-        theme: e.item.props.menu.id,
-        themeName: e.item.props.menu.name,
-      });
-    };
-    const menu = (menuItems, clickHandler) => (
-      <Menu onClick={clickHandler}>
-        {menuItems.map(menu => (
-          <Menu.Item key={menu.name} menu={menu}>
-            {menu.name}
-          </Menu.Item>
-        ))}
-      </Menu>
-    );
     return (
       <>
-        <CodeMirror
-          className={`CodeMirror__container`}
-          onBeforeChange={(editor, data, value) => {
-            this.setState({ value });
-          }}
-          value={this.state.value}
-          options={options}
-        />
-        <Dropdown overlay={menu(THEMES, handleThemeMenuClick)} trigger={['click']}>
-          <Button style={{ marginLeft: 8 }}>
-            {this.state.themeName} <Icon type="down" />
-          </Button>
-        </Dropdown>
-        <Dropdown overlay={menu(LANGUAGES, handleLanguageMenuClick)} trigger={['click']}>
-          <Button style={{ marginLeft: 8 }}>
-            {this.state.language} <Icon type="down" />
-          </Button>
-        </Dropdown>
+        <EditorContainer>
+          <EditorHeader>
+            <EditorDropDown overlay={DropdownMenu(THEMES, editor.setTheme)} trigger={['click']}>
+              <DropDownButton style={{ marginRight: '15px', marginLeft: '30px' }}>
+                {editor.theme.name} <Icon type="caret-down" />
+              </DropDownButton>
+            </EditorDropDown>
+            <EditorDropDown overlay={DropdownMenu(LANGUAGES, editor.setLanguage)} trigger={['click']}>
+              <DropDownButton>
+                {editor.language.name} <Icon type="caret-down" />
+              </DropDownButton>
+            </EditorDropDown>
+            <OptionsButton onClick={_ => editor.setOptionDrawerVisible(true)}>
+              Options <Icon type="menu-fold" style={{ fontSize: '18px' }} />
+            </OptionsButton>
+          </EditorHeader>
+          <EditorBody>
+            <CodeMirror onBeforeChange={editor.onBeforeCodeChange} value={editor.code} options={options} />
+          </EditorBody>
+          <OptionDrawer style={{ right: editor.optionDrawerVisible ? 0 : '-378px' }}>
+            <OptionCloseButton onClick={_ => editor.setOptionDrawerVisible(false)}>
+              <Icon type="menu-unfold" />
+            </OptionCloseButton>
+            <OptionItem>
+              <span>Font-Size</span>
+              <InputNumber min={10} max={20} value={editor.fontSize} onChange={editor.setFontSize} />
+            </OptionItem>
+            <OptionItem>
+              <span>Font-Family</span>
+              <Dropdown overlay={DropdownMenu(FONTS, editor.setFontFamily)} trigger={['click']}>
+                <Button>
+                  {editor.fontFamily.name}
+                  <Icon type="caret-down" />
+                </Button>
+              </Dropdown>
+            </OptionItem>
+            <OptionItem>Line-Number</OptionItem>
+          </OptionDrawer>
+        </EditorContainer>
+        <style jsx>{`
+          .react-codemirror2 {
+            box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
+            margin: 50px;
+          }
+          .CodeMirror {
+            max-width: 760px;
+            height: fit-content;
+            overflow: hidden;
+            padding: 2px;
+            border-radius: 5px;
+            font-family: ${editor.fontFamily.id};
+            font-size: ${editor.fontSize}px;
+          }
+        `}</style>
       </>
     );
   }
 }
-
-export default Editor;
