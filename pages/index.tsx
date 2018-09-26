@@ -1,6 +1,7 @@
 import * as React from 'react';
 import 'isomorphic-unfetch';
 // import { observable } from 'mobx';
+import '../assets/styles/app';
 import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
 import { MainNav, MainFooter, MainPage } from '../components';
