@@ -2,18 +2,25 @@ import styled from 'styled-components';
 import { Button } from 'antd';
 
 const InlineFlexButton = styled(Button as any)`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 1;
-  background-color: transparent;
-  color: ${props => props.theme.primaryTextColor};
-
-  &:hover,
-  &:focus,
-  &:active {
+  &.ant-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
     background-color: transparent;
     color: ${props => props.theme.primaryTextColor};
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+    }
+
+    i {
+      display: inherit;
+      align-items: inherit;
+      justify-content: inherit;
+    }
   }
 `;
 
