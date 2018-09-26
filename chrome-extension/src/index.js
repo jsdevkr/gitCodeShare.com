@@ -77,11 +77,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
       /* "_2aha" is unique class name of btn for media content */
       /* "_5f0n" is class name of container of "_2aha" */
       if (document.querySelector('._5f0n') && !document.querySelector('#codeShareBtn')) {
-        const insertBtn = setInterval(() => {
-          if (!document.querySelector('#codeShareBtn')) {
-            injectBtn();
-          }
-        }, 1000);
+        injectBtn();
       }
     });
   }
