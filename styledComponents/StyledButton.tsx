@@ -85,13 +85,17 @@ const DownloadButton: typeof RoundedButton = styled(RoundedButton as any)`
 
 const LineButton: typeof RoundedButton = styled(RoundedButton as any)`
   &.ant-btn {
-    max-width: 111px;
-    width: 100%;
+    max-width: 200px;
+    width: fit-content;
+    padding: 11px 25px;
     height: 40px;
     background-color: ${props => props.theme.primaryColor};
     border-color: ${props => props.theme.colorPalette.neonBlue};
     margin-left: 15px;
 
+    &:hover {
+      background-color: #5147ff;
+    }
     &:first-child {
       margin-left: auto;
     }
