@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledBadge should render 1`] = `
+<span
+  className="StyledBadge__GithubBadge-ntn0v4-2 haPwWp StyledBadge__RoundedBadge-ntn0v4-1 bKmcyK StyledBadge__InlineFlexBadge-ntn0v4-0 eZodVJ ant-badge ant-badge-not-a-wrapper"
+/>
+`;
