@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { compose } from 'lodash/fp';
+import { renderWithTheme } from '../../../common/utils';
 import {
   RoundedButton,
   GithubButton,
@@ -10,7 +11,6 @@ import {
   LineButton,
   DropDownButton,
 } from '../';
-import { renderWithTheme } from '../../../common/utils';
 
 describe('StyledButton', () => {
   const renderWith: any = compose(

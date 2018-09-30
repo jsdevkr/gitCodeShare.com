@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledBadge SCard should render 1`] = `
+<div
+  className="ant-card StyledCard__SCard-wvdxvl-0 gJNblF ant-card-bordered"
+>
+  <div
+    className="ant-card-body"
+    style={Object {}}
+  />
+</div>
+`;
+
+exports[`StyledBadge SCardMeta should render 1`] = `
+<div
+  className="ant-card-meta StyledCard__SCardMeta-wvdxvl-1 cQFUnH"
+/>
+`;
+
+exports[`StyledBadge SCardMetaDetail should render 1`] = `
+<div
+  className="ant-card-meta StyledCard__SCardMetaDetail-wvdxvl-2 leqrEj"
+/>
+`;
+
+exports[`StyledBadge UserCard should render 1`] = `
+<div
+  className="ant-card StyledCard__UserCard-wvdxvl-3 eGXyKG ant-card-bordered"
+>
+  <div
+    className="ant-card-body"
+    style={Object {}}
+  />
+</div>
+`;
+
+exports[`StyledBadge UserCardMeta should render 1`] = `
+<div
+  className="ant-card-meta StyledCard__UserCardMeta-wvdxvl-4 dfcjsF"
+/>
+`;
