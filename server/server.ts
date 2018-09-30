@@ -7,10 +7,10 @@ import puppeteer from 'puppeteer';
 import morgan from 'morgan';
 
 import ImageHandler from './handlers/image';
-import gistHandler from './handlers/gist';
+import gistRouter from './handlers/gist';
+import authRouter from './handlers/auth';
 
 import uuid from 'uuid/v4';
-import * as passportConfig from './handlers/passport';
 
 const MemoryStore = require('memorystore')(session);
 
@@ -56,7 +56,7 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
       store: new MemoryStore({
         checkPeriod: 86400000, // prune expired entries every 24h
       }),
-      secret: process.env.SESSION_SECRET || 'gitCodeShare',
+      secret: process.env.COOKIE_SECRET || 'gitCodeShare',
       saveUninitialized: false, // don't create session until something stored,
       resave: false, // don't save session if unmodified
       cookie: {
@@ -69,48 +69,19 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   );
   server.use(passport.initialize());
   server.use(passport.session());
+  server.use('/gists', gistRouter);
+  server.use('/api', authRouter);
+
+  // home 으로 리다이렉트
+  server.get('/', (req, res) => {
+    res.redirect(`${req.protocol}://${req.hostname}:${process.env.FRONT_PORT}`);
+  });
 
   // api endpoints
   server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
   server.get('/profile', (req, res) => {
     res.send('hello server');
   });
-  server.get('/api/auth/github', passport.authenticate('github'));
-  server.get(
-    '/api/auth/github/callback',
-    passport.authenticate('github', { failureRedirect: 'http://localhost:3000' }),
-    (req, res, next) => {
-      req.login(req.user, err => {
-        if (err) {
-          console.log(err);
-          return next(err);
-        }
-        req.session.save(() => {
-          // redirect to localhost:3000(front)
-          res.redirect(`${req.protocol}://${req.hostname}:${process.env.FRONT_PORT}`);
-        });
-      });
-    },
-  );
-
-  server.get('/logout', (req, res, _next) => {
-    req.session.destroy(err => {
-      if (err) {
-        console.log(err);
-        return _next(err);
-      }
-    });
-    req.logout();
-    res.redirect('/');
-  });
-
-  server.get('/gists/starred', gistHandler.getStarred);
-
-  server.get('/gists', passportConfig.isAuthenticated, gistHandler.getGists);
-  server.get('/gists/:gist_id', passportConfig.isAuthenticated, gistHandler.getGist);
-  server.patch('/gists/:gist_id', passportConfig.isAuthenticated, gistHandler.patchGist);
-  server.post('/gists', passportConfig.isAuthenticated, gistHandler.postGist);
-  server.delete('/gists/:gist_id', passportConfig.isAuthenticated, gistHandler.deleteGist);
 
   server.listen(port, '0.0.0.0', err => {
     if (err) {
