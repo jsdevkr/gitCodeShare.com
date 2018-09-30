@@ -1,3 +1,7 @@
+import React from 'react';
+import { theme } from '../styledComponents';
+import { ThemeProvider } from '../styledComponents';
+
 export const tohash = (l, k) => {
   const list = l || [];
   const key = k || 'id';
@@ -12,3 +16,5 @@ export const tohash = (l, k) => {
     return accum;
   }, {});
 };
+
+export const renderWithTheme = component => <ThemeProvider theme={theme}>{component}</ThemeProvider>;
