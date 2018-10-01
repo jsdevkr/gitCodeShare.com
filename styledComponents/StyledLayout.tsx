@@ -21,18 +21,34 @@ const SContainer = styled.div`
 
 const PageContent = styled(Content as any)`
   min-height: calc(100vh - 270px);
+
+  [data-title] {
+    font-size: 46px;
+    font-weight: bold;
+    color: ${props => props.theme.primaryTextColor};
+  }
+
+  [data-subtitle] {
+    font-size: 24px;
+    font-weight: 500;
+    color: ${props => props.theme.primaryTextColor};
+  }
+
+  [data-desc] {
+    color: ${props => props.theme.colorPalette.patternsBlue};
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.79;
+  }
 `;
 
 const PageSection = styled.section`
   & {
-    padding: 2rem 0;
+    padding: 5rem 0;
     background-color: ${props => props.theme.primaryColor};
   }
 
-  [data-title] {
-    color: ${props => props.theme.primaryTextColor};
-    font-size: 46px;
-    font-weight: bold;
+  &[data-center] {
     text-align: center;
   }
 `;
