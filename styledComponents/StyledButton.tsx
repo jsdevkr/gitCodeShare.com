@@ -87,7 +87,7 @@ const SignUpButton: typeof RoundedButton = styled(RoundedButton as any)`
     max-width: 350px;
     width: 100%;
     height: 50px;
-    background-color: #5147ff;
+    background-color: ${props => props.theme.colorPalette.neonBlue};
     box-shadow: 0 2px 4px 0 #222b33;
     border-color: ${props => props.theme.colorPalette.neonBlue};
     [bnt-content] {
@@ -120,7 +120,7 @@ const LineButton: typeof RoundedButton = styled(RoundedButton as any)`
     margin-left: 15px;
 
     &:hover {
-      background-color: #5147ff;
+      background-color: ${props => props.theme.colorPalette.neonBlue};
     }
     &:first-child {
       margin-left: auto;
