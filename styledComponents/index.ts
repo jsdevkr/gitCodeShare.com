@@ -10,6 +10,7 @@ export {
   SmDownloadButton,
   LineButton,
   DropDownButton,
+  SignUpButton,
 } from './StyledButton';
 export { MainNavMenu, DropDownMenu } from './StyledMenu';
 export { GithubBadge } from './StyledBadge';
