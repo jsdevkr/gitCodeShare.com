@@ -76,22 +76,58 @@ const DownloadButton: typeof RoundedButton = styled(RoundedButton as any)`
     border: none;
     box-shadow: 0 2px 4px 0 ${props => props.theme.colorPalette.blueCharcoal};
 
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: ${props => props.theme.colorPalette.neonBlue};
+    }
+
     span {
       font-size: 16px;
       font-weight: 600;
     }
   }
 `;
+const SignUpButton: typeof RoundedButton = styled(RoundedButton as any)`
+  &.ant-btn {
+    max-width: 350px;
+    width: 100%;
+    height: 50px;
+    background-color: ${props => props.theme.colorPalette.neonBlue};
+    box-shadow: 0 2px 4px 0 #222b33;
+    border-color: ${props => props.theme.colorPalette.neonBlue};
+    [bnt-content] {
+      width: 170px;
+      height: 20px;
+      font-family: IBMPlexSans;
+      font-size: 16px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: center;
+    }
 
+    span {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+`;
 const LineButton: typeof RoundedButton = styled(RoundedButton as any)`
   &.ant-btn {
-    max-width: 111px;
-    width: 100%;
+    max-width: 200px;
+    width: fit-content;
+    padding: 11px 25px;
     height: 40px;
     background-color: ${props => props.theme.primaryColor};
     border-color: ${props => props.theme.colorPalette.neonBlue};
     margin-left: 15px;
 
+    &:hover {
+      background-color: ${props => props.theme.colorPalette.neonBlue};
+    }
     &:first-child {
       margin-left: auto;
     }
@@ -116,4 +152,13 @@ const DropDownButton: typeof RoundedButton = styled(RoundedButton as any)`
   }
 `;
 
-export { RoundedButton, GithubButton, BorderlessButton, DownloadButton, SmDownloadButton, LineButton, DropDownButton };
+export {
+  RoundedButton,
+  GithubButton,
+  BorderlessButton,
+  DownloadButton,
+  SmDownloadButton,
+  LineButton,
+  DropDownButton,
+  SignUpButton,
+};

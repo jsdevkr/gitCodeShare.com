@@ -41,23 +41,24 @@ function injectBtn() {
 
   /* TODO: fix event binding not working */
   bindToggleEditorEventTo(btn);
+  if (document.querySelector('._5f0n>tbody')) {
+    if (contentBtnCount % 2 === 0) {
+      const firstChild = document.createElement('td');
+      const secondChild = document.createElement('td');
 
-  if (contentBtnCount % 2 === 0) {
-    const firstChild = document.createElement('td');
-    const secondChild = document.createElement('td');
+      firstChild.className = 'pas _1fng _51m-';
+      firstChild.appendChild(btn);
 
-    firstChild.className = 'pas _1fng _51m-';
-    firstChild.appendChild(btn);
+      const parent = document.createElement('tr');
+      parent.className = '_51mx';
 
-    const parent = document.createElement('tr');
-    parent.className = '_51mx';
+      parent.appendChild(firstChild);
+      parent.appendChild(secondChild);
 
-    parent.appendChild(firstChild);
-    parent.appendChild(secondChild);
-
-    document.querySelector('._5f0n>tbody').appendChild(parent);
-  } else {
-    document.querySelector('._5f0n>tbody').lastChild.lastChild.appendChild(btn);
+      document.querySelector('._5f0n>tbody').appendChild(parent);
+    } else {
+      document.querySelector('._5f0n>tbody').lastChild.lastChild.appendChild(btn);
+    }
   }
 }
 
@@ -77,11 +78,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
       /* "_2aha" is unique class name of btn for media content */
       /* "_5f0n" is class name of container of "_2aha" */
       if (document.querySelector('._5f0n') && !document.querySelector('#codeShareBtn')) {
-        const insertBtn = setInterval(() => {
-          if (!document.querySelector('#codeShareBtn')) {
-            injectBtn();
-          }
-        }, 1000);
+        injectBtn();
       }
     });
   }

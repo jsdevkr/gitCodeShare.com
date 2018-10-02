@@ -1,6 +1,6 @@
 export { default as styled, ThemeProvider, withTheme, keyframes } from 'styled-components';
 export { default as theme } from './theme';
-export { default as StyledFlexContainer, FlexRightBox } from './StyledFlexContainer';
+export { default as StyledFlexBox, FlexRightBox } from './StyledFlexBox';
 export { SLayout, MContainer, SContainer, PageContent, PageSection, TitleSection } from './StyledLayout';
 export {
   RoundedButton,
@@ -10,6 +10,7 @@ export {
   SmDownloadButton,
   LineButton,
   DropDownButton,
+  SignUpButton,
 } from './StyledButton';
 export { MainNavMenu, DropDownMenu } from './StyledMenu';
 export { GithubBadge } from './StyledBadge';
