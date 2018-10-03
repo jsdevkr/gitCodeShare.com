@@ -25,7 +25,7 @@ export interface IFlexBoxProps {
   styled?: string;
 }
 
-export function StyledFlexContainer(props: IFlexBoxProps) {
+export function StyledFlexBox(props: IFlexBoxProps) {
   const {
     direction = 'column',
     justify = 'flex-start',
@@ -35,7 +35,7 @@ export function StyledFlexContainer(props: IFlexBoxProps) {
     height = 'auto',
     styled: styledString = '',
   } = props;
-  return styled.div`
+  return `
     position: relative;
     display: flex;
     flex-direction: ${direction};
@@ -50,11 +50,10 @@ export function StyledFlexContainer(props: IFlexBoxProps) {
   `;
 }
 
-const FlexRightBox = styled.div`
+export const FlexRightBox = styled.div`
   margin-left: auto;
   display: inherit;
   align-items: center;
 `;
 
-export default StyledFlexContainer;
-export { FlexRightBox };
+export default StyledFlexBox;

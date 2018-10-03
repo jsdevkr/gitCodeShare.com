@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`StyledFlexContainer FlexRightBox should render 1`] = `
-<div
-  className="StyledFlexContainer__FlexRightBox-sc-146nf0c-1 jxlQZs"
-/>
-`;

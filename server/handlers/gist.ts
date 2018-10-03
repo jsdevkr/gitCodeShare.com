@@ -1,9 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response, NextFunction, Router } from 'express';
 import request from 'request';
 import { name, version } from './../../package.json';
+import { isAuthenticated } from './passport';
+const router: Router = Router();
 
 const headers: { Authorization?: string } = {};
 const PERSONAL_ACCESS_TOKEN: string = process.env.PERSONAL_ACCESS_TOKEN;
@@ -29,7 +31,7 @@ const putStar = (gistId: string): void => {
     },
   );
 };
-const getStarred = (req: Request, res: Response, next: NextFunction) => {
+router.get('/starred', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
   request.get(
     `https://api.github.com/gists/starred`,
     {
@@ -48,8 +50,9 @@ const getStarred = (req: Request, res: Response, next: NextFunction) => {
       return res.status(200).json(body);
     },
   );
-};
-const getGists = (req: Request, res: Response, next: NextFunction) => {
+});
+
+router.get('/', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
   request.get(
     `https://api.github.com/users/${req.user.username}/gists`,
     {
@@ -68,8 +71,9 @@ const getGists = (req: Request, res: Response, next: NextFunction) => {
       return res.status(200).json(body);
     },
   );
-};
-const getGist = (req: Request, res: Response, next: NextFunction) => {
+});
+
+router.get('/:gist_id', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
   request.get(
     `https://api.github.com/gists/${req.params.gist_id}`,
     {
@@ -88,8 +92,9 @@ const getGist = (req: Request, res: Response, next: NextFunction) => {
       return res.status(200).json(body);
     },
   );
-};
-const patchGist = (req: Request, res: Response, next: NextFunction) => {
+});
+
+router.patch('/:gist_id', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
   request.patch(
     `https://api.github.com/gists/${req.params.gist_id}`,
     {
@@ -109,8 +114,9 @@ const patchGist = (req: Request, res: Response, next: NextFunction) => {
       return res.status(200).json(body);
     },
   );
-};
-const postGist = (req: Request, res: Response, next: NextFunction) => {
+});
+
+router.post('/', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
   request.post(
     `https://api.github.com/gists`,
     {
@@ -131,8 +137,9 @@ const postGist = (req: Request, res: Response, next: NextFunction) => {
       return res.status(200).json(body);
     },
   );
-};
-const deleteGist = (req: Request, res: Response, next: NextFunction) => {
+});
+
+router.delete('/:gist_id', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
   request.delete(
     `https://api.github.com/gists/${req.params.gist_id}`,
     {
@@ -151,15 +158,6 @@ const deleteGist = (req: Request, res: Response, next: NextFunction) => {
       return res.status(200).json(body);
     },
   );
-};
+});
 
-const exported = {
-  getGists: getGists,
-  getGist: getGist,
-  getStarred: getStarred,
-  patchGist: patchGist,
-  postGist: postGist,
-  deleteGist: deleteGist,
-};
-
-export default exported;
+export default router;

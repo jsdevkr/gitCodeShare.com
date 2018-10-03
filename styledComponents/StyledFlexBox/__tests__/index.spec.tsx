@@ -4,7 +4,7 @@ import { compose } from 'lodash/fp';
 import { renderWithTheme } from '../../../common/utils';
 import { FlexRightBox } from '../';
 
-describe('StyledFlexContainer', () => {
+describe('StyledFlexBox', () => {
   const renderWith: any = compose(
     renderer.create,
     renderWithTheme,
