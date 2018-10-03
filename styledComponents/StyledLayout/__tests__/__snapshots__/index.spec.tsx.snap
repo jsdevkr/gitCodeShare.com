@@ -8,13 +8,13 @@ exports[`StyledLayout MContainer should render 1`] = `
 
 exports[`StyledLayout PageContent should render 1`] = `
 <div
-  className="StyledLayout__PageContent-sc-1ec2pa7-3 iKxwyo ant-layout-content"
+  className="StyledLayout__PageContent-sc-1ec2pa7-3 kymNdP ant-layout-content"
 />
 `;
 
 exports[`StyledLayout PageSection should render 1`] = `
 <section
-  className="StyledLayout__PageSection-sc-1ec2pa7-4 jaFHBE"
+  className="StyledLayout__PageSection-sc-1ec2pa7-4 ejZYfT"
 />
 `;
 

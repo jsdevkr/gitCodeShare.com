@@ -10,7 +10,7 @@ exports[`StyledButton BorderlessButton should render 1`] = `
 
 exports[`StyledButton DownloadButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__DownloadButton-rhr4ab-5 jcFXth StyledButton__RoundedButton-rhr4ab-1 gAmeRw StyledButton__InlineFlexButton-rhr4ab-0 fPuGKB"
+  className="ant-btn StyledButton__DownloadButton-rhr4ab-5 cgNGop StyledButton__RoundedButton-rhr4ab-1 gAmeRw StyledButton__InlineFlexButton-rhr4ab-0 fPuGKB"
   onClick={[Function]}
   type="button"
 />
@@ -18,7 +18,7 @@ exports[`StyledButton DownloadButton should render 1`] = `
 
 exports[`StyledButton DropDownButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__DropDownButton-rhr4ab-7 eRWzOk StyledButton__RoundedButton-rhr4ab-1 gAmeRw StyledButton__InlineFlexButton-rhr4ab-0 fPuGKB"
+  className="ant-btn StyledButton__DropDownButton-rhr4ab-8 kdBZPm StyledButton__RoundedButton-rhr4ab-1 gAmeRw StyledButton__InlineFlexButton-rhr4ab-0 fPuGKB"
   onClick={[Function]}
   type="button"
 />
@@ -34,7 +34,7 @@ exports[`StyledButton GithubButton should render 1`] = `
 
 exports[`StyledButton LineButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__LineButton-rhr4ab-6 jWJDGA StyledButton__RoundedButton-rhr4ab-1 gAmeRw StyledButton__InlineFlexButton-rhr4ab-0 fPuGKB"
+  className="ant-btn StyledButton__LineButton-rhr4ab-7 cqqxmP StyledButton__RoundedButton-rhr4ab-1 gAmeRw StyledButton__InlineFlexButton-rhr4ab-0 fPuGKB"
   onClick={[Function]}
   type="button"
 />

@@ -2,7 +2,7 @@
 
 exports[`StyledBadge SCard should render 1`] = `
 <div
-  className="ant-card StyledCard__SCard-wvdxvl-0 gJNblF ant-card-bordered"
+  className="ant-card StyledCard__SCard-wvdxvl-0 dbvPQQ ant-card-bordered"
 >
   <div
     className="ant-card-body"
