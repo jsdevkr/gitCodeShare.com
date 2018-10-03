@@ -5,6 +5,7 @@ import { Request, Response, NextFunction, Router } from 'express';
 import request from 'request';
 import { name, version } from './../../package.json';
 import { isAuthenticated } from './passport';
+
 const router: Router = Router();
 
 const headers: { Authorization?: string } = {};
@@ -47,6 +48,7 @@ router.get('/starred', isAuthenticated, (req: Request, res: Response, next: Next
         console.log(err);
         return next(err);
       }
+      console.log(body.length);
       return res.status(200).json(body);
     },
   );
@@ -80,7 +82,6 @@ router.get('/:gist_id', isAuthenticated, (req: Request, res: Response, next: Nex
       json: true,
       headers: {
         ...headers,
-        'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
     },
@@ -102,7 +103,6 @@ router.patch('/:gist_id', isAuthenticated, (req: Request, res: Response, next: N
       body: req.body,
       headers: {
         Authorization: `token ${req.user.accessToken}`,
-        'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
     },
@@ -124,7 +124,6 @@ router.post('/', isAuthenticated, (req: Request, res: Response, next: NextFuncti
       body: req.body,
       headers: {
         Authorization: `token ${req.user.accessToken}`,
-        'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
     },
@@ -146,7 +145,6 @@ router.delete('/:gist_id', isAuthenticated, (req: Request, res: Response, next: 
       json: true,
       headers: {
         Authorization: `token ${req.session.user.accessToken}`,
-        'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
     },

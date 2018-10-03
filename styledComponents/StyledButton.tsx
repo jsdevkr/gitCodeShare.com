@@ -95,10 +95,21 @@ const SignUpButton: typeof RoundedButton = styled(RoundedButton as any)`
     height: 50px;
     background-color: ${props => props.theme.colorPalette.neonBlue};
     box-shadow: 0 2px 4px 0 #222b33;
-    border-color: ${props => props.theme.colorPalette.neonBlue};
-    [bnt-content] {
-      width: 170px;
-      height: 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background-color: ${props => props.theme.colorPalette.neonBlue};
+    }
+
+    i {
+      & + span {
+        margin-left: 10px;
+      }
+    }
+    span {
       font-family: IBMPlexSans;
       font-size: 16px;
       font-weight: 500;
@@ -107,11 +118,6 @@ const SignUpButton: typeof RoundedButton = styled(RoundedButton as any)`
       line-height: normal;
       letter-spacing: normal;
       text-align: center;
-    }
-
-    span {
-      font-size: 16px;
-      font-weight: 600;
     }
   }
 `;

@@ -6,6 +6,7 @@ import passportGithub from 'passport-github';
 import { Request, Response, NextFunction } from 'express';
 
 const GithubStrategy = passportGithub.Strategy;
+const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 /**
  * @description
@@ -43,12 +44,10 @@ export enum Scope {
 }
 
 passport.serializeUser<any, any>((user, done) => {
-  console.log(`serializeUser: ${JSON.stringify(user)}`);
   done(null, user);
 });
 
 passport.deserializeUser<any, any>((user, done) => {
-  console.log(`deserializeUser: ${JSON.stringify(user)}`);
   done(null, user);
 });
 
@@ -82,6 +81,6 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
   if (req.isAuthenticated()) {
     return next();
   } else {
-    res.redirect('api/auth/github');
+    res.redirect(`${proxyContext}/auth/github`);
   }
 };

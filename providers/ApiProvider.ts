@@ -1,6 +1,6 @@
 import { IGist } from '../model/gist';
 
-const proxyContext = '/api';
+const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 const ApiProvider = {
   AuthRequest: {
