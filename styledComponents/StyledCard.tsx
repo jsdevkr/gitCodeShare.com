@@ -4,7 +4,7 @@ import { Card } from 'antd';
 const SCard = styled(Card)`
   &.ant-card {
     width: 370px;
-    height: 430px;
+    min-height: 430px;
     background-color: transparent;
     margin-top: 20px;
   }
