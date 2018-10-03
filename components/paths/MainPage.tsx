@@ -19,10 +19,25 @@ interface IProps {
 const RowFlexBox = styled.div`
   & {
     ${RowFlex};
+    justify-content: space-between;
+    margin: 0 -15px;
 
     [data-col] {
       flex: 0 0 50%;
       position: relative;
+      padding: 0 15px;
+    }
+
+    [data-grid-1] {
+      flex: 0 0 500px;
+    }
+
+    [data-grid-2] {
+      flex: 0 0 450px;
+    }
+
+    [data-textbox-1] {
+      max-width: 360px;
     }
   }
 `;
@@ -34,10 +49,15 @@ const CodeWrap = styled(RowFlexBox as any)`
 
     .ant-card {
       max-height: 370px;
+      min-height: 0;
 
       .ant-card-body {
         padding: 18px 15px;
         text-align: left;
+      }
+
+      .ant-card-meta-description {
+        color: ${props => props.theme.colorPalette.gullGray};
       }
     }
   }
@@ -119,29 +139,35 @@ class MainPage extends Component<IProps> {
         <PageSection>
           <SContainer>
             <RowFlexBox>
-              <div data-col>
+              <div data-col data-grid-1>
                 <h3 data-title>Why GitCodeShare?</h3>
-                <h4 data-subtitle>I don’t like this style!</h4>
-                <p data-desc>
-                  As we develop, we often share our codes on Facebook and other Social Media Networks. In order to share
-                  new innovative ideas, ask for help with broken codes or critique other people’s work, code sharing is
-                  necessary.
-                </p>
-                <p data-desc>
-                  But it’s not easy to share code that comes in blocks of text or compressed into a small image.
-                </p>
+                <div data-textbox-1>
+                  <h4 data-subtitle>I don’t like this style!</h4>
+                  <p data-desc>
+                    As we develop, we often share our codes on Facebook and other Social Media Networks. In order to
+                    share new innovative ideas, ask for help with broken codes or critique other people’s work, code
+                    sharing is necessary.
+                  </p>
+                  <p data-desc>
+                    But it’s not easy to share code that comes in blocks of text or compressed into a small image.
+                  </p>
+                </div>
               </div>
-              <div data-col>right</div>
+              <div data-col data-grid-2>
+                <img width="543" src="../../static/images/main_1.png" alt="gitshare 설명 이미지" />
+              </div>
             </RowFlexBox>
           </SContainer>
         </PageSection>
         <PageSection>
           <SContainer>
             <RowFlexBox>
-              <div data-col>left</div>
-              <div data-col>
+              <div data-col data-grid-1>
+                <img width="578" src="../../static/images/main_2.png" alt="gitshare 설명 이미지" />
+              </div>
+              <div data-col data-grid-2>
                 <h3 data-title>
-                  More Easy
+                  More Easy,
                   <br />
                   More Beautiful
                 </h3>
@@ -149,7 +175,9 @@ class MainPage extends Component<IProps> {
                   The GitCodeShare Chrome plug-in allows you to easily share your code in a clean, visually enticing
                   manner straight to your Social Media timeline. No hassle. No more blocks of text.
                 </p>
-                <DownloadButton icon="plus">Add GitCodeShare to Chrome</DownloadButton>
+                <DownloadButton icon="plus" style={{ marginTop: '35px' }}>
+                  Add GitCodeShare to Chrome
+                </DownloadButton>
               </div>
             </RowFlexBox>
           </SContainer>
@@ -158,6 +186,11 @@ class MainPage extends Component<IProps> {
           <SContainer>
             <h3 data-title>Recently Shared</h3>
             <p data-desc>You can share your remarkable code with everyone.</p>
+            <img
+              style={{ width: '350px', margin: '54px 0 62px' }}
+              src="../../static/images/main_3.png"
+              alt="gitshare 설명 이미지"
+            />
             <CodeWrap>
               <SCard
                 data-col
