@@ -8,7 +8,6 @@ import {
   DownloadButton,
   PageContent,
   PageSection,
-  // StyledFlexContainer,
   TitleSection,
 } from '../../styledComponents';
 
@@ -46,7 +45,9 @@ class FeaturesPage extends Component<IProps> {
           <h3 data-title>Preview Features</h3>
           <div data-subtitle>
             Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit
-            elit, elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies
+            elit,
+            <br />
+            elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies
             sapien.
           </div>
         </TitleSection>
