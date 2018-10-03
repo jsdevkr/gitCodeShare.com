@@ -1,20 +1,54 @@
 import React, { Component } from 'react';
-import { styled, SContainer, PageContent, PageSection, DownloadButton } from '../../styledComponents';
+import {
+  styled,
+  SContainer,
+  RowFlex,
+  ColumnFlex,
+  PageContent,
+  PageSection,
+  DownloadButton,
+  BorderlessButton,
+  SCard,
+  SCardMeta,
+} from '../../styledComponents';
 
 interface IProps {
   className?: string;
 }
 
-const SlideSection = styled(PageSection as any)`
+const RowFlexBox = styled.div`
   & {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
+    ${RowFlex};
+
+    [data-col] {
+      flex: 0 0 50%;
+      position: relative;
+    }
+  }
+`;
+
+const CodeWrap = styled(RowFlexBox as any)`
+  & {
+    max-width: 770px;
+    margin: 0 auto;
+
+    .ant-card {
+      max-height: 370px;
+
+      .ant-card-body {
+        padding: 18px 15px;
+        text-align: left;
+      }
+    }
+  }
+`;
+
+const SlideWrap = styled(PageSection as any)`
+  & {
+    ${ColumnFlex};
+    height: 600px;
     padding: 0;
     text-align: center;
-    height: 600px;
-    overflow: hidden;
     position: relative;
 
     [data-bg] {
@@ -27,19 +61,39 @@ const SlideSection = styled(PageSection as any)`
 
     [data-layer-1] {
       position: relative;
-      z-index: 1;
+      z-index: 9;
     }
 
     [data-title] {
       margin-bottom: 20px;
+    }
+
+    [data-desc] {
+      margin-bottom: 50px;
+      font-size: 12px;
       color: ${props => props.theme.primaryTextColor};
     }
 
-    [data-description] {
-      margin-bottom: 50px;
-      color: ${props => props.theme.primaryTextColor};
-      font-size: 12px;
-      line-height: 2;
+    [data-scroll-btn] {
+      position: absolute;
+      bottom: 0;
+      z-index: 99;
+      transform: rotate(-90deg);
+
+      span {
+        display: inherit;
+        align-items: center;
+        font-size: 12px;
+
+        &::after {
+          content: '';
+          margin-left: 15px;
+          display: inline-block;
+          width: 61px;
+          height: 1px;
+          background-color: ${props => props.theme.primaryTextColor};
+        }
+      }
     }
   }
 `;
@@ -49,21 +103,81 @@ class MainPage extends Component<IProps> {
     const { className } = this.props;
     return (
       <PageContent className={className}>
-        <SlideSection>
+        <SlideWrap>
           <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" />
           <div data-layer-1>
             <h3 data-title>Share your code beautifully</h3>
-            <p data-description>
+            <p data-desc>
               Introducing the best practices, stories, and insights from the world’s top developers.
               <br />
               gitCodeShare is your essential guide to sharing remarkable ideas and talents.
             </p>
             <DownloadButton icon="plus">Add GitCodeShare to Chrome</DownloadButton>
           </div>
-        </SlideSection>
+          <BorderlessButton data-scroll-btn>SCROLL</BorderlessButton>
+        </SlideWrap>
         <PageSection>
           <SContainer>
-            <h3 data-title>Why GitCodeShare?</h3>
+            <RowFlexBox>
+              <div data-col>
+                <h3 data-title>Why GitCodeShare?</h3>
+                <h4 data-subtitle>I don’t like this style!</h4>
+                <p data-desc>
+                  As we develop, we often share our codes on Facebook and other Social Media Networks. In order to share
+                  new innovative ideas, ask for help with broken codes or critique other people’s work, code sharing is
+                  necessary.
+                </p>
+                <p data-desc>
+                  But it’s not easy to share code that comes in blocks of text or compressed into a small image.
+                </p>
+              </div>
+              <div data-col>right</div>
+            </RowFlexBox>
+          </SContainer>
+        </PageSection>
+        <PageSection>
+          <SContainer>
+            <RowFlexBox>
+              <div data-col>left</div>
+              <div data-col>
+                <h3 data-title>
+                  More Easy
+                  <br />
+                  More Beautiful
+                </h3>
+                <p data-desc>
+                  The GitCodeShare Chrome plug-in allows you to easily share your code in a clean, visually enticing
+                  manner straight to your Social Media timeline. No hassle. No more blocks of text.
+                </p>
+                <DownloadButton icon="plus">Add GitCodeShare to Chrome</DownloadButton>
+              </div>
+            </RowFlexBox>
+          </SContainer>
+        </PageSection>
+        <PageSection data-center>
+          <SContainer>
+            <h3 data-title>Recently Shared</h3>
+            <p data-desc>You can share your remarkable code with everyone.</p>
+            <CodeWrap>
+              <SCard
+                data-col
+                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+              >
+                <SCardMeta title="1 Title" description="June 18, 2018" />
+              </SCard>
+              <SCard
+                data-col
+                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+              >
+                <SCardMeta title="1 Title" description="June 18, 2018" />
+              </SCard>
+              <SCard
+                data-col
+                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+              >
+                <SCardMeta title="1 Title" description="June 18, 2018" />
+              </SCard>
+            </CodeWrap>
           </SContainer>
         </PageSection>
       </PageContent>
