@@ -22,11 +22,15 @@ const ApiProvider = {
     async getStarredGists() {
       return (await fetch(`${proxyContext}/gists/starred`, { method: 'GET' }).then(data => data.json())) as IGist[];
     },
-    async getGist(gistId: number) {
+    async getGist(gistId: number | string) {
       return (await fetch(`${proxyContext}/gists/${gistId}`, { method: 'GET' }).then(data => data.json())) as IGist[];
     },
-    async createGist() {
-      return (await fetch(`${proxyContext}/gists`, { method: 'POST' }).then(data => data.json())) as IGist[];
+    async createGist(body) {
+      return (await fetch(`${proxyContext}/gists`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      }).then(data => data.json())) as IGist[];
     },
     async modifyGist(gistId: number) {
       return (await fetch(`${proxyContext}/gists/${gistId}`, { method: 'PATCH' }).then(data => data.json())) as IGist[];

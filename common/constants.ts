@@ -7,322 +7,85 @@ export interface ILANGUAGE {
   mime?: string;
   custom?: boolean;
   short?: string;
+  ext?: string;
 }
 
 export const LANGUAGES = [
-  {
-    name: 'Auto',
-    mode: 'auto',
-  },
-  // {
-  //   name: 'Apache',
-  //   mode: 'apache',
+  { name: 'Auto', mode: 'auto' }, //   mode: 'apache', //   name: 'Apache', // {
   //   mime: 'text/apache',
   //   custom: true,
   // },
-  {
-    name: 'Bash',
-    mode: 'shell',
-    mime: 'application/x-sh',
-  },
-  // {
-  //   name: 'Plain Text',
-  //   mode: 'text',
+  { name: 'Bash', mode: 'shell', mime: 'application/x-sh', ext: '.sh' }, //   mode: 'text', //   name: 'Plain Text', // {
   // },
-  {
-    name: 'C',
-    mode: 'clike',
-    mime: 'text/x-csrc',
-    short: 'c',
-  },
-  {
-    name: 'C++',
-    mode: 'clike',
-    mime: 'text/x-c++src',
-    short: 'cpp',
-  },
-  {
-    name: 'C#',
-    mode: 'clike',
-    mime: 'text/x-csharp',
-    short: 'cs',
-  },
-  {
-    name: 'Clojure',
-    mode: 'clojure',
-  },
-  {
-    name: 'Cobol',
-    mode: 'cobol',
-  },
-  {
-    name: 'CoffeeScript',
-    mode: 'coffeescript',
-  },
-  {
-    name: 'Crystal',
-    mode: 'crystal',
-  },
-  {
-    name: 'CSS',
-    mode: 'css',
-  },
-  {
-    name: 'D',
-    mode: 'd',
-  },
-  {
-    name: 'Dart',
-    mode: 'dart',
-  },
-  {
-    name: 'Diff',
-    mode: 'diff',
-    mime: 'text/x-diff',
-  },
-  {
-    name: 'Django',
-    mode: 'django',
-  },
-  {
-    name: 'Docker',
-    mode: 'dockerfile',
-  },
-  // {
-  //   name: 'Elixir',
-  //   mode: 'elixir',
+  { name: 'C', mode: 'clike', mime: 'text/x-csrc', short: 'c', ext: '.c' },
+  { name: 'C++', mode: 'clike', mime: 'text/x-c++src', short: 'cpp', ext: '.cpp' },
+  { name: 'C#', mode: 'clike', mime: 'text/x-csharp', short: 'cs', ext: '.cs' },
+  { name: 'Clojure', mode: 'clojure', ext: '.cljs' },
+  { name: 'Cobol', mode: 'cobol', ext: '.cbl' },
+  { name: 'CoffeeScript', mode: 'coffeescript', ext: '.coffee' },
+  { name: 'Crystal', mode: 'crystal', ext: '.cr' },
+  { name: 'CSS', mode: 'css', ext: '.css' },
+  { name: 'D', mode: 'd', ext: '.d' },
+  { name: 'Dart', mode: 'dart', ext: '.dart' },
+  { name: 'Diff', mode: 'diff', mime: 'text/x-diff', ext: '.diff' },
+  { name: 'Django', mode: 'django', ext: '.py' },
+  { name: 'Docker', mode: 'dockerfile', ext: '.' }, //   mode: 'elixir', //   name: 'Elixir', // {
   //   custom: true,
   // },
-  {
-    name: 'Elm',
-    mode: 'elm',
-  },
-  {
-    name: 'Erlang',
-    mode: 'erlang',
-  },
-  {
-    name: 'Fortran',
-    mode: 'fortran',
-  },
-  {
-    name: 'F#',
-    mode: 'mllike',
-  },
-  // {
-  //   name: 'GraphQL',
-  //   mode: 'graphql',
+  { name: 'Elm', mode: 'elm', ext: '.elm' },
+  { name: 'Erlang', mode: 'erlang', ext: '.erl' },
+  { name: 'Fortran', mode: 'fortran', ext: '.for' },
+  { name: 'F#', mode: 'mllike', ext: '.fs' }, //   mode: 'graphql', //   name: 'GraphQL', // {
   //   custom: true,
   // },
-  {
-    name: 'Go',
-    mode: 'go',
-  },
-  {
-    name: 'Groovy',
-    mode: 'groovy',
-  },
-  {
-    name: 'Handlebars',
-    mode: 'handlebars',
-  },
-  {
-    name: 'Haskell',
-    mode: 'haskell',
-  },
-  {
-    name: 'Haxe',
-    mode: 'haxe',
-  },
-  {
-    name: 'HTML',
-    mode: 'htmlmixed',
-  },
-  {
-    name: 'Java',
-    mode: 'clike',
-    mime: 'text/x-java',
-    short: 'java',
-  },
-  {
-    name: 'JavaScript',
-    mode: 'javascript',
-    short: 'javascript',
-  },
-  {
-    name: 'JSON',
-    mode: 'javascript',
-    mime: 'application/json',
-    short: 'json',
-  },
-  {
-    name: 'JSX',
-    mode: 'jsx',
-  },
-  {
-    name: 'Julia',
-    mode: 'julia',
-  },
-  {
-    name: 'Kotlin',
-    mode: 'clike',
-    mime: 'text/x-kotlin',
-    short: 'kotlin',
-  },
-  {
-    name: 'LaTeX',
-    mode: 'stex',
-  },
-  {
-    name: 'Lisp',
-    mode: 'commonlisp',
-  },
-  {
-    name: 'Lua',
-    mode: 'lua',
-  },
-  {
-    name: 'Markdown',
-    mode: 'markdown',
-  },
-  {
-    name: 'Mathematica',
-    mode: 'mathematica',
-  },
-  {
-    name: 'MATLAB/Octave',
-    mode: 'octave',
-    mime: 'text/x-octave',
-  },
-  {
-    name: 'MySQL',
-    mode: 'sql',
-    mime: 'text/x-mysql',
-    short: 'mysql',
-  },
-  {
-    name: 'NGINX',
-    mode: 'nginx',
-  },
-  // {
-  //   name: 'Nim',
-  //   mode: 'nimrod',
+  { name: 'Go', mode: 'go', ext: '.go' },
+  { name: 'Groovy', mode: 'groovy', ext: '.groovy' },
+  { name: 'Handlebars', mode: 'handlebars', ext: '.hbs' },
+  { name: 'Haskell', mode: 'haskell', ext: '.lhs' },
+  { name: 'Haxe', mode: 'haxe', ext: '.hx' },
+  { name: 'HTML', mode: 'htmlmixed', ext: '.html' },
+  { name: 'Java', mode: 'clike', mime: 'text/x-java', short: 'java', ext: '.java' },
+  { name: 'JavaScript', mode: 'javascript', short: 'javascript', ext: '.js' },
+  { name: 'JSON', mode: 'javascript', mime: 'application/json', short: 'json', ext: '.json' },
+  { name: 'JSX', mode: 'jsx', ext: '.jsx' },
+  { name: 'Julia', mode: 'julia', ext: '.jl' },
+  { name: 'Kotlin', mode: 'clike', mime: 'text/x-kotlin', short: 'kotlin', ext: '.kt' },
+  { name: 'LaTeX', mode: 'stex', ext: '.tex' },
+  { name: 'Lisp', mode: 'commonlisp', ext: '.lisp' },
+  { name: 'Lua', mode: 'lua', ext: '.lua' },
+  { name: 'Markdown', mode: 'gfm', ext: '.md' },
+  { name: 'Mathematica', mode: 'mathematica', ext: '.mathematica' },
+  { name: 'MATLAB/Octave', mode: 'octave', mime: 'text/x-octave', ext: '.matlab' },
+  { name: 'MySQL', mode: 'sql', mime: 'text/x-mysql', short: 'mysql', ext: '.sql' },
+  { name: 'NGINX', mode: 'nginx', ext: '.nginxconf' }, //   mode: 'nimrod', //   name: 'Nim', // {
   //   custom: true,
   // },
-  {
-    name: 'Objective C',
-    mode: 'clike',
-    mime: 'text/x-objectivec',
-    short: 'objectivec',
-  },
-  {
-    name: 'OCaml',
-    mode: 'mllike',
-  },
-  {
-    name: 'Pascal',
-    mode: 'pascal',
-  },
-  {
-    name: 'Perl',
-    mode: 'perl',
-  },
-  {
-    name: 'PHP',
-    mode: 'php',
-    mime: 'text/x-php',
-    short: 'php',
-  },
-  {
-    name: 'PowerShell',
-    mode: 'powershell',
-  },
-  {
-    name: 'Python',
-    mode: 'python',
-  },
-  {
-    name: 'R',
-    mode: 'r',
-  },
-  {
-    name: 'Ruby',
-    mode: 'ruby',
-  },
-  {
-    name: 'Rust',
-    mode: 'rust',
-  },
-  {
-    name: 'Sass',
-    mode: 'sass',
-  },
-  {
-    name: 'Scala',
-    mode: 'clike',
-    mime: 'text/x-scala',
-    short: 'scala',
-  },
-  {
-    name: 'Smalltalk',
-    mode: 'smalltalk',
-  },
-  {
-    name: 'SPARQL',
-    mode: 'sparql',
-    mime: 'application/sparql-query',
-  },
-  {
-    name: 'SQL',
-    mode: 'sql',
-  },
-  {
-    name: 'Stylus',
-    mode: 'stylus',
-    mime: 'stylus',
-  },
-  {
-    name: 'Swift',
-    mode: 'swift',
-  },
-  {
-    name: 'TCL',
-    mode: 'tcl',
-  },
-  {
-    name: 'TOML',
-    mode: 'toml',
-  },
-  {
-    name: 'TypeScript',
-    mode: 'javascript',
-    mime: 'application/typescript',
-    short: 'typescript',
-  },
-  {
-    name: 'VB.NET',
-    mode: 'vb',
-  },
-  {
-    name: 'Verilog',
-    mode: 'verilog',
-  },
-  {
-    name: 'VHDL',
-    mode: 'vhdl',
-  },
-  {
-    name: 'Vue',
-    mode: 'vue',
-  },
-  {
-    name: 'XML',
-    mode: 'xml',
-  },
-  {
-    name: 'YAML',
-    mode: 'yaml',
-  },
+  { name: 'Objective C', mode: 'clike', mime: 'text/x-objectivec', short: 'objectivec', ext: '.m' },
+  { name: 'OCaml', mode: 'mllike', ext: '.ml' },
+  { name: 'Pascal', mode: 'pascal', ext: '.pas' },
+  { name: 'Perl', mode: 'perl', ext: '.pl' },
+  { name: 'PHP', mode: 'php', mime: 'text/x-php', short: 'php', ext: '.php' },
+  { name: 'PowerShell', mode: 'powershell', ext: '.ps1' },
+  { name: 'Python', mode: 'python', ext: '.py' },
+  { name: 'R', mode: 'r', ext: '.r' },
+  { name: 'Ruby', mode: 'ruby', ext: '.rb' },
+  { name: 'Rust', mode: 'rust', ext: '.rs' },
+  { name: 'Sass', mode: 'sass', ext: '.sass' },
+  { name: 'Scala', mode: 'clike', mime: 'text/x-scala', short: 'scala', ext: '.scala' },
+  { name: 'Smalltalk', mode: 'smalltalk', ext: '.st' },
+  { name: 'SPARQL', mode: 'sparql', mime: 'application/sparql-query', ext: '.sparql' },
+  { name: 'SQL', mode: 'sql', ext: '.sql' },
+  { name: 'Stylus', mode: 'stylus', mime: 'stylus', ext: '.styl' },
+  { name: 'Swift', mode: 'swift', ext: '.swift' },
+  { name: 'TCL', mode: 'tcl', ext: '.tcl' },
+  { name: 'TOML', mode: 'toml', ext: '.toml' },
+  { name: 'TypeScript', mode: 'javascript', mime: 'application/typescript', short: 'typescript', ext: '.ts' },
+  { name: 'VB.NET', mode: 'vb', ext: '.vb' },
+  { name: 'Verilog', mode: 'verilog', ext: '.v' },
+  { name: 'VHDL', mode: 'vhdl', ext: '.vhdl' },
+  { name: 'Vue', mode: 'vue', ext: '.vue' },
+  { name: 'XML', mode: 'xml', ext: '.xml' },
+  { name: 'YAML', mode: 'yaml', ext: '.yml' },
 ];
 
 export interface ITHEME {
@@ -460,6 +223,7 @@ export const THEMES_ID_HASH = tohash(THEMES, 'id');
 export const THEMES_NAME_HASH = tohash(THEMES, 'name');
 export const LANGUAGES_MODE_HASH = tohash(LANGUAGES, 'mode');
 export const LANGUAGES_NAME_HASH = tohash(LANGUAGES, 'name');
+export const LANGUAGES_MIME_HASH = tohash(LANGUAGES, 'mime');
 export const LANGUAGES_SHORT_HASH = tohash(LANGUAGES, 'short');
 export const FONTS_HASH = tohash(FONTS, 'id');
 
