@@ -1,6 +1,7 @@
 import { IGist } from '../model/gist';
+import { IContributor } from '../model/contributors';
 
-const proxyContext = '/api';
+const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 const ApiProvider = {
   AuthRequest: {
@@ -33,6 +34,12 @@ const ApiProvider = {
       return (await fetch(`${proxyContext}/gists/${gistId}`, { method: 'DELETE' }).then(data =>
         data.json(),
       )) as IGist[];
+    },
+  },
+  ContributorsRequest: {
+    async getContributors() {
+      const url = 'https://api.github.com/repos/kosslab-kr/gitCodeShare.com/stats/contributors';
+      return (await fetch(url, { method: 'GET' }).then(data => data.json())) as IContributor;
     },
   },
 };

@@ -16,6 +16,7 @@ const MemoryStore = require('memorystore')(session);
 
 const port = parseInt(process.env.BACKEND_PORT, 10) || 3030;
 const dev = process.env.NODE_ENV !== 'production';
+const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 process.on('SIGINT', () => process.exit());
 
@@ -67,21 +68,19 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
       },
     }),
   );
+
   server.use(passport.initialize());
   server.use(passport.session());
-  server.use('/gists', gistRouter);
-  server.use('/api', authRouter);
+  server.use(`${proxyContext}`, authRouter);
+  server.use(`${proxyContext}/gists`, gistRouter);
 
-  // home 으로 리다이렉트
+  // redirect to home
   server.get('/', (req, res) => {
     res.redirect(`${req.protocol}://${req.hostname}:${process.env.FRONT_PORT}`);
   });
 
   // api endpoints
   server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
-  server.get('/profile', (req, res) => {
-    res.send('hello server');
-  });
 
   server.listen(port, '0.0.0.0', err => {
     if (err) {

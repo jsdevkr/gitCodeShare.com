@@ -6,6 +6,7 @@ import proxy from 'http-proxy-middleware';
 
 const port = parseInt(process.env.FRONT_PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
+const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -25,7 +26,7 @@ app.prepare().then(() => {
   }
 
   server.use(
-    '/api',
+    `${proxyContext}`,
     proxy({
       target: `http://localhost:${process.env.BACKEND_PORT || 3030}`,
       onError: (err, req, res) => {
@@ -41,6 +42,10 @@ app.prepare().then(() => {
   );
 
   const filePath = path.join(__dirname, '.next', 'service-worker.js');
+  server.use(
+    `${proxyContext}`,
+    proxy({ target: `http://localhost:${parseInt(process.env.BACKEND_PORT, 10) || 3030}` }),
+  );
   server.get('/service-worker.js', (req, res) => app.serveStatic(req, res, filePath));
 
   server.get('*', (req, res) => handle(req, res));

@@ -57,7 +57,6 @@ const TitleSection = styled.div`
   padding: 5rem 0 8rem;
   text-align: center;
   position: relative;
-  max-width: 620px;
   margin: 0 auto;
 
   &:after {
@@ -78,7 +77,7 @@ const TitleSection = styled.div`
   [data-subtitle] {
     color: ${props => props.theme.primaryTextColor};
     font-size: 12px;
-    line-height: 25px;
+    line-height: 2.08;
   }
 `;
 
