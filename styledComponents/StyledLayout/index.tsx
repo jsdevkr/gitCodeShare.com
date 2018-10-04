@@ -1,4 +1,4 @@
-import { styled } from '../styledComponents';
+import { styled } from '../';
 import { Layout } from 'antd';
 
 const { Content } = Layout;

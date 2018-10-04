@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledLayout MContainer should render 1`] = `
+<div
+  className="StyledLayout__MContainer-sc-1ec2pa7-1 cXZQBP"
+/>
+`;
+
+exports[`StyledLayout PageContent should render 1`] = `
+<div
+  className="StyledLayout__PageContent-sc-1ec2pa7-3 kymNdP ant-layout-content"
+/>
+`;
+
+exports[`StyledLayout PageSection should render 1`] = `
+<section
+  className="StyledLayout__PageSection-sc-1ec2pa7-4 ejZYfT"
+/>
+`;
+
+exports[`StyledLayout SContainer should render 1`] = `
+<div
+  className="StyledLayout__SContainer-sc-1ec2pa7-2 eBMrmZ"
+/>
+`;
+
+exports[`StyledLayout SLayout should render 1`] = `
+<div
+  className="StyledLayout__SLayout-sc-1ec2pa7-0 bBdsDa ant-layout"
+/>
+`;
+
+exports[`StyledLayout TitleSection should render 1`] = `
+<div
+  className="StyledLayout__TitleSection-sc-1ec2pa7-5 gRXLZX"
+/>
+`;
