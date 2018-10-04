@@ -75,7 +75,7 @@ router.get('/', isAuthenticated, (req: Request, res: Response, next: NextFunctio
   );
 });
 
-router.get('/:gist_id', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
+router.get('/:gist_id', (req: Request, res: Response, next: NextFunction) => {
   request.get(
     `https://api.github.com/gists/${req.params.gist_id}`,
     {

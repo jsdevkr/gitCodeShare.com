@@ -18,6 +18,10 @@ export default class MyDocument extends Document {
         <Head>
           <link rel="shortcut icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="/_next/static/style.css" />
+          <link
+            href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:500,700|Share+Tech+Mono"
+            rel="stylesheet"
+          />
           {THEMES.map(theme => (
             <link
               key={theme.id}

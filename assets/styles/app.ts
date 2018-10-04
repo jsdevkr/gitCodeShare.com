@@ -13,4 +13,14 @@ injectGlobal`
   .clearfix:after {
     clear: both;
   }
+
+  .ant-message-notice-content {
+    background: black;
+  }
+  .ant-notification-notice-message {
+    /* color: white; */
+  }
+  .ant-notification-notice-description {
+    color: black;
+  }
 `;
