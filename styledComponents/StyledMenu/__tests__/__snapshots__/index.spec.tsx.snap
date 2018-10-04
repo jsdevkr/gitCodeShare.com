@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledMenu DropDownMenu should render 1`] = `
+<ul
+  className="ant-menu StyledMenu__DropDownMenu-l7ya14-1 gskOfi ant-menu-light ant-menu-root ant-menu-vertical"
+  role="menu"
+  style={Object {}}
+/>
+`;
+
+exports[`StyledMenu MainNavMenu should render 1`] = `
+<ul
+  className="ant-menu StyledMenu__MainNavMenu-l7ya14-0 bmxFHC ant-menu-light ant-menu-root ant-menu-vertical"
+  role="menu"
+  style={Object {}}
+/>
+`;
