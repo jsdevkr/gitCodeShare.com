@@ -10,6 +10,7 @@ import {
 } from '../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
+import { ApiProvider } from '../providers';
 
 interface IProps {
   className?: string;
@@ -66,8 +67,29 @@ const RightBox = styled(FlexRightBox as any)`
 `;
 
 class MainNav extends Component<IProps> {
+  state = {
+    fork: 0,
+    star: 0,
+  };
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  async getData() {
+    try {
+      const fork = await ApiProvider.GithubRequest.getForkNum();
+      const star = await ApiProvider.GithubRequest.getStarNum();
+      this.setState({ fork, star });
+    } catch (err) {
+      this.setState({ fork: 0, star: 0 });
+      console.log(err);
+    }
+  }
+
   render() {
     const { className } = this.props;
+    const { fork, star } = this.state;
     return (
       <Nav className={className}>
         <NavContainer>
@@ -92,18 +114,18 @@ class MainNav extends Component<IProps> {
           </MainNavMenu>
           <RightBox>
             <SmDownloadButton icon="chrome">Add to Chrome</SmDownloadButton>
-            <div data-align>
+            <a href="https://github.com/kosslab-kr/gitCodeShare.com/stargazers" target="blank" data-align>
               <GithubButton data-violet icon="github">
                 Star
               </GithubButton>
-              <GithubBadge data-violet count={18} />
-            </div>
-            <div data-align>
+              <GithubBadge data-violet count={star} />
+            </a>
+            <a href="https://github.com/kosslab-kr/gitCodeShare.com/network/members" target="blank" data-align>
               <GithubButton data-magenta icon="github">
                 Fork
               </GithubButton>
-              <GithubBadge data-magenta count={7} />
-            </div>
+              <GithubBadge data-magenta count={fork} />
+            </a>
           </RightBox>
         </NavContainer>
       </Nav>

@@ -2,6 +2,7 @@ import { IGist } from '../model/gist';
 import { IContributor } from '../model/contributors';
 
 const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
+const githubApiUrl = 'https://api.github.com/repos/kosslab-kr/gitCodeShare.com';
 
 const ApiProvider = {
   AuthRequest: {
@@ -36,10 +37,22 @@ const ApiProvider = {
       )) as IGist[];
     },
   },
-  ContributorsRequest: {
+  GithubRequest: {
+    async getRepoData() {
+      return (await fetch(githubApiUrl, { method: 'GET' }).then(data => data.json())) as object;
+    },
     async getContributors() {
-      const url = 'https://api.github.com/repos/kosslab-kr/gitCodeShare.com/stats/contributors';
-      return (await fetch(url, { method: 'GET' }).then(data => data.json())) as IContributor;
+      return (await fetch(`${githubApiUrl}/stats/contributors`, { method: 'GET' }).then(data =>
+        data.json(),
+      )) as IContributor;
+    },
+    async getStarNum() {
+      const data = await this.getRepoData();
+      return data.stargazers_count as number;
+    },
+    async getForkNum() {
+      const data = await this.getRepoData();
+      return data.forks_count as number;
     },
   },
 };
