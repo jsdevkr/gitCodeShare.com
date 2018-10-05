@@ -1,9 +1,18 @@
-// It is for typescript interface for later use
-// interface Location {
-//   readonly ancestorOrigins: DOMStringList;
-// }
+/* 
+  It is for typescript interface for later use
 
-function injectGitCodeShare() {
+  interface Location {
+    readonly ancestorOrigins: DOMStringList;
+  } 
+*/
+
+/* 
+  "_1gr3" is unique class of extends btn
+  "_2aha" is unique class name of btn for media content 
+  "_5f0n" is container of "_2aha" 
+*/
+
+function injectGitCodeShareWindow() {
   const iframe = document.createElement('iframe');
   // Must be declared at web_accessible_resources in manifest.json
   iframe.id = 'gitCodeShare';
@@ -20,7 +29,7 @@ function bindToggleEditorEventTo(target) {
   });
 }
 
-/* this function is messy dom approach process for searching suitable location in Facebook DOM jungle. */
+/* This function is messy dom approach process for searching suitable location in Facebook DOM jungle. */
 function injectBtn() {
   const contentBtnCount = document.getElementsByClassName('_2aha').length;
   const getNodes = str => new DOMParser().parseFromString(str, 'text/html').body.childNodes;
@@ -41,8 +50,9 @@ function injectBtn() {
     `,
   )[0];
 
-  /* TODO: fix event binding not working */
   bindToggleEditorEventTo(btn);
+
+  // Add button to suitable position
   if (document.querySelector('._5f0n>tbody')) {
     if (contentBtnCount % 2 === 0) {
       const firstChild = document.createElement('td');
@@ -64,28 +74,21 @@ function injectBtn() {
   }
 }
 
+const isReadyToInsertBtn = () => document.querySelector('._5f0n');
+const isHaveBtnAleady = () => document.querySelector('#codeShareBtn');
+
 const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
 
 if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getElementById('gitCodeShare')) {
-  injectGitCodeShare();
+  injectGitCodeShareWindow();
   console.log('gitCodeShare is injected!');
 
-  /* class name "_1gr3" is unique class of extends btn*/
-  const extendsBtn = document.getElementsByClassName('_1gr3')[0];
-  console.log(extendsBtn);
-  if (extendsBtn) {
-    document.addEventListener('click', e => {
-      const { parentElement } = e.target;
-
-      /* "_2aha" is unique class name of btn for media content */
-      /* "_5f0n" is class name of container of "_2aha" */
-      if (document.querySelector('._5f0n') && !document.querySelector('#codeShareBtn')) {
-        const insertBtn = setInterval(() => {
-          if (!document.querySelector('#codeShareBtn')) {
-            injectBtn();
-          }
-        }, 1000);
+  // We cannot call "clearInterval" because btn can be removed when user change page.
+  const insertBtnInterval = setInterval(() => {
+    if (isReadyToInsertBtn()) {
+      if (!isHaveBtnAleady()) {
+        injectBtn();
       }
-    });
-  }
+    }
+  }, 1000);
 }
