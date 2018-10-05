@@ -21,6 +21,7 @@
   }],
   "permissions": ["storage", "tabs", "activeTab", "*://*.facebook.com/*", "*://*.localhost:*/*"],
   "web_accessible_resources": [
-    "src/frame.html"
+    "src/frame.html",
+    "images/*"    
   ]
 }

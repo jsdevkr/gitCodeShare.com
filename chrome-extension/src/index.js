@@ -29,7 +29,9 @@ function injectBtn() {
     <span role="presentation" id="codeShareBtn">
       <a role="button" aria-pressed="false" href="#">
         <div uiconfig="[object Object]" class="_m_1 _2nst">
-          <i class="_4a0a img sp_caMraDQLjmq_2x sx_9c86db" alt=""></i>
+          <img src=${chrome.extension.getURL(
+            'images/icon.png',
+          )} style="height: 20px;left: 9px;position: absolute;top: 6px;width: 20px;">
           <div data-tooltip-delay="500" data-tooltip-display="overflow" data-tooltip-content="이벤트 태그" data-hover="tooltip" class="_2aha">
             gitCodeShare
           </div>
@@ -70,7 +72,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
 
   /* class name "_1gr3" is unique class of extends btn*/
   const extendsBtn = document.getElementsByClassName('_1gr3')[0];
-
+  console.log(extendsBtn);
   if (extendsBtn) {
     document.addEventListener('click', e => {
       const { parentElement } = e.target;
@@ -78,7 +80,11 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
       /* "_2aha" is unique class name of btn for media content */
       /* "_5f0n" is class name of container of "_2aha" */
       if (document.querySelector('._5f0n') && !document.querySelector('#codeShareBtn')) {
-        injectBtn();
+        const insertBtn = setInterval(() => {
+          if (!document.querySelector('#codeShareBtn')) {
+            injectBtn();
+          }
+        }, 1000);
       }
     });
   }
