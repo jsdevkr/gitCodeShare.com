@@ -10,11 +10,42 @@ import {
   BorderlessButton,
   SCard,
   SCardMeta,
+  StyledAnimation,
 } from '../../styledComponents';
 
 interface IProps {
   className?: string;
 }
+
+const { fadeInLeft, fadeInRight } = StyledAnimation;
+
+const MainContent = styled(PageContent as any)`
+  [data-grid-1] {
+    flex: 0 0 500px;
+  }
+
+  [data-grid-2] {
+    flex: 0 0 450px;
+  }
+
+  [data-textbox-1] {
+    max-width: 360px;
+  }
+
+  [data-fade] {
+    opacity: 0;
+  }
+
+  [data-fade-in-left] {
+    opacity: 1;
+    animation: 1s ${fadeInLeft};
+  }
+
+  [data-fade-in-right] {
+    opacity: 1;
+    animation: 1s ${fadeInRight};
+  }
+`;
 
 const RowFlexBox = styled.div`
   & {
@@ -26,18 +57,6 @@ const RowFlexBox = styled.div`
       flex: 0 0 50%;
       position: relative;
       padding: 0 15px;
-    }
-
-    [data-grid-1] {
-      flex: 0 0 500px;
-    }
-
-    [data-grid-2] {
-      flex: 0 0 450px;
-    }
-
-    [data-textbox-1] {
-      max-width: 360px;
     }
   }
 `;
@@ -119,10 +138,33 @@ const SlideWrap = styled(PageSection as any)`
 `;
 
 class MainPage extends Component<IProps> {
+  animatedDOM: HTMLElement[] = [];
+  initAnimation = this.handleAnimation.bind(this);
+
+  handleAnimation() {
+    let offsetTop = window.pageYOffset + 300;
+
+    if (offsetTop > this.animatedDOM[0].offsetTop) {
+      this.animatedDOM[0].querySelector('img').setAttribute('data-fade-in-right', '');
+    }
+
+    if (offsetTop > this.animatedDOM[1].offsetTop) {
+      this.animatedDOM[1].querySelector('img').setAttribute('data-fade-in-left', '');
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.initAnimation);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.initAnimation);
+  }
+
   render() {
     const { className } = this.props;
     return (
-      <PageContent className={className}>
+      <MainContent className={className}>
         <SlideWrap>
           <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" />
           <div data-layer-1>
@@ -138,7 +180,7 @@ class MainPage extends Component<IProps> {
         </SlideWrap>
         <PageSection>
           <SContainer>
-            <RowFlexBox>
+            <RowFlexBox innerRef={el => (this.animatedDOM[0] = el)}>
               <div data-col data-grid-1>
                 <h3 data-title>Why GitCodeShare?</h3>
                 <div data-textbox-1>
@@ -154,16 +196,16 @@ class MainPage extends Component<IProps> {
                 </div>
               </div>
               <div data-col data-grid-2>
-                <img width="543" src="../../static/images/main_1.png" alt="gitshare 설명 이미지" />
+                <img data-fade width="543" src="../../static/images/main_1.png" alt="gitshare 설명 이미지" />
               </div>
             </RowFlexBox>
           </SContainer>
         </PageSection>
         <PageSection>
           <SContainer>
-            <RowFlexBox>
+            <RowFlexBox innerRef={el => (this.animatedDOM[1] = el)}>
               <div data-col data-grid-1>
-                <img width="578" src="../../static/images/main_2.png" alt="gitshare 설명 이미지" />
+                <img data-fade width="578" src="../../static/images/main_2.png" alt="gitshare 설명 이미지" />
               </div>
               <div data-col data-grid-2>
                 <h3 data-title>
@@ -213,7 +255,7 @@ class MainPage extends Component<IProps> {
             </CodeWrap>
           </SContainer>
         </PageSection>
-      </PageContent>
+      </MainContent>
     );
   }
 }
