@@ -57,14 +57,15 @@ class ContributorsPage extends Component<IProps> {
         <PageSection>
           <SContainer>
             <ContributorsWrap>
-              {contributors.map((contributor: IContributor) => (
-                <a data-col href={contributor.author.html_url} target="blank">
-                  <SCard cover={<img alt="example" src={contributor.author.avatar_url} />}>
-                    <SCardMeta title={contributor.author.login} description="Developer" />
-                    <SCardMetaDetail description="개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명" />
-                  </SCard>
-                </a>
-              ))}
+              {contributors &&
+                contributors.map((contributor: IContributor) => (
+                  <a data-col href={contributor.author.html_url} target="blank">
+                    <SCard cover={<img alt="example" src={contributor.author.avatar_url} />}>
+                      <SCardMeta title={contributor.author.login} description="Developer" />
+                      <SCardMetaDetail description="개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명" />
+                    </SCard>
+                  </a>
+                ))}
             </ContributorsWrap>
           </SContainer>
         </PageSection>

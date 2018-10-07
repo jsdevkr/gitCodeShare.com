@@ -1,4 +1,5 @@
 declare module 'react-animations' {
+  export const merge: Styles;
   export const bouceOut: Styles;
   export const bounce: Styles;
   export const bounceIn: Styles;
