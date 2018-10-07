@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { default as ApiProvider } from '../providers/ApiProvider';
+import { ApiProvider } from '../providers';
 import { IGist } from '../model/gist';
 import { SLayout } from '../styledComponents';
 
@@ -20,7 +20,7 @@ class Starred extends React.Component<IProps> {
       this.setState({ list });
     } catch (err) {
       this.setState({ list: [] });
-      console.log(err);
+      console.log(JSON.stringify(err));
     }
   }
 

@@ -17,7 +17,7 @@ class Contributors extends React.Component<IProps> {
 
   async getContributors() {
     try {
-      const contributors: IContributor = await ApiProvider.GithubRequest.getContributors();
+      const contributors: IContributor[] = await ApiProvider.GithubRequest.getContributors();
       this.setState({ contributors });
     } catch (err) {
       this.setState({ contributors: [] });

@@ -10,6 +10,7 @@ import ImageHandler from './handlers/image';
 import gistRouter from './handlers/gist';
 import authRouter from './handlers/auth';
 
+import { CacheProvider } from '../providers';
 import uuid from 'uuid/v4';
 
 const MemoryStore = require('memorystore')(session);
@@ -41,6 +42,7 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   // set up
   const server = express();
   const imageHandler = ImageHandler(browser);
+  CacheProvider.start(null);
 
   if (dev) {
     server.use(morgan('tiny'));
@@ -80,7 +82,13 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   });
 
   // api endpoints
-  server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
+  server.post(`${proxyContext}/image`, bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
+
+  // error handler
+  server.use(function(err, req, res, next) {
+    console.error(err);
+    res.status(500).send();
+  });
 
   server.listen(port, '0.0.0.0', err => {
     if (err) {

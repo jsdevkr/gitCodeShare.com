@@ -28,7 +28,7 @@ app.prepare().then(() => {
   server.use(
     `${proxyContext}`,
     proxy({
-      target: `http://localhost:${process.env.BACKEND_PORT || 3030}`,
+      target: `http://localhost:${parseInt(process.env.BACKEND_PORT, 10) || 3030}`,
       onError: (err, req, res) => {
         if (!res.headersSent) {
           if (typeof res.writeHead === 'function') {
