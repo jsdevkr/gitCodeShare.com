@@ -6,12 +6,6 @@
   } 
 */
 
-/* 
-  "_1gr3" is unique class of extends btn
-  "_2aha" is unique class name of btn for media content 
-  "_5f0n" is container of "_2aha" 
-*/
-
 function injectGitCodeShareWindow() {
   const iframe = document.createElement('iframe');
   // Must be declared at web_accessible_resources in manifest.json
@@ -31,7 +25,7 @@ function bindToggleEditorEventTo(target) {
 
 /* This function is messy dom approach process for searching suitable location in Facebook DOM jungle. */
 function injectBtn() {
-  const contentBtnCount = document.getElementsByClassName('_2aha').length;
+  const contentBtnCount = document.querySelectorAll(`div[data-testid="expanded-sprout-list"] td`).length;
   const getNodes = str => new DOMParser().parseFromString(str, 'text/html').body.childNodes;
   const btn = getNodes(
     `
@@ -53,7 +47,7 @@ function injectBtn() {
   bindToggleEditorEventTo(btn);
 
   // Add button to suitable position
-  if (document.querySelector('._5f0n>tbody')) {
+  if (document.querySelector(`div[data-testid="expanded-sprout-list"]>table>tbody`)) {
     if (contentBtnCount % 2 === 0) {
       const firstChild = document.createElement('td');
       const secondChild = document.createElement('td');
@@ -67,14 +61,16 @@ function injectBtn() {
       parent.appendChild(firstChild);
       parent.appendChild(secondChild);
 
-      document.querySelector('._5f0n>tbody').appendChild(parent);
+      document.querySelector(`div[data-testid="expanded-sprout-list"]>table>tbody`).appendChild(parent);
     } else {
-      document.querySelector('._5f0n>tbody').lastChild.lastChild.appendChild(btn);
+      document
+        .querySelector(`div[data-testid="expanded-sprout-list"]>table>tbody`)
+        .lastChild.lastChild.appendChild(btn);
     }
   }
 }
 
-const isReadyToInsertBtn = () => document.querySelector('._5f0n');
+const isReadyToInsertBtn = () => document.querySelector('div[data-testid="expanded-sprout-list"]>table');
 const isHaveBtnAleady = () => document.querySelector('#codeShareBtn');
 
 const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
