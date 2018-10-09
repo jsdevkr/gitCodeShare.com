@@ -25,7 +25,11 @@ function bindToggleEditorEventTo(target) {
 
 /* This function is messy dom approach process for searching suitable location in Facebook DOM jungle. */
 function injectBtn() {
-  const contentBtnCount = document.querySelectorAll(`div[data-testid="expanded-sprout-list"] td`).length;
+  const contBtns = Array.prototype.filter.call(
+    document.querySelectorAll(`div[data-testid="expanded-sprout-list"] td`) || [],
+    n => n.hasChildNodes(),
+  );
+  const btnsCount = Array.isArray(contBtns) ? contBtns.filter(n => n.hasChildNodes()).length : 0;
   const getNodes = str => new DOMParser().parseFromString(str, 'text/html').body.childNodes;
   const btn = getNodes(
     `
@@ -48,7 +52,7 @@ function injectBtn() {
 
   // Add button to suitable position
   if (document.querySelector(`div[data-testid="expanded-sprout-list"]>table>tbody`)) {
-    if (contentBtnCount % 2 === 0) {
+    if (btnsCount % 2 === 0) {
       const firstChild = document.createElement('td');
       const secondChild = document.createElement('td');
 
