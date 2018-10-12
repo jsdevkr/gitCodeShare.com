@@ -1,6 +1,6 @@
 import { injectGlobal } from 'styled-components';
 import styledNormalize from 'styled-normalize';
-import './app-scss/antd-theme.less';
+import './app-scss/antd-theme-rewrite.less';
 import './app-scss/app.scss';
 
 injectGlobal`
