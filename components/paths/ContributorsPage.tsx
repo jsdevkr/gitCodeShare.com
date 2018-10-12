@@ -46,26 +46,27 @@ class ContributorsPage extends Component<IProps> {
       <PageContent>
         <TitleSection>
           <h3 data-title>Contributors</h3>
-          <div data-subtitle>
+          <p>
             Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit
             elit,
             <br />
             elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies
             sapien.
-          </div>
+          </p>
         </TitleSection>
         <PageSection>
           <SContainer>
             <ContributorsWrap>
-              {contributors &&
-                contributors.map((contributor: IContributor) => (
-                  <a data-col href={contributor.author.html_url} target="blank">
-                    <SCard cover={<img alt="example" src={contributor.author.avatar_url} />}>
-                      <SCardMeta title={contributor.author.login} description="Developer" />
-                      <SCardMetaDetail description="개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명" />
-                    </SCard>
-                  </a>
-                ))}
+              {contributors.length
+                ? contributors.map((contributor: IContributor) => (
+                    <a data-col href={contributor.author.html_url} target="blank">
+                      <SCard cover={<img alt="example" src={contributor.author.avatar_url} />}>
+                        <SCardMeta title={contributor.author.login} description="Developer" />
+                        <SCardMetaDetail description="개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명" />
+                      </SCard>
+                    </a>
+                  ))
+                : '컨트리뷰터를 로드 중입니다'}
             </ContributorsWrap>
           </SContainer>
         </PageSection>

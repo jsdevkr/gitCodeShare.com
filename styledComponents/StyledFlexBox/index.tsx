@@ -51,17 +51,20 @@ export function StyledFlexBox(props: IFlexBoxProps) {
 }
 
 export const RowFlex = StyledFlexBox({
-  align: 'center',
   direction: 'row',
   wrap: 'wrap',
 });
 
 export const ColumnFlex = StyledFlexBox({
-  justify: 'center',
-  align: 'center',
   direction: 'column',
   wrap: 'wrap',
 });
+
+export const FlexLeftBox = styled.div`
+  margin-right: auto;
+  display: inherit;
+  align-items: center;
+`;
 
 export const FlexRightBox = styled.div`
   margin-left: auto;

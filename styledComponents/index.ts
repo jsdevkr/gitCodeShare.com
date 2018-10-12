@@ -1,6 +1,6 @@
 export { default as styled, ThemeProvider, withTheme } from 'styled-components';
 export { default as theme } from './theme';
-export { default as StyledFlexBox, RowFlex, ColumnFlex, FlexRightBox } from './StyledFlexBox';
+export { default as StyledFlexBox, RowFlex, ColumnFlex, FlexLeftBox, FlexRightBox } from './StyledFlexBox';
 export { SLayout, MContainer, SContainer, PageContent, PageSection, TitleSection } from './StyledLayout';
 export {
   RoundedButton,

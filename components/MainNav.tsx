@@ -7,6 +7,7 @@ import {
   MainNavMenu,
   SContainer,
   FlexRightBox,
+  RowFlex,
 } from '../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
@@ -18,10 +19,8 @@ interface IProps {
 
 const { Header } = Layout;
 const Nav = styled(Header as any)`
-  display: flex;
-  justify-content: flex-start;
+  ${RowFlex};
   align-items: center;
-  flex-flow: row wrap;
   height: 70px;
   background-color: ${props => props.theme.primaryColor};
 `;
@@ -95,7 +94,7 @@ class MainNav extends Component<IProps> {
         <NavContainer>
           <h1 data-align>
             <Link href="/">
-              <a>
+              <a data-align>
                 <img src="/static/logo.png" alt="GitShareCode" />
               </a>
             </Link>
@@ -113,7 +112,11 @@ class MainNav extends Component<IProps> {
             </MainNavMenu.Item>
           </MainNavMenu>
           <RightBox>
-            <SmDownloadButton icon="chrome">Add to Chrome</SmDownloadButton>
+            <Link href="/extension">
+              <a data-align>
+                <SmDownloadButton icon="chrome">Add to Chrome</SmDownloadButton>
+              </a>
+            </Link>
             <a href="https://github.com/kosslab-kr/gitCodeShare.com/stargazers" target="blank" data-align>
               <GithubButton data-violet icon="github">
                 Star

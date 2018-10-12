@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { styled, SContainer, MainNavMenu, FlexRightBox } from '../styledComponents';
+import { styled, SContainer, MainNavMenu, FlexRightBox, RowFlex } from '../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
 
@@ -7,24 +7,18 @@ interface IProps {}
 
 const { Footer } = Layout;
 const FooterWrap = styled(Footer as any)`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-flow: row wrap;
+  ${RowFlex};
   height: 200px;
   background-color: ${props => props.theme.primaryColor};
 `;
 
 const FooterContainer = styled(SContainer as any)`
   display: inherit;
+  padding-top: 28px;
 
   address {
     margin: auto 0;
   }
-`;
-
-const RightBox = styled(FlexRightBox as any)`
-  display: inline-block;
 `;
 
 class MainFooter extends Component<IProps> {
@@ -33,7 +27,7 @@ class MainFooter extends Component<IProps> {
       <FooterWrap>
         <FooterContainer>
           <address>GitCodeShare.com ⓒ 2018</address>
-          <RightBox>
+          <FlexRightBox>
             <MainNavMenu mode="horizontal">
               <MainNavMenu.Item>
                 <Link href="/">
@@ -61,7 +55,7 @@ class MainFooter extends Component<IProps> {
                 </Link>
               </MainNavMenu.Item>
             </MainNavMenu>
-          </RightBox>
+          </FlexRightBox>
         </FooterContainer>
       </FooterWrap>
     );
