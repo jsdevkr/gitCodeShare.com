@@ -6,7 +6,7 @@ import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
 import { MainNav, MainFooter, MainPage } from '../components';
 import { SLayout } from '../styledComponents';
-import CodeEditor from '../components/CodeEditor';
+import { CodeViewPage } from '../components';
 
 interface IProps {
   appStore?: IAppStore;
@@ -26,17 +26,11 @@ class App extends React.Component<IProps> {
     const { gistId } = this.props;
     gistId && this.props.appStore.editor.getGist(gistId);
     return (
-      <>
-        {gistId ? (
-          <CodeEditor />
-        ) : (
-          <SLayout>
-            <MainNav />
-            <MainPage />
-            <MainFooter />
-          </SLayout>
-        )}
-      </>
+      <SLayout>
+        <MainNav />
+        {gistId ? <CodeViewPage /> : <MainPage />}
+        <MainFooter />
+      </SLayout>
     );
   }
 }
