@@ -32,6 +32,6 @@ exports[`StyledLayout SLayout should render 1`] = `
 
 exports[`StyledLayout TitleSection should render 1`] = `
 <div
-  className="StyledLayout__TitleSection-sc-1ec2pa7-5 gRXLZX"
+  className="StyledLayout__TitleSection-sc-1ec2pa7-5 ljYADK"
 />
 `;
