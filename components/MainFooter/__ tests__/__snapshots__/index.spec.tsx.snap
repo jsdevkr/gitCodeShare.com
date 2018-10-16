@@ -1,0 +1,1009 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainFooter should render 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MainFooter />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": <MainFooter__FooterContainer>
+        <address>
+          gitCodeShare.com ⓒ 2018
+        </address>
+        <MainFooter__RightBox>
+          <StyledMenu__MainNavMenu
+            mode="horizontal"
+          >
+            <MenuItem>
+              <Link
+                href="https://jsdev.kr/"
+              >
+                <a
+                  target="_blank"
+                >
+                  JSDEVKR
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                href="/contributors"
+              >
+                <a>
+                  Contributors
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                href="https://github.com/kosslab-kr/gitCodeShare.com"
+              >
+                <a
+                  target="_blank"
+                >
+                  Github Repository
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                href="/"
+              >
+                <a>
+                  Terms of Service
+                </a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link
+                href="/"
+              >
+                <a>
+                  Privacy Police
+                </a>
+              </Link>
+            </MenuItem>
+          </StyledMenu__MainNavMenu>
+        </MainFooter__RightBox>
+      </MainFooter__FooterContainer>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <address>
+            gitCodeShare.com ⓒ 2018
+          </address>,
+          <MainFooter__RightBox>
+            <StyledMenu__MainNavMenu
+              mode="horizontal"
+            >
+              <MenuItem>
+                <Link
+                  href="https://jsdev.kr/"
+                >
+                  <a
+                    target="_blank"
+                  >
+                    JSDEVKR
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/contributors"
+                >
+                  <a>
+                    Contributors
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="https://github.com/kosslab-kr/gitCodeShare.com"
+                >
+                  <a
+                    target="_blank"
+                  >
+                    Github Repository
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/"
+                >
+                  <a>
+                    Terms of Service
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/"
+                >
+                  <a>
+                    Privacy Police
+                  </a>
+                </Link>
+              </MenuItem>
+            </StyledMenu__MainNavMenu>
+          </MainFooter__RightBox>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "gitCodeShare.com ⓒ 2018",
+          },
+          "ref": null,
+          "rendered": "gitCodeShare.com ⓒ 2018",
+          "type": "address",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <StyledMenu__MainNavMenu
+              mode="horizontal"
+            >
+              <MenuItem>
+                <Link
+                  href="https://jsdev.kr/"
+                >
+                  <a
+                    target="_blank"
+                  >
+                    JSDEVKR
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/contributors"
+                >
+                  <a>
+                    Contributors
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="https://github.com/kosslab-kr/gitCodeShare.com"
+                >
+                  <a
+                    target="_blank"
+                  >
+                    Github Repository
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/"
+                >
+                  <a>
+                    Terms of Service
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/"
+                >
+                  <a>
+                    Privacy Police
+                  </a>
+                </Link>
+              </MenuItem>
+            </StyledMenu__MainNavMenu>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                <MenuItem>
+                  <Link
+                    href="https://jsdev.kr/"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      JSDEVKR
+                    </a>
+                  </Link>
+                </MenuItem>,
+                <MenuItem>
+                  <Link
+                    href="/contributors"
+                  >
+                    <a>
+                      Contributors
+                    </a>
+                  </Link>
+                </MenuItem>,
+                <MenuItem>
+                  <Link
+                    href="https://github.com/kosslab-kr/gitCodeShare.com"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      Github Repository
+                    </a>
+                  </Link>
+                </MenuItem>,
+                <MenuItem>
+                  <Link
+                    href="/"
+                  >
+                    <a>
+                      Terms of Service
+                    </a>
+                  </Link>
+                </MenuItem>,
+                <MenuItem>
+                  <Link
+                    href="/"
+                  >
+                    <a>
+                      Privacy Police
+                    </a>
+                  </Link>
+                </MenuItem>,
+              ],
+              "mode": "horizontal",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <Link
+                    href="https://jsdev.kr/"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      JSDEVKR
+                    </a>
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <a
+                      target="_blank"
+                    >
+                      JSDEVKR
+                    </a>,
+                    "href": "https://jsdev.kr/",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "JSDEVKR",
+                      "target": "_blank",
+                    },
+                    "ref": null,
+                    "rendered": "JSDEVKR",
+                    "type": "a",
+                  },
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <Link
+                    href="/contributors"
+                  >
+                    <a>
+                      Contributors
+                    </a>
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <a>
+                      Contributors
+                    </a>,
+                    "href": "/contributors",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Contributors",
+                    },
+                    "ref": null,
+                    "rendered": "Contributors",
+                    "type": "a",
+                  },
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <Link
+                    href="https://github.com/kosslab-kr/gitCodeShare.com"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      Github Repository
+                    </a>
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <a
+                      target="_blank"
+                    >
+                      Github Repository
+                    </a>,
+                    "href": "https://github.com/kosslab-kr/gitCodeShare.com",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Github Repository",
+                      "target": "_blank",
+                    },
+                    "ref": null,
+                    "rendered": "Github Repository",
+                    "type": "a",
+                  },
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <Link
+                    href="/"
+                  >
+                    <a>
+                      Terms of Service
+                    </a>
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <a>
+                      Terms of Service
+                    </a>,
+                    "href": "/",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Terms of Service",
+                    },
+                    "ref": null,
+                    "rendered": "Terms of Service",
+                    "type": "a",
+                  },
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": <Link
+                    href="/"
+                  >
+                    <a>
+                      Privacy Police
+                    </a>
+                  </Link>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <a>
+                      Privacy Police
+                    </a>,
+                    "href": "/",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Privacy Police",
+                    },
+                    "ref": null,
+                    "rendered": "Privacy Police",
+                    "type": "a",
+                  },
+                  "type": [Function],
+                },
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <MainFooter__FooterContainer>
+          <address>
+            gitCodeShare.com ⓒ 2018
+          </address>
+          <MainFooter__RightBox>
+            <StyledMenu__MainNavMenu
+              mode="horizontal"
+            >
+              <MenuItem>
+                <Link
+                  href="https://jsdev.kr/"
+                >
+                  <a
+                    target="_blank"
+                  >
+                    JSDEVKR
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/contributors"
+                >
+                  <a>
+                    Contributors
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="https://github.com/kosslab-kr/gitCodeShare.com"
+                >
+                  <a
+                    target="_blank"
+                  >
+                    Github Repository
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/"
+                >
+                  <a>
+                    Terms of Service
+                  </a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/"
+                >
+                  <a>
+                    Privacy Police
+                  </a>
+                </Link>
+              </MenuItem>
+            </StyledMenu__MainNavMenu>
+          </MainFooter__RightBox>
+        </MainFooter__FooterContainer>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <address>
+              gitCodeShare.com ⓒ 2018
+            </address>,
+            <MainFooter__RightBox>
+              <StyledMenu__MainNavMenu
+                mode="horizontal"
+              >
+                <MenuItem>
+                  <Link
+                    href="https://jsdev.kr/"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      JSDEVKR
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="/contributors"
+                  >
+                    <a>
+                      Contributors
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="https://github.com/kosslab-kr/gitCodeShare.com"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      Github Repository
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="/"
+                  >
+                    <a>
+                      Terms of Service
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="/"
+                  >
+                    <a>
+                      Privacy Police
+                    </a>
+                  </Link>
+                </MenuItem>
+              </StyledMenu__MainNavMenu>
+            </MainFooter__RightBox>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "gitCodeShare.com ⓒ 2018",
+            },
+            "ref": null,
+            "rendered": "gitCodeShare.com ⓒ 2018",
+            "type": "address",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <StyledMenu__MainNavMenu
+                mode="horizontal"
+              >
+                <MenuItem>
+                  <Link
+                    href="https://jsdev.kr/"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      JSDEVKR
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="/contributors"
+                  >
+                    <a>
+                      Contributors
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="https://github.com/kosslab-kr/gitCodeShare.com"
+                  >
+                    <a
+                      target="_blank"
+                    >
+                      Github Repository
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="/"
+                  >
+                    <a>
+                      Terms of Service
+                    </a>
+                  </Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link
+                    href="/"
+                  >
+                    <a>
+                      Privacy Police
+                    </a>
+                  </Link>
+                </MenuItem>
+              </StyledMenu__MainNavMenu>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  <MenuItem>
+                    <Link
+                      href="https://jsdev.kr/"
+                    >
+                      <a
+                        target="_blank"
+                      >
+                        JSDEVKR
+                      </a>
+                    </Link>
+                  </MenuItem>,
+                  <MenuItem>
+                    <Link
+                      href="/contributors"
+                    >
+                      <a>
+                        Contributors
+                      </a>
+                    </Link>
+                  </MenuItem>,
+                  <MenuItem>
+                    <Link
+                      href="https://github.com/kosslab-kr/gitCodeShare.com"
+                    >
+                      <a
+                        target="_blank"
+                      >
+                        Github Repository
+                      </a>
+                    </Link>
+                  </MenuItem>,
+                  <MenuItem>
+                    <Link
+                      href="/"
+                    >
+                      <a>
+                        Terms of Service
+                      </a>
+                    </Link>
+                  </MenuItem>,
+                  <MenuItem>
+                    <Link
+                      href="/"
+                    >
+                      <a>
+                        Privacy Police
+                      </a>
+                    </Link>
+                  </MenuItem>,
+                ],
+                "mode": "horizontal",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <Link
+                      href="https://jsdev.kr/"
+                    >
+                      <a
+                        target="_blank"
+                      >
+                        JSDEVKR
+                      </a>
+                    </Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": <a
+                        target="_blank"
+                      >
+                        JSDEVKR
+                      </a>,
+                      "href": "https://jsdev.kr/",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "JSDEVKR",
+                        "target": "_blank",
+                      },
+                      "ref": null,
+                      "rendered": "JSDEVKR",
+                      "type": "a",
+                    },
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <Link
+                      href="/contributors"
+                    >
+                      <a>
+                        Contributors
+                      </a>
+                    </Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": <a>
+                        Contributors
+                      </a>,
+                      "href": "/contributors",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Contributors",
+                      },
+                      "ref": null,
+                      "rendered": "Contributors",
+                      "type": "a",
+                    },
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <Link
+                      href="https://github.com/kosslab-kr/gitCodeShare.com"
+                    >
+                      <a
+                        target="_blank"
+                      >
+                        Github Repository
+                      </a>
+                    </Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": <a
+                        target="_blank"
+                      >
+                        Github Repository
+                      </a>,
+                      "href": "https://github.com/kosslab-kr/gitCodeShare.com",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Github Repository",
+                        "target": "_blank",
+                      },
+                      "ref": null,
+                      "rendered": "Github Repository",
+                      "type": "a",
+                    },
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <Link
+                      href="/"
+                    >
+                      <a>
+                        Terms of Service
+                      </a>
+                    </Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": <a>
+                        Terms of Service
+                      </a>,
+                      "href": "/",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Terms of Service",
+                      },
+                      "ref": null,
+                      "rendered": "Terms of Service",
+                      "type": "a",
+                    },
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": <Link
+                      href="/"
+                    >
+                      <a>
+                        Privacy Police
+                      </a>
+                    </Link>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "children": <a>
+                        Privacy Police
+                      </a>,
+                      "href": "/",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Privacy Police",
+                      },
+                      "ref": null,
+                      "rendered": "Privacy Police",
+                      "type": "a",
+                    },
+                    "type": [Function],
+                  },
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

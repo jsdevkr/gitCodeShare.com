@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { styled, SContainer, MainNavMenu, FlexRightBox } from '../styledComponents';
+import { styled, SContainer, MainNavMenu, FlexRightBox } from '../../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
 
@@ -32,22 +32,22 @@ class MainFooter extends Component<IProps> {
     return (
       <FooterWrap>
         <FooterContainer>
-          <address>GitCodeShare.com ⓒ 2018</address>
+          <address>gitCodeShare.com ⓒ 2018</address>
           <RightBox>
             <MainNavMenu mode="horizontal">
               <MainNavMenu.Item>
-                <Link href="/">
-                  <a>JSDEVKR</a>
+                <Link href="https://jsdev.kr/">
+                  <a target="_blank">JSDEVKR</a>
                 </Link>
               </MainNavMenu.Item>
               <MainNavMenu.Item>
-                <Link href="/">
+                <Link href="/contributors">
                   <a>Contributors</a>
                 </Link>
               </MainNavMenu.Item>
               <MainNavMenu.Item>
-                <Link href="/">
-                  <a>Github Repository</a>
+                <Link href="https://github.com/kosslab-kr/gitCodeShare.com">
+                  <a target="_blank">Github Repository</a>
                 </Link>
               </MainNavMenu.Item>
               <MainNavMenu.Item>
