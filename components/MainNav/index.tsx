@@ -8,10 +8,10 @@ import {
   SContainer,
   FlexRightBox,
   RowFlex,
-} from '../styledComponents';
+} from '../../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
-import { ApiProvider } from '../providers';
+import { ApiProvider } from '../../providers';
 
 interface IProps {
   className?: string;
