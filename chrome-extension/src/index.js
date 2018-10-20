@@ -77,14 +77,13 @@ function injectBtn() {
 }
 
 function bindCloseEvent() {
-  const parentDom = document.getElementById('pagelet_composer');
-  const targetDom = parentDom.querySelectorAll('div[role]')[0];
+  const uniqueElement = document.querySelector('[data-testid="react-composer-root"]');
+  const targetDom = uniqueElement.closest('div[role="dialog"]');
   const gitCodeShareModal = document.getElementById('gitCodeShare');
-
   document.body.addEventListener('click', function(e) {
     const isClickedBackground = e.target.closest("[role='presentation']") !== null;
     const isClickedCloseButton = e.target.parentNode.getAttribute('role') === 'button';
-    const targetDomRole = targetDom.getAttribute('role');
+    const targetDomRole = targetDom ? targetDom.getAttribute('role') : '';
     const preventClickEvent = targetDomRole === 'region';
 
     if (preventClickEvent) {
@@ -105,7 +104,6 @@ const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
 
 if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getElementById('gitCodeShare')) {
   injectGitCodeShareWindow();
-  bindCloseEvent();
   console.log('gitCodeShare is injected!');
 
   // We cannot call "clearInterval" because btn can be removed when user change page.
@@ -113,6 +111,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
     if (isReadyToInsertBtn()) {
       if (!isHaveBtnAleady()) {
         injectBtn();
+        bindCloseEvent();
       }
     }
   }, 1000);
