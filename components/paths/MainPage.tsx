@@ -102,7 +102,7 @@ const SlideWrap = styled(PageSection as any)`
       width: 100%;
       max-width: 1208px;
       object-fit: cover;
-
+      /* opacity: 0.8; */
       [data-svg] {
         position: absolute;
         object-fit: cover;
@@ -123,6 +123,16 @@ const SlideWrap = styled(PageSection as any)`
     [data-layer-1] {
       position: relative;
       z-index: 9;
+    }
+
+    [data-bg] {
+      background: radial-gradient(#000, transparent, rgba(0, 0, 0, 0.9), #000);
+      /* background: radial-gradient(transparent, #000); */
+      position: absolute;
+      /* left: 0; */
+      top: 0;
+      width: 100%;
+      height: 100%;
     }
 
     [data-title] {
@@ -196,6 +206,7 @@ class MainPage extends Component<IProps> {
             <img data-svg data-svg-2 src="../../static/images/svg/main-graphic-02.svg" alt="슬라이드 배경 애니메이션" />
             <img data-svg data-svg-3 src="../../static/images/svg/main-graphic-03.svg" alt="슬라이드 배경 애니메이션" />
           </div>
+          <div data-bg />
           {/* <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" /> */}
           <div data-layer-1>
             <h3 data-title>Share your code beautifully</h3>
