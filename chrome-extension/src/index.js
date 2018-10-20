@@ -7,21 +7,33 @@
 */
 
 function injectGitCodeShareWindow() {
-  const iframe = document.createElement('iframe');
-  // Must be declared at web_accessible_resources in manifest.json
-  iframe.id = 'gitCodeShare';
-  // iframe.src = chrome.runtime.getURL('src/frame.html');
-  iframe.src = 'http://localhost:3000/editor';
-
-  iframe.style.cssText = 'position:fixed;top:10%;right:10%;display:none;width:80%;height:70%;z-index:1000;';
-  document.body.appendChild(iframe);
+  const div = document.createElement('div');
+  div.innerHTML = `
+    <div class="editor">
+      <div class="editor__back">
+        <iframe id="gitCodeShare" class="editor__iframe" src="http://localhost:3000/fbeditor"></iframe>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(div);
 }
 
 function bindToggleEditorEventTo(target) {
-  target.addEventListener('click', e => {
-    e.stopPropagation();
-    const editor = document.getElementById('gitCodeShare');
+  const editor = document.querySelector('.editor');
+  const iframe = editor.querySelector('iframe');
+  target.addEventListener('click', () => {
     editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
+    editor.style.opacity = editor.style.opacity === '0' ? '1' : '0';
+  });
+  editor.addEventListener('click', e => {
+    e.target.style.display = e.target.style.display === 'none' ? 'block' : 'none';
+    e.target.style.opacity = e.target.style.opacity === '0' ? '1' : '0';
+  });
+  window.addEventListener('message', e => {
+    if (e.origin === 'http://localhost:3000') {
+      console.log(e);
+      iframe.style.height = e.data.value;
+    }
   });
 }
 
