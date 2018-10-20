@@ -4,9 +4,6 @@ dotenv.config();
 import { Request, Response, NextFunction, Router } from 'express';
 import request from 'request';
 import { name, version } from './../../package.json';
-import fs from 'fs';
-import fetch from 'node-fetch';
-import { IAuthor } from 'model/contributors.js';
 
 const router: Router = Router();
 
@@ -40,47 +37,48 @@ router.get('/repos', (req: Request, res: Response, next: NextFunction) => {
   );
 });
 
-router.get('/contributors', async (req: Request, res: Response, next: NextFunction) => {
-  function readContributorFile(): Promise<IAuthor[]> {
-    return new Promise(resolve => {
-      fs.readFile('.all-contributorsrc', (err, data) => {
-        if (err) {
-          throw err;
-        }
-
-        const contributors = JSON.parse(data as any).contributors;
-        resolve(contributors);
-      });
-    });
-  }
-
-  const getDetails = async login => {
-    const response = await fetch(`${apiBaseUrl}/users/${login}`, {
+router.get('/contributors', (req: Request, res: Response, next: NextFunction) => {
+  request.get(
+    `${apiBaseUrl}/repos/kosslab-kr/gitCodeShare.com/stats/contributors`,
+    {
+      json: true,
       headers: {
         ...headers,
         'Content-Type': 'application/json; charset=utf-8',
         'User-Agent': `${name}/${version}`,
       },
-    });
-    const data = await response.json();
-    return data as IAuthor;
-  };
+    },
+    (err, response, body) => {
+      if (err) {
+        console.log(err);
+        return next(err);
+      }
 
-  let promises = [];
+      return res.status(200).json(body);
+    },
+  );
+});
 
-  let gitCodeShareContributors = await readContributorFile();
-  gitCodeShareContributors.forEach(i => {
-    promises.push(getDetails(i.login));
-  });
+router.get('/users/:user_id', (req: Request, res: Response, next: NextFunction) => {
+  request.get(
+    `${apiBaseUrl}/users/${req.params.user_id}`,
+    {
+      json: true,
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json; charset=utf-8',
+        'User-Agent': `${name}/${version}`,
+      },
+    },
+    (err, response, body) => {
+      if (err) {
+        console.log(err);
+        return next(err);
+      }
 
-  Promise.all(promises)
-    .then(values => {
-      return res.status(200).json(values);
-    })
-    .catch(err => {
-      console.log(err);
-      next(err);
-    });
+      return res.status(200).json(body);
+    },
+  );
 });
 
 export default router;

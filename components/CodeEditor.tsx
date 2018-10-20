@@ -233,7 +233,7 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
           {!editor.gistId && (
             <ViewsBottom>
               <LineButton onClick={editor.captureImage}>Save & Share to Facebook</LineButton>
-              <LineButton onClick={editor.openPopup}>openPopup</LineButton>
+              <LineButton onClick={editor.printCode}>printCode</LineButton>
               <LineButton onClick={editor.createGist}>Save & Get Share Link</LineButton>
             </ViewsBottom>
           )}
