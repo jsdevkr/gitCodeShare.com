@@ -3,8 +3,6 @@ node_js: '8'
 cache:
   directories:
     - node_modules
-before_install:
-  - chmod +x bin/deploy.sh
 install:
   - npm install
 script:
@@ -12,7 +10,11 @@ script:
 before_deploy:
   - npm install now --no-save
 deploy:
-  - bash ./bin/deploy.sh
+  - provider: script
+    script: now --token $NOW_TOKEN
+    skip_cleanup: true
+    on:
+      master: true
 env:
   global:
     - secure: DU0WEsyNXXkmiIBK6JGNMw8uIyiKoYswm0lpZqqF4Oum69D4IemtAvBALnDZBbqgOM6f2u0NmAS0uzyGxD26mfBos0P2NvzsNHRT18iGArKzAylR4kBw3QkEByDQgo4H4+fx6Tiaev/ZBDIYVQNDPPpItd7pcauAdzDRWA7rZMlJFJNuSA67v4EDciSuRg6LmeDimOOEcL4lNryAEI+EGII/q1ZKYuUdCa7iAswnUNHYzu+2ygdkluMlF39aadtCTYggBXNVBaweOnaxK7R/U/z01amPJNhunI+8F/c/9FjMjnPT+gulnmMWPbHSF6XDsppEfdrcNG35QdOcwX0U8vhVmpuKqTvvL/EQTSvS08AXx6fQxfu2BtVCKoG04rpvYHeXtmPEyVBaMloPeZRULzyCXdqRfmxH5lfSs5pZciupqyn+k3HAVLV0ajW5+aOBa58DOciP339HMoCFncYYIjs1LXPGYNlA10jXf2RXgpNYtmhWM6Iraka8UADZ01iCyMZ7Cv0x7tduJ+fD4qvzMuUEObk5lCEmxsATceFLLgLf9wDSxCsfkfkXVmKxVJOf7+48lwgA6KOQZ/Hkjr9JVfMNJfc1FBROSjvtoE7h+HGrbfBCdLk++30A0AGIihRxLMCd9HBGFQcP1ojURinuV4YGn0cj4LZPNAzYLkj8yok=
