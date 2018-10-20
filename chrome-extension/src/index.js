@@ -112,7 +112,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
     if (isReadyToInsertBtn()) {
       if (!isHaveBtnAleady()) {
         injectBtn();
-        bindCloseEvent();
+        // bindCloseEvent();
       }
     }
   }, 1000);

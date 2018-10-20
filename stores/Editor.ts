@@ -13,6 +13,7 @@ import {
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
 import { Instance, types, getEnv, flow } from 'mobx-state-tree';
+import { message } from 'antd';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -87,6 +88,7 @@ export const Editor = types
       });
     },
     createGist: async e => {
+      const hide = message.loading('Saving...', 0);
       const filename = `source${self.language.ext || ''}`;
       const data = await getEnv(self).provider.GistRequest.createGist({
         public: true,
@@ -96,7 +98,8 @@ export const Editor = types
           },
         },
       });
-      window.parent.postMessage({ type: 'success', value: `http://localhost:3000/?${data.id}` }, '*');
+      window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${data.id} ` }, '*');
+      hide();
     },
     login: () => {
       getEnv(self).provider.AuthRequest.login();
