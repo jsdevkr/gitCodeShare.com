@@ -8,7 +8,7 @@
     "dev:front": "node ./bin/front.js",
     "dev:backend": "nodemon --watch server -e ts,js ./bin/server.js",
     "build": "next build",
-    "deploy": "now",
+    "deploy": "now --token=$NOW_TOKEN",
     "test": "jest --noStackTrace --watch -u",
     "test:ci": "jest -w=4 --silent --noStackTrace --forceExit",
     "test:skip": "echo \"Skip test\" && exit 0",
