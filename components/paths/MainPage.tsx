@@ -11,6 +11,7 @@ import {
   SCard,
   SCardMeta,
   StyledAnimation,
+  SSpin,
 } from '../../styledComponents';
 import { IGist } from '../../model/gist';
 import Link from 'next/link';
@@ -388,19 +389,21 @@ class MainPage extends Component<IProps> {
               alt="gitshare 설명 이미지"
             />
             <CodeWrap>
-              {starredList.length
-                ? starredList.map((gist: IGist, i: number) => {
-                    return (
-                      <SCard
-                        data-col
-                        key={i}
-                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                      >
-                        <SCardMeta title={gist.description} description={gist.created_at} />
-                      </SCard>
-                    );
-                  })
-                : '최근 업로드 된 코드를 로딩 중입니다'}
+              {starredList.length ? (
+                starredList.map((gist: IGist, i: number) => {
+                  return (
+                    <SCard
+                      data-col
+                      key={i}
+                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                    >
+                      <SCardMeta title={gist.description} description={gist.created_at} />
+                    </SCard>
+                  );
+                })
+              ) : (
+                <SSpin tip="Loading..." />
+              )}
             </CodeWrap>
           </SContainer>
         </PageSection>
