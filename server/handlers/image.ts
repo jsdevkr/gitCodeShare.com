@@ -1,10 +1,8 @@
 import puppeteer from 'puppeteer';
-
-const PORT = parseInt(process.env.BACKEND_PORT, 10) || 3030;
-const ARBITRARY_WAIT_TIME = 500;
+import { Request, Response, NextFunction } from 'express';
 
 export default function(browser: puppeteer.Browser) {
-  return async (req, res) => {
+  return async (req: Request, res: Response, next: NextFunction) => {
     const page = await browser.newPage();
     const { state } = req.body;
 
@@ -13,54 +11,48 @@ export default function(browser: puppeteer.Browser) {
     }
 
     try {
-      await page.goto(`http://localhost:${PORT}?state=${state}`);
-      await page.addScriptTag({ path: './lib/customDomToImage.js' });
+      await page.goto(`http://localhost:3000/?state=${state}`);
 
-      // wait for page to detect language
-      await delay(ARBITRARY_WAIT_TIME);
+      async function screenshot(selector) {
+        if (!selector) {
+          throw Error('Please provide a selector');
+        }
 
-      const targetElement = await page.$('#export-container');
+        const rect = await page.evaluate(selector => {
+          const element = document.querySelector(selector);
+          if (!element) {
+            return null;
+          }
+          const { x, y, width, height } = element.getBoundingClientRect();
+          return { left: x, top: y, width, height, id: element.id };
+        }, selector);
 
-      const dataUrl = await page.evaluate(target => {
-        const config = {
-          style: {
-            transform: 'scale(2)',
-            'transform-origin': 'center',
+        return await page.screenshot({
+          encoding: 'base64',
+          omitBackground: true,
+          clip: {
+            x: rect.left,
+            y: rect.top,
+            width: rect.width,
+            height: rect.height,
           },
-          filter: n => {
-            // %[00 -> 19] cause failures
-            if (
-              n.innerText &&
-              n.innerText.match(/%\S\S/) &&
-              n.className &&
-              n.className.startsWith('cm-') // is CodeMirror primitive string
-            ) {
-              n.innerText = encodeURIComponent(n.innerText);
-            }
-            if (n.className) {
-              return String(n.className).indexOf('eliminateOnRender') < 0;
-            }
-            return true;
-          },
-          width: target.offsetWidth * 2,
-          height: target.offsetHeight * 2,
-        };
+        });
+      }
 
-        return domtoimage.toPng(target, config);
-      }, targetElement);
+      const data = await screenshot('div.react-codemirror2');
 
-      res.status(200).json({ dataUrl });
+      res.writeHead(200, {
+        'content-length': data.length,
+        'content-type': 'image/png',
+        'Content-Disposition': 'attachment; filename=code.png',
+      });
+
+      res.end(new Buffer(data, 'base64'));
     } catch (e) {
-      // tslint:disable-next-line
       console.error(e);
       res.status(500).send();
     } finally {
       await page.close();
     }
   };
-}
-
-// private
-function delay(ms: number) {
-  return new Promise(r => setTimeout(r, ms));
 }

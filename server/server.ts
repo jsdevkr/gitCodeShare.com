@@ -6,9 +6,7 @@ import cookieParser from 'cookie-parser';
 import puppeteer from 'puppeteer';
 import morgan from 'morgan';
 
-import ImageHandler from './handlers/image';
-import gistRouter from './handlers/gist';
-import authRouter from './handlers/auth';
+import { AuthHandler, GithubHandler, GistHandler, ImageHandler } from './handlers';
 
 import uuid from 'uuid/v4';
 
@@ -20,13 +18,13 @@ const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 process.on('SIGINT', () => process.exit());
 
-function wrap(handler: any) {
-  return (req, res) =>
-    handler(req, res).catch(err => {
-      console.log('ERR:', err);
-      res.status(400).end();
-    });
-}
+// function wrap(handler: any) {
+//   return (req, res) =>
+//     handler(req, res).catch(err => {
+//       console.log('ERR:', err);
+//       res.status(400).end();
+//     });
+// }
 
 const puppeteerParams = dev
   ? {}
@@ -71,16 +69,28 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
 
   server.use(passport.initialize());
   server.use(passport.session());
-  server.use(`${proxyContext}`, authRouter);
-  server.use(`${proxyContext}/gists`, gistRouter);
+
+  server.use(`${proxyContext}/auth`, AuthHandler);
+  server.use(`${proxyContext}/github`, GithubHandler);
+  server.use(`${proxyContext}/gists`, GistHandler);
+  server.use(`${proxyContext}/image`, imageHandler);
+
+  // logout
+  server.get(`${proxyContext}/logout`, (req, res, next) => {
+    req.session.destroy(err => {
+      if (err) {
+        console.log(err);
+        return next(err);
+      }
+    });
+    req.logout();
+    res.redirect('/');
+  });
 
   // redirect to home
   server.get('/', (req, res) => {
     res.redirect(`${req.protocol}://${req.hostname}:${process.env.FRONT_PORT}`);
   });
-
-  // api endpoints
-  server.post('/image', bodyParser.json({ limit: '5mb' }), wrap(imageHandler));
 
   server.listen(port, '0.0.0.0', err => {
     if (err) {
