@@ -2,7 +2,10 @@ import { IGist } from '../model/gist';
 import { IContributor } from '../model/contributors';
 import { encodeParams as encode } from '../common/utils';
 
-const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
+const proxyContext =
+  typeof window !== 'undefined'
+    ? process.env.BACKEND_PROXY_CONTEXT || '/api'
+    : `http://localhost:${process.env.BACKEND_PORT || 3030}${process.env.BACKEND_PROXY_CONTEXT || '/api'}`;
 
 const ApiProvider = {
   AuthRequest: {
@@ -31,6 +34,7 @@ const ApiProvider = {
     },
     async getGist(gistId: number | string) {
       const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'GET' });
+      console.log('getGist', res);
       const data = await res.json();
 
       return data as IGist;
@@ -80,18 +84,8 @@ const ApiProvider = {
     },
   },
   ImageRequest: {
-    async captureImage(body: object) {
-      const res = await fetch(`${proxyContext}/image`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          state: encode(body),
-        }),
-      });
-      const data = await res.blob();
-      console.log(data);
-
-      return data as any;
+    async getImageUrl(state: string) {
+      return `${proxyContext}/image?state=${encode(state)}`;
     },
   },
 };

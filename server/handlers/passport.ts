@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 import passport from 'passport';
 import passportGithub from 'passport-github';
 import { Request, Response, NextFunction } from 'express';

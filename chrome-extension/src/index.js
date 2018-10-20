@@ -1,4 +1,5 @@
-console.log('test!!!!');
+let editor;
+let iframe;
 
 function injectGitCodeShareWindow() {
   const div = document.createElement('div');
@@ -10,17 +11,34 @@ function injectGitCodeShareWindow() {
     </div>
   `;
   document.body.appendChild(div);
+  editor = document.querySelector('.editor');
+  iframe = div.querySelector('#gitCodeShare');
 }
 
+const showEditor = () => {
+  editor.style.display = 'block';
+  editor.style.opacity = '1';
+  iframe.classList.remove('goUp');
+  iframe.classList.remove('goDown');
+  iframe.classList.add('goDown');
+};
+
+const hideEditor = () => {
+  iframe.classList.remove('goUp');
+  iframe.classList.remove('goDown');
+  iframe.classList.add('goUp');
+  setTimeout(() => {
+    editor.style.display = 'none';
+    editor.style.opacity = '0';
+  }, 250);
+};
+
 function bindToggleEditorEventTo(target) {
-  const editor = document.querySelector('.editor');
   target.addEventListener('click', () => {
-    editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
-    editor.style.opacity = editor.style.opacity === '0' ? '1' : '0';
+    showEditor();
   });
   editor.addEventListener('click', e => {
-    editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
-    editor.style.opacity = editor.style.opacity === '0' ? '1' : '0';
+    hideEditor();
   });
 }
 
@@ -75,28 +93,6 @@ function injectBtn() {
   }
 }
 
-// function bindCloseEvent() {
-//   const parentDom = document.getElementById('pagelet_composer');
-//   const targetDom = parentDom.querySelectorAll('div[role]')[0];
-//   const gitCodeShareModal = document.getElementById('gitCodeShare');
-
-//   document.body.addEventListener('click', function(e) {
-//     const isClickedBackground = e.target.closest("[role='presentation']") !== null;
-//     const isClickedCloseButton = e.target.parentNode.getAttribute('role') === 'button';
-//     const targetDomRole = targetDom.getAttribute('role');
-//     const preventClickEvent = targetDomRole === 'region';
-
-//     if (preventClickEvent) {
-//       return false;
-//     }
-//     if (isClickedBackground || isClickedCloseButton) {
-//       if (gitCodeShareModal.display !== 'none') {
-//         gitCodeShareModal.style.display = 'none';
-//       }
-//     }
-//   });
-// }
-
 const isReadyToInsertBtn = () => document.querySelector('div[data-testid="expanded-sprout-list"]>table');
 const isHaveBtnAleady = () => document.querySelector('#codeShareBtn');
 
@@ -104,15 +100,14 @@ const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
 
 if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getElementById('gitCodeShare')) {
   injectGitCodeShareWindow();
-  // bindCloseEvent();
   console.log('gitCodeShare is injected!');
 
+  
   // We cannot call "clearInterval" because btn can be removed when user change page.
   const insertBtnInterval = setInterval(() => {
     if (isReadyToInsertBtn()) {
       if (!isHaveBtnAleady()) {
         injectBtn();
-        // bindCloseEvent();
       }
     }
   }, 1000);
@@ -120,13 +115,11 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
   window.addEventListener('message', e => {
     if (e.origin !== 'http://localhost:3000') return;
     if (e.data.type === 'setHeight') {
-      document.querySelector('#gitCodeShare').style.height = `${e.data.value}px`;
+      iframe.style.height = `${e.data.value}px`;
       return;
     }
     if (e.data.type === 'success') {
-      const editor = document.querySelector('.editor');
-      editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
-      editor.style.opacity = editor.style.opacity === '0' ? '1' : '0';
+      hideEditor();
       document.querySelector('div.notranslate').focus();
       document.execCommand('insertHTML', false, `${e.data.value}`);
     }
