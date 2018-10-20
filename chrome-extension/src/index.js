@@ -1,10 +1,4 @@
-/* 
-  It is for typescript interface for later use
-
-  interface Location {
-    readonly ancestorOrigins: DOMStringList;
-  } 
-*/
+console.log('test!!!!');
 
 function injectGitCodeShareWindow() {
   const div = document.createElement('div');
@@ -20,20 +14,13 @@ function injectGitCodeShareWindow() {
 
 function bindToggleEditorEventTo(target) {
   const editor = document.querySelector('.editor');
-  const iframe = editor.querySelector('iframe');
   target.addEventListener('click', () => {
     editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
     editor.style.opacity = editor.style.opacity === '0' ? '1' : '0';
   });
   editor.addEventListener('click', e => {
-    e.target.style.display = e.target.style.display === 'none' ? 'block' : 'none';
-    e.target.style.opacity = e.target.style.opacity === '0' ? '1' : '0';
-  });
-  window.addEventListener('message', e => {
-    if (e.origin === 'http://localhost:3000') {
-      console.log(e);
-      iframe.style.height = e.data.value;
-    }
+    editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
+    editor.style.opacity = editor.style.opacity === '0' ? '1' : '0';
   });
 }
 
@@ -88,26 +75,27 @@ function injectBtn() {
   }
 }
 
-function bindCloseEvent() {
-  const uniqueElement = document.querySelector('[data-testid="react-composer-root"]');
-  const targetDom = uniqueElement.closest('div[role="dialog"]');
-  const gitCodeShareModal = document.getElementById('gitCodeShare');
-  document.body.addEventListener('click', function(e) {
-    const isClickedBackground = e.target.closest("[role='presentation']") !== null;
-    const isClickedCloseButton = e.target.parentNode.getAttribute('role') === 'button';
-    const targetDomRole = targetDom ? targetDom.getAttribute('role') : '';
-    const preventClickEvent = targetDomRole === 'region';
+// function bindCloseEvent() {
+//   const parentDom = document.getElementById('pagelet_composer');
+//   const targetDom = parentDom.querySelectorAll('div[role]')[0];
+//   const gitCodeShareModal = document.getElementById('gitCodeShare');
 
-    if (preventClickEvent) {
-      return false;
-    }
-    if (isClickedBackground || isClickedCloseButton) {
-      if (gitCodeShareModal.display !== 'none') {
-        gitCodeShareModal.style.display = 'none';
-      }
-    }
-  });
-}
+//   document.body.addEventListener('click', function(e) {
+//     const isClickedBackground = e.target.closest("[role='presentation']") !== null;
+//     const isClickedCloseButton = e.target.parentNode.getAttribute('role') === 'button';
+//     const targetDomRole = targetDom.getAttribute('role');
+//     const preventClickEvent = targetDomRole === 'region';
+
+//     if (preventClickEvent) {
+//       return false;
+//     }
+//     if (isClickedBackground || isClickedCloseButton) {
+//       if (gitCodeShareModal.display !== 'none') {
+//         gitCodeShareModal.style.display = 'none';
+//       }
+//     }
+//   });
+// }
 
 const isReadyToInsertBtn = () => document.querySelector('div[data-testid="expanded-sprout-list"]>table');
 const isHaveBtnAleady = () => document.querySelector('#codeShareBtn');
@@ -116,6 +104,7 @@ const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
 
 if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getElementById('gitCodeShare')) {
   injectGitCodeShareWindow();
+  // bindCloseEvent();
   console.log('gitCodeShare is injected!');
 
   // We cannot call "clearInterval" because btn can be removed when user change page.
@@ -129,11 +118,17 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
   }, 1000);
 
   window.addEventListener('message', e => {
-    if (e.origin !== 'https://www.facebook.com') {
-      const editor = document.getElementById('gitCodeShare');
+    if (e.origin !== 'http://localhost:3000') return;
+    if (e.data.type === 'setHeight') {
+      document.querySelector('#gitCodeShare').style.height = `${e.data.value}px`;
+      return;
+    }
+    if (e.data.type === 'success') {
+      const editor = document.querySelector('.editor');
       editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
+      editor.style.opacity = editor.style.opacity === '0' ? '1' : '0';
       document.querySelector('div.notranslate').focus();
-      document.execCommand('insertHTML', false, `https://gitcodeshare.com/?${e.data} `);
+      document.execCommand('insertHTML', false, `${e.data.value}`);
     }
   });
 }

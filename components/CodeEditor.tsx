@@ -13,7 +13,7 @@ if (typeof navigator !== 'undefined') {
 
 declare module 'react' {
   interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
-    jsx?: boolean;
+    jsx?: string;
   }
 }
 
@@ -207,7 +207,12 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
           </EditorHeader>
           <HorizontalDivider />
           <EditorBody>
-            <CodeMirror onBeforeChange={editor.onBeforeCodeChange} value={editor.code} options={options} />
+            <CodeMirror
+              onBeforeChange={editor.onBeforeCodeChange}
+              value={editor.code}
+              options={options}
+              onUpdate={editor.onUpdate}
+            />
           </EditorBody>
           <HorizontalDivider />
           <OptionDrawer style={{ right: editor.optionDrawerVisible ? 0 : '-378px' }}>
@@ -242,7 +247,7 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
             </ViewsBottom>
           )}
         </EditorContainer>
-        <style jsx>{`
+        <style jsx="true">{`
           .react-codemirror2 {
             box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
             width: 100%;
@@ -253,7 +258,7 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
           .CodeMirror {
             width: 100%;
             height: 100%;
-            max-width: 760px;
+
             height: auto;
             overflow: hidden;
             padding: 2px;
