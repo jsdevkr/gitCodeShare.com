@@ -146,14 +146,14 @@ const SlideWrap = styled(PageSection as any)`
 
     [data-scroll-btn] {
       position: absolute;
-      bottom: 0;
+      bottom: 10px;
       z-index: 99;
       transform: rotate(-90deg);
 
       span {
         display: inherit;
         align-items: center;
-        font-size: 12px;
+        font-size: 14px;
 
         &::after {
           content: '';

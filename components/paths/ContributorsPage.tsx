@@ -24,6 +24,7 @@ const RowFlexBox = styled.div`
     [data-col] {
       flex: 0 0 calc(100% / 3);
       position: relative;
+      max-width: calc(100% / 3);
     }
   }
 `;
@@ -32,8 +33,14 @@ const ContributorsWrap = styled(RowFlexBox as any)`
   & {
     .ant-card {
       .ant-card-cover {
-        max-width: 350px;
         height: auto;
+        text-align: center;
+
+        img {
+          max-width: 320px;
+          display: inline-block;
+          vertical-align: top;
+        }
       }
       .ant-card-body {
         text-align: left;

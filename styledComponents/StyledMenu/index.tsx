@@ -14,6 +14,7 @@ const MainNavMenu: typeof Menu = styled(Menu as any)`
 
       a {
         color: ${props => props.theme.primaryTextColor};
+        font-size: 15px;
       }
     }
   }
