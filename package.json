@@ -10,24 +10,24 @@
     "build": "next build",
     "test": "jest --noStackTrace --watch -u",
     "test:ci": "jest -w=4 --silent --noStackTrace --forceExit",
+    "test:skip": "echo \"Skip test\" && exit 0",
     "start": "npm-run-all -p prod:front prod:backend",
     "prod:front": "node ./bin/front.js",
     "prod:backend": "node ./bin/server.js",
     "precommit": "lint-staged && npm run contributors:build && git add README.md",
-    "postinstall": "npm run build",
     "contributors:add": "all-contributors add",
     "contributors:build": "all-contributors generate"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jsdevkr/gitCodeShare.com.git"
+    "url": "git+https://github.com/kosslab-kr/gitCodeShare.com.git"
   },
   "author": "jsdev.kr",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jsdevkr/gitCodeShare.com/issues"
+    "url": "https://github.com/kosslab-kr/gitCodeShare.com/issues"
   },
-  "homepage": "https://github.com/jsdevkr/gitCodeShare.com#readme",
+  "homepage": "https://github.com/kosslab-kr/gitCodeShare.com#readme",
   "lint-staged": {
     "linters": {
       "*.{js,jsx}": [
@@ -90,6 +90,7 @@
     "next": "^7.0.2",
     "next-compose-plugins": "^2.1.1",
     "node-sass": "^4.9.4",
+    "now-logs": "0.0.7",
     "passport": "^0.4.0",
     "passport-github": "^1.1.0",
     "puppeteer": "^1.9.0",

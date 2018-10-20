@@ -2,7 +2,7 @@
 
 exports[`StyledBadge SCard should render 1`] = `
 <div
-  className="ant-card StyledCard__SCard-wvdxvl-0 frbQmR ant-card-bordered"
+  className="ant-card StyledCard__SCard-wvdxvl-0 lbkjKT ant-card-bordered"
 >
   <div
     className="ant-card-body"
@@ -25,7 +25,7 @@ exports[`StyledBadge SCardMetaDetail should render 1`] = `
 
 exports[`StyledBadge UserCard should render 1`] = `
 <div
-  className="ant-card StyledCard__UserCard-wvdxvl-3 eGXyKG ant-card-bordered"
+  className="ant-card StyledCard__UserCard-wvdxvl-3 HNPrc ant-card-bordered"
 >
   <div
     className="ant-card-body"

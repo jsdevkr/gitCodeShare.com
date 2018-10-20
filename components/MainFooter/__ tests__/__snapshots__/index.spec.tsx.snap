@@ -15,14 +15,14 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "function",
     "props": Object {
-      "children": <MainFooter__FooterContainer>
+      "children": <ForwardRef>
         <address>
-          gitCodeShare.com ⓒ 2018
+          GitCodeShare.com ⓒ 2018
         </address>
-        <MainFooter__RightBox>
-          <StyledMenu__MainNavMenu
+        <ForwardRef>
+          <ForwardRef
             mode="horizontal"
           >
             <MenuItem>
@@ -74,22 +74,22 @@ ShallowWrapper {
                 </a>
               </Link>
             </MenuItem>
-          </StyledMenu__MainNavMenu>
-        </MainFooter__RightBox>
-      </MainFooter__FooterContainer>,
+          </ForwardRef>
+        </ForwardRef>
+      </ForwardRef>,
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
         "children": Array [
           <address>
-            gitCodeShare.com ⓒ 2018
+            GitCodeShare.com ⓒ 2018
           </address>,
-          <MainFooter__RightBox>
-            <StyledMenu__MainNavMenu
+          <ForwardRef>
+            <ForwardRef
               mode="horizontal"
             >
               <MenuItem>
@@ -141,8 +141,8 @@ ShallowWrapper {
                   </a>
                 </Link>
               </MenuItem>
-            </StyledMenu__MainNavMenu>
-          </MainFooter__RightBox>,
+            </ForwardRef>
+          </ForwardRef>,
         ],
       },
       "ref": null,
@@ -152,18 +152,18 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "gitCodeShare.com ⓒ 2018",
+            "children": "GitCodeShare.com ⓒ 2018",
           },
           "ref": null,
-          "rendered": "gitCodeShare.com ⓒ 2018",
+          "rendered": "GitCodeShare.com ⓒ 2018",
           "type": "address",
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
+          "nodeType": "function",
           "props": Object {
-            "children": <StyledMenu__MainNavMenu
+            "children": <ForwardRef
               mode="horizontal"
             >
               <MenuItem>
@@ -215,13 +215,13 @@ ShallowWrapper {
                   </a>
                 </Link>
               </MenuItem>
-            </StyledMenu__MainNavMenu>,
+            </ForwardRef>,
           },
           "ref": null,
           "rendered": Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
               "children": Array [
                 <MenuItem>
@@ -489,27 +489,115 @@ ShallowWrapper {
                 "type": [Function],
               },
             ],
-            "type": [Function],
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "Divider": [Function],
+              "Item": [Function],
+              "ItemGroup": [Function],
+              "SubMenu": [Function],
+              "attrs": undefined,
+              "componentStyle": ComponentStyle {
+                "componentId": "StyledMenu__MainNavMenu-l7ya14-0",
+                "isStatic": false,
+                "rules": Array [
+                  "&.ant-menu{margin:0;border-bottom:none;background-color:transparent;li,li:hover,li:focus{border-bottom:none;a{color:",
+                  [Function],
+                  ";}}}",
+                ],
+              },
+              "displayName": "StyledMenu__MainNavMenu",
+              "render": [Function],
+              "styledComponentId": "StyledMenu__MainNavMenu-l7ya14-0",
+              "target": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+              Symbol(Symbol.hasInstance): [Function],
+            },
           },
-          "type": [Function],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": undefined,
+            "componentStyle": ComponentStyle {
+              "componentId": "StyledFlexBox__FlexRightBox-pel0bf-1",
+              "isStatic": true,
+              "rules": Array [
+                "margin-left:auto;display:inherit;align-items:center;",
+              ],
+            },
+            "displayName": "StyledFlexBox__FlexRightBox",
+            "render": [Function],
+            "styledComponentId": "StyledFlexBox__FlexRightBox-pel0bf-1",
+            "target": "div",
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
         },
       ],
-      "type": [Function],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": undefined,
+        "componentStyle": ComponentStyle {
+          "componentId": "MainFooter__FooterContainer-sc-1t0flvz-1",
+          "isStatic": true,
+          "rules": Array [
+            "width:100%;max-width:1200px;margin:0 auto;",
+            "display:inherit;padding-top:28px;address{margin:auto 0;}",
+          ],
+        },
+        "displayName": "MainFooter__FooterContainer",
+        "render": [Function],
+        "styledComponentId": "MainFooter__FooterContainer-sc-1t0flvz-1",
+        "target": "div",
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
     },
-    "type": [Function],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "MainFooter__FooterWrap-sc-1t0flvz-0",
+        "isStatic": false,
+        "rules": Array [
+          "
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-width: auto;
+    width: auto;
+    min-height: auto;
+    height: auto;
+    ;
+  ",
+          ";height:200px;background-color:",
+          [Function],
+          ";",
+        ],
+      },
+      "displayName": "MainFooter__FooterWrap",
+      "render": [Function],
+      "styledComponentId": "MainFooter__FooterWrap-sc-1t0flvz-0",
+      "target": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+      Symbol(Symbol.hasInstance): [Function],
+    },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "function",
       "props": Object {
-        "children": <MainFooter__FooterContainer>
+        "children": <ForwardRef>
           <address>
-            gitCodeShare.com ⓒ 2018
+            GitCodeShare.com ⓒ 2018
           </address>
-          <MainFooter__RightBox>
-            <StyledMenu__MainNavMenu
+          <ForwardRef>
+            <ForwardRef
               mode="horizontal"
             >
               <MenuItem>
@@ -561,22 +649,22 @@ ShallowWrapper {
                   </a>
                 </Link>
               </MenuItem>
-            </StyledMenu__MainNavMenu>
-          </MainFooter__RightBox>
-        </MainFooter__FooterContainer>,
+            </ForwardRef>
+          </ForwardRef>
+        </ForwardRef>,
       },
       "ref": null,
       "rendered": Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
+        "nodeType": "function",
         "props": Object {
           "children": Array [
             <address>
-              gitCodeShare.com ⓒ 2018
+              GitCodeShare.com ⓒ 2018
             </address>,
-            <MainFooter__RightBox>
-              <StyledMenu__MainNavMenu
+            <ForwardRef>
+              <ForwardRef
                 mode="horizontal"
               >
                 <MenuItem>
@@ -628,8 +716,8 @@ ShallowWrapper {
                     </a>
                   </Link>
                 </MenuItem>
-              </StyledMenu__MainNavMenu>
-            </MainFooter__RightBox>,
+              </ForwardRef>
+            </ForwardRef>,
           ],
         },
         "ref": null,
@@ -639,18 +727,18 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "gitCodeShare.com ⓒ 2018",
+              "children": "GitCodeShare.com ⓒ 2018",
             },
             "ref": null,
-            "rendered": "gitCodeShare.com ⓒ 2018",
+            "rendered": "GitCodeShare.com ⓒ 2018",
             "type": "address",
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "class",
+            "nodeType": "function",
             "props": Object {
-              "children": <StyledMenu__MainNavMenu
+              "children": <ForwardRef
                 mode="horizontal"
               >
                 <MenuItem>
@@ -702,13 +790,13 @@ ShallowWrapper {
                     </a>
                   </Link>
                 </MenuItem>
-              </StyledMenu__MainNavMenu>,
+              </ForwardRef>,
             },
             "ref": null,
             "rendered": Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "class",
+              "nodeType": "function",
               "props": Object {
                 "children": Array [
                   <MenuItem>
@@ -976,14 +1064,102 @@ ShallowWrapper {
                   "type": [Function],
                 },
               ],
-              "type": [Function],
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "Divider": [Function],
+                "Item": [Function],
+                "ItemGroup": [Function],
+                "SubMenu": [Function],
+                "attrs": undefined,
+                "componentStyle": ComponentStyle {
+                  "componentId": "StyledMenu__MainNavMenu-l7ya14-0",
+                  "isStatic": false,
+                  "rules": Array [
+                    "&.ant-menu{margin:0;border-bottom:none;background-color:transparent;li,li:hover,li:focus{border-bottom:none;a{color:",
+                    [Function],
+                    ";}}}",
+                  ],
+                },
+                "displayName": "StyledMenu__MainNavMenu",
+                "render": [Function],
+                "styledComponentId": "StyledMenu__MainNavMenu-l7ya14-0",
+                "target": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+                Symbol(Symbol.hasInstance): [Function],
+              },
             },
-            "type": [Function],
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": undefined,
+              "componentStyle": ComponentStyle {
+                "componentId": "StyledFlexBox__FlexRightBox-pel0bf-1",
+                "isStatic": true,
+                "rules": Array [
+                  "margin-left:auto;display:inherit;align-items:center;",
+                ],
+              },
+              "displayName": "StyledFlexBox__FlexRightBox",
+              "render": [Function],
+              "styledComponentId": "StyledFlexBox__FlexRightBox-pel0bf-1",
+              "target": "div",
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
           },
         ],
-        "type": [Function],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": undefined,
+          "componentStyle": ComponentStyle {
+            "componentId": "MainFooter__FooterContainer-sc-1t0flvz-1",
+            "isStatic": true,
+            "rules": Array [
+              "width:100%;max-width:1200px;margin:0 auto;",
+              "display:inherit;padding-top:28px;address{margin:auto 0;}",
+            ],
+          },
+          "displayName": "MainFooter__FooterContainer",
+          "render": [Function],
+          "styledComponentId": "MainFooter__FooterContainer-sc-1t0flvz-1",
+          "target": "div",
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
       },
-      "type": [Function],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": undefined,
+        "componentStyle": ComponentStyle {
+          "componentId": "MainFooter__FooterWrap-sc-1t0flvz-0",
+          "isStatic": false,
+          "rules": Array [
+            "
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-width: auto;
+    width: auto;
+    min-height: auto;
+    height: auto;
+    ;
+  ",
+            ";height:200px;background-color:",
+            [Function],
+            ";",
+          ],
+        },
+        "displayName": "MainFooter__FooterWrap",
+        "render": [Function],
+        "styledComponentId": "MainFooter__FooterWrap-sc-1t0flvz-0",
+        "target": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+        Symbol(Symbol.hasInstance): [Function],
+      },
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -1002,8 +1178,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
-    "hydrateIn": undefined,
   },
 }
 `;
