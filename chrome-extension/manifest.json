@@ -27,6 +27,7 @@
   "content_scripts": [
     {
       "js": ["src/index.js"],
+      "css": ["css/facebook-popup.css"],
       "matches": ["*://*.facebook.com/*", "*://localhost/*"],
       "all_frames": true
     }

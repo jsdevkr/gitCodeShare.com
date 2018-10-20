@@ -13,7 +13,7 @@ import {
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
 import { Instance, types, getEnv, flow } from 'mobx-state-tree';
-import { notification, message } from 'antd';
+// import { message } from 'antd';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -64,9 +64,11 @@ export const Editor = types
         const mode = debounceDetectLanguage(v);
         self.language.mode = mode ? mode : self.language.mode;
       }
+      postMessage({ type: 'setHeight', value: document.querySelector('#__next').scrollHeight }, '*');
     },
     setFontFamily: e => (self.fontFamily = FONTS_HASH[e.key]),
     setFontSize: v => (self.fontSize = v),
+    setLineNumbers: v => (self.lineNumbers = v),
     setOptionDrawerVisible: v => (self.optionDrawerVisible = v),
     setLanguage: e => {
       self.language = LANGUAGES_NAME_HASH[e.key];
@@ -88,7 +90,6 @@ export const Editor = types
     },
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
-      const hide = message.loading('Saving...', 0);
       const data = await getEnv(self).provider.GistRequest.createGist({
         public: true,
         files: {
@@ -97,12 +98,7 @@ export const Editor = types
           },
         },
       });
-      hide();
-      notification.success({
-        message: 'Copy this URL!',
-        description: `http://localhost:3000/?${data.id}`,
-        duration: 0,
-      });
+      postMessage({ data: `http://localhost:3000/?${data.id}` }, '*');
     },
   }))
   .actions(self => ({

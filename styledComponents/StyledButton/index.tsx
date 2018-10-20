@@ -123,23 +123,16 @@ const SignUpButton: typeof RoundedButton = styled(RoundedButton as any)`
 `;
 const LineButton: typeof RoundedButton = styled(RoundedButton as any)`
   &.ant-btn {
-    max-width: 200px;
-    width: fit-content;
-    padding: 11px 25px;
-    height: 40px;
+    /* max-width: 200px; */
+    /* width: fit-content; */
+    padding: 6px 10px;
+    height: 30px;
     background-color: ${props => props.theme.primaryColor};
     border-color: ${props => props.theme.colorPalette.neonBlue};
-    margin-left: 15px;
+    right: 20px;
 
     &:hover {
       background-color: ${props => props.theme.colorPalette.neonBlue};
-    }
-    &:first-child {
-      margin-left: auto;
-    }
-
-    span {
-      font-size: 14px;
     }
   }
 `;
@@ -148,10 +141,12 @@ const DropDownButton: typeof RoundedButton = styled(RoundedButton as any)`
   &.ant-btn {
     min-width: 150px;
     height: 30px;
-    border: solid 1px #dbe3e9;
+    border: solid 1px ${props => props.theme.colorPalette.patternsBlue};
     justify-content: space-between;
     padding: 6px 10px;
     transition: none;
+    background-color: ${props => props.theme.primaryColor};
+    color: ${props => props.theme.primaryTextColor};
     &:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
