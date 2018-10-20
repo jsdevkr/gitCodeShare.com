@@ -1,7 +1,5 @@
 import * as React from 'react';
-import 'isomorphic-unfetch';
 // import { observable } from 'mobx';
-import '../assets/styles/app';
 import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
 import { MainNav, MainFooter, MainPage } from '../components';
@@ -16,7 +14,7 @@ interface IProps {
 @inject('appStore')
 @observer
 class App extends React.Component<IProps> {
-  static async getInitialProps({ query }) {
+  static async getInitialProps({ query }: { query: any }) {
     // NOTE : fetch base url
     console.log(process.env.BACKEND_URL);
     return { gistId: Object.keys(query)[0] };

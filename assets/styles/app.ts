@@ -1,9 +1,9 @@
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import styledNormalize from 'styled-normalize';
 import './app-scss/antd-theme-rewrite.less';
 import './app-scss/app.scss';
 
-injectGlobal`
+export const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
 
   .clearfix:before, .clearfix:after {

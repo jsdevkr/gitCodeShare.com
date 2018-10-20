@@ -142,26 +142,29 @@ const SlideWrap = styled(PageSection as any)`
 
 class MainPage extends Component<IProps> {
   animatedDOM: HTMLElement[] = [];
-  initAnimation = this.handleAnimation.bind(this);
 
-  handleAnimation() {
+  handleAnimation = () => {
     let offsetTop = window.pageYOffset + 300;
 
-    if (offsetTop > this.animatedDOM[0].offsetTop) {
+    if (this.animatedDOM[0] && offsetTop > this.animatedDOM[0].offsetTop) {
       this.animatedDOM[0].querySelector('img').setAttribute('data-fade-in-right', '');
     }
 
-    if (offsetTop > this.animatedDOM[1].offsetTop) {
+    if (this.animatedDOM[1] && offsetTop > this.animatedDOM[1].offsetTop) {
       this.animatedDOM[1].querySelector('img').setAttribute('data-fade-in-left', '');
+    }
+  };
+
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', this.handleAnimation);
     }
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.initAnimation);
-  }
-
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.initAnimation);
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('scroll', this.handleAnimation);
+    }
   }
 
   render() {

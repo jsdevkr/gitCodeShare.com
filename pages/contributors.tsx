@@ -1,6 +1,4 @@
 import * as React from 'react';
-import 'isomorphic-unfetch';
-import '../assets/styles/app';
 import { MainNav, MainFooter, ContributorsPage } from '../components';
 import { SLayout } from '../styledComponents';
 import { ApiProvider } from '../providers';
