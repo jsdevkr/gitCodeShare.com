@@ -92,4 +92,13 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
       }
     }
   }, 1000);
+
+  window.addEventListener('message', e => {
+    if (e.origin !== 'https://www.facebook.com') {
+      const editor = document.getElementById('gitCodeShare');
+      editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
+      document.querySelector('div.notranslate').focus();
+      document.execCommand('insertHTML', false, `https://gitcodeshare.com/?${e.data} `);
+    }
+  });
 }

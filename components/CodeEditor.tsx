@@ -181,11 +181,10 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
         </EditorContainer>
         {!editor.gistId && (
           <ViewsBottom>
-            <LineButton>Save & Share to Facebook</LineButton>
             <LineButton onClick={editor.createGist}>Save & Get Share Link</LineButton>
           </ViewsBottom>
         )}
-        <style jsx>{`
+        <style jsx="true">{`
           .react-codemirror2 {
             box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
             width: 100%;

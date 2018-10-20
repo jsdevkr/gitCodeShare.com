@@ -13,7 +13,7 @@ import {
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
 import { Instance, types, getEnv, flow } from 'mobx-state-tree';
-import { notification, message } from 'antd';
+import { message } from 'antd';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -90,11 +90,7 @@ export const Editor = types
         },
       });
       hide();
-      notification.success({
-        message: 'Copy this URL!',
-        description: `http://localhost:3000/?${data.id}`,
-        duration: 0,
-      });
+      window.parent.postMessage(data.id, '*');
     },
   }))
   .actions(self => ({
