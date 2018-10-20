@@ -30,9 +30,12 @@ const NavContainer = styled(SContainer as any)`
   display: inherit;
   align-items: center;
 
-  h1,
   a {
     margin: 0;
+  }
+
+  h1 {
+    margin: 0 20px 0 0;
   }
 
   [data-align] {

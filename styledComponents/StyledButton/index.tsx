@@ -49,7 +49,7 @@ const GithubButton: typeof RoundedButton = styled(RoundedButton as any)`
     }
 
     span {
-      font-size: 12px;
+      font-size: 14px;
       color: ${props => props.theme.colorPalette.patternsBlue};
     }
   }
@@ -62,7 +62,7 @@ const SmDownloadButton: typeof BorderlessButton = styled(BorderlessButton as any
     }
 
     span {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 `;
