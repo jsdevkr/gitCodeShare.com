@@ -126,7 +126,7 @@ const SlideWrap = styled(PageSection as any)`
     }
 
     [data-bg] {
-      background: radial-gradient(#000, transparent, rgba(0, 0, 0, 0.9), #000);
+      background: radial-gradient(#000, transparent, rgba(0, 0, 0, 0.6), #000);
       /* background: radial-gradient(transparent, #000); */
       position: absolute;
       /* left: 0; */
