@@ -1,8 +1,8 @@
 import { IGist } from '../model/gist';
 import { IContributor } from '../model/contributors';
+import { encodeParams as encode } from '../common/utils';
 
 const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
-const githubApiUrl = 'https://api.github.com/repos/kosslab-kr/gitCodeShare.com';
 
 const ApiProvider = {
   AuthRequest: {
@@ -17,38 +17,57 @@ const ApiProvider = {
   },
   GistRequest: {
     async getGists() {
-      return (await fetch(`${proxyContext}/gists`, { method: 'GET' }).then(data => data.json())) as IGist[];
+      const res = await fetch(`${proxyContext}/gists`, { method: 'GET' });
+      const data = await res.json();
+
+      return data as IGist[];
     },
     async getStarredGists() {
-      return (await fetch(`${proxyContext}/gists/starred`, { method: 'GET' }).then(data => data.json())) as IGist[];
+      const res = await fetch(`${proxyContext}/gists/starred`, { method: 'GET' });
+      const data = await res.json();
+
+      return data as IGist[];
     },
     async getGist(gistId: number | string) {
-      return (await fetch(`${proxyContext}/gists/${gistId}`, { method: 'GET' }).then(data => data.json())) as IGist[];
+      const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'GET' });
+      const data = await res.json();
+
+      return data as IGist;
     },
-    async createGist(body) {
-      return (await fetch(`${proxyContext}/gists`, {
+    async createGist(body: object) {
+      const res = await fetch(`${proxyContext}/gists`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
-      }).then(data => data.json())) as IGist[];
+      });
+      const data = await res.json();
+      return data as any;
     },
-    async modifyGist(gistId: number) {
-      return (await fetch(`${proxyContext}/gists/${gistId}`, { method: 'PATCH' }).then(data => data.json())) as IGist[];
+    async modifyGist(gistId: number | string) {
+      const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'PATCH' });
+      const data = await res.json();
+
+      return data as any;
     },
-    async deleteGist(gistId: number) {
-      return (await fetch(`${proxyContext}/gists/${gistId}`, { method: 'DELETE' }).then(data =>
-        data.json(),
-      )) as IGist[];
+    async deleteGist(gistId: number | string) {
+      const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'DELETE' });
+      const data = await res.json();
+
+      return data as any;
     },
   },
   GithubRequest: {
     async getRepoData() {
-      return (await fetch(githubApiUrl, { method: 'GET' }).then(data => data.json())) as object;
+      const res = await fetch(`${proxyContext}/github/repos`, { method: 'GET' });
+      const data = await res.json();
+
+      return data as any;
     },
     async getContributors() {
-      return (await fetch(`${githubApiUrl}/stats/contributors`, { method: 'GET' }).then(data =>
-        data.json(),
-      )) as IContributor;
+      const res = await fetch(`${proxyContext}/github/contributors`, { method: 'GET' });
+      const data = await res.json();
+
+      return data as IContributor[];
     },
     async getStarNum() {
       const data = await this.getRepoData();
@@ -57,6 +76,21 @@ const ApiProvider = {
     async getForkNum() {
       const data = await this.getRepoData();
       return data.forks_count as number;
+    },
+  },
+  ImageRequest: {
+    async captureImage(body: object) {
+      const res = await fetch(`${proxyContext}/image`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          state: encode(body),
+        }),
+      });
+      const data = await res.blob();
+      console.log(data);
+
+      return data as any;
     },
   },
 };

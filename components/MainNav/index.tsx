@@ -8,6 +8,7 @@ import {
   SContainer,
   FlexRightBox,
   RowFlex,
+  SLogoImage,
 } from '../../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
@@ -95,7 +96,7 @@ class MainNav extends Component<IProps> {
           <h1 data-align>
             <Link href="/">
               <a data-align>
-                <img src="/static/logo.png" alt="GitShareCode" />
+                <SLogoImage />
               </a>
             </Link>
           </h1>

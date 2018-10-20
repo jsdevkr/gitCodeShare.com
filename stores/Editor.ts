@@ -78,6 +78,14 @@ export const Editor = types
     setLanguageByName: name => (self.language = LANGUAGES_NAME_HASH[name] || self.language),
     setLanguageByMime: mime => (self.language = LANGUAGES_MIME_HASH[mime] || self.language),
     setTheme: e => (self.theme = THEMES_NAME_HASH[e.key]),
+    printCode: () => {
+      console.log(encodeURIComponent(self.code));
+    },
+    captureImage: async e => {
+      await getEnv(self).provider.ImageRequest.captureImage({
+        code: self.code,
+      });
+    },
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
       const hide = message.loading('Saving...', 0);

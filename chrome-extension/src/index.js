@@ -10,7 +10,8 @@ function injectGitCodeShareWindow() {
   const iframe = document.createElement('iframe');
   // Must be declared at web_accessible_resources in manifest.json
   iframe.id = 'gitCodeShare';
-  iframe.src = chrome.runtime.getURL('src/frame.html');
+  // iframe.src = chrome.runtime.getURL('src/frame.html');
+  iframe.src = 'http://localhost:3000/editor';
 
   iframe.style.cssText = 'position:fixed;top:10%;right:10%;display:none;width:80%;height:70%;z-index:1000;';
   document.body.appendChild(iframe);
