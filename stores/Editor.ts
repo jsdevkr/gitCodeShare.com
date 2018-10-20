@@ -13,7 +13,7 @@ import {
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
 import { Instance, types, getEnv, flow } from 'mobx-state-tree';
-import { message } from 'antd';
+// import { message } from 'antd';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -68,6 +68,7 @@ export const Editor = types
     },
     setFontFamily: e => (self.fontFamily = FONTS_HASH[e.key]),
     setFontSize: v => (self.fontSize = v),
+    setLineNumbers: v => (self.lineNumbers = v),
     setOptionDrawerVisible: v => (self.optionDrawerVisible = v),
     setLanguage: e => {
       self.language = LANGUAGES_NAME_HASH[e.key];
