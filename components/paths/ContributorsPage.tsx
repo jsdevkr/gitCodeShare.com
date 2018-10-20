@@ -31,6 +31,10 @@ const RowFlexBox = styled.div`
 const ContributorsWrap = styled(RowFlexBox as any)`
   & {
     .ant-card {
+      .ant-card-cover {
+        max-width: 350px;
+        height: auto;
+      }
       .ant-card-body {
         text-align: left;
       }

@@ -64,6 +64,7 @@ const CodeWrap = styled(RowFlexBox as any)`
 
       .ant-card-meta-description {
         color: ${props => props.theme.colorPalette.gullGray};
+        font-size: 14px;
       }
     }
   }
@@ -105,6 +106,10 @@ const SlideWrap = styled(PageSection as any)`
       [data-svg-3] {
         right: 0;
       }
+
+      [data-desc] {
+        font-size: 16px;
+      }
     }
 
     [data-layer-1] {
@@ -124,12 +129,15 @@ const SlideWrap = styled(PageSection as any)`
 
     [data-title] {
       margin-bottom: 20px;
+      font-size: 48px;
+      text-shadow: 0 2px 5px #000, 0 -2px 5px #000;
     }
 
     [data-desc] {
       margin-bottom: 50px;
-      font-size: 12px;
+      font-size: 18px;
       color: ${props => props.theme.primaryTextColor};
+      text-shadow: 0 2px 5px #000, 0 -2px 5px #000;
     }
 
     [data-scroll-btn] {
@@ -249,7 +257,7 @@ class MainPage extends Component<IProps> {
             </p>
             <Link href="/extension">
               <a>
-                <DownloadButton icon="plus">Add GitCodeShare to Chrome</DownloadButton>
+                <DownloadButton icon="chrome">Add GitCodeShare to Chrome</DownloadButton>
               </a>
             </Link>
           </div>
