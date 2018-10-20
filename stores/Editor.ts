@@ -13,6 +13,7 @@ import {
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
 import { Instance, types, getEnv, flow } from 'mobx-state-tree';
+import { consoleTestResultHandler } from 'tslint/lib/test';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -81,14 +82,27 @@ export const Editor = types
     setLanguageByName: name => (self.language = LANGUAGES_NAME_HASH[name] || self.language),
     setLanguageByMime: mime => (self.language = LANGUAGES_MIME_HASH[mime] || self.language),
     setTheme: e => (self.theme = THEMES_NAME_HASH[e.key]),
-
-    getImageUrl: async e => {
+    getImageUrl: async () => {
       const image = await getEnv(self).provider.ImageRequest.getImageUrl({
         code: self.code,
       });
+      console.log(image);
+
       return image;
     },
+    downloadImage: async () => {
+      const link = document.createElement('a');
 
+      const url = await getEnv(self).provider.ImageRequest.getImageUrl({
+        code: self.code,
+      });
+
+      link.download = `girCodeShare_${new Date().getTime()}.png`;
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    },
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
       const data = await getEnv(self).provider.GistRequest.createGist({

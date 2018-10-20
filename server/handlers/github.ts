@@ -1,12 +1,9 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 import { Request, Response, NextFunction, Router } from 'express';
 import request from 'request';
 import { name, version } from './../../package.json';
 import fs from 'fs';
-import fetch from 'node-fetch';
 import { IContributor } from 'model/contributors.js';
+import { cache } from './';
 
 const router: Router = Router();
 
@@ -41,6 +38,42 @@ router.get('/repos', (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.get('/contributors', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const body = await cache.wrap('contributors', async () => {
+      const getDetails = async login => {
+        const result = await fetch(`${apiBaseUrl}/users/${login}`, {
+          headers: {
+            ...headers,
+            'Content-Type': 'application/json; charset=utf-8',
+            'User-Agent': `${name}/${version}`,
+          },
+        });
+        const data = await result.json();
+        return data as IContributor;
+      };
+
+      let promises = [];
+      let contributors = await readContributorFile();
+      contributors.forEach(i => {
+        promises.push(getDetails(i.login));
+      });
+
+      return await Promise.all(promises)
+        .then(values => {
+          return values as IContributor[];
+        })
+        .catch(err => {
+          console.log(err);
+          next(err);
+        });
+    });
+
+    return res.status(200).json(body);
+  } catch (err) {
+    console.log(err);
+    return next(err);
+  }
+
   function readContributorFile(): Promise<IContributor[]> {
     return new Promise(resolve => {
       fs.readFile('.all-contributorsrc', (err, data) => {
@@ -53,34 +86,6 @@ router.get('/contributors', async (req: Request, res: Response, next: NextFuncti
       });
     });
   }
-
-  const getDetails = async login => {
-    const response = await fetch(`${apiBaseUrl}/users/${login}`, {
-      headers: {
-        ...headers,
-        'Content-Type': 'application/json; charset=utf-8',
-        'User-Agent': `${name}/${version}`,
-      },
-    });
-    const data = await response.json();
-    return data as IContributor;
-  };
-
-  let promises = [];
-
-  let gitCodeShareContributors = await readContributorFile();
-  gitCodeShareContributors.forEach(i => {
-    promises.push(getDetails(i.login));
-  });
-
-  Promise.all(promises)
-    .then(values => {
-      return res.status(200).json(values);
-    })
-    .catch(err => {
-      console.log(err);
-      next(err);
-    });
 });
 
 export default router;

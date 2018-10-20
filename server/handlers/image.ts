@@ -6,7 +6,6 @@ export default function(browser: puppeteer.Browser) {
     const page = await browser.newPage();
 
     const { state } = req.query;
-    console.log('state', state);
     if (!state) {
       res.status(400).send();
     }
@@ -15,11 +14,15 @@ export default function(browser: puppeteer.Browser) {
       await page.goto(`http://localhost:3000/?state=${state}`);
 
       async function screenshotDOMElement(selector) {
-        if (!selector) { throw Error('Please provide a selector'); }
+        if (!selector) {
+          throw Error('Please provide a selector');
+        }
 
         const rect = await page.evaluate(selector => {
           const element = document.querySelector(selector);
-          if (!element) { return null; }
+          if (!element) {
+            return null;
+          }
 
           const { width: beforeWidth } = element.getBoundingClientRect();
           const adjustHeight = (beforeWidth / 3) * 2;
