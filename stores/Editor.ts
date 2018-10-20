@@ -12,8 +12,9 @@ import {
   LANGUAGES_SHORT_HASH,
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
-import { Instance, types, getEnv, flow } from 'mobx-state-tree';
-import { consoleTestResultHandler } from 'tslint/lib/test';
+
+import { Instance, types, getEnv, getRoot, flow } from 'mobx-state-tree';
+import { IAppStore, IStoreEnv } from './';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -57,6 +58,17 @@ export const Editor = types
     lineNumbers: types.optional(types.boolean, true),
     gistId: types.maybe(types.string),
   })
+  .views(self => ({
+    get app() {
+      return getRoot<IAppStore>(self);
+    },
+    get provider() {
+      return getEnv<IStoreEnv>(self).provider;
+    },
+    get mode() {
+      return self.language.mode;
+    },
+  }))
   .actions(self => ({
     setCode: v => {
       self.code = v;
@@ -82,12 +94,8 @@ export const Editor = types
     setLanguageByName: name => (self.language = LANGUAGES_NAME_HASH[name] || self.language),
     setLanguageByMime: mime => (self.language = LANGUAGES_MIME_HASH[mime] || self.language),
     setTheme: e => (self.theme = THEMES_NAME_HASH[e.key]),
-    getImageUrl: async () => {
-      const image = await getEnv(self).provider.ImageRequest.getImageUrl({
-        code: self.code,
-      });
-      console.log(image);
-
+    getImageUrl: async e => {
+      const image = await self.provider.ImageRequest.getImageUrl(self.code);
       return image;
     },
     downloadImage: async () => {
@@ -105,7 +113,7 @@ export const Editor = types
     },
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
-      const data = await getEnv(self).provider.GistRequest.createGist({
+      const data = await self.provider.GistRequest.createGist({
         public: true,
         files: {
           [filename]: {
@@ -116,27 +124,22 @@ export const Editor = types
       window.parent.postMessage({ type: 'success', value: `http://localhost:3000/?${data.id}` }, '*');
     },
     login: () => {
-      getEnv(self).provider.AuthRequest.login();
+      self.provider.AuthRequest.login();
     },
   }))
   .actions(self => ({
     onBeforeCodeChange: (_, $, code) => {
       !self.gistId && self.setCode(code);
     },
-    getGist: flow(function*(v) {
+    getGist: flow(function*(v: string) {
       self.code = '';
       self.gistId = v;
-      const data = yield getEnv(self).provider.GistRequest.getGist(v);
+      const data = yield self.provider.GistRequest.getGist(v);
       const file = data.files[Object.keys(data.files)[0]];
       self.setCode(file.content);
       file.language && self.setLanguageByName(file.language);
       file.type && self.setLanguageByMime(file.type);
     }),
-  }))
-  .views(self => ({
-    get mode() {
-      return self.language.mode;
-    },
   }));
 
 export interface IEditor extends Instance<typeof Editor> {}
