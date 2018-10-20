@@ -80,18 +80,8 @@ const ApiProvider = {
     },
   },
   ImageRequest: {
-    async captureImage(body: object) {
-      const res = await fetch(`${proxyContext}/image`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          state: encode(body),
-        }),
-      });
-      const data = await res.blob();
-      console.log(data);
-
-      return data as any;
+    async getImageUrl(state: string) {
+      return `${proxyContext}/image?state=${encode(state)}`;
     },
   },
 };

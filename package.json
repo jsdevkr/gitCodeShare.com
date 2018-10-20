@@ -42,6 +42,7 @@
     }
   },
   "dependencies": {
+    "@types/cache-manager": "^1.2.6",
     "@types/chrome": "0.0.74",
     "@types/codemirror": "0.0.65",
     "@types/connect-redis": "^0.0.7",
@@ -71,6 +72,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "antd": "^3.10.1",
     "body-parser": "^1.18.3",
+    "cache-manager": "^2.9.0",
     "codemirror": "^5.40.2",
     "cookie-parser": "^1.4.3",
     "dotenv": "^6.1.0",

@@ -1,3 +1,4 @@
+import 'isomorphic-unfetch';
 import passport from 'passport';
 import express from 'express';
 import session from 'express-session';
@@ -17,14 +18,6 @@ const dev = process.env.NODE_ENV !== 'production';
 const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 process.on('SIGINT', () => process.exit());
-
-// function wrap(handler: any) {
-//   return (req, res) =>
-//     handler(req, res).catch(err => {
-//       console.log('ERR:', err);
-//       res.status(400).end();
-//     });
-// }
 
 const puppeteerParams = dev
   ? {}
@@ -74,7 +67,6 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
   server.use(`${proxyContext}/github`, GithubHandler);
   server.use(`${proxyContext}/gists`, GistHandler);
   server.use(`${proxyContext}/image`, imageHandler);
-
   // logout
   server.get(`${proxyContext}/logout`, (req, res, next) => {
     req.session.destroy(err => {

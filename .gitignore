@@ -22,3 +22,4 @@ Bundled*.js
 !.env.example
 *.pem
 coverage
+.DS_Store
