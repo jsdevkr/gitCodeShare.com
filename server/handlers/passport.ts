@@ -6,7 +6,6 @@ import passportGithub from 'passport-github';
 import { Request, Response, NextFunction } from 'express';
 
 const GithubStrategy = passportGithub.Strategy;
-const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 /**
  * @description
@@ -81,6 +80,6 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
   if (req.isAuthenticated()) {
     return next();
   } else {
-    res.redirect(`${proxyContext}/auth/github`);
+    throw new Error('Login Required');
   }
 };

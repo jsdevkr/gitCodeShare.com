@@ -6,14 +6,15 @@ const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 const ApiProvider = {
   AuthRequest: {
-    async login(email: string | undefined, userPs: string | undefined) {
-      const data = await fetch(`/v1/login`, {});
-      return data as any;
+    login() {
+      window.open(
+        `${proxyContext}/auth/github`,
+        '',
+        ' scrollbars=yes,menubar=no,width=500, resizable=yes,toolbar=no,location=no,status=no',
+      );
     },
-    async me() {
-      const data = await fetch(`/v1/login`, {});
-      return data as any;
-    },
+    async isLogin() {},
+    async logout() {},
   },
   GistRequest: {
     async getGists() {
