@@ -12,7 +12,8 @@
   z-index: 2147483647;
   transform: translateZ(0px);
   will-change: opacity;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
 }
 
 .editor__back {
@@ -36,7 +37,33 @@
 
   left: 15%;
   top: 15%;
-  transition: background-color 0.2s ease 0s;
+  /* transition: background-color 0.2s ease 0s; */
 
   border-radius: 4px;
+}
+
+@keyframes goDown {
+  from {
+    transform: translateY(-150%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes goUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-150%);
+  }
+}
+
+.goDown {
+  animation: goDown 0.3s cubic-bezier(0.14, 0.95, 0.46, 1.15);
+}
+
+.goUp {
+  animation: goUp 0.25s cubic-bezier(.76,-0.2,.87,.24);
 }
