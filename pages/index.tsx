@@ -2,6 +2,7 @@ import * as React from 'react';
 // import { observable } from 'mobx';
 import { inject, observer } from 'mobx-react';
 import { IAppStore } from '../stores/AppStore';
+import { default as ApiProvider } from '../providers/ApiProvider';
 import { MainNav, MainFooter, MainPage } from '../components';
 import { SLayout } from '../styledComponents';
 import { CodeViewPage } from '../components';
@@ -29,15 +30,33 @@ class App extends React.Component<IProps> {
     }
   }
 
+  state = { starredList: [] };
+
+  componentDidMount() {
+    this.getStarred();
+  }
+
+  async getStarred() {
+    try {
+      const starredList = await ApiProvider.GistRequest.getStarredGists();
+      console.log(starredList);
+      this.setState({ starredList });
+    } catch (err) {
+      this.setState({ starredList: [] });
+      console.log(err);
+    }
+  }
+
   render() {
     const { gistId, state } = this.props;
+    const { starredList } = this.state;
 
     gistId && this.props.appStore.editor.getGist(gistId);
     state && state.code && this.props.appStore.editor.setCode(state.code);
     return (
       <SLayout>
         <MainNav />
-        {gistId || state ? <CodeViewPage /> : <MainPage />}
+        {gistId || state ? <CodeViewPage /> : <MainPage starredList={starredList} />}
         <MainFooter />
       </SLayout>
     );
