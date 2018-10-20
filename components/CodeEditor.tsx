@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import { LANGUAGES, THEMES, FONTS } from '../common/constants';
 import { observer, inject } from 'mobx-react';
-import { Dropdown, Button, Icon, InputNumber } from 'antd';
+import { Dropdown, Button, Icon, InputNumber, Switch } from 'antd';
 import { DropDownButton, EditorDropDown, styled, LineButton } from '../styledComponents';
 import { DropdownMenu } from './DropdownMenu';
 import { IAppStore } from 'stores/AppStore';
@@ -17,8 +17,42 @@ declare module 'react' {
   }
 }
 
-const PageContainer = styled.div`
-  padding: 20px 20px;
+// const PageContainer = styled.div`
+//   padding: 20px 20px;
+// `;
+
+const InputFontNumber = styled(InputNumber as any)`
+  position: absolute;
+  margin-left: 120px;
+  &.ant-input-number {
+    border: solid 1px #dbe3e9;
+    transition: none;
+    background-color: transparent;
+    color: ${props => props.theme.primaryTextColor};
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+`;
+const LineSwitch = styled(Switch as any)`
+  position: absolute;
+  margin-left: 120px;
+
+  &.ant-switch {
+    border: solid 1px #dbe3e9;
+    transition: none;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  &.ant-switch-checked {
+    border: solid 1px #dbe3e9;
+    transition: none;
+    background-color: transparent;
+  }
+`;
+
+const FontDropDown = styled(Dropdown as any)`
+  position: absolute;
+  margin-left: 120px;
 `;
 
 const EditorContainer = styled.div`
@@ -179,18 +213,20 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
             </OptionCloseButton>
             <OptionItem>
               <span>Font-Size</span>
-              <InputNumber min={10} max={20} value={editor.fontSize} onChange={editor.setFontSize} />
+              <InputFontNumber spare-margin min={10} max={20} value={editor.fontSize} onChange={editor.setFontSize} />
             </OptionItem>
             <OptionItem>
               <span>Font-Family</span>
-              <Dropdown overlay={DropdownMenu(FONTS, editor.setFontFamily)} trigger={['click']}>
-                <Button>
-                  {editor.fontFamily.name}
-                  <Icon type="caret-down" />
-                </Button>
-              </Dropdown>
+              <FontDropDown overlay={DropdownMenu(FONTS, editor.setFontFamily)} trigger={['click']}>
+                <DropDownButton>
+                  {editor.fontFamily.name} <Icon type="caret-down" />
+                </DropDownButton>
+              </FontDropDown>
             </OptionItem>
-            <OptionItem>Line-Number</OptionItem>
+            <OptionItem>
+              <span>Line-Number</span>
+              <LineSwitch defaultChecked onChange={editor.setLineNumbers} />
+            </OptionItem>
           </OptionDrawer>
           {!editor.gistId && (
             <ViewsBottom>
