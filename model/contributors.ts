@@ -21,6 +21,9 @@ export interface IAuthor {
   received_events_url?: string;
   type?: string;
   site_admin?: boolean;
+  name?: string;
+  profile?: string;
+  contributions?: string[];
 }
 
 export interface IContributor {

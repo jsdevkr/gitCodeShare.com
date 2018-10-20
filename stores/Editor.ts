@@ -86,6 +86,9 @@ export const Editor = types
         code: self.code,
       });
     },
+    openPopup: async () => {
+      await getEnv(self).provider.GistRequest.openPopup();
+    },
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
       const hide = message.loading('Saving...', 0);

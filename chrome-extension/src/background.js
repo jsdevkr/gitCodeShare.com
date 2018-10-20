@@ -1,9 +1,5 @@
 chrome.browserAction.onClicked.addListener(popup => {
-  const doToggle = 0;
-  if (doToggle === 0) {
-    chrome.tabs.create({ url: 'http://localhost:3000/api/auth/github' });
-    a = 1;
-  }
+  chrome.tabs.create({ url: 'http://localhost:3000/api/auth/github' });
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
