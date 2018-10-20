@@ -1,0 +1,147 @@
+.gCS_extension-main {
+  width: 600px;
+  height: 400px;
+  margin: 0;
+}
+
+.Rectangle-2 {
+  width: 600px;
+  height: 400px;
+  border: solid 1px #979797;
+  background-color: #000000;
+}
+
+.Fill-1 {
+  width: 2.65vw;
+  height: 5.0125vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.Fill-3 {
+  width: 2.65vw;
+  height: 5.0125vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+}
+
+.gitCodeShare {
+  width: 100vw;
+  height: 5.125vh;
+  font-family: ShareTechMono;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: -0.8px;
+  color: #ffffff;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+.Share-your-code-beau {
+  width: 100vw;
+  height: 5.875vh;
+  font-family: IBMPlexSans;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin: 0.5em auto;
+}
+
+.GitCodeSharecom-gi {
+  width: 100vw;
+  height: 7vh;
+  font-family: AppleSDGothicNeo;
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.62;
+  letter-spacing: normal;
+  text-align: center;
+  color: #dbe3e9;
+  margin: 0 auto;
+}
+
+.Rectangle {
+  width: 35vw;
+  height: 5vh;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 #222b33;
+  background-color: #5147ff;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.Shape {
+  width: 100vw;
+  height: 2.75vh;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.-Add-GitCodeShare-t {
+  width: 100vw;
+  height: 2.5vh;
+  font-family: IBMPlexSans;
+  font-size: 0.8em;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.By-joining-you-agre {
+  width: 100vw;
+  height: 1.875vh;
+  font-family: IBMPlexSans;
+  font-size: 0.5em;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #dbe3e9;
+  margin: 0 auto;
+}
+
+.By-joining-you-agre .text-style-1 {
+  font-weight: 500;
+}
+
+.Group-11 {
+  width: 100vw;
+  height: 20vh;
+  object-fit: contain;
+  margin: 0 auto;
+  margin-top: 3em;
+  text-align: center;
+}
+
+.GitCodeSharecom-2 {
+  width: 20vw;
+  height: 2.125vh;
+  font-family: IBMPlexMono;
+  font-size: 0.8em;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  margin: 1em auto;
+}
