@@ -6,7 +6,7 @@ import request from 'request';
 import { name, version } from './../../package.json';
 import fs from 'fs';
 import fetch from 'node-fetch';
-import { IAuthor } from 'model/contributors.js';
+import { IContributor } from 'model/contributors.js';
 
 const router: Router = Router();
 
@@ -41,7 +41,7 @@ router.get('/repos', (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.get('/contributors', async (req: Request, res: Response, next: NextFunction) => {
-  function readContributorFile(): Promise<IAuthor[]> {
+  function readContributorFile(): Promise<IContributor[]> {
     return new Promise(resolve => {
       fs.readFile('.all-contributorsrc', (err, data) => {
         if (err) {
@@ -63,7 +63,7 @@ router.get('/contributors', async (req: Request, res: Response, next: NextFuncti
       },
     });
     const data = await response.json();
-    return data as IAuthor;
+    return data as IContributor;
   };
 
   let promises = [];

@@ -45,6 +45,7 @@ const ContributorsWrap = styled(RowFlexBox as any)`
 class ContributorsPage extends Component<IProps> {
   render() {
     const { contributors } = this.props;
+    console.log(contributors);
 
     return (
       <PageContent>
@@ -62,11 +63,11 @@ class ContributorsPage extends Component<IProps> {
           <SContainer>
             <ContributorsWrap>
               {contributors.length
-                ? contributors.map((contributor: IContributor) => (
-                    <a data-col href={contributor.author.html_url} target="blank">
-                      <SCard cover={<img alt="example" src={contributor.author.avatar_url} />}>
-                        <SCardMeta title={contributor.author.login} description="Developer" />
-                        <SCardMetaDetail description="개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명개발자 설명" />
+                ? contributors.map((contributor: IContributor, i: number) => (
+                    <a key={i} data-col href={contributor.html_url} target="blank">
+                      <SCard cover={<img alt="example" src={contributor.avatar_url} />}>
+                        <SCardMeta title={contributor.login} description="Developer" />
+                        <SCardMetaDetail description={contributor.bio} />
                       </SCard>
                     </a>
                   ))
