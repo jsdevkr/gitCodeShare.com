@@ -1,0 +1,42 @@
+.editor {
+  display: none;
+  transition: opacity 0.85s ease-in 0s;
+  overflow-y: auto;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  font-family: Arial;
+  color: rgb(0, 0, 0);
+  z-index: 2147483647;
+  transform: translateZ(0px);
+  will-change: opacity;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.editor__back {
+  display: block;
+}
+
+.editor__iframe {
+  position: fixed;
+  right: 10%;
+  display: block;
+  width: 70%;
+  height: 70%;
+
+  z-index: 2147483647;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 10px 50px 0px;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+  background: black;
+
+  left: 15%;
+  top: 15%;
+  transition: background-color 0.2s ease 0s;
+
+  border-radius: 4px;
+}
