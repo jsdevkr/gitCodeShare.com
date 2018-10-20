@@ -38,10 +38,11 @@ const BorderlessButton: typeof InlineFlexButton = styled(InlineFlexButton as any
 
 const GithubButton: typeof RoundedButton = styled(RoundedButton as any)`
   &.ant-btn {
-    padding: 0 5px;
+    padding: 0 8px;
     margin-right: 5px;
     border: 1px solid;
-    height: 25px;
+    height: 27px;
+    line-height: 25px;
 
     i {
       font-size: 17px;
