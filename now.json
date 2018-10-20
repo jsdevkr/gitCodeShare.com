@@ -5,6 +5,7 @@
   "env": {
     "NODE_ENV": "production"
   },
+  "alias": "gitcodeshare.com",
   "features": {
     "cloud": "v1"
   }
