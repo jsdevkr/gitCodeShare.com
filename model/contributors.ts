@@ -2,12 +2,13 @@
  * @description
  *  - https://developer.github.com/v3/gists/#create-a-gist
  */
-export interface IAuthor {
+export interface IContributor {
   login?: string;
   id?: string;
   node_id?: number;
   avatar_url?: string;
   gravatar_id?: string;
+  bio?: string;
   url?: string;
   html_url?: string;
   followers_url?: string;
@@ -21,10 +22,4 @@ export interface IAuthor {
   received_events_url?: string;
   type?: string;
   site_admin?: boolean;
-}
-
-export interface IContributor {
-  total?: number;
-  weeks?: object[];
-  author?: IAuthor;
 }
