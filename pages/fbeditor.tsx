@@ -6,7 +6,7 @@ import { styled } from '../styledComponents';
 interface IEditorProps {}
 
 const PageContainer = styled.div`
-  /* padding: 20px 20px; */
+  background-color: black;
 `;
 
 @observer

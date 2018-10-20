@@ -20,12 +20,12 @@ interface IProps {
 
 const { fadeIn, fadeInLeft, fadeInRight, bounceIn } = StyledAnimation;
 
-const RowFlexBox = styled.div`
+const RowFlexBox: any = styled.div`
   & {
     ${RowFlex};
     justify-content: space-between;
     margin: 0 -15px;
-    min-height: ${props => props.minHeight};
+    min-height: ${props => (props as any).minHeight};
 
     [data-col] {
       flex: 0 0 50%;
@@ -46,7 +46,9 @@ const RowFlexBox = styled.div`
       max-width: 360px;
     }
   }
-`;
+` as {
+  minHeight?: number;
+};
 
 const CodeWrap = styled(RowFlexBox as any)`
   & {
@@ -172,33 +174,40 @@ const AnimationWrap = styled.div`
   }
 `;
 
-const AnimatedImg = styled.img`
-  top: ${props => props.top};
-  left: ${props => props.left};
-  right: ${props => props.right};
-  bottom: ${props => props.bottom};
-  z-index: ${props => props.zIndex};
+const AnimatedImg: any = styled.img`
+  top: ${(props: any) => props.top};
+  left: ${(props: any) => props.left};
+  right: ${(props: any) => props.right};
+  bottom: ${(props: any) => props.bottom};
+  z-index: ${(props: any) => props.zIndex};
 
   &[data-fade] {
     opacity: 0;
   }
 
   &[data-fade-in] {
-    animation: 1s ${fadeIn} ${props => props.delay} forwards;
+    animation: 1s ${fadeIn} ${(props: any) => props.delay} forwards;
   }
 
   &[data-fade-in-left] {
-    animation: 1s ${fadeInLeft} ${props => props.delay} forwards;
+    animation: 1s ${fadeInLeft} ${(props: any) => props.delay} forwards;
   }
 
   &[data-fade-in-right] {
-    animation: 1s ${fadeInRight} ${props => props.delay} forwards;
+    animation: 1s ${fadeInRight} ${(props: any) => props.delay} forwards;
   }
 
   &[data-bounce-in] {
-    animation: 1s ${bounceIn} ${props => props.delay} forwards;
+    animation: 1s ${bounceIn} ${(props: any) => props.delay} forwards;
   }
-`;
+` as {
+  top?: number;
+  left?: number;
+  right?: number;
+  bottom?: number;
+  zIndex?: number;
+  delay?: number;
+};
 
 class MainPage extends Component<IProps> {
   animatedDOM: HTMLElement[] = [];
