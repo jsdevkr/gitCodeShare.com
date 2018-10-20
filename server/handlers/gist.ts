@@ -1,10 +1,8 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 import { Request, Response, NextFunction, Router } from 'express';
 import request from 'request';
 import { name, version } from './../../package.json';
 import { isAuthenticated } from './passport';
+import { cache } from './';
 
 const router: Router = Router();
 
@@ -32,26 +30,40 @@ const putStar = (gistId: string): void => {
     },
   );
 };
-router.get('/starred', (req: Request, res: Response, next: NextFunction) => {
-  request.get(
-    `https://api.github.com/gists/starred`,
-    {
-      json: true,
-      headers: {
-        ...headers,
-        'Content-Type': 'application/json; charset=utf-8',
-        'User-Agent': `${name}/${version}`,
-      },
-    },
-    (err, response, body) => {
-      if (err) {
-        console.log(err);
-        return next(err);
-      }
-      console.log(body.length);
-      return res.status(200).json(body);
-    },
-  );
+router.get('/starred', async (req: Request, res: Response, next: NextFunction) => {
+  function requestAPI() {
+    return new Promise((resolve, reject) => {
+      console.log('request to gitbhub');
+      request.get(
+        `https://api.github.com/gists/starred`,
+        {
+          json: true,
+          headers: {
+            ...headers,
+            'Content-Type': 'application/json; charset=utf-8',
+            'User-Agent': `${name}/${version}`,
+          },
+        },
+        (err, response, body) => {
+          if (err) {
+            return reject(err);
+          }
+          return resolve(body);
+        },
+      );
+    });
+  }
+
+  try {
+    const body = await cache.wrap('starred', async () => {
+      return await requestAPI();
+    });
+    console.log(body.length);
+    return res.status(200).json(body);
+  } catch (err) {
+    console.log(err);
+    return next(err);
+  }
 });
 
 router.get('/', (req: Request, res: Response, next: NextFunction) => {
