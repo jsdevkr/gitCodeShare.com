@@ -16,6 +16,10 @@ const ApiProvider = {
     },
   },
   GistRequest: {
+    async openPopup() {
+      window.open(`${proxyContext}/auth/github`, 'Github-OAuth-Login');
+    },
+    async closePopup() {},
     async getGists() {
       const res = await fetch(`${proxyContext}/gists`, { method: 'GET' });
       const data = await res.json();
