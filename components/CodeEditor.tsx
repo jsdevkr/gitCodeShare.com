@@ -254,6 +254,8 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
             height: 100%;
             margin: 50px;
             width: 100%;
+            max-height: 500px;
+            overflow: auto;
           }
           .CodeMirror {
             width: 100%;
