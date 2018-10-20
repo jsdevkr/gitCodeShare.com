@@ -1,3 +1,4 @@
+import 'isomorphic-unfetch';
 import passport from 'passport';
 import express from 'express';
 import session from 'express-session';
