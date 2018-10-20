@@ -64,6 +64,7 @@ export const Editor = types
         const mode = debounceDetectLanguage(v);
         self.language.mode = mode ? mode : self.language.mode;
       }
+      postMessage({ type: 'setHeight', value: document.querySelector('#__next').scrollHeight }, '*');
     },
     setFontFamily: e => (self.fontFamily = FONTS_HASH[e.key]),
     setFontSize: v => (self.fontSize = v),
@@ -88,7 +89,6 @@ export const Editor = types
     },
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
-      const hide = message.loading('Saving...', 0);
       const data = await getEnv(self).provider.GistRequest.createGist({
         public: true,
         files: {
@@ -97,8 +97,7 @@ export const Editor = types
           },
         },
       });
-      hide();
-      window.parent.postMessage(data.id, '*');
+      postMessage({ data: `http://localhost:3000/?${data.id}` }, '*');
     },
   }))
   .actions(self => ({

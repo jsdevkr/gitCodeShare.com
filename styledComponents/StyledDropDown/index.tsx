@@ -3,7 +3,7 @@ import { Dropdown } from 'antd';
 
 const EditorDropDown = styled(Dropdown as any)`
   &.ant-dropdown {
-    background-color: #000;
+    background-color: ${props => props.theme.primaryColor};
     color: ${props => props.theme.primaryTextColor};
   }
 ` as any;
