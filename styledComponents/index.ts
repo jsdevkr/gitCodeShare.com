@@ -18,3 +18,4 @@ export { SCard, SCardMeta, SCardMetaDetail, UserCard, UserCardMeta } from './Sty
 export { EditorDropDown } from './StyledDropDown';
 export { default as StyledAnimation } from './StyledAnimation';
 export { SLogoImage } from './StyledImage';
+export { SSpin } from './StyledIcon';

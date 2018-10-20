@@ -9,6 +9,7 @@ import {
   PageContent,
   PageSection,
   TitleSection,
+  SSpin,
 } from '../../styledComponents';
 import { IContributor } from '../../model/contributors';
 
@@ -69,16 +70,18 @@ class ContributorsPage extends Component<IProps> {
         <PageSection>
           <SContainer>
             <ContributorsWrap>
-              {contributors.length
-                ? contributors.map((contributor: IContributor, i: number) => (
-                    <a key={i} data-col href={contributor.html_url} target="blank">
-                      <SCard cover={<img alt="example" src={contributor.avatar_url} />}>
-                        <SCardMeta title={contributor.login} description="Developer" />
-                        <SCardMetaDetail description={contributor.bio} />
-                      </SCard>
-                    </a>
-                  ))
-                : '컨트리뷰터를 로드 중입니다'}
+              {contributors.length ? (
+                contributors.map((contributor: IContributor, i: number) => (
+                  <a key={i} data-col href={contributor.html_url} target="blank">
+                    <SCard cover={<img alt="example" src={contributor.avatar_url} />}>
+                      <SCardMeta title={contributor.login} description="Developer" />
+                      <SCardMetaDetail description={contributor.bio} />
+                    </SCard>
+                  </a>
+                ))
+              ) : (
+                <SSpin tip="Loading..." />
+              )}
             </ContributorsWrap>
           </SContainer>
         </PageSection>
