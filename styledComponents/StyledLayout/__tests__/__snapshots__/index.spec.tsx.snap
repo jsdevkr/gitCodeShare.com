@@ -2,19 +2,19 @@
 
 exports[`StyledLayout MContainer should render 1`] = `
 <div
-  className="StyledLayout__MContainer-sc-1ec2pa7-1 cXZQBP"
+  className="StyledLayout__MContainer-sc-1ec2pa7-1 iIdJkn"
 />
 `;
 
 exports[`StyledLayout PageContent should render 1`] = `
 <div
-  className="StyledLayout__PageContent-sc-1ec2pa7-3 kymNdP ant-layout-content"
+  className="StyledLayout__PageContent-sc-1ec2pa7-3 jWLGWp ant-layout-content"
 />
 `;
 
 exports[`StyledLayout PageSection should render 1`] = `
 <section
-  className="StyledLayout__PageSection-sc-1ec2pa7-4 ejZYfT"
+  className="StyledLayout__PageSection-sc-1ec2pa7-4 hvPEwH"
 />
 `;
 
@@ -31,7 +31,7 @@ exports[`StyledLayout SLayout should render 1`] = `
 `;
 
 exports[`StyledLayout TitleSection should render 1`] = `
-<div
-  className="StyledLayout__TitleSection-sc-1ec2pa7-5 ljYADK"
+<header
+  className="StyledLayout__TitleSection-sc-1ec2pa7-5 ceLwde"
 />
 `;
