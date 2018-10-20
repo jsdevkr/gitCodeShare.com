@@ -81,11 +81,14 @@ export const Editor = types
     setLanguageByName: name => (self.language = LANGUAGES_NAME_HASH[name] || self.language),
     setLanguageByMime: mime => (self.language = LANGUAGES_MIME_HASH[mime] || self.language),
     setTheme: e => (self.theme = THEMES_NAME_HASH[e.key]),
-    captureImage: async e => {
-      await getEnv(self).provider.ImageRequest.captureImage({
+
+    getImageUrl: async e => {
+      const image = await getEnv(self).provider.ImageRequest.getImageUrl({
         code: self.code,
       });
+      return image;
     },
+
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
       const data = await getEnv(self).provider.GistRequest.createGist({

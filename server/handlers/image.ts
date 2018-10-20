@@ -4,33 +4,32 @@ import { Request, Response, NextFunction } from 'express';
 export default function(browser: puppeteer.Browser) {
   return async (req: Request, res: Response, next: NextFunction) => {
     const page = await browser.newPage();
-    const { state } = req.body;
 
+    const { state } = req.query;
+    console.log('state', state);
     if (!state) {
       res.status(400).send();
     }
 
     try {
       await page.goto(`http://localhost:3000/?state=${state}`);
-      console.log(state);
 
-      async function screenshot(selector) {
-        if (!selector) {
-          throw Error('Please provide a selector');
-        }
+      async function screenshotDOMElement(selector) {
+        if (!selector) { throw Error('Please provide a selector'); }
 
         const rect = await page.evaluate(selector => {
           const element = document.querySelector(selector);
-          if (!element) {
-            return null;
-          }
+          if (!element) { return null; }
+
+          const { width: beforeWidth } = element.getBoundingClientRect();
+          const adjustHeight = (beforeWidth / 3) * 2;
+          element.style.height = `${adjustHeight}px`;
+
           const { x, y, width, height } = element.getBoundingClientRect();
           return { left: x, top: y, width, height, id: element.id };
         }, selector);
 
         return await page.screenshot({
-          encoding: 'base64',
-          omitBackground: true,
           clip: {
             x: rect.left,
             y: rect.top,
@@ -39,18 +38,14 @@ export default function(browser: puppeteer.Browser) {
           },
         });
       }
+      const buffer = await screenshotDOMElement('div.CodeMirror');
+      await page.close();
 
-      const data = await screenshot('div.CodeMirror');
-
-      res.writeHead(200, {
-        'content-length': data.length,
-        'content-type': 'image/png',
-        'Content-Disposition': 'attachment; filename=code.png',
-      });
-
-      res.end(new Buffer(data, 'base64'));
+      res.set('Content-Type', 'image/png');
+      res.write(buffer, 'binary');
+      res.end(null, 'binary');
     } catch (e) {
-      console.error(e);
+      console.error('error ! ', e);
       res.status(500).send();
     } finally {
       await page.close();
