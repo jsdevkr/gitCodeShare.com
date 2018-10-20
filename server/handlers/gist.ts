@@ -117,6 +117,7 @@ router.patch('/:gist_id', isAuthenticated, (req: Request, res: Response, next: N
 });
 
 router.post('/', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.body);
   request.post(
     `https://api.github.com/gists`,
     {

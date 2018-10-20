@@ -145,51 +145,6 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
 
     return (
       <>
-        <EditorContainer>
-          <EditorHeader>
-            <EditorDropDown overlay={DropdownMenu(THEMES, editor.setTheme)} trigger={['click']}>
-              <DropDownButton style={{ marginRight: '15px', marginLeft: '30px' }}>
-                {editor.theme.name} <Icon type="caret-down" />
-              </DropDownButton>
-            </EditorDropDown>
-            <EditorDropDown overlay={DropdownMenu(LANGUAGES, editor.setLanguage)} trigger={['click']}>
-              <DropDownButton>
-                {editor.language.name} <Icon type="caret-down" />
-              </DropDownButton>
-            </EditorDropDown>
-            <OptionsButton onClick={_ => editor.setOptionDrawerVisible(true)}>
-              Options <Icon type="menu-fold" style={{ fontSize: '18px' }} />
-            </OptionsButton>
-          </EditorHeader>
-          <EditorBody>
-            <CodeMirror onBeforeChange={editor.onBeforeCodeChange} value={editor.code} options={options} />
-          </EditorBody>
-          <OptionDrawer style={{ right: editor.optionDrawerVisible ? 0 : '-378px' }}>
-            <OptionCloseButton onClick={_ => editor.setOptionDrawerVisible(false)}>
-              <Icon type="menu-unfold" />
-            </OptionCloseButton>
-            <OptionItem>
-              <span>Font-Size</span>
-              <InputNumber min={10} max={20} value={editor.fontSize} onChange={editor.setFontSize} />
-            </OptionItem>
-            <OptionItem>
-              <span>Font-Family</span>
-              <Dropdown overlay={DropdownMenu(FONTS, editor.setFontFamily)} trigger={['click']}>
-                <Button>
-                  {editor.fontFamily.name}
-                  <Icon type="caret-down" />
-                </Button>
-              </Dropdown>
-            </OptionItem>
-            <OptionItem>Line-Number</OptionItem>
-          </OptionDrawer>
-        </EditorContainer>
-        {!editor.gistId && (
-          <ViewsBottom>
-            <LineButton>Save & Share to Facebook</LineButton>
-            <LineButton onClick={editor.createGist}>Save & Get Share Link</LineButton>
-          </ViewsBottom>
-        )}
         <PageContainer>
           <EditorContainer>
             <EditorHeader>
@@ -232,8 +187,6 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
           </EditorContainer>
           {!editor.gistId && (
             <ViewsBottom>
-              <LineButton onClick={editor.captureImage}>Save & Share to Facebook</LineButton>
-              <LineButton onClick={editor.openPopup}>openPopup</LineButton>
               <LineButton onClick={editor.createGist}>Save & Get Share Link</LineButton>
             </ViewsBottom>
           )}
