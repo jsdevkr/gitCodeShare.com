@@ -2,7 +2,6 @@ import * as React from 'react';
 import { MainNav, MainFooter, ContributorsPage } from '../components';
 import { SLayout } from '../styledComponents';
 import { ApiProvider } from '../providers';
-import { IContributor } from '../model/contributors';
 
 interface IProps {}
 
@@ -15,7 +14,7 @@ class Contributors extends React.Component<IProps> {
 
   async getContributors() {
     try {
-      const contributors: IContributor = await ApiProvider.GithubRequest.getContributors();
+      const contributors = await ApiProvider.GithubRequest.getContributors();
       this.setState({ contributors });
     } catch (err) {
       this.setState({ contributors: [] });

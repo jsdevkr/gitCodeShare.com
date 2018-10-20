@@ -63,6 +63,7 @@
     "@types/react-dom": "^16.0.9",
     "@types/redis": "^2.8.7",
     "@types/request": "^2.47.1",
+    "@types/styled-components": "^4.0.1",
     "@types/uuid": "^3.4.4",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-less": "^1.0.1",
