@@ -13,7 +13,6 @@ import {
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
 import { Instance, types, getEnv, flow } from 'mobx-state-tree';
-// import { message } from 'antd';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -64,10 +63,9 @@ export const Editor = types
         const mode = debounceDetectLanguage(v);
         self.language.mode = mode ? mode : self.language.mode;
       }
-      if (postMessage) {
-        console.log('POST_MESSAGE');
-        postMessage({ type: 'setHeight', value: document.querySelector('#__next').scrollHeight }, '*');
-      }
+    },
+    onUpdate: e => {
+      window.parent.postMessage({ type: 'setHeight', value: document.querySelector('#__next').scrollHeight }, '*');
     },
     setFontFamily: e => (self.fontFamily = FONTS_HASH[e.key]),
     setFontSize: v => (self.fontSize = v),
@@ -98,7 +96,7 @@ export const Editor = types
           },
         },
       });
-      postMessage({ data: `http://localhost:3000/?${data.id}` }, '*');
+      window.parent.postMessage({ type: 'success', value: `http://localhost:3000/?${data.id}` }, '*');
     },
     login: () => {
       getEnv(self).provider.AuthRequest.login();

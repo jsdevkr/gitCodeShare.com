@@ -13,7 +13,7 @@ const PageContainer = styled.div`
 export default class Editor extends React.Component<IEditorProps> {
   render() {
     return (
-      <PageContainer>
+      <PageContainer id="gitCodeShare">
         <CodeEditor />
       </PageContainer>
     );
