@@ -1,0 +1,12 @@
+{
+  "name": "gitCodeShare.com",
+  "type": "docker",
+  "public": true,
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "alias": "gitcodeshare.com",
+  "features": {
+    "cloud": "v1"
+  }
+}

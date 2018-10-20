@@ -17,4 +17,7 @@ export const tohash = (l, k) => {
   }, {});
 };
 
+export const encodeParams = param => Buffer.from(encodeURIComponent(JSON.stringify(param))).toString('base64');
+export const decodeParams = param => JSON.parse(decodeURIComponent(Buffer.from(param, 'base64').toString('ascii')));
+
 export const renderWithTheme = component => <ThemeProvider theme={theme}>{component}</ThemeProvider>;

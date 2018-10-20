@@ -16,9 +16,9 @@ Share your code beautifully!
 [GitCodeShare](https://gitcodeshare.com)
 
 ---
-### What we've Learnd
+### What we've learned
 @ul
-- Out-dated tech (chrom extention, react, mobx, ...)
+- Out-dated tech (Chrome extension, react, mobx, ...)
 - Experienced about cycle of service launch
 - Experienced about open source eco-system
 - Co-work with other developers and supported by mentors

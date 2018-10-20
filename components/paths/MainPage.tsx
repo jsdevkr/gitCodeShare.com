@@ -18,32 +18,18 @@ interface IProps {
   className?: string;
 }
 
-const { fadeInLeft, fadeInRight } = StyledAnimation;
-
-const MainContent = styled(PageContent as any)`
-  [data-fade] {
-    opacity: 0;
-  }
-
-  [data-fade-in-left] {
-    opacity: 1;
-    animation: 1s ${fadeInLeft};
-  }
-
-  [data-fade-in-right] {
-    opacity: 1;
-    animation: 1s ${fadeInRight};
-  }
-`;
+const { fadeIn, fadeInLeft, fadeInRight, bounceIn } = StyledAnimation;
 
 const RowFlexBox = styled.div`
   & {
     ${RowFlex};
     justify-content: space-between;
     margin: 0 -15px;
+    min-height: ${props => props.minHeight};
 
     [data-col] {
       flex: 0 0 50%;
+      align-self: stretch;
       position: relative;
       padding: 0 15px;
     }
@@ -53,7 +39,7 @@ const RowFlexBox = styled.div`
     }
 
     [data-grid-2] {
-      flex: 0 0 450px;
+      flex: 0 0 calc(100% - 500px);
     }
 
     [data-textbox-1] {
@@ -78,6 +64,7 @@ const CodeWrap = styled(RowFlexBox as any)`
 
       .ant-card-meta-description {
         color: ${props => props.theme.colorPalette.gullGray};
+        font-size: 14px;
       }
     }
   }
@@ -94,11 +81,35 @@ const SlideWrap = styled(PageSection as any)`
     position: relative;
 
     [data-bg] {
+      margin: 0 auto;
       position: absolute;
       top: 0;
       bottom: 0;
       z-index: 0;
+      width: 100%;
+      max-width: 1208px;
       object-fit: cover;
+      /* opacity: 0.8; */
+
+      [data-svg] {
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+      }
+
+      [data-svg-1] {
+        left: 0;
+      }
+      [data-svg-2] {
+        right: 0;
+      }
+      [data-svg-3] {
+        right: 0;
+      }
+
+      [data-desc] {
+        font-size: 16px;
+      }
     }
 
     [data-layer-1] {
@@ -106,14 +117,27 @@ const SlideWrap = styled(PageSection as any)`
       z-index: 9;
     }
 
+    [data-bg] {
+      background: radial-gradient(#000, transparent, rgba(0, 0, 0, 0.6), #000);
+      /* background: radial-gradient(transparent, #000); */
+      position: absolute;
+      /* left: 0; */
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
     [data-title] {
       margin-bottom: 20px;
+      font-size: 48px;
+      text-shadow: 0 2px 5px #000, 0 -2px 5px #000;
     }
 
     [data-desc] {
       margin-bottom: 50px;
-      font-size: 12px;
+      font-size: 18px;
       color: ${props => props.theme.primaryTextColor};
+      text-shadow: 0 2px 5px #000, 0 -2px 5px #000;
     }
 
     [data-scroll-btn] {
@@ -140,6 +164,42 @@ const SlideWrap = styled(PageSection as any)`
   }
 `;
 
+const AnimationWrap = styled.div`
+  position: relative;
+
+  img {
+    position: absolute;
+  }
+`;
+
+const AnimatedImg = styled.img`
+  top: ${props => props.top};
+  left: ${props => props.left};
+  right: ${props => props.right};
+  bottom: ${props => props.bottom};
+  z-index: ${props => props.zIndex};
+
+  &[data-fade] {
+    opacity: 0;
+  }
+
+  &[data-fade-in] {
+    animation: 1s ${fadeIn} ${props => props.delay} forwards;
+  }
+
+  &[data-fade-in-left] {
+    animation: 1s ${fadeInLeft} ${props => props.delay} forwards;
+  }
+
+  &[data-fade-in-right] {
+    animation: 1s ${fadeInRight} ${props => props.delay} forwards;
+  }
+
+  &[data-bounce-in] {
+    animation: 1s ${bounceIn} ${props => props.delay} forwards;
+  }
+`;
+
 class MainPage extends Component<IProps> {
   animatedDOM: HTMLElement[] = [];
 
@@ -147,11 +207,20 @@ class MainPage extends Component<IProps> {
     let offsetTop = window.pageYOffset + 300;
 
     if (this.animatedDOM[0] && offsetTop > this.animatedDOM[0].offsetTop) {
-      this.animatedDOM[0].querySelector('img').setAttribute('data-fade-in-right', '');
+      const $img = this.animatedDOM[0].querySelectorAll('img');
+
+      $img[0].setAttribute('data-bounce-in', '');
+      $img[1].setAttribute('data-fade-in-left', '');
+      $img[2].setAttribute('data-bounce-in', '');
+      $img[3].setAttribute('data-fade-in', '');
     }
 
     if (this.animatedDOM[1] && offsetTop > this.animatedDOM[1].offsetTop) {
-      this.animatedDOM[1].querySelector('img').setAttribute('data-fade-in-left', '');
+      const $img = this.animatedDOM[1].querySelectorAll('img');
+
+      $img[0].setAttribute('data-fade-in-left', '');
+      $img[1].setAttribute('data-fade-in-right', '');
+      $img[2].setAttribute('data-bounce-in', '');
     }
   };
 
@@ -170,9 +239,15 @@ class MainPage extends Component<IProps> {
   render() {
     const { className } = this.props;
     return (
-      <MainContent className={className}>
+      <PageContent className={className}>
         <SlideWrap>
-          <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" />
+          <div data-bg>
+            <img data-svg data-svg-1 src="/static/images/svg/main-graphic-01.svg" alt="슬라이드 배경 애니메이션" />
+            <img data-svg data-svg-2 src="/static/images/svg/main-graphic-03.svg" alt="슬라이드 배경 애니메이션" />
+            <img data-svg data-svg-3 src="/static/images/svg/main-graphic-02.svg" alt="슬라이드 배경 애니메이션" />
+          </div>
+          <div data-bg />
+          {/* <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" /> */}
           <div data-layer-1>
             <h3 data-title>Share your code beautifully</h3>
             <p data-desc>
@@ -182,7 +257,7 @@ class MainPage extends Component<IProps> {
             </p>
             <Link href="/extension">
               <a>
-                <DownloadButton icon="plus">Add GitCodeShare to Chrome</DownloadButton>
+                <DownloadButton icon="chrome">Add GitCodeShare to Chrome</DownloadButton>
               </a>
             </Link>
           </div>
@@ -190,8 +265,8 @@ class MainPage extends Component<IProps> {
         </SlideWrap>
         <PageSection>
           <SContainer>
-            <RowFlexBox innerRef={el => (this.animatedDOM[0] = el)}>
-              <div data-col data-grid-1>
+            <RowFlexBox ref={el => (this.animatedDOM[0] = el)} minHeight="437px">
+              <div data-col>
                 <h3 data-title>Why GitCodeShare?</h3>
                 <div data-textbox-1>
                   <h4 data-subtitle>I don’t like this style!</h4>
@@ -205,19 +280,77 @@ class MainPage extends Component<IProps> {
                   </p>
                 </div>
               </div>
-              <div data-col data-grid-2>
-                <img data-fade width="543" src="../../static/images/main_1.png" alt="gitshare 설명 이미지" />
-              </div>
+              <AnimationWrap data-col>
+                <AnimatedImg
+                  top="66px"
+                  left="15px"
+                  zIndex="2"
+                  delay="0.5s"
+                  data-fade
+                  src="/static/images/main/main_illust_01.png"
+                  alt="gitshare 설명 이미지"
+                />
+                <AnimatedImg
+                  top="149px"
+                  left="142px"
+                  zIndex="2"
+                  data-fade
+                  src="/static/images/main/main_illust_02.png"
+                  alt="gitshare 설명 이미지"
+                />
+                <AnimatedImg
+                  top="20px"
+                  left="215px"
+                  zIndex="1"
+                  data-fade
+                  delay="0.9s"
+                  src="/static/images/main/main_illust_03.png"
+                  alt="gitshare 설명 이미지"
+                />
+                <AnimatedImg
+                  top="230px"
+                  left="309px"
+                  zIndex="2"
+                  data-fade
+                  delay="0.7s"
+                  src="/static/images/main/main_illust_04.png"
+                  alt="gitshare 설명 이미지"
+                />
+              </AnimationWrap>
             </RowFlexBox>
           </SContainer>
         </PageSection>
         <PageSection>
           <SContainer>
-            <RowFlexBox innerRef={el => (this.animatedDOM[1] = el)}>
-              <div data-col data-grid-1>
-                <img data-fade width="578" src="../../static/images/main_2.png" alt="gitshare 설명 이미지" />
-              </div>
-              <div data-col data-grid-2>
+            <RowFlexBox ref={el => (this.animatedDOM[1] = el)} minHeight="725px">
+              <AnimationWrap data-col>
+                <AnimatedImg
+                  top="108px"
+                  zIndex="1"
+                  data-fade
+                  src="/static/images/main/main_illust_05.png"
+                  alt="gitshare 설명 이미지"
+                />
+                <AnimatedImg
+                  top="8px"
+                  right="63px"
+                  zIndex="2"
+                  delay="0.3s"
+                  data-fade
+                  src="/static/images/main/main_illust_06.png"
+                  alt="gitshare 설명 이미지"
+                />
+                <AnimatedImg
+                  bottom="16px"
+                  right="0px"
+                  zIndex="2"
+                  delay="0.5s"
+                  data-fade
+                  src="/static/images/main/main_illust_07.png"
+                  alt="gitshare 설명 이미지"
+                />
+              </AnimationWrap>
+              <div data-col>
                 <h3 data-title>
                   More Easy,
                   <br />
@@ -265,7 +398,7 @@ class MainPage extends Component<IProps> {
             </CodeWrap>
           </SContainer>
         </PageSection>
-      </MainContent>
+      </PageContent>
     );
   }
 }

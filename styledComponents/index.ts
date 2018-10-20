@@ -17,3 +17,4 @@ export { GithubBadge } from './StyledBadge';
 export { SCard, SCardMeta, SCardMetaDetail, UserCard, UserCardMeta } from './StyledCard';
 export { EditorDropDown } from './StyledDropDown';
 export { default as StyledAnimation } from './StyledAnimation';
+export { SLogoImage } from './StyledImage';

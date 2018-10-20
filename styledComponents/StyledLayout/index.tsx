@@ -5,6 +5,8 @@ const { Content } = Layout;
 
 const SLayout = styled(Layout as any)`
   background-color: ${props => props.theme.primaryColor};
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const MContainer = styled.div`
@@ -69,12 +71,21 @@ const PageSection = styled.section`
   &[data-center] {
     text-align: center;
   }
+
+  [data-subtitle] {
+    font-size: 25px;
+  }
+
+  [data-desc] {
+    font-size: 16px;
+  }
 `;
 
 const TitleSection = styled.header`
   position: relative;
   padding: 5rem 0 8rem;
   text-align: center;
+  font-size: 48px;
 
   &:after {
     content: '';
@@ -87,7 +98,7 @@ const TitleSection = styled.header`
   }
 
   p {
-    font-size: 12px;
+    font-size: 18px;
     line-height: 2.08;
   }
 `;
