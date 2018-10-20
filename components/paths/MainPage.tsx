@@ -94,11 +94,30 @@ const SlideWrap = styled(PageSection as any)`
     position: relative;
 
     [data-bg] {
+      margin: 0 auto;
       position: absolute;
       top: 0;
       bottom: 0;
       z-index: 0;
+      width: 100%;
+      max-width: 1208px;
       object-fit: cover;
+
+      [data-svg] {
+        position: absolute;
+        object-fit: cover;
+        height: 100%;
+      }
+
+      [data-svg-1] {
+        left: 0;
+      }
+      [data-svg-2] {
+        right: 0;
+      }
+      [data-svg-3] {
+        right: 0;
+      }
     }
 
     [data-layer-1] {
@@ -172,7 +191,12 @@ class MainPage extends Component<IProps> {
     return (
       <MainContent className={className}>
         <SlideWrap>
-          <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" />
+          <div data-bg>
+            <img data-svg data-svg-1 src="../../static/images/svg/main-graphic-01.svg" alt="슬라이드 배경 애니메이션" />
+            <img data-svg data-svg-2 src="../../static/images/svg/main-graphic-02.svg" alt="슬라이드 배경 애니메이션" />
+            <img data-svg data-svg-3 src="../../static/images/svg/main-graphic-03.svg" alt="슬라이드 배경 애니메이션" />
+          </div>
+          {/* <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" /> */}
           <div data-layer-1>
             <h3 data-title>Share your code beautifully</h3>
             <p data-desc>
@@ -190,7 +214,7 @@ class MainPage extends Component<IProps> {
         </SlideWrap>
         <PageSection>
           <SContainer>
-            <RowFlexBox innerRef={el => (this.animatedDOM[0] = el)}>
+            <RowFlexBox ref={el => (this.animatedDOM[0] = el)}>
               <div data-col data-grid-1>
                 <h3 data-title>Why GitCodeShare?</h3>
                 <div data-textbox-1>
@@ -213,7 +237,7 @@ class MainPage extends Component<IProps> {
         </PageSection>
         <PageSection>
           <SContainer>
-            <RowFlexBox innerRef={el => (this.animatedDOM[1] = el)}>
+            <RowFlexBox ref={el => (this.animatedDOM[1] = el)}>
               <div data-col data-grid-1>
                 <img data-fade width="578" src="../../static/images/main_2.png" alt="gitshare 설명 이미지" />
               </div>
