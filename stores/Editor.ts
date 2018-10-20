@@ -12,9 +12,9 @@ import {
   LANGUAGES_SHORT_HASH,
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
-
 import { Instance, types, getEnv, getRoot, flow } from 'mobx-state-tree';
 import { IAppStore, IStoreEnv } from './';
+import { message } from 'antd';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -112,6 +112,7 @@ export const Editor = types
       link.remove();
     },
     createGist: async e => {
+      const hide = message.loading('Saving...', 0);
       const filename = `source${self.language.ext || ''}`;
       const data = await self.provider.GistRequest.createGist({
         public: true,
@@ -121,7 +122,8 @@ export const Editor = types
           },
         },
       });
-      window.parent.postMessage({ type: 'success', value: `http://localhost:3000/?${data.id}` }, '*');
+      window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${data.id} ` }, '*');
+      hide();
     },
     login: () => {
       self.provider.AuthRequest.login();

@@ -102,6 +102,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
   injectGitCodeShareWindow();
   console.log('gitCodeShare is injected!');
 
+  
   // We cannot call "clearInterval" because btn can be removed when user change page.
   const insertBtnInterval = setInterval(() => {
     if (isReadyToInsertBtn()) {
