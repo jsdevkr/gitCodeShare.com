@@ -8,5 +8,4 @@ export default {
   bounceIn: keyframes`${bounceIn}`,
   slideInUp: keyframes`${slideInUp}`,
   slideInDown: keyframes`${slideInDown}`,
-  loading: keyframes`${slideInDown}`,
 };

@@ -70,11 +70,6 @@ class ContributorsPage extends Component<IProps> {
         <PageSection>
           <SContainer>
             <ContributorsWrap>
-              {/* <LoadingBox>
-                <LoadingObj1 />
-                <LoadingObj2 />
-                <LoadingObj3 />
-              </LoadingBox> */}
               {contributors.length ? (
                 contributors.map((contributor: IContributor, i: number) => (
                   <a key={i} data-col href={contributor.html_url} target="blank">
