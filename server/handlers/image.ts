@@ -12,6 +12,7 @@ export default function(browser: puppeteer.Browser) {
 
     try {
       await page.goto(`http://localhost:3000/?state=${state}`);
+      console.log(state);
 
       async function screenshot(selector) {
         if (!selector) {
@@ -39,7 +40,7 @@ export default function(browser: puppeteer.Browser) {
         });
       }
 
-      const data = await screenshot('div.react-codemirror2');
+      const data = await screenshot('div.CodeMirror');
 
       res.writeHead(200, {
         'content-length': data.length,

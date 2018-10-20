@@ -6,8 +6,7 @@ const router: Router = Router();
 router.get('/github', passport.authenticate('github'));
 router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res) => {
   req.session.save(() => {
-    // redirect to localhost:3000(front)
-    res.redirect('/');
+    res.send('<html><script type="text/javascript">window.close();</script></html>');
   });
 });
 

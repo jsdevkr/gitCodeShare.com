@@ -64,7 +64,10 @@ export const Editor = types
         const mode = debounceDetectLanguage(v);
         self.language.mode = mode ? mode : self.language.mode;
       }
-      postMessage({ type: 'setHeight', value: document.querySelector('#__next').scrollHeight }, '*');
+      if (postMessage) {
+        console.log('POST_MESSAGE');
+        postMessage({ type: 'setHeight', value: document.querySelector('#__next').scrollHeight }, '*');
+      }
     },
     setFontFamily: e => (self.fontFamily = FONTS_HASH[e.key]),
     setFontSize: v => (self.fontSize = v),
@@ -80,9 +83,6 @@ export const Editor = types
     setLanguageByName: name => (self.language = LANGUAGES_NAME_HASH[name] || self.language),
     setLanguageByMime: mime => (self.language = LANGUAGES_MIME_HASH[mime] || self.language),
     setTheme: e => (self.theme = THEMES_NAME_HASH[e.key]),
-    printCode: () => {
-      console.log(encodeURIComponent(self.code));
-    },
     captureImage: async e => {
       await getEnv(self).provider.ImageRequest.captureImage({
         code: self.code,
@@ -99,6 +99,9 @@ export const Editor = types
         },
       });
       postMessage({ data: `http://localhost:3000/?${data.id}` }, '*');
+    },
+    login: () => {
+      getEnv(self).provider.AuthRequest.login();
     },
   }))
   .actions(self => ({
