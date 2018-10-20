@@ -11,7 +11,7 @@
     "deploy": "now",
     "test": "jest --noStackTrace --watch -u",
     "test:ci": "jest -w=4 --silent --noStackTrace --forceExit",
-    "test:skip": "echo \"Error: no test specified\" && exit 0",
+    "test:skip": "echo \"Skip test\" && exit 0",
     "start": "npm-run-all -p prod:front prod:backend",
     "prod:front": "node ./bin/front.js",
     "prod:backend": "node ./bin/server.js",
