@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Card } from 'antd';
 
-const SCard = styled(Card)`
+const SCard = styled(Card as any)`
   &.ant-card {
-    width: 370px;
+    max-width: 370px;
+    width: 100%;
     min-height: 430px;
     background-color: transparent;
     margin-top: 20px;
@@ -31,7 +32,7 @@ const SCard = styled(Card)`
   }
 `;
 
-const SCardMeta = styled(Card.Meta)`
+const SCardMeta = styled(Card.Meta as any)`
   .ant-card-meta-title {
     color: ${props => props.theme.primaryTextColor};
     overflow: hidden;
@@ -48,7 +49,7 @@ const SCardMeta = styled(Card.Meta)`
   }
 `;
 
-const SCardMetaDetail = styled(Card.Meta)`
+const SCardMetaDetail = styled(Card.Meta as any)`
   &.ant-card-meta {
     padding-top: 15px;
   }
@@ -66,10 +67,11 @@ const SCardMetaDetail = styled(Card.Meta)`
   }
 `;
 
-const UserCard = styled(Card)`
+const UserCard = styled(Card as any)`
   &.ant-card {
     background-color: transparent;
-    width: 225px;
+    max-width: 225px;
+    width: 100%;
     height: 85px;
     margin: auto 0;
   }
@@ -84,7 +86,7 @@ const UserCard = styled(Card)`
   }
 `;
 
-const UserCardMeta = styled(Card.Meta)`
+const UserCardMeta = styled(Card.Meta as any)`
   .ant-card-meta-avatar {
     width: 85px;
     height: 85px;

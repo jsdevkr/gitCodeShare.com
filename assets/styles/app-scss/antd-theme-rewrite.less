@@ -1,0 +1,46 @@
+@import './antd-theme.less';
+
+.@{spin-prefix-cls} {
+  &-blur {
+    opacity: 0.3;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+}
+
+@heading-color : #fff;
+@text-color : #fff;
+@text-color-secondary : fade(#fff, 45%);
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: @heading-color;
+}
+
+p,
+a,
+strong,
+b,
+small,
+sup,
+sub,
+button,
+input,
+select,
+option,
+ul,
+ol,
+li,
+div,
+header,
+section,
+article,
+footer,
+figure,
+figcaption {
+  color: @text-color;
+}

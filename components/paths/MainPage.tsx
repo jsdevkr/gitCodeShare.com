@@ -12,6 +12,7 @@ import {
   SCardMeta,
   StyledAnimation,
 } from '../../styledComponents';
+import Link from 'next/link';
 
 interface IProps {
   className?: string;
@@ -20,18 +21,6 @@ interface IProps {
 const { fadeInLeft, fadeInRight } = StyledAnimation;
 
 const MainContent = styled(PageContent as any)`
-  [data-grid-1] {
-    flex: 0 0 500px;
-  }
-
-  [data-grid-2] {
-    flex: 0 0 450px;
-  }
-
-  [data-textbox-1] {
-    max-width: 360px;
-  }
-
   [data-fade] {
     opacity: 0;
   }
@@ -57,6 +46,18 @@ const RowFlexBox = styled.div`
       flex: 0 0 50%;
       position: relative;
       padding: 0 15px;
+    }
+
+    [data-grid-1] {
+      flex: 0 0 500px;
+    }
+
+    [data-grid-2] {
+      flex: 0 0 450px;
+    }
+
+    [data-textbox-1] {
+      max-width: 360px;
     }
   }
 `;
@@ -85,6 +86,8 @@ const CodeWrap = styled(RowFlexBox as any)`
 const SlideWrap = styled(PageSection as any)`
   & {
     ${ColumnFlex};
+    justify-content: center;
+    align-items: center;
     height: 600px;
     padding: 0;
     text-align: center;
@@ -174,7 +177,11 @@ class MainPage extends Component<IProps> {
               <br />
               gitCodeShare is your essential guide to sharing remarkable ideas and talents.
             </p>
-            <DownloadButton icon="plus">Add GitCodeShare to Chrome</DownloadButton>
+            <Link href="/extension">
+              <a>
+                <DownloadButton icon="plus">Add GitCodeShare to Chrome</DownloadButton>
+              </a>
+            </Link>
           </div>
           <BorderlessButton data-scroll-btn>SCROLL</BorderlessButton>
         </SlideWrap>

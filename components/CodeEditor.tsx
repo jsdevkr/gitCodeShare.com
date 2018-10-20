@@ -17,14 +17,10 @@ declare module 'react' {
   }
 }
 
-const PageContainer = styled.div`
-  padding: 20px 20px;
-`;
-
 const EditorContainer = styled.div`
   position: relative;
-  max-width: 860px;
-  min-height: 500px;
+  width: 100%;
+  height: 500px;
   border-radius: 4px;
   border: solid 1px #dbe3e9;
   overflow: hidden;
@@ -47,8 +43,8 @@ const EditorBody = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #202020;
-  min-width: 100%;
-  min-height: 440px;
+  width: 100%;
+  height: calc(100% - 60px);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 `;
@@ -144,61 +140,60 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
 
     return (
       <>
-        <PageContainer>
-          <EditorContainer>
-            <EditorHeader>
-              <EditorDropDown overlay={DropdownMenu(THEMES, editor.setTheme)} trigger={['click']}>
-                <DropDownButton style={{ marginRight: '15px', marginLeft: '30px' }}>
-                  {editor.theme.name} <Icon type="caret-down" />
-                </DropDownButton>
-              </EditorDropDown>
-              <EditorDropDown overlay={DropdownMenu(LANGUAGES, editor.setLanguage)} trigger={['click']}>
-                <DropDownButton>
-                  {editor.language.name} <Icon type="caret-down" />
-                </DropDownButton>
-              </EditorDropDown>
-              <OptionsButton onClick={_ => editor.setOptionDrawerVisible(true)}>
-                Options <Icon type="menu-fold" style={{ fontSize: '18px' }} />
-              </OptionsButton>
-            </EditorHeader>
-            <EditorBody>
-              <CodeMirror onBeforeChange={editor.onBeforeCodeChange} value={editor.code} options={options} />
-            </EditorBody>
-            <OptionDrawer style={{ right: editor.optionDrawerVisible ? 0 : '-378px' }}>
-              <OptionCloseButton onClick={_ => editor.setOptionDrawerVisible(false)}>
-                <Icon type="menu-unfold" />
-              </OptionCloseButton>
-              <OptionItem>
-                <span>Font-Size</span>
-                <InputNumber min={10} max={20} value={editor.fontSize} onChange={editor.setFontSize} />
-              </OptionItem>
-              <OptionItem>
-                <span>Font-Family</span>
-                <Dropdown overlay={DropdownMenu(FONTS, editor.setFontFamily)} trigger={['click']}>
-                  <Button>
-                    {editor.fontFamily.name}
-                    <Icon type="caret-down" />
-                  </Button>
-                </Dropdown>
-              </OptionItem>
-              <OptionItem>Line-Number</OptionItem>
-            </OptionDrawer>
-          </EditorContainer>
-          {!editor.gistId && (
-            <ViewsBottom>
-              <LineButton>Save & Share to Facebook</LineButton>
-              <LineButton onClick={editor.createGist}>Save & Get Share Link</LineButton>
-            </ViewsBottom>
-          )}
-        </PageContainer>
+        <EditorContainer>
+          <EditorHeader>
+            <EditorDropDown overlay={DropdownMenu(THEMES, editor.setTheme)} trigger={['click']}>
+              <DropDownButton style={{ marginRight: '15px', marginLeft: '30px' }}>
+                {editor.theme.name} <Icon type="caret-down" />
+              </DropDownButton>
+            </EditorDropDown>
+            <EditorDropDown overlay={DropdownMenu(LANGUAGES, editor.setLanguage)} trigger={['click']}>
+              <DropDownButton>
+                {editor.language.name} <Icon type="caret-down" />
+              </DropDownButton>
+            </EditorDropDown>
+            <OptionsButton onClick={_ => editor.setOptionDrawerVisible(true)}>
+              Options <Icon type="menu-fold" style={{ fontSize: '18px' }} />
+            </OptionsButton>
+          </EditorHeader>
+          <EditorBody>
+            <CodeMirror onBeforeChange={editor.onBeforeCodeChange} value={editor.code} options={options} />
+          </EditorBody>
+          <OptionDrawer style={{ right: editor.optionDrawerVisible ? 0 : '-378px' }}>
+            <OptionCloseButton onClick={_ => editor.setOptionDrawerVisible(false)}>
+              <Icon type="menu-unfold" />
+            </OptionCloseButton>
+            <OptionItem>
+              <span>Font-Size</span>
+              <InputNumber min={10} max={20} value={editor.fontSize} onChange={editor.setFontSize} />
+            </OptionItem>
+            <OptionItem>
+              <span>Font-Family</span>
+              <Dropdown overlay={DropdownMenu(FONTS, editor.setFontFamily)} trigger={['click']}>
+                <Button>
+                  {editor.fontFamily.name}
+                  <Icon type="caret-down" />
+                </Button>
+              </Dropdown>
+            </OptionItem>
+            <OptionItem>Line-Number</OptionItem>
+          </OptionDrawer>
+        </EditorContainer>
+        {!editor.gistId && (
+          <ViewsBottom>
+            <LineButton>Save & Share to Facebook</LineButton>
+            <LineButton onClick={editor.createGist}>Save & Get Share Link</LineButton>
+          </ViewsBottom>
+        )}
         <style jsx>{`
           .react-codemirror2 {
             box-shadow: rgba(0, 0, 0, 0.55) 0px 20px 68px;
-            margin: 50px;
+            width: 100%;
+            height: 100%;
           }
           .CodeMirror {
-            max-width: 760px;
-            height: fit-content;
+            width: 100%;
+            height: 100%;
             overflow: hidden;
             padding: 2px;
             border-radius: 5px;
