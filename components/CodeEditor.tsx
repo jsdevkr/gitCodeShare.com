@@ -238,8 +238,8 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
           </OptionDrawer>
           {!editor.gistId && (
             <ViewsBottom>
-              <LineButton style={{ position: 'absolute', right: '300px' }} onClick={editor.login}>
-                Capture
+              <LineButton style={{ position: 'absolute', right: '220px' }} onClick={editor.downloadImage}>
+                Save
               </LineButton>
               <LineButton style={{ position: 'absolute', right: '20px' }} onClick={editor.createGist}>
                 Save & Share to Facebook

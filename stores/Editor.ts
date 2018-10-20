@@ -12,6 +12,7 @@ import {
   LANGUAGES_SHORT_HASH,
   LANGUAGES_MIME_HASH,
 } from './../common/constants';
+
 import { Instance, types, getEnv, getRoot, flow } from 'mobx-state-tree';
 import { IAppStore, IStoreEnv } from './';
 
@@ -93,12 +94,23 @@ export const Editor = types
     setLanguageByName: name => (self.language = LANGUAGES_NAME_HASH[name] || self.language),
     setLanguageByMime: mime => (self.language = LANGUAGES_MIME_HASH[mime] || self.language),
     setTheme: e => (self.theme = THEMES_NAME_HASH[e.key]),
-
     getImageUrl: async e => {
       const image = await self.provider.ImageRequest.getImageUrl(self.code);
       return image;
     },
+    downloadImage: async () => {
+      const link = document.createElement('a');
 
+      const url = await getEnv(self).provider.ImageRequest.getImageUrl({
+        code: self.code,
+      });
+
+      link.download = `girCodeShare_${new Date().getTime()}.png`;
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    },
     createGist: async e => {
       const filename = `source${self.language.ext || ''}`;
       const data = await self.provider.GistRequest.createGist({
