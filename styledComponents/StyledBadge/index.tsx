@@ -30,7 +30,7 @@ const GithubBadge: typeof RoundedBadge = styled(RoundedBadge as any)`
     .ant-badge-count {
       width: 25px;
       height: 25px;
-      font-size: 11px;
+      font-size: 12px;
       color: ${props => props.theme.colorPalette.patternsBlue};
     }
   }

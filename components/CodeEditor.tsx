@@ -46,7 +46,10 @@ const LineSwitch = styled(Switch as any)`
   &.ant-switch-checked {
     border: solid 1px #dbe3e9;
     transition: none;
-    background-color: transparent;
+    background-color: #fff;
+  }
+  &.ant-switch-loading-icon {
+    background-color: #fff;
   }
 `;
 

@@ -38,10 +38,11 @@ const BorderlessButton: typeof InlineFlexButton = styled(InlineFlexButton as any
 
 const GithubButton: typeof RoundedButton = styled(RoundedButton as any)`
   &.ant-btn {
-    padding: 0 5px;
+    padding: 0 8px;
     margin-right: 5px;
     border: 1px solid;
-    height: 25px;
+    height: 27px;
+    line-height: 25px;
 
     i {
       font-size: 17px;
@@ -49,7 +50,7 @@ const GithubButton: typeof RoundedButton = styled(RoundedButton as any)`
     }
 
     span {
-      font-size: 12px;
+      font-size: 14px;
       color: ${props => props.theme.colorPalette.patternsBlue};
     }
   }
@@ -62,7 +63,7 @@ const SmDownloadButton: typeof BorderlessButton = styled(BorderlessButton as any
     }
 
     span {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 `;

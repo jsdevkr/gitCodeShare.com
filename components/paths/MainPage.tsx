@@ -12,10 +12,12 @@ import {
   SCardMeta,
   StyledAnimation,
 } from '../../styledComponents';
+import { IGist } from '../../model/gist';
 import Link from 'next/link';
 
 interface IProps {
   className?: string;
+  starredList: IGist[];
 }
 
 const { fadeIn, fadeInLeft, fadeInRight, bounceIn } = StyledAnimation;
@@ -144,14 +146,14 @@ const SlideWrap = styled(PageSection as any)`
 
     [data-scroll-btn] {
       position: absolute;
-      bottom: 0;
+      bottom: 10px;
       z-index: 99;
       transform: rotate(-90deg);
 
       span {
         display: inherit;
         align-items: center;
-        font-size: 12px;
+        font-size: 14px;
 
         &::after {
           content: '';
@@ -213,7 +215,7 @@ class MainPage extends Component<IProps> {
   animatedDOM: HTMLElement[] = [];
 
   handleAnimation = () => {
-    let offsetTop = window.pageYOffset + 300;
+    let offsetTop = window.pageYOffset + 600;
 
     if (this.animatedDOM[0] && offsetTop > this.animatedDOM[0].offsetTop) {
       const $img = this.animatedDOM[0].querySelectorAll('img');
@@ -246,7 +248,7 @@ class MainPage extends Component<IProps> {
   }
 
   render() {
-    const { className } = this.props;
+    const { className, starredList } = this.props;
     return (
       <PageContent className={className}>
         <SlideWrap>
@@ -386,24 +388,19 @@ class MainPage extends Component<IProps> {
               alt="gitshare 설명 이미지"
             />
             <CodeWrap>
-              <SCard
-                data-col
-                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-              >
-                <SCardMeta title="1 Title" description="June 18, 2018" />
-              </SCard>
-              <SCard
-                data-col
-                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-              >
-                <SCardMeta title="1 Title" description="June 18, 2018" />
-              </SCard>
-              <SCard
-                data-col
-                cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-              >
-                <SCardMeta title="1 Title" description="June 18, 2018" />
-              </SCard>
+              {starredList.length
+                ? starredList.map((gist: IGist, i: number) => {
+                    return (
+                      <SCard
+                        data-col
+                        key={i}
+                        cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                      >
+                        <SCardMeta title={gist.description} description={gist.created_at} />
+                      </SCard>
+                    );
+                  })
+                : '최근 업로드 된 코드를 로딩 중입니다'}
             </CodeWrap>
           </SContainer>
         </PageSection>
