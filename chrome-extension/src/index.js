@@ -18,7 +18,8 @@ function injectGitCodeShareWindow() {
 }
 
 function bindToggleEditorEventTo(target) {
-  target.addEventListener('click', () => {
+  target.addEventListener('click', e => {
+    e.stopPropagation();
     const editor = document.getElementById('gitCodeShare');
     editor.style.display = editor.style.display === 'none' ? 'block' : 'none';
   });
@@ -75,6 +76,28 @@ function injectBtn() {
   }
 }
 
+function bindCloseEvent() {
+  const parentDom = document.getElementById('pagelet_composer');
+  const targetDom = parentDom.querySelectorAll('div[role]')[0];
+  const gitCodeShareModal = document.getElementById('gitCodeShare');
+
+  document.body.addEventListener('click', function(e) {
+    const isClickedBackground = e.target.closest("[role='presentation']") !== null;
+    const isClickedCloseButton = e.target.parentNode.getAttribute('role') === 'button';
+    const targetDomRole = targetDom.getAttribute('role');
+    const preventClickEvent = targetDomRole === 'region';
+
+    if (preventClickEvent) {
+      return false;
+    }
+    if (isClickedBackground || isClickedCloseButton) {
+      if (gitCodeShareModal.display !== 'none') {
+        gitCodeShareModal.style.display = 'none';
+      }
+    }
+  });
+}
+
 const isReadyToInsertBtn = () => document.querySelector('div[data-testid="expanded-sprout-list"]>table');
 const isHaveBtnAleady = () => document.querySelector('#codeShareBtn');
 
@@ -82,6 +105,7 @@ const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
 
 if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getElementById('gitCodeShare')) {
   injectGitCodeShareWindow();
+  bindCloseEvent();
   console.log('gitCodeShare is injected!');
 
   // We cannot call "clearInterval" because btn can be removed when user change page.
