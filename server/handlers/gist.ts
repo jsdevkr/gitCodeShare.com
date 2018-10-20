@@ -32,7 +32,7 @@ const putStar = (gistId: string): void => {
     },
   );
 };
-router.get('/starred', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
+router.get('/starred', (req: Request, res: Response, next: NextFunction) => {
   request.get(
     `https://api.github.com/gists/starred`,
     {
@@ -54,7 +54,7 @@ router.get('/starred', isAuthenticated, (req: Request, res: Response, next: Next
   );
 });
 
-router.get('/', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
+router.get('/', (req: Request, res: Response, next: NextFunction) => {
   request.get(
     `https://api.github.com/users/${req.user.username}/gists`,
     {
