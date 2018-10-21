@@ -23,9 +23,9 @@ const puppeteerParams = dev
   ? {}
   : {
       executablePath: '/usr/bin/chromium-browser',
-      // TODO args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
       // https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#tips
-      args: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage'],
+      // args: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage'],
     };
 
 puppeteer.launch(puppeteerParams).then((browser: any) => {
