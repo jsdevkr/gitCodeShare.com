@@ -6,10 +6,9 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import puppeteer from 'puppeteer';
 import morgan from 'morgan';
+import uuid from 'uuid/v4';
 
 import { AuthHandler, GithubHandler, GistHandler, ImageHandler } from './handlers';
-
-import uuid from 'uuid/v4';
 
 const MemoryStore = require('memorystore')(session);
 
