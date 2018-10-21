@@ -26,6 +26,7 @@ app.prepare().then(() => {
     server.use(morgan('tiny'));
   }
 
+  // proxy
   server.use(
     `${proxyContext}`,
     proxy({
@@ -43,12 +44,9 @@ app.prepare().then(() => {
   );
 
   const filePath = path.join(__dirname, '.next', 'service-worker.js');
-  server.use(
-    `${proxyContext}`,
-    proxy({ target: `http://localhost:${parseInt(process.env.BACKEND_PORT, 10) || 3030}` }),
-  );
   server.get('/service-worker.js', (req, res) => app.serveStatic(req, res, filePath));
 
+  // to next.js
   server.get('*', (req, res) => handle(req, res));
 
   server.listen(port, '0.0.0.0', err => {
