@@ -7,7 +7,7 @@ install:
   - npm install
 script:
   - npm run build
-  - npm run test:skip
+  - npm run test:ci
 before_deploy:
   - npm install now --no-save
 deploy:
