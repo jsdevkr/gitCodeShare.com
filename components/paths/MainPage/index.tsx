@@ -12,8 +12,8 @@ import {
   SCardMeta,
   StyledAnimation,
   SSpin,
-} from '../../styledComponents';
-import { IGist } from '../../model/gist';
+} from '../../../styledComponents';
+import { IGist } from '../../../model/gist';
 import Link from 'next/link';
 
 interface IProps {

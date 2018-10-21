@@ -18,7 +18,7 @@ exports[`StyledButton DownloadButton should render 1`] = `
 
 exports[`StyledButton DropDownButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__DropDownButton-rhr4ab-8 bjuETi"
+  className="ant-btn StyledButton__DropDownButton-rhr4ab-8 kfgWAb"
   onClick={[Function]}
   type="button"
 />
@@ -26,7 +26,7 @@ exports[`StyledButton DropDownButton should render 1`] = `
 
 exports[`StyledButton GithubButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__GithubButton-rhr4ab-3 cgxLXV"
+  className="ant-btn StyledButton__GithubButton-rhr4ab-3 VjEaJ"
   onClick={[Function]}
   type="button"
 />
@@ -34,7 +34,7 @@ exports[`StyledButton GithubButton should render 1`] = `
 
 exports[`StyledButton LineButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__LineButton-rhr4ab-7 eJqcJw"
+  className="ant-btn StyledButton__LineButton-rhr4ab-7 cTpTpT"
   onClick={[Function]}
   type="button"
 />
@@ -50,7 +50,7 @@ exports[`StyledButton RoundedButton should render 1`] = `
 
 exports[`StyledButton SmDownloadButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__SmDownloadButton-rhr4ab-4 cNnLjZ"
+  className="ant-btn StyledButton__SmDownloadButton-rhr4ab-4 hTflzd"
   onClick={[Function]}
   type="button"
 />

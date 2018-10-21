@@ -10,8 +10,8 @@ import {
   PageSection,
   TitleSection,
   SSpin,
-} from '../../styledComponents';
-import { IContributor } from '../../model/contributors';
+} from '../../../styledComponents';
+import { IContributor } from '../../../model/contributors';
 
 interface IProps {
   className?: string;

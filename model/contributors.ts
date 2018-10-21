@@ -4,8 +4,8 @@
  */
 export interface IContributor {
   login?: string;
-  id?: string;
-  node_id?: number;
+  id?: number;
+  node_id?: string;
   avatar_url?: string;
   gravatar_id?: string;
   bio?: string;

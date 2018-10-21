@@ -1,0 +1,981 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContributorsPage should render 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ContributorsPage
+    contributors={
+      Array [
+        Object {
+          "avatar_url": "https://avatars0.githubusercontent.com/u/7310854?v=4",
+          "bio": "I love travel, photograph, and javascript.",
+          "blog": "http://www.sowk.net",
+          "company": "KOSSLAB (Korea Open Source Software Developers Lab)",
+          "created_at": "2014-04-16T06:14:09Z",
+          "email": null,
+          "events_url": "https://api.github.com/users/gimdongwoo/events{/privacy}",
+          "followers": 76,
+          "followers_url": "https://api.github.com/users/gimdongwoo/followers",
+          "following": 126,
+          "following_url": "https://api.github.com/users/gimdongwoo/following{/other_user}",
+          "gists_url": "https://api.github.com/users/gimdongwoo/gists{/gist_id}",
+          "gravatar_id": "",
+          "hireable": null,
+          "html_url": "https://github.com/gimdongwoo",
+          "id": 7310854,
+          "location": "Seoul, Korea",
+          "login": "gimdongwoo",
+          "name": "Dongwoo Gim",
+          "node_id": "MDQ6VXNlcjczMTA4NTQ=",
+          "organizations_url": "https://api.github.com/users/gimdongwoo/orgs",
+          "public_gists": 5,
+          "public_repos": 76,
+          "received_events_url": "https://api.github.com/users/gimdongwoo/received_events",
+          "repos_url": "https://api.github.com/users/gimdongwoo/repos",
+          "site_admin": false,
+          "starred_url": "https://api.github.com/users/gimdongwoo/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/gimdongwoo/subscriptions",
+          "type": "User",
+          "updated_at": "2018-10-20T15:03:09Z",
+          "url": "https://api.github.com/users/gimdongwoo",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <ForwardRef>
+          <h3
+            data-title={true}
+          >
+            Contributors
+          </h3>
+          <p>
+            Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,
+            <br />
+            elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.
+          </p>
+        </ForwardRef>,
+        <ForwardRef>
+          <ForwardRef>
+            <ForwardRef>
+              <a
+                data-col={true}
+                href="https://github.com/gimdongwoo"
+                target="blank"
+              >
+                <ForwardRef
+                  cover={
+                    <img
+                      alt="example"
+                      src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                    />
+                  }
+                >
+                  <ForwardRef
+                    description="Developer"
+                    title="gimdongwoo"
+                  />
+                  <ForwardRef
+                    description="I love travel, photograph, and javascript."
+                  />
+                </ForwardRef>
+              </a>
+            </ForwardRef>
+          </ForwardRef>
+        </ForwardRef>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <h3
+              data-title={true}
+            >
+              Contributors
+            </h3>,
+            <p>
+              Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,
+              <br />
+              elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.
+            </p>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Contributors",
+              "data-title": true,
+            },
+            "ref": null,
+            "rendered": "Contributors",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,",
+                <br />,
+                "elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": "br",
+              },
+              "elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.",
+            ],
+            "type": "p",
+          },
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": undefined,
+          "componentStyle": ComponentStyle {
+            "componentId": "StyledLayout__TitleSection-sc-1ec2pa7-5",
+            "isStatic": false,
+            "rules": Array [
+              "position:relative;padding:5rem 0 8rem;text-align:center;font-size:48px;&:after{content:'';position:absolute;bottom:0;margin:0 auto;width:1px;height:61px;background-color:",
+              [Function],
+              ";}p{font-size:18px;line-height:2.08;}",
+            ],
+          },
+          "displayName": "StyledLayout__TitleSection",
+          "render": [Function],
+          "styledComponentId": "StyledLayout__TitleSection-sc-1ec2pa7-5",
+          "target": "header",
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <ForwardRef>
+            <ForwardRef>
+              <a
+                data-col={true}
+                href="https://github.com/gimdongwoo"
+                target="blank"
+              >
+                <ForwardRef
+                  cover={
+                    <img
+                      alt="example"
+                      src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                    />
+                  }
+                >
+                  <ForwardRef
+                    description="Developer"
+                    title="gimdongwoo"
+                  />
+                  <ForwardRef
+                    description="I love travel, photograph, and javascript."
+                  />
+                </ForwardRef>
+              </a>
+            </ForwardRef>
+          </ForwardRef>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <ForwardRef>
+              <a
+                data-col={true}
+                href="https://github.com/gimdongwoo"
+                target="blank"
+              >
+                <ForwardRef
+                  cover={
+                    <img
+                      alt="example"
+                      src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                    />
+                  }
+                >
+                  <ForwardRef
+                    description="Developer"
+                    title="gimdongwoo"
+                  />
+                  <ForwardRef
+                    description="I love travel, photograph, and javascript."
+                  />
+                </ForwardRef>
+              </a>
+            </ForwardRef>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <a
+                  data-col={true}
+                  href="https://github.com/gimdongwoo"
+                  target="blank"
+                >
+                  <ForwardRef
+                    cover={
+                      <img
+                        alt="example"
+                        src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                      />
+                    }
+                  >
+                    <ForwardRef
+                      description="Developer"
+                      title="gimdongwoo"
+                    />
+                    <ForwardRef
+                      description="I love travel, photograph, and javascript."
+                    />
+                  </ForwardRef>
+                </a>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "0",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <ForwardRef
+                    cover={
+                      <img
+                        alt="example"
+                        src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                      />
+                    }
+                  >
+                    <ForwardRef
+                      description="Developer"
+                      title="gimdongwoo"
+                    />
+                    <ForwardRef
+                      description="I love travel, photograph, and javascript."
+                    />
+                  </ForwardRef>,
+                  "data-col": true,
+                  "href": "https://github.com/gimdongwoo",
+                  "target": "blank",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "children": Array [
+                      <ForwardRef
+                        description="Developer"
+                        title="gimdongwoo"
+                      />,
+                      <ForwardRef
+                        description="I love travel, photograph, and javascript."
+                      />,
+                    ],
+                    "cover": <img
+                      alt="example"
+                      src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                    />,
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "description": "Developer",
+                        "title": "gimdongwoo",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": undefined,
+                        "componentStyle": ComponentStyle {
+                          "componentId": "StyledCard__SCardMeta-wvdxvl-1",
+                          "isStatic": false,
+                          "rules": Array [
+                            ".ant-card-meta-title{color:",
+                            [Function],
+                            ";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.ant-card-meta-description{color:",
+                            [Function],
+                            ";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;}",
+                          ],
+                        },
+                        "displayName": "StyledCard__SCardMeta",
+                        "render": [Function],
+                        "styledComponentId": "StyledCard__SCardMeta-wvdxvl-1",
+                        "target": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                        Symbol(Symbol.hasInstance): [Function],
+                      },
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "description": "I love travel, photograph, and javascript.",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": undefined,
+                        "componentStyle": ComponentStyle {
+                          "componentId": "StyledCard__SCardMetaDetail-wvdxvl-2",
+                          "isStatic": false,
+                          "rules": Array [
+                            "&.ant-card-meta{padding-top:15px;}.ant-card-meta-description{color:",
+                            [Function],
+                            ";font-size:12px;line-height:20px;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:5;white-space:normal;-webkit-box-orient:vertical;}",
+                          ],
+                        },
+                        "displayName": "StyledCard__SCardMetaDetail",
+                        "render": [Function],
+                        "styledComponentId": "StyledCard__SCardMetaDetail-wvdxvl-2",
+                        "target": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                        Symbol(Symbol.hasInstance): [Function],
+                      },
+                    },
+                  ],
+                  "type": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "Grid": [Function],
+                    "Meta": [Function],
+                    "attrs": undefined,
+                    "componentStyle": ComponentStyle {
+                      "componentId": "StyledCard__SCard-wvdxvl-0",
+                      "isStatic": true,
+                      "rules": Array [
+                        "&.ant-card{max-width:370px;width:100%;min-height:430px;background-color:transparent;margin-top:20px;}&.ant-card-bordered{border:0;}.ant-card-cover{width:100%;height:250px;padding:15px;img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;}}.ant-card-body{padding:5px 15px;}",
+                      ],
+                    },
+                    "displayName": "StyledCard__SCard",
+                    "render": [Function],
+                    "styledComponentId": "StyledCard__SCard-wvdxvl-0",
+                    "target": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                    Symbol(Symbol.hasInstance): [Function],
+                  },
+                },
+                "type": "a",
+              },
+            ],
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": undefined,
+              "componentStyle": ComponentStyle {
+                "componentId": "ContributorsPage__ContributorsWrap-sjlmeq-1",
+                "isStatic": true,
+                "rules": Array [
+                  "&{",
+                  "
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-width: auto;
+    width: auto;
+    min-height: auto;
+    height: auto;
+    ;
+  ",
+                  ";[data-col]{flex:0 0 calc(100% / 3);position:relative;max-width:calc(100% / 3);}}",
+                  "&{.ant-card{.ant-card-cover{height:auto;text-align:center;img{max-width:320px;display:inline-block;vertical-align:top;}}.ant-card-body{text-align:left;}}}",
+                ],
+              },
+              "displayName": "ContributorsPage__ContributorsWrap",
+              "render": [Function],
+              "styledComponentId": "ContributorsPage__ContributorsWrap-sjlmeq-1",
+              "target": "div",
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": undefined,
+            "componentStyle": ComponentStyle {
+              "componentId": "StyledLayout__SContainer-sc-1ec2pa7-2",
+              "isStatic": true,
+              "rules": Array [
+                "width:100%;max-width:1200px;margin:0 auto;",
+              ],
+            },
+            "displayName": "StyledLayout__SContainer",
+            "render": [Function],
+            "styledComponentId": "StyledLayout__SContainer-sc-1ec2pa7-2",
+            "target": "div",
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": undefined,
+          "componentStyle": ComponentStyle {
+            "componentId": "StyledLayout__PageSection-sc-1ec2pa7-4",
+            "isStatic": false,
+            "rules": Array [
+              "&{padding:5rem 0;background-color:",
+              [Function],
+              ";[data-center]{text-align:center;}}&[data-center]{text-align:center;}[data-subtitle]{font-size:25px;}[data-desc]{font-size:16px;}",
+            ],
+          },
+          "displayName": "StyledLayout__PageSection",
+          "render": [Function],
+          "styledComponentId": "StyledLayout__PageSection-sc-1ec2pa7-4",
+          "target": "section",
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+    ],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": undefined,
+      "componentStyle": ComponentStyle {
+        "componentId": "StyledLayout__PageContent-sc-1ec2pa7-3",
+        "isStatic": false,
+        "rules": Array [
+          "min-height:calc(100vh - 270px);position:relative;h1,h2,h3,h4,h5,h6,ul,ol,li,p,div,section,article{color:",
+          [Function],
+          ";}[data-title]{font-size:46px;font-weight:bold;}[data-subtitle]{font-size:24px;font-weight:500;}p{font-size:14px;font-weight:300;line-height:1.79;}",
+        ],
+      },
+      "displayName": "StyledLayout__PageContent",
+      "render": [Function],
+      "styledComponentId": "StyledLayout__PageContent-sc-1ec2pa7-3",
+      "target": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+      Symbol(Symbol.hasInstance): [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <ForwardRef>
+            <h3
+              data-title={true}
+            >
+              Contributors
+            </h3>
+            <p>
+              Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,
+              <br />
+              elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.
+            </p>
+          </ForwardRef>,
+          <ForwardRef>
+            <ForwardRef>
+              <ForwardRef>
+                <a
+                  data-col={true}
+                  href="https://github.com/gimdongwoo"
+                  target="blank"
+                >
+                  <ForwardRef
+                    cover={
+                      <img
+                        alt="example"
+                        src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                      />
+                    }
+                  >
+                    <ForwardRef
+                      description="Developer"
+                      title="gimdongwoo"
+                    />
+                    <ForwardRef
+                      description="I love travel, photograph, and javascript."
+                    />
+                  </ForwardRef>
+                </a>
+              </ForwardRef>
+            </ForwardRef>
+          </ForwardRef>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <h3
+                data-title={true}
+              >
+                Contributors
+              </h3>,
+              <p>
+                Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,
+                <br />
+                elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.
+              </p>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Contributors",
+                "data-title": true,
+              },
+              "ref": null,
+              "rendered": "Contributors",
+              "type": "h3",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,",
+                  <br />,
+                  "elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.",
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit,",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {},
+                  "ref": null,
+                  "rendered": null,
+                  "type": "br",
+                },
+                "elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien.",
+              ],
+              "type": "p",
+            },
+          ],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": undefined,
+            "componentStyle": ComponentStyle {
+              "componentId": "StyledLayout__TitleSection-sc-1ec2pa7-5",
+              "isStatic": false,
+              "rules": Array [
+                "position:relative;padding:5rem 0 8rem;text-align:center;font-size:48px;&:after{content:'';position:absolute;bottom:0;margin:0 auto;width:1px;height:61px;background-color:",
+                [Function],
+                ";}p{font-size:18px;line-height:2.08;}",
+              ],
+            },
+            "displayName": "StyledLayout__TitleSection",
+            "render": [Function],
+            "styledComponentId": "StyledLayout__TitleSection-sc-1ec2pa7-5",
+            "target": "header",
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <ForwardRef>
+              <ForwardRef>
+                <a
+                  data-col={true}
+                  href="https://github.com/gimdongwoo"
+                  target="blank"
+                >
+                  <ForwardRef
+                    cover={
+                      <img
+                        alt="example"
+                        src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                      />
+                    }
+                  >
+                    <ForwardRef
+                      description="Developer"
+                      title="gimdongwoo"
+                    />
+                    <ForwardRef
+                      description="I love travel, photograph, and javascript."
+                    />
+                  </ForwardRef>
+                </a>
+              </ForwardRef>
+            </ForwardRef>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": <ForwardRef>
+                <a
+                  data-col={true}
+                  href="https://github.com/gimdongwoo"
+                  target="blank"
+                >
+                  <ForwardRef
+                    cover={
+                      <img
+                        alt="example"
+                        src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                      />
+                    }
+                  >
+                    <ForwardRef
+                      description="Developer"
+                      title="gimdongwoo"
+                    />
+                    <ForwardRef
+                      description="I love travel, photograph, and javascript."
+                    />
+                  </ForwardRef>
+                </a>
+              </ForwardRef>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <a
+                    data-col={true}
+                    href="https://github.com/gimdongwoo"
+                    target="blank"
+                  >
+                    <ForwardRef
+                      cover={
+                        <img
+                          alt="example"
+                          src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                        />
+                      }
+                    >
+                      <ForwardRef
+                        description="Developer"
+                        title="gimdongwoo"
+                      />
+                      <ForwardRef
+                        description="I love travel, photograph, and javascript."
+                      />
+                    </ForwardRef>
+                  </a>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <ForwardRef
+                      cover={
+                        <img
+                          alt="example"
+                          src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                        />
+                      }
+                    >
+                      <ForwardRef
+                        description="Developer"
+                        title="gimdongwoo"
+                      />
+                      <ForwardRef
+                        description="I love travel, photograph, and javascript."
+                      />
+                    </ForwardRef>,
+                    "data-col": true,
+                    "href": "https://github.com/gimdongwoo",
+                    "target": "blank",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "children": Array [
+                        <ForwardRef
+                          description="Developer"
+                          title="gimdongwoo"
+                        />,
+                        <ForwardRef
+                          description="I love travel, photograph, and javascript."
+                        />,
+                      ],
+                      "cover": <img
+                        alt="example"
+                        src="https://avatars0.githubusercontent.com/u/7310854?v=4"
+                      />,
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "description": "Developer",
+                          "title": "gimdongwoo",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": undefined,
+                          "componentStyle": ComponentStyle {
+                            "componentId": "StyledCard__SCardMeta-wvdxvl-1",
+                            "isStatic": false,
+                            "rules": Array [
+                              ".ant-card-meta-title{color:",
+                              [Function],
+                              ";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}.ant-card-meta-description{color:",
+                              [Function],
+                              ";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;}",
+                            ],
+                          },
+                          "displayName": "StyledCard__SCardMeta",
+                          "render": [Function],
+                          "styledComponentId": "StyledCard__SCardMeta-wvdxvl-1",
+                          "target": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                          Symbol(Symbol.hasInstance): [Function],
+                        },
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "description": "I love travel, photograph, and javascript.",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": undefined,
+                          "componentStyle": ComponentStyle {
+                            "componentId": "StyledCard__SCardMetaDetail-wvdxvl-2",
+                            "isStatic": false,
+                            "rules": Array [
+                              "&.ant-card-meta{padding-top:15px;}.ant-card-meta-description{color:",
+                              [Function],
+                              ";font-size:12px;line-height:20px;display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-line-clamp:5;white-space:normal;-webkit-box-orient:vertical;}",
+                            ],
+                          },
+                          "displayName": "StyledCard__SCardMetaDetail",
+                          "render": [Function],
+                          "styledComponentId": "StyledCard__SCardMetaDetail-wvdxvl-2",
+                          "target": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                          Symbol(Symbol.hasInstance): [Function],
+                        },
+                      },
+                    ],
+                    "type": Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "Grid": [Function],
+                      "Meta": [Function],
+                      "attrs": undefined,
+                      "componentStyle": ComponentStyle {
+                        "componentId": "StyledCard__SCard-wvdxvl-0",
+                        "isStatic": true,
+                        "rules": Array [
+                          "&.ant-card{max-width:370px;width:100%;min-height:430px;background-color:transparent;margin-top:20px;}&.ant-card-bordered{border:0;}.ant-card-cover{width:100%;height:250px;padding:15px;img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;}}.ant-card-body{padding:5px 15px;}",
+                        ],
+                      },
+                      "displayName": "StyledCard__SCard",
+                      "render": [Function],
+                      "styledComponentId": "StyledCard__SCard-wvdxvl-0",
+                      "target": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                      Symbol(Symbol.hasInstance): [Function],
+                    },
+                  },
+                  "type": "a",
+                },
+              ],
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": undefined,
+                "componentStyle": ComponentStyle {
+                  "componentId": "ContributorsPage__ContributorsWrap-sjlmeq-1",
+                  "isStatic": true,
+                  "rules": Array [
+                    "&{",
+                    "
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-width: auto;
+    width: auto;
+    min-height: auto;
+    height: auto;
+    ;
+  ",
+                    ";[data-col]{flex:0 0 calc(100% / 3);position:relative;max-width:calc(100% / 3);}}",
+                    "&{.ant-card{.ant-card-cover{height:auto;text-align:center;img{max-width:320px;display:inline-block;vertical-align:top;}}.ant-card-body{text-align:left;}}}",
+                  ],
+                },
+                "displayName": "ContributorsPage__ContributorsWrap",
+                "render": [Function],
+                "styledComponentId": "ContributorsPage__ContributorsWrap-sjlmeq-1",
+                "target": "div",
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": undefined,
+              "componentStyle": ComponentStyle {
+                "componentId": "StyledLayout__SContainer-sc-1ec2pa7-2",
+                "isStatic": true,
+                "rules": Array [
+                  "width:100%;max-width:1200px;margin:0 auto;",
+                ],
+              },
+              "displayName": "StyledLayout__SContainer",
+              "render": [Function],
+              "styledComponentId": "StyledLayout__SContainer-sc-1ec2pa7-2",
+              "target": "div",
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": undefined,
+            "componentStyle": ComponentStyle {
+              "componentId": "StyledLayout__PageSection-sc-1ec2pa7-4",
+              "isStatic": false,
+              "rules": Array [
+                "&{padding:5rem 0;background-color:",
+                [Function],
+                ";[data-center]{text-align:center;}}&[data-center]{text-align:center;}[data-subtitle]{font-size:25px;}[data-desc]{font-size:16px;}",
+              ],
+            },
+            "displayName": "StyledLayout__PageSection",
+            "render": [Function],
+            "styledComponentId": "StyledLayout__PageSection-sc-1ec2pa7-4",
+            "target": "section",
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": undefined,
+        "componentStyle": ComponentStyle {
+          "componentId": "StyledLayout__PageContent-sc-1ec2pa7-3",
+          "isStatic": false,
+          "rules": Array [
+            "min-height:calc(100vh - 270px);position:relative;h1,h2,h3,h4,h5,h6,ul,ol,li,p,div,section,article{color:",
+            [Function],
+            ";}[data-title]{font-size:46px;font-weight:bold;}[data-subtitle]{font-size:24px;font-weight:500;}p{font-size:14px;font-weight:300;line-height:1.79;}",
+          ],
+        },
+        "displayName": "StyledLayout__PageContent",
+        "render": [Function],
+        "styledComponentId": "StyledLayout__PageContent-sc-1ec2pa7-3",
+        "target": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+        Symbol(Symbol.hasInstance): [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

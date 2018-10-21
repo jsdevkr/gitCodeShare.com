@@ -14,7 +14,7 @@ exports[`StyledLayout PageContent should render 1`] = `
 
 exports[`StyledLayout PageSection should render 1`] = `
 <section
-  className="StyledLayout__PageSection-sc-1ec2pa7-4 hvPEwH"
+  className="StyledLayout__PageSection-sc-1ec2pa7-4 bLZCgi"
 />
 `;
 
@@ -26,12 +26,12 @@ exports[`StyledLayout SContainer should render 1`] = `
 
 exports[`StyledLayout SLayout should render 1`] = `
 <div
-  className="StyledLayout__SLayout-sc-1ec2pa7-0 bBdsDa ant-layout"
+  className="StyledLayout__SLayout-sc-1ec2pa7-0 irYyjb ant-layout"
 />
 `;
 
 exports[`StyledLayout TitleSection should render 1`] = `
 <header
-  className="StyledLayout__TitleSection-sc-1ec2pa7-5 ceLwde"
+  className="StyledLayout__TitleSection-sc-1ec2pa7-5 drjcgC"
 />
 `;
