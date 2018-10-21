@@ -4,11 +4,13 @@ FROM node:8-alpine
 # Installs latest Chromium package.
 ENV CHROME_BIN=/usr/bin/chromium-browser
 RUN apk update && apk upgrade && \
-      echo http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
-      echo http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
+      echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
+      echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
       apk add --no-cache \
-      chromium \
-      nss
+      chromium@edge \
+      nss@edge \
+      freetype@edge \
+      harfbuzz@edge
 
 WORKDIR /app
 
@@ -18,7 +20,7 @@ COPY package-lock.json ./
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-RUN npm i
+RUN npm install
 
 COPY . .
 
