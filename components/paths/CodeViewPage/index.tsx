@@ -9,8 +9,8 @@ import {
   GithubButton,
   LineButton,
   RowFlex,
-} from '../../styledComponents';
-import { CodeEditor } from '..';
+} from '../../../styledComponents';
+import { CodeEditor } from '../../';
 import { Avatar } from 'antd';
 
 interface IProps {

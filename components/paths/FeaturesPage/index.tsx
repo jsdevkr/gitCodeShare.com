@@ -10,7 +10,7 @@ import {
   PageSection,
   TitleSection,
   RowFlex,
-} from '../../styledComponents';
+} from '../../../styledComponents';
 
 interface IProps {
   className?: string;
