@@ -2,6 +2,6 @@
 
 exports[`StyledBadge should render 1`] = `
 <span
-  className="StyledBadge__GithubBadge-ntn0v4-2 esXKtI ant-badge ant-badge-not-a-wrapper"
+  className="StyledBadge__GithubBadge-ntn0v4-2 fweSJV ant-badge ant-badge-not-a-wrapper"
 />
 `;

@@ -502,7 +502,7 @@ ShallowWrapper {
                 "rules": Array [
                   "&.ant-menu{margin:0;border-bottom:none;background-color:transparent;li,li:hover,li:focus{border-bottom:none;a{color:",
                   [Function],
-                  ";}}}",
+                  ";font-size:15px;}}}",
                 ],
               },
               "displayName": "StyledMenu__MainNavMenu",
@@ -1077,7 +1077,7 @@ ShallowWrapper {
                   "rules": Array [
                     "&.ant-menu{margin:0;border-bottom:none;background-color:transparent;li,li:hover,li:focus{border-bottom:none;a{color:",
                     [Function],
-                    ";}}}",
+                    ";font-size:15px;}}}",
                   ],
                 },
                 "displayName": "StyledMenu__MainNavMenu",

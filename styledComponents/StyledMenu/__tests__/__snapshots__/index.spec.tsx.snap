@@ -10,7 +10,7 @@ exports[`StyledMenu DropDownMenu should render 1`] = `
 
 exports[`StyledMenu MainNavMenu should render 1`] = `
 <ul
-  className="ant-menu StyledMenu__MainNavMenu-l7ya14-0 bmxFHC ant-menu-light ant-menu-root ant-menu-vertical"
+  className="ant-menu StyledMenu__MainNavMenu-l7ya14-0 fsqjob ant-menu-light ant-menu-root ant-menu-vertical"
   role="menu"
   style={Object {}}
 />
