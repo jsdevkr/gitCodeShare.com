@@ -80,7 +80,7 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
 
   // redirect to home
   server.get('/', (req, res) => {
-    res.redirect(`${req.protocol}://${req.hostname}:${process.env.FRONT_PORT}`);
+    res.redirect(`${req.protocol}://${req.hostname}`);
   });
 
   server.listen(port, '0.0.0.0', err => {

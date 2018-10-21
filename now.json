@@ -3,7 +3,11 @@
   "type": "docker",
   "public": true,
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "OAUTH_GITHUB_CLIENT_ID": "@oauth_github_client_id",
+    "OAUTH_GITHUB_CLIENT_SECRET": "@oauth_github_client_secret",
+    "OAUTH_GITHUB_CALLBACK_URL": "@oauth_github_callback_url",
+    "PERSONAL_ACCESS_TOKEN": "@personal_access_token"
   },
   "alias": "gitcodeshare.com",
   "features": {
