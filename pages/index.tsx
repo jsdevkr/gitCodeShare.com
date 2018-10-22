@@ -30,10 +30,10 @@ class App extends React.Component<IProps> {
       return { state: decode(query.state) };
     } else {
       const gistId = Object.keys(query)[0];
-      if (gistId) {
-        await appStore.editor.getGist(gistId);
-      }
-      return { gistId: Object.keys(query)[0] };
+      // if (gistId) {
+      //   await appStore.editor.getGist(gistId);
+      // }
+      return { gistId };
     }
   }
 
@@ -55,8 +55,8 @@ class App extends React.Component<IProps> {
   render() {
     const { gistId, state } = this.props;
 
-    // gistId && this.props.appStore.editor.getGist(gistId);
-    state && state.code && this.props.appStore.editor.setCode(state.code);
+    gistId && appStore.editor.getGist(gistId);
+    state && state.code && appStore.editor.setCode(state.code);
     return (
       <SLayout>
         <MainNav />

@@ -1,17 +1,30 @@
 import puppeteer from 'puppeteer';
+import { SourceType } from '../../model/image';
 import { Request, Response, NextFunction } from 'express';
 
 export default function(browser: puppeteer.Browser) {
   return async (req: Request, res: Response, next: NextFunction) => {
     const page = await browser.newPage();
 
-    const { state } = req.query;
+    const { state, source } = req.query;
+
     if (!state) {
       res.status(400).send();
     }
 
     try {
-      await page.goto(`http://localhost:3000/?state=${state}`);
+      switch (source) {
+        case SourceType.CODE:
+          await page.goto(`http://localhost:3000/?state=${state}`);
+          break;
+        case SourceType.GIST:
+          console.log(`http://localhost:3000/?${state}`);
+          await page.goto(`http://localhost:3000/?${state}`);
+          break;
+        default:
+          res.status(400).send();
+          break;
+      }
 
       async function screenshotDOMElement(selector) {
         if (!selector) {
