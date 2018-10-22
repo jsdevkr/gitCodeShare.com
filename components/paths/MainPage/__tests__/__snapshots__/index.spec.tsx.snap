@@ -52,7 +52,7 @@ ShallowWrapper {
             <h3
               data-title={true}
             >
-              Share your code beautifully!
+              Share your code beautifully
             </h3>
             <p
               data-desc={true}
@@ -290,7 +290,7 @@ ShallowWrapper {
               <h3
                 data-title={true}
               >
-                Share your code beautifully!
+                Share your code beautifully
               </h3>
               <p
                 data-desc={true}
@@ -414,7 +414,7 @@ ShallowWrapper {
                 <h3
                   data-title={true}
                 >
-                  Share your code beautifully!
+                  Share your code beautifully
                 </h3>,
                 <p
                   data-desc={true}
@@ -444,11 +444,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Share your code beautifully!",
+                  "children": "Share your code beautifully",
                   "data-title": true,
                 },
                 "ref": null,
-                "rendered": "Share your code beautifully!",
+                "rendered": "Share your code beautifully",
                 "type": "h3",
               },
               Object {
@@ -2512,7 +2512,7 @@ ShallowWrapper {
               <h3
                 data-title={true}
               >
-                Share your code beautifully!
+                Share your code beautifully
               </h3>
               <p
                 data-desc={true}
@@ -2750,7 +2750,7 @@ ShallowWrapper {
                 <h3
                   data-title={true}
                 >
-                  Share your code beautifully!
+                  Share your code beautifully
                 </h3>
                 <p
                   data-desc={true}
@@ -2874,7 +2874,7 @@ ShallowWrapper {
                   <h3
                     data-title={true}
                   >
-                    Share your code beautifully!
+                    Share your code beautifully
                   </h3>,
                   <p
                     data-desc={true}
@@ -2904,11 +2904,11 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Share your code beautifully!",
+                    "children": "Share your code beautifully",
                     "data-title": true,
                   },
                   "ref": null,
-                  "rendered": "Share your code beautifully!",
+                  "rendered": "Share your code beautifully",
                   "type": "h3",
                 },
                 Object {

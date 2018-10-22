@@ -8,7 +8,7 @@
     "dev:front": "node ./bin/front.js",
     "dev:backend": "nodemon --watch server -e ts,js ./bin/server.js",
     "build": "next build",
-    "test": "jest --noStackTrace --watch -u",
+    "test": "jest --noStackTrace --watch",
     "test:ci": "jest -w=4 --silent --noStackTrace --forceExit",
     "test:skip": "echo \"Skip test\" && exit 0",
     "start": "npm-run-all -p prod:front prod:backend",
@@ -32,13 +32,13 @@
     "linters": {
       "*.{js,jsx}": [
         "prettier --parser flow --write",
-        "jest --bail -u --findRelatedTests",
+        "jest --bail --findRelatedTests",
         "git add"
       ],
       "*.{ts,tsx}": [
         "prettier --parser typescript --write",
         "tslint --fix",
-        "jest --bail -u --findRelatedTests",
+        "jest --bail --findRelatedTests",
         "git add"
       ]
     }
@@ -54,7 +54,6 @@
     "@types/express-session": "^1.15.11",
     "@types/highlight.js": "^9.12.3",
     "@types/http-proxy-middleware": "^0.17.5",
-    "@types/isomorphic-fetch": "0.0.34",
     "@types/lodash": "^4.14.117",
     "@types/morgan": "^1.7.35",
     "@types/next": "^7.0.3",
