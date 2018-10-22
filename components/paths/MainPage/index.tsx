@@ -221,7 +221,6 @@ class MainPage extends Component<IProps> {
 
     if (this.animatedDOM[0] && offsetTop > this.animatedDOM[0].offsetTop) {
       const $img = this.animatedDOM[0].querySelectorAll('img');
-
       $img[0].setAttribute('data-bounce-in', '');
       $img[1].setAttribute('data-fade-in-left', '');
       $img[2].setAttribute('data-bounce-in', '');
@@ -230,7 +229,6 @@ class MainPage extends Component<IProps> {
 
     if (this.animatedDOM[1] && offsetTop > this.animatedDOM[1].offsetTop) {
       const $img = this.animatedDOM[1].querySelectorAll('img');
-
       $img[0].setAttribute('data-fade-in-left', '');
       $img[1].setAttribute('data-fade-in-right', '');
       $img[2].setAttribute('data-bounce-in', '');
