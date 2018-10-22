@@ -30,7 +30,7 @@ export default class MyDocument extends Document {
           ))}
           {this.props.styleTags}
         </Head>
-        <body>
+        <body style={{ overflowX: 'hidden' }}>
           <Main />
           <NextScript />
         </body>

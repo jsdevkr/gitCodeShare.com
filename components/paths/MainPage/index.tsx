@@ -100,6 +100,7 @@ const SlideWrap = styled(PageSection as any)`
         position: absolute;
         object-fit: cover;
         height: 100%;
+        width: 100%;
       }
 
       [data-svg-1] {
@@ -239,6 +240,7 @@ class MainPage extends Component<IProps> {
   componentDidMount() {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.handleAnimation);
+      this.handleAnimation();
     }
   }
 
@@ -304,7 +306,7 @@ class MainPage extends Component<IProps> {
                 />
                 <AnimatedImg
                   top="149px"
-                  left="142px"
+                  right="200px"
                   zIndex="2"
                   data-fade
                   src="/static/images/main/main_illust_02.png"
@@ -312,7 +314,7 @@ class MainPage extends Component<IProps> {
                 />
                 <AnimatedImg
                   top="20px"
-                  left="215px"
+                  right="0"
                   zIndex="1"
                   data-fade
                   delay="0.9s"
