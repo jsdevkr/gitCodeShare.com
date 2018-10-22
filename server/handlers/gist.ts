@@ -43,7 +43,6 @@ router.get('/starred', async (req: Request, res: Response, next: NextFunction) =
       });
       return result.json();
     });
-    console.log(body.length);
     return res.status(200).json(body);
   } catch (err) {
     console.log(err);
@@ -114,7 +113,6 @@ router.patch('/:gist_id', isAuthenticated, (req: Request, res: Response, next: N
 });
 
 router.post('/', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.body);
   request.post(
     `https://api.github.com/gists`,
     {

@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 import { SourceType } from '../../model/image';
 import { Request, Response, NextFunction } from 'express';
+const ARBITRARY_WAIT_TIME = 500;
 
 export default function(browser: puppeteer.Browser) {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -20,6 +21,7 @@ export default function(browser: puppeteer.Browser) {
         case SourceType.GIST:
           console.log(`http://localhost:3000/?${state}`);
           await page.goto(`http://localhost:3000/?${state}`);
+          await delay(ARBITRARY_WAIT_TIME);
           break;
         default:
           res.status(400).send();
@@ -67,4 +69,9 @@ export default function(browser: puppeteer.Browser) {
       await page.close();
     }
   };
+}
+
+// private
+function delay(ms) {
+  return new Promise(r => setTimeout(r, ms));
 }

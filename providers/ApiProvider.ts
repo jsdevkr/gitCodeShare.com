@@ -34,7 +34,6 @@ const ApiProvider = {
     },
     async getGist(gistId: number | string) {
       const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'GET' });
-      console.log('getGist', res);
       const data = await res.json();
 
       return data as IGist;
