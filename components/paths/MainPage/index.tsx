@@ -261,7 +261,7 @@ class MainPage extends Component<IProps> {
           <div data-bg />
           {/* <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" /> */}
           <div data-layer-1>
-            <h3 data-title>Share your code beautifully</h3>
+            <h3 data-title>Share your code beautifully!</h3>
             <p data-desc>
               Introducing the best practices, stories, and insights from the world’s top developers.
               <br />
