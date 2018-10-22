@@ -127,7 +127,7 @@ ShallowWrapper {
                 <ForwardRef
                   alt="gitshare 설명 이미지"
                   data-fade={true}
-                  left="142px"
+                  right="200px"
                   src="/static/images/main/main_illust_02.png"
                   top="149px"
                   zIndex="2"
@@ -136,7 +136,7 @@ ShallowWrapper {
                   alt="gitshare 설명 이미지"
                   data-fade={true}
                   delay="0.9s"
-                  left="215px"
+                  right="0"
                   src="/static/images/main/main_illust_03.png"
                   top="20px"
                   zIndex="1"
@@ -613,7 +613,7 @@ ShallowWrapper {
     height: auto;
     ;
   ",
-              ";justify-content:center;align-items:center;height:600px;padding:0;text-align:center;position:relative;[data-bg]{margin:0 auto;position:absolute;top:0;bottom:0;z-index:0;width:100%;max-width:1208px;object-fit:cover;[data-svg]{position:absolute;object-fit:cover;height:100%;}[data-svg-1]{left:0;}[data-svg-2]{right:0;}[data-svg-3]{right:0;}[data-desc]{font-size:16px;}}[data-layer-1]{position:relative;z-index:9;}[data-bg]{background:radial-gradient(#000,transparent,rgba(0,0,0,0.6),#000);position:absolute;top:0;width:100%;height:100%;}[data-title]{margin-bottom:20px;font-size:48px;text-shadow:0 2px 5px #000,0 -2px 5px #000;}[data-desc]{margin-bottom:50px;font-size:18px;color:",
+              ";justify-content:center;align-items:center;height:600px;padding:0;text-align:center;position:relative;[data-bg]{margin:0 auto;position:absolute;top:0;bottom:0;z-index:0;width:100%;max-width:1208px;object-fit:cover;[data-svg]{position:absolute;object-fit:cover;height:100%;width:100%;}[data-svg-1]{left:0;}[data-svg-2]{right:0;}[data-svg-3]{right:0;}[data-desc]{font-size:16px;}}[data-layer-1]{position:relative;z-index:9;}[data-bg]{background:radial-gradient(#000,transparent,rgba(0,0,0,0.6),#000);position:absolute;top:0;width:100%;height:100%;}[data-title]{margin-bottom:20px;font-size:48px;text-shadow:0 2px 5px #000,0 -2px 5px #000;}[data-desc]{margin-bottom:50px;font-size:18px;color:",
               [Function],
               ";text-shadow:0 2px 5px #000,0 -2px 5px #000;}[data-scroll-btn]{position:absolute;bottom:10px;z-index:99;transform:rotate(-90deg);span{display:inherit;align-items:center;font-size:14px;&::after{content:'';margin-left:15px;display:inline-block;width:61px;height:1px;background-color:",
               [Function],
@@ -680,7 +680,7 @@ ShallowWrapper {
                 <ForwardRef
                   alt="gitshare 설명 이미지"
                   data-fade={true}
-                  left="142px"
+                  right="200px"
                   src="/static/images/main/main_illust_02.png"
                   top="149px"
                   zIndex="2"
@@ -689,7 +689,7 @@ ShallowWrapper {
                   alt="gitshare 설명 이미지"
                   data-fade={true}
                   delay="0.9s"
-                  left="215px"
+                  right="0"
                   src="/static/images/main/main_illust_03.png"
                   top="20px"
                   zIndex="1"
@@ -759,7 +759,7 @@ ShallowWrapper {
                 <ForwardRef
                   alt="gitshare 설명 이미지"
                   data-fade={true}
-                  left="142px"
+                  right="200px"
                   src="/static/images/main/main_illust_02.png"
                   top="149px"
                   zIndex="2"
@@ -768,7 +768,7 @@ ShallowWrapper {
                   alt="gitshare 설명 이미지"
                   data-fade={true}
                   delay="0.9s"
-                  left="215px"
+                  right="0"
                   src="/static/images/main/main_illust_03.png"
                   top="20px"
                   zIndex="1"
@@ -835,7 +835,7 @@ ShallowWrapper {
                   <ForwardRef
                     alt="gitshare 설명 이미지"
                     data-fade={true}
-                    left="142px"
+                    right="200px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
@@ -844,7 +844,7 @@ ShallowWrapper {
                     alt="gitshare 설명 이미지"
                     data-fade={true}
                     delay="0.9s"
-                    left="215px"
+                    right="0"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
@@ -997,7 +997,7 @@ ShallowWrapper {
                     <ForwardRef
                       alt="gitshare 설명 이미지"
                       data-fade={true}
-                      left="142px"
+                      right="200px"
                       src="/static/images/main/main_illust_02.png"
                       top="149px"
                       zIndex="2"
@@ -1006,7 +1006,7 @@ ShallowWrapper {
                       alt="gitshare 설명 이미지"
                       data-fade={true}
                       delay="0.9s"
-                      left="215px"
+                      right="0"
                       src="/static/images/main/main_illust_03.png"
                       top="20px"
                       zIndex="1"
@@ -1127,7 +1127,7 @@ ShallowWrapper {
                     "props": Object {
                       "alt": "gitshare 설명 이미지",
                       "data-fade": true,
-                      "left": "142px",
+                      "right": "200px",
                       "src": "/static/images/main/main_illust_02.png",
                       "top": "149px",
                       "zIndex": "2",
@@ -1222,7 +1222,7 @@ ShallowWrapper {
                       "alt": "gitshare 설명 이미지",
                       "data-fade": true,
                       "delay": "0.9s",
-                      "left": "215px",
+                      "right": "0",
                       "src": "/static/images/main/main_illust_03.png",
                       "top": "20px",
                       "zIndex": "1",
@@ -2587,7 +2587,7 @@ ShallowWrapper {
                   <ForwardRef
                     alt="gitshare 설명 이미지"
                     data-fade={true}
-                    left="142px"
+                    right="200px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
@@ -2596,7 +2596,7 @@ ShallowWrapper {
                     alt="gitshare 설명 이미지"
                     data-fade={true}
                     delay="0.9s"
-                    left="215px"
+                    right="0"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
@@ -3073,7 +3073,7 @@ ShallowWrapper {
     height: auto;
     ;
   ",
-                ";justify-content:center;align-items:center;height:600px;padding:0;text-align:center;position:relative;[data-bg]{margin:0 auto;position:absolute;top:0;bottom:0;z-index:0;width:100%;max-width:1208px;object-fit:cover;[data-svg]{position:absolute;object-fit:cover;height:100%;}[data-svg-1]{left:0;}[data-svg-2]{right:0;}[data-svg-3]{right:0;}[data-desc]{font-size:16px;}}[data-layer-1]{position:relative;z-index:9;}[data-bg]{background:radial-gradient(#000,transparent,rgba(0,0,0,0.6),#000);position:absolute;top:0;width:100%;height:100%;}[data-title]{margin-bottom:20px;font-size:48px;text-shadow:0 2px 5px #000,0 -2px 5px #000;}[data-desc]{margin-bottom:50px;font-size:18px;color:",
+                ";justify-content:center;align-items:center;height:600px;padding:0;text-align:center;position:relative;[data-bg]{margin:0 auto;position:absolute;top:0;bottom:0;z-index:0;width:100%;max-width:1208px;object-fit:cover;[data-svg]{position:absolute;object-fit:cover;height:100%;width:100%;}[data-svg-1]{left:0;}[data-svg-2]{right:0;}[data-svg-3]{right:0;}[data-desc]{font-size:16px;}}[data-layer-1]{position:relative;z-index:9;}[data-bg]{background:radial-gradient(#000,transparent,rgba(0,0,0,0.6),#000);position:absolute;top:0;width:100%;height:100%;}[data-title]{margin-bottom:20px;font-size:48px;text-shadow:0 2px 5px #000,0 -2px 5px #000;}[data-desc]{margin-bottom:50px;font-size:18px;color:",
                 [Function],
                 ";text-shadow:0 2px 5px #000,0 -2px 5px #000;}[data-scroll-btn]{position:absolute;bottom:10px;z-index:99;transform:rotate(-90deg);span{display:inherit;align-items:center;font-size:14px;&::after{content:'';margin-left:15px;display:inline-block;width:61px;height:1px;background-color:",
                 [Function],
@@ -3140,7 +3140,7 @@ ShallowWrapper {
                   <ForwardRef
                     alt="gitshare 설명 이미지"
                     data-fade={true}
-                    left="142px"
+                    right="200px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
@@ -3149,7 +3149,7 @@ ShallowWrapper {
                     alt="gitshare 설명 이미지"
                     data-fade={true}
                     delay="0.9s"
-                    left="215px"
+                    right="0"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
@@ -3219,7 +3219,7 @@ ShallowWrapper {
                   <ForwardRef
                     alt="gitshare 설명 이미지"
                     data-fade={true}
-                    left="142px"
+                    right="200px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
@@ -3228,7 +3228,7 @@ ShallowWrapper {
                     alt="gitshare 설명 이미지"
                     data-fade={true}
                     delay="0.9s"
-                    left="215px"
+                    right="0"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
@@ -3295,7 +3295,7 @@ ShallowWrapper {
                     <ForwardRef
                       alt="gitshare 설명 이미지"
                       data-fade={true}
-                      left="142px"
+                      right="200px"
                       src="/static/images/main/main_illust_02.png"
                       top="149px"
                       zIndex="2"
@@ -3304,7 +3304,7 @@ ShallowWrapper {
                       alt="gitshare 설명 이미지"
                       data-fade={true}
                       delay="0.9s"
-                      left="215px"
+                      right="0"
                       src="/static/images/main/main_illust_03.png"
                       top="20px"
                       zIndex="1"
@@ -3457,7 +3457,7 @@ ShallowWrapper {
                       <ForwardRef
                         alt="gitshare 설명 이미지"
                         data-fade={true}
-                        left="142px"
+                        right="200px"
                         src="/static/images/main/main_illust_02.png"
                         top="149px"
                         zIndex="2"
@@ -3466,7 +3466,7 @@ ShallowWrapper {
                         alt="gitshare 설명 이미지"
                         data-fade={true}
                         delay="0.9s"
-                        left="215px"
+                        right="0"
                         src="/static/images/main/main_illust_03.png"
                         top="20px"
                         zIndex="1"
@@ -3587,7 +3587,7 @@ ShallowWrapper {
                       "props": Object {
                         "alt": "gitshare 설명 이미지",
                         "data-fade": true,
-                        "left": "142px",
+                        "right": "200px",
                         "src": "/static/images/main/main_illust_02.png",
                         "top": "149px",
                         "zIndex": "2",
@@ -3682,7 +3682,7 @@ ShallowWrapper {
                         "alt": "gitshare 설명 이미지",
                         "data-fade": true,
                         "delay": "0.9s",
-                        "left": "215px",
+                        "right": "0",
                         "src": "/static/images/main/main_illust_03.png",
                         "top": "20px",
                         "zIndex": "1",

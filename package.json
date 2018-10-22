@@ -14,7 +14,7 @@
     "start": "npm-run-all -p prod:front prod:backend",
     "prod:front": "node ./bin/front.js",
     "prod:backend": "node ./bin/server.js",
-    "precommit": "lint-staged && npm run test && npm run contributors:build && git add README.md",
+    "precommit": "lint-staged && npm run contributors:build && git add README.md",
     "contributors:add": "all-contributors add",
     "contributors:build": "all-contributors generate"
   },
@@ -32,11 +32,13 @@
     "linters": {
       "*.{js,jsx}": [
         "prettier --parser flow --write",
+        "jest --bail --findRelatedTests -u",
         "git add"
       ],
       "*.{ts,tsx}": [
         "prettier --parser typescript --write",
         "tslint --fix",
+        "jest --bail --findRelatedTests -u",
         "git add"
       ]
     }

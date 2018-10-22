@@ -16,11 +16,6 @@ import {
 import { IGist } from '../../../model/gist';
 import Link from 'next/link';
 
-interface IProps {
-  className?: string;
-  starredList: IGist[];
-}
-
 const { fadeIn, fadeInLeft, fadeInRight, bounceIn } = StyledAnimation;
 
 const RowFlexBox: any = styled.div`
@@ -212,6 +207,11 @@ const AnimatedImg: any = styled.img`
   zIndex?: number;
   delay?: number;
 };
+
+interface IProps {
+  className?: string;
+  starredList: IGist[];
+}
 
 class MainPage extends Component<IProps> {
   animatedDOM: HTMLElement[] = [];
