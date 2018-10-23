@@ -5,6 +5,7 @@ import { isAuthenticated } from './passport';
 import { cache } from './';
 
 const router: Router = Router();
+const ttl = 60 * 60;
 
 const headers: { Authorization?: string } = {};
 const PERSONAL_ACCESS_TOKEN: string = process.env.PERSONAL_ACCESS_TOKEN;
@@ -32,18 +33,21 @@ const putStar = (gistId: string): void => {
 };
 router.get('/starred', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const body = await cache.wrap('starred', async () => {
-      const result = await fetch(`https://api.github.com/gists/starred`, {
-        method: 'GET',
-        headers: {
-          ...headers,
-          'Content-Type': 'application/json; charset=utf-8',
-          'User-Agent': `${name}/${version}`,
-        },
-      });
-      return result.json();
-    });
-    console.log(body.length);
+    const body = await cache.wrap(
+      'gist/starred',
+      async () => {
+        const result = await fetch(`https://api.github.com/gists/starred`, {
+          method: 'GET',
+          headers: {
+            ...headers,
+            'Content-Type': 'application/json; charset=utf-8',
+            'User-Agent': `${name}/${version}`,
+          },
+        });
+        return result.json();
+      },
+      { ttl },
+    );
     return res.status(200).json(body);
   } catch (err) {
     console.log(err);
@@ -114,7 +118,6 @@ router.patch('/:gist_id', isAuthenticated, (req: Request, res: Response, next: N
 });
 
 router.post('/', isAuthenticated, (req: Request, res: Response, next: NextFunction) => {
-  console.log(req.body);
   request.post(
     `https://api.github.com/gists`,
     {

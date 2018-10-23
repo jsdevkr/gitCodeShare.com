@@ -395,7 +395,7 @@ class MainPage extends Component<IProps> {
                     <SCard
                       data-col
                       key={i}
-                      cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                      cover={<img alt="example" src={`/api/image?source=GIST&state=${gist.id}`} />}
                     >
                       <SCardMeta title={gist.description} description={gist.created_at} />
                     </SCard>
