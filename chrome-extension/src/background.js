@@ -1,5 +1,10 @@
+const isDevMode = () => !('update_url' in chrome.runtime.getManifest());
+const productionURL = 'https://gitcodeshare.com';
+const developmentURL = 'http://localhost:3000';
+const getURL = () => (isDevMode() ? developmentURL : productionURL);
+
 chrome.browserAction.onClicked.addListener(popup => {
-  let URL = 'https://gitcodeshare.com/api/auth/github/';
+  let URL = `${getURL()}/api/auth/github/`;
   chrome.tabs.create({ url: URL });
 });
 

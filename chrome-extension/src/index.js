@@ -1,17 +1,17 @@
-let editor;
-let iframe;
-const isProduction = true;
+const isDevMode = () => !('update_url' in chrome.runtime.getManifest());
 const productionURL = 'https://gitcodeshare.com';
 const developmentURL = 'http://localhost:3000';
+const getURL = () => (isDevMode() ? developmentURL : productionURL);
+
+let editor;
+let iframe;
 
 const injectGitCodeShareWindow = () => {
   const div = document.createElement('div');
   div.innerHTML = `
     <div class="editor">
       <div class="editor__back">
-        <iframe id="gitCodeShare" class="editor__iframe" src="${
-          isProduction ? productionURL : developmentURL
-        }/fbeditor"></iframe>
+        <iframe id="gitCodeShare" class="editor__iframe" src="${getURL()}/fbeditor"></iframe>
       </div>
     </div>
   `;
