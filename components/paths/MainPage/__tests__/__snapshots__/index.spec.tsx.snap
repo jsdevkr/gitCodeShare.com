@@ -116,7 +116,7 @@ ShallowWrapper {
                 data-col={true}
               >
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 큰물감"
                   data-fade={true}
                   delay="0.5s"
                   left="15px"
@@ -125,24 +125,24 @@ ShallowWrapper {
                   zIndex="2"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 사람"
                   data-fade={true}
-                  right="200px"
+                  left="125px"
                   src="/static/images/main/main_illust_02.png"
                   top="149px"
                   zIndex="2"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - FB"
                   data-fade={true}
                   delay="0.9s"
-                  right="0"
+                  left="120px"
                   src="/static/images/main/main_illust_03.png"
                   top="20px"
                   zIndex="1"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 작은물감"
                   data-fade={true}
                   delay="0.7s"
                   left="309px"
@@ -669,7 +669,7 @@ ShallowWrapper {
                 data-col={true}
               >
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 큰물감"
                   data-fade={true}
                   delay="0.5s"
                   left="15px"
@@ -678,24 +678,24 @@ ShallowWrapper {
                   zIndex="2"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 사람"
                   data-fade={true}
-                  right="200px"
+                  left="125px"
                   src="/static/images/main/main_illust_02.png"
                   top="149px"
                   zIndex="2"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - FB"
                   data-fade={true}
                   delay="0.9s"
-                  right="0"
+                  left="120px"
                   src="/static/images/main/main_illust_03.png"
                   top="20px"
                   zIndex="1"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 작은물감"
                   data-fade={true}
                   delay="0.7s"
                   left="309px"
@@ -748,7 +748,7 @@ ShallowWrapper {
                 data-col={true}
               >
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 큰물감"
                   data-fade={true}
                   delay="0.5s"
                   left="15px"
@@ -757,24 +757,24 @@ ShallowWrapper {
                   zIndex="2"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 사람"
                   data-fade={true}
-                  right="200px"
+                  left="125px"
                   src="/static/images/main/main_illust_02.png"
                   top="149px"
                   zIndex="2"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - FB"
                   data-fade={true}
                   delay="0.9s"
-                  right="0"
+                  left="120px"
                   src="/static/images/main/main_illust_03.png"
                   top="20px"
                   zIndex="1"
                 />
                 <ForwardRef
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 작은물감"
                   data-fade={true}
                   delay="0.7s"
                   left="309px"
@@ -824,7 +824,7 @@ ShallowWrapper {
                   data-col={true}
                 >
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 큰물감"
                     data-fade={true}
                     delay="0.5s"
                     left="15px"
@@ -833,24 +833,24 @@ ShallowWrapper {
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 사람"
                     data-fade={true}
-                    right="200px"
+                    left="125px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - FB"
                     data-fade={true}
                     delay="0.9s"
-                    right="0"
+                    left="120px"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 작은물감"
                     data-fade={true}
                     delay="0.7s"
                     left="309px"
@@ -986,7 +986,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 - 큰물감"
                       data-fade={true}
                       delay="0.5s"
                       left="15px"
@@ -995,24 +995,24 @@ ShallowWrapper {
                       zIndex="2"
                     />,
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 사람"
                       data-fade={true}
-                      right="200px"
+                      left="125px"
                       src="/static/images/main/main_illust_02.png"
                       top="149px"
                       zIndex="2"
                     />,
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 - FB"
                       data-fade={true}
                       delay="0.9s"
-                      right="0"
+                      left="120px"
                       src="/static/images/main/main_illust_03.png"
                       top="20px"
                       zIndex="1"
                     />,
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 - 작은물감"
                       data-fade={true}
                       delay="0.7s"
                       left="309px"
@@ -1030,7 +1030,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "alt": "gitshare 설명 이미지",
+                      "alt": "gitshare 설명 이미지 - 큰물감",
                       "data-fade": true,
                       "delay": "0.5s",
                       "left": "15px",
@@ -1125,9 +1125,9 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "alt": "gitshare 설명 이미지",
+                      "alt": "gitshare 설명 이미지 사람",
                       "data-fade": true,
-                      "right": "200px",
+                      "left": "125px",
                       "src": "/static/images/main/main_illust_02.png",
                       "top": "149px",
                       "zIndex": "2",
@@ -1219,10 +1219,10 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "alt": "gitshare 설명 이미지",
+                      "alt": "gitshare 설명 이미지 - FB",
                       "data-fade": true,
                       "delay": "0.9s",
-                      "right": "0",
+                      "left": "120px",
                       "src": "/static/images/main/main_illust_03.png",
                       "top": "20px",
                       "zIndex": "1",
@@ -1314,7 +1314,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "function",
                     "props": Object {
-                      "alt": "gitshare 설명 이미지",
+                      "alt": "gitshare 설명 이미지 - 작은물감",
                       "data-fade": true,
                       "delay": "0.7s",
                       "left": "309px",
@@ -2576,7 +2576,7 @@ ShallowWrapper {
                   data-col={true}
                 >
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 큰물감"
                     data-fade={true}
                     delay="0.5s"
                     left="15px"
@@ -2585,24 +2585,24 @@ ShallowWrapper {
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 사람"
                     data-fade={true}
-                    right="200px"
+                    left="125px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - FB"
                     data-fade={true}
                     delay="0.9s"
-                    right="0"
+                    left="120px"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 작은물감"
                     data-fade={true}
                     delay="0.7s"
                     left="309px"
@@ -3129,7 +3129,7 @@ ShallowWrapper {
                   data-col={true}
                 >
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 큰물감"
                     data-fade={true}
                     delay="0.5s"
                     left="15px"
@@ -3138,24 +3138,24 @@ ShallowWrapper {
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 사람"
                     data-fade={true}
-                    right="200px"
+                    left="125px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - FB"
                     data-fade={true}
                     delay="0.9s"
-                    right="0"
+                    left="120px"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 작은물감"
                     data-fade={true}
                     delay="0.7s"
                     left="309px"
@@ -3208,7 +3208,7 @@ ShallowWrapper {
                   data-col={true}
                 >
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 큰물감"
                     data-fade={true}
                     delay="0.5s"
                     left="15px"
@@ -3217,24 +3217,24 @@ ShallowWrapper {
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 사람"
                     data-fade={true}
-                    right="200px"
+                    left="125px"
                     src="/static/images/main/main_illust_02.png"
                     top="149px"
                     zIndex="2"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - FB"
                     data-fade={true}
                     delay="0.9s"
-                    right="0"
+                    left="120px"
                     src="/static/images/main/main_illust_03.png"
                     top="20px"
                     zIndex="1"
                   />
                   <ForwardRef
-                    alt="gitshare 설명 이미지"
+                    alt="gitshare 설명 이미지 - 작은물감"
                     data-fade={true}
                     delay="0.7s"
                     left="309px"
@@ -3284,7 +3284,7 @@ ShallowWrapper {
                     data-col={true}
                   >
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 - 큰물감"
                       data-fade={true}
                       delay="0.5s"
                       left="15px"
@@ -3293,24 +3293,24 @@ ShallowWrapper {
                       zIndex="2"
                     />
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 사람"
                       data-fade={true}
-                      right="200px"
+                      left="125px"
                       src="/static/images/main/main_illust_02.png"
                       top="149px"
                       zIndex="2"
                     />
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 - FB"
                       data-fade={true}
                       delay="0.9s"
-                      right="0"
+                      left="120px"
                       src="/static/images/main/main_illust_03.png"
                       top="20px"
                       zIndex="1"
                     />
                     <ForwardRef
-                      alt="gitshare 설명 이미지"
+                      alt="gitshare 설명 이미지 - 작은물감"
                       data-fade={true}
                       delay="0.7s"
                       left="309px"
@@ -3446,7 +3446,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": Array [
                       <ForwardRef
-                        alt="gitshare 설명 이미지"
+                        alt="gitshare 설명 이미지 - 큰물감"
                         data-fade={true}
                         delay="0.5s"
                         left="15px"
@@ -3455,24 +3455,24 @@ ShallowWrapper {
                         zIndex="2"
                       />,
                       <ForwardRef
-                        alt="gitshare 설명 이미지"
+                        alt="gitshare 설명 이미지 사람"
                         data-fade={true}
-                        right="200px"
+                        left="125px"
                         src="/static/images/main/main_illust_02.png"
                         top="149px"
                         zIndex="2"
                       />,
                       <ForwardRef
-                        alt="gitshare 설명 이미지"
+                        alt="gitshare 설명 이미지 - FB"
                         data-fade={true}
                         delay="0.9s"
-                        right="0"
+                        left="120px"
                         src="/static/images/main/main_illust_03.png"
                         top="20px"
                         zIndex="1"
                       />,
                       <ForwardRef
-                        alt="gitshare 설명 이미지"
+                        alt="gitshare 설명 이미지 - 작은물감"
                         data-fade={true}
                         delay="0.7s"
                         left="309px"
@@ -3490,7 +3490,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "function",
                       "props": Object {
-                        "alt": "gitshare 설명 이미지",
+                        "alt": "gitshare 설명 이미지 - 큰물감",
                         "data-fade": true,
                         "delay": "0.5s",
                         "left": "15px",
@@ -3585,9 +3585,9 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "function",
                       "props": Object {
-                        "alt": "gitshare 설명 이미지",
+                        "alt": "gitshare 설명 이미지 사람",
                         "data-fade": true,
-                        "right": "200px",
+                        "left": "125px",
                         "src": "/static/images/main/main_illust_02.png",
                         "top": "149px",
                         "zIndex": "2",
@@ -3679,10 +3679,10 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "function",
                       "props": Object {
-                        "alt": "gitshare 설명 이미지",
+                        "alt": "gitshare 설명 이미지 - FB",
                         "data-fade": true,
                         "delay": "0.9s",
-                        "right": "0",
+                        "left": "120px",
                         "src": "/static/images/main/main_illust_03.png",
                         "top": "20px",
                         "zIndex": "1",
@@ -3774,7 +3774,7 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "function",
                       "props": Object {
-                        "alt": "gitshare 설명 이미지",
+                        "alt": "gitshare 설명 이미지 - 작은물감",
                         "data-fade": true,
                         "delay": "0.7s",
                         "left": "309px",

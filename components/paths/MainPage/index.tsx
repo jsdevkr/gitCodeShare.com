@@ -300,24 +300,24 @@ class MainPage extends Component<IProps> {
                   delay="0.5s"
                   data-fade
                   src="/static/images/main/main_illust_01.png"
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 큰물감"
                 />
                 <AnimatedImg
                   top="149px"
-                  right="200px"
+                  left="125px"
                   zIndex="2"
                   data-fade
                   src="/static/images/main/main_illust_02.png"
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 사람"
                 />
                 <AnimatedImg
                   top="20px"
-                  right="0"
+                  left="120px"
                   zIndex="1"
                   data-fade
                   delay="0.9s"
                   src="/static/images/main/main_illust_03.png"
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - FB"
                 />
                 <AnimatedImg
                   top="230px"
@@ -326,7 +326,7 @@ class MainPage extends Component<IProps> {
                   data-fade
                   delay="0.7s"
                   src="/static/images/main/main_illust_04.png"
-                  alt="gitshare 설명 이미지"
+                  alt="gitshare 설명 이미지 - 작은물감"
                 />
               </AnimationWrap>
             </RowFlexBox>
