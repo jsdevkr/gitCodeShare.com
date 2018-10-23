@@ -1,4 +1,5 @@
 import { IGist } from '../model/gist';
+import { SourceType } from '../model/image';
 import { IContributor } from '../model/contributors';
 import { encodeParams as encode } from '../common/utils';
 
@@ -17,7 +18,6 @@ const ApiProvider = {
       );
     },
     async isLogin() {},
-    async logout() {},
   },
   GistRequest: {
     async getGists() {
@@ -34,7 +34,6 @@ const ApiProvider = {
     },
     async getGist(gistId: number | string) {
       const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'GET' });
-      console.log('getGist', res);
       const data = await res.json();
 
       return data as IGist;
@@ -85,7 +84,7 @@ const ApiProvider = {
   },
   ImageRequest: {
     async getImageUrl(state: string) {
-      return `${proxyContext}/image?state=${encode(state)}`;
+      return `${proxyContext}/image?source=${SourceType.CODE}&state=${encode(state)}`;
     },
   },
 };

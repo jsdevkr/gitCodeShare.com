@@ -53,7 +53,6 @@ const ContributorsWrap = styled(RowFlexBox as any)`
 class ContributorsPage extends Component<IProps> {
   render() {
     const { contributors } = this.props;
-    console.log(contributors);
 
     return (
       <PageContent>
