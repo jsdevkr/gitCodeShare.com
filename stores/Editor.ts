@@ -111,19 +111,25 @@ export const Editor = types
       link.click();
       link.remove();
     },
-    createGist: async e => {
+    createGist: e => {
       const hide = message.loading('Saving...', 0);
       const filename = `source${self.language.ext || ''}`;
-      const data = await self.provider.GistRequest.createGist({
+      self.provider.GistRequest.createGist({
         public: true,
         files: {
           [filename]: {
             content: self.code,
           },
         },
-      });
-      window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${data.id} ` }, '*');
-      hide();
+      })
+        .then(data => {
+          window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${data.id} ` }, '*');
+          hide();
+        })
+        .catch(e => {
+          window.open(`${process.env.BACKEND_URL}/api/auth/github`, '_black');
+          hide();
+        });
     },
     login: () => {
       self.provider.AuthRequest.login();
