@@ -1,5 +1,6 @@
 chrome.browserAction.onClicked.addListener(popup => {
-  chrome.tabs.create({ url: 'http://localhost:3000/api/auth/github' });
+  let URL = 'https://gitcodeshare.com/api/auth/github/';
+  chrome.tabs.create({ url: URL });
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {

@@ -6,7 +6,7 @@ function injectGitCodeShareWindow() {
   div.innerHTML = `
     <div class="editor">
       <div class="editor__back">
-        <iframe id="gitCodeShare" class="editor__iframe" src="http://localhost:3000/fbeditor"></iframe>
+        <iframe id="gitCodeShare" class="editor__iframe" src="https://gitcodeshare.com/fbeditor"></iframe>
       </div>
     </div>
   `;
@@ -102,7 +102,6 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
   injectGitCodeShareWindow();
   console.log('gitCodeShare is injected!');
 
-  
   // We cannot call "clearInterval" because btn can be removed when user change page.
   const insertBtnInterval = setInterval(() => {
     if (isReadyToInsertBtn()) {
