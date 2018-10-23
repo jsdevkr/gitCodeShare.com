@@ -1,6 +1,6 @@
 let editor;
 let iframe;
-const isProduction = false;
+const isProduction = true;
 const productionURL = 'https://gitcodeshare.com';
 const developmentURL = 'http://localhost:3000';
 
