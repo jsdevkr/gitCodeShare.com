@@ -6,6 +6,7 @@ import { IContributor } from 'model/contributors.js';
 import { cache } from './';
 
 const router: Router = Router();
+const ttl = 60 * 60;
 
 const headers: { Authorization?: string } = {};
 const PERSONAL_ACCESS_TOKEN: string = process.env.PERSONAL_ACCESS_TOKEN;
@@ -39,34 +40,38 @@ router.get('/repos', (req: Request, res: Response, next: NextFunction) => {
 
 router.get('/contributors', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const body = await cache.wrap('contributors', async () => {
-      const getDetails = async login => {
-        const result = await fetch(`${apiBaseUrl}/users/${login}`, {
-          headers: {
-            ...headers,
-            'Content-Type': 'application/json; charset=utf-8',
-            'User-Agent': `${name}/${version}`,
-          },
-        });
-        const data = await result.json();
-        return data as IContributor;
-      };
+    const body = await cache.wrap(
+      'github/contributors',
+      async () => {
+        const getDetails = async login => {
+          const result = await fetch(`${apiBaseUrl}/users/${login}`, {
+            headers: {
+              ...headers,
+              'Content-Type': 'application/json; charset=utf-8',
+              'User-Agent': `${name}/${version}`,
+            },
+          });
+          const data = await result.json();
+          return data as IContributor;
+        };
 
-      let promises = [];
-      let contributors = await readContributorFile();
-      contributors.forEach(i => {
-        promises.push(getDetails(i.login));
-      });
-
-      return await Promise.all(promises)
-        .then(values => {
-          return values as IContributor[];
-        })
-        .catch(err => {
-          console.log(err);
-          next(err);
+        let promises = [];
+        let contributors = await readContributorFile();
+        contributors.forEach(i => {
+          promises.push(getDetails(i.login));
         });
-    });
+
+        return await Promise.all(promises)
+          .then(values => {
+            return values as IContributor[];
+          })
+          .catch(err => {
+            console.log(err);
+            next(err);
+          });
+      },
+      { ttl },
+    );
 
     return res.status(200).json(body);
   } catch (err) {
