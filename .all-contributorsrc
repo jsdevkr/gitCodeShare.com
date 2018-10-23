@@ -149,6 +149,15 @@
         "review",
         "test"
       ]
+    },
+    {
+      "login": "Jisookhyeon",
+      "name": "Jisookhyeon",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/40913560?v=4",
+      "profile": "https://github.com/Jisookhyeon",
+      "contributions": [
+        "design"
+      ]
     }
   ]
 }
