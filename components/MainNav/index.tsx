@@ -32,6 +32,13 @@ const NavContainer = styled(SContainer as any)`
 
   a {
     margin: 0;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      text-decoration: none;
+    }
   }
 
   h1 {
@@ -117,7 +124,11 @@ class MainNav extends Component<IProps> {
           </MainNavMenu>
           <RightBox>
             <Link href="/extension">
-              <a data-align>
+              <a
+                href="//chrome.google.com/webstore/detail/gitcodeshare/fegiblhnedcljeapaigmgnfjceochhhg"
+                target="blank"
+                data-align
+              >
                 <SmDownloadButton icon="chrome">Add to Chrome</SmDownloadButton>
               </a>
             </Link>

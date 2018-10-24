@@ -14,7 +14,6 @@ import {
   SSpin,
 } from '../../../styledComponents';
 import { IGist } from '../../../model/gist';
-import { default as ApiProvider } from '../../../providers/ApiProvider';
 import Link from 'next/link';
 
 const { fadeIn, fadeInLeft, fadeInRight, bounceIn } = StyledAnimation;
@@ -267,7 +266,9 @@ class MainPage extends Component<IProps> {
               <br />
               gitCodeShare is your essential guide to sharing remarkable ideas and talents.
             </p>
-            <DownloadButton icon="chrome">Add GitCodeShare to Chrome</DownloadButton>
+            <a href="//chrome.google.com/webstore/detail/gitcodeshare/fegiblhnedcljeapaigmgnfjceochhhg" target="blank">
+              <DownloadButton icon="chrome">Add GitCodeShare to Chrome</DownloadButton>
+            </a>
           </div>
           <BorderlessButton data-scroll-btn>SCROLL</BorderlessButton>
         </SlideWrap>
@@ -368,9 +369,14 @@ class MainPage extends Component<IProps> {
                   The GitCodeShare Chrome plug-in allows you to easily share your code in a clean, visually enticing
                   manner straight to your Social Media timeline. No hassle. No more blocks of text.
                 </p>
-                <DownloadButton icon="plus" style={{ marginTop: '35px' }}>
-                  Add GitCodeShare to Chrome
-                </DownloadButton>
+                <a
+                  href="//chrome.google.com/webstore/detail/gitcodeshare/fegiblhnedcljeapaigmgnfjceochhhg"
+                  target="blank"
+                >
+                  <DownloadButton icon="plus" style={{ marginTop: '35px' }}>
+                    Add GitCodeShare to Chrome
+                  </DownloadButton>
+                </a>
               </div>
             </RowFlexBox>
           </SContainer>
