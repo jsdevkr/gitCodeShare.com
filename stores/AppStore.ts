@@ -52,6 +52,4 @@ export interface IAppStore extends Instance<typeof AppStore> {}
 
 const appStore = AppStore.create({}, { provider: ApiProvider });
 
-appStore.init();
-
 export default appStore;

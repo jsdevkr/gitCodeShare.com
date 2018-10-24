@@ -19,8 +19,12 @@ if (_module.hot) {
     const _appStore = require('./AppStore').default;
     applySnapshot(_appStore, _module.hot.data.appStore);
     prepareStore(appStoreInstance, _appStore);
+  } else {
+    appStore.init();
   }
   _module.hot.dispose((data: any) => {
     data.appStore = getSnapshot(appStore);
   });
+} else {
+  appStore.init();
 }
