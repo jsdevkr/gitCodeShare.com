@@ -63,8 +63,8 @@ class CodeViewPage extends Component<IProps> {
           <title>{gistDetail.description}</title>
           <meta property="og:image" content={`/api/image?source=GIST&state=${gistDetail.id}`} />
           <meta property="og:url" content={`/?${gistDetail.id}`} />
-          <meta property="og:description" content={gistDetail.description} />
           <meta property="og:title" content={gistDetail.description} />
+          <meta property="og:description" content={gistDetail.description} />
         </Head>
         <CodePageContent className={className}>
           <PageSection>
