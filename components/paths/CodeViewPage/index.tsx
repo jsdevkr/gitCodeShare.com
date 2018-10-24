@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
 import {
   styled,
   UserCard,
@@ -12,9 +13,11 @@ import {
 } from '../../../styledComponents';
 import { CodeEditor } from '../../';
 import { Avatar } from 'antd';
+import { IGist } from '../../../model/gist';
 
 interface IProps {
   className?: string;
+  gistDetail?: IGist;
 }
 
 const CodePageContent = styled(PageContent as any)`
@@ -53,33 +56,44 @@ const UserGithubButton = styled(GithubButton as any)`
 
 class CodeViewPage extends Component<IProps> {
   render() {
-    const { className } = this.props;
-    return (
-      <CodePageContent className={className}>
-        <PageSection>
-          <CodeContainer>
-            <CodeHeader>
-              <div>
-                <h3 data-title>Input Your Code Title</h3>
-                <p>Created at June 18, 2018</p>
-              </div>
-              <UserCard>
-                <UserCardMeta
-                  avatar={<Avatar src="http://placehold.it/85x85" />}
-                  title="user name"
-                  description="Seoul / South Korea"
-                />
-                <UserGithubButton icon="github">githubID</UserGithubButton>
-              </UserCard>
-            </CodeHeader>
-            <CodeEditor />
-            <ButtonWrap>
-              <LineButton>Copy URL</LineButton>
-              <LineButton>Visit git</LineButton>
-            </ButtonWrap>
-          </CodeContainer>
-        </PageSection>
-      </CodePageContent>
+    const { className, gistDetail } = this.props;
+    return typeof gistDetail === 'undefined' || !Object.keys(gistDetail).length ? null : (
+      <>
+        <Head>
+          <title>{gistDetail.description}</title>
+          <meta property="og:image" content={`/api/image?source=GIST&state=${gistDetail.id}`} />
+          <meta property="og:url" content={`/?${gistDetail.id}`} />
+          <meta property="og:description" content={gistDetail.description} />
+          <meta property="og:title" content={gistDetail.description} />
+        </Head>
+        <CodePageContent className={className}>
+          <PageSection>
+            <CodeContainer>
+              <CodeHeader>
+                <div>
+                  <h3 data-title>{gistDetail.description}</h3>
+                  <p>{gistDetail.created_at}</p>
+                </div>
+                {typeof gistDetail.owner === 'undefined' ? null : (
+                  <UserCard>
+                    <UserCardMeta
+                      avatar={<Avatar src={gistDetail.owner.avatar_url} />}
+                      title={gistDetail.owner.login}
+                      description="Seoul / South Korea"
+                    />
+                    <UserGithubButton icon="github">{gistDetail.owner.login}</UserGithubButton>
+                  </UserCard>
+                )}
+              </CodeHeader>
+              <CodeEditor />
+              <ButtonWrap>
+                <LineButton>Copy URL</LineButton>
+                <LineButton>Visit git</LineButton>
+              </ButtonWrap>
+            </CodeContainer>
+          </PageSection>
+        </CodePageContent>
+      </>
     );
   }
 }

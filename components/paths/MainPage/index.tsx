@@ -392,13 +392,13 @@ class MainPage extends Component<IProps> {
               {starredList.length ? (
                 starredList.map((gist: IGist, i: number) => {
                   return (
-                    <SCard
-                      data-col
-                      key={i}
-                      cover={<img alt="example" src={`/api/image?source=GIST&state=${gist.id}`} />}
-                    >
-                      <SCardMeta title={gist.description} description={gist.created_at} />
-                    </SCard>
+                    <Link key={i} href={`?${gist.id}`}>
+                      <a>
+                        <SCard data-col cover={<img alt="example" src={`/api/image?source=GIST&state=${gist.id}`} />}>
+                          <SCardMeta title={gist.description} description={gist.created_at} />
+                        </SCard>
+                      </a>
+                    </Link>
                   );
                 })
               ) : (
