@@ -101,8 +101,11 @@ class CodeViewPage extends Component<IProps> {
       <>
         <Head>
           <title>{gistDetail.description}</title>
-          <meta property="og:image" content={`/api/image?source=GIST&state=${gistDetail.id}`} />
-          <meta property="og:url" content={`/?${gistDetail.id}`} />
+          <meta
+            property="og:image"
+            content={`${process.env.BACKEND_URL}/api/image?source=GIST&state=${gistDetail.id}`}
+          />
+          <meta property="og:url" content={`${process.env.BACKEND_URL}/?${gistDetail.id}`} />
           <meta property="og:title" content={gistDetail.description} />
           <meta property="og:description" content={gistDetail.description} />
         </Head>
@@ -111,7 +114,7 @@ class CodeViewPage extends Component<IProps> {
             <CodeContainer>
               <CodeHeader>
                 <div>
-                  <h3 data-title>{gistDetail.description}</h3>
+                  <h3 data-title>{gistDetail.description ? gistDetail.description : 'Code Title'}</h3>
                   <p>{gistDetail.created_at}</p>
                 </div>
                 {typeof gistDetail.owner === 'undefined' ? null : (
