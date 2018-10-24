@@ -12,7 +12,6 @@ import {
 } from '../../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
-import { ApiProvider } from '../../providers';
 
 interface IProps {
   className?: string;
