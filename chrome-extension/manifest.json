@@ -1,6 +1,6 @@
 {
   "name": "gitCodeShare",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "manifest_version": 2,
   "author": "jsdev.kr",
   "description": "Share your code beautifully. Anywhere.",
@@ -24,14 +24,12 @@
       "128": "images/icon.png"
     }
   },
-  "content_scripts": [
-    {
-      "js": ["src/index.js"],
-      "css": ["css/facebook-popup.css"],
-      "matches": ["*://*.facebook.com/*"],
-      "all_frames": true
-    }
-  ],
+  "content_scripts": [{
+    "js": ["src/index.js"],
+    "css": ["css/facebook-popup.css"],
+    "matches": ["*://*.facebook.com/*"],
+    "all_frames": true
+  }],
   "permissions": ["storage", "tabs", "activeTab", "*://*.facebook.com/*"],
   "web_accessible_resources": ["src/frame.html", "images/*"]
 }
