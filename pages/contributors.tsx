@@ -1,32 +1,43 @@
 import * as React from 'react';
+import { inject } from 'mobx-react';
 import { MainNav, MainFooter, ContributorsPage } from '../components';
 import { SLayout } from '../styledComponents';
 import { ApiProvider } from '../providers';
+import { IContributor } from '../model/contributors';
 
-interface IProps {}
+interface IProps {
+  contributors?: IContributor[];
+  star?: number;
+  fork?: number;
+}
 
+@inject('appStore')
 class Contributors extends React.Component<IProps> {
-  state = { contributors: [] };
+  static async getInitialProps({ query }: { query: any }) {
+    let contributors: IContributor[];
+    let star: number = 0;
+    let fork: number = 0;
 
-  componentDidMount() {
-    this.getContributors();
-  }
-
-  async getContributors() {
     try {
-      const contributors = await ApiProvider.GithubRequest.getContributors();
-      this.setState({ contributors });
+      contributors = await ApiProvider.GithubRequest.getContributors();
+      star = await ApiProvider.GithubRequest.getStarNum();
+      fork = await ApiProvider.GithubRequest.getForkNum();
     } catch (err) {
-      this.setState({ contributors: [] });
       console.log(err);
     }
+
+    return {
+      contributors,
+      fork,
+      star,
+    };
   }
 
   render() {
-    const { contributors } = this.state;
+    const { contributors, star, fork } = this.props;
     return (
       <SLayout>
-        <MainNav />
+        <MainNav star={star} fork={fork} />
         <ContributorsPage contributors={contributors} />
         <MainFooter />
       </SLayout>

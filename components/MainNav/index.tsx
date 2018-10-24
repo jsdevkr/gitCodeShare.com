@@ -12,10 +12,11 @@ import {
 } from '../../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
-import { ApiProvider } from '../../providers';
 
 interface IProps {
   className?: string;
+  star?: number;
+  fork?: number;
 }
 
 const { Header } = Layout;
@@ -77,29 +78,24 @@ const RightBox = styled(FlexRightBox as any)`
 `;
 
 class MainNav extends Component<IProps> {
-  state = {
-    fork: 0,
-    star: 0,
-  };
+  // componentDidMount() {
+  //   this.getData();
+  // }
 
-  componentDidMount() {
-    this.getData();
-  }
-
-  async getData() {
-    try {
-      const fork = await ApiProvider.GithubRequest.getForkNum();
-      const star = await ApiProvider.GithubRequest.getStarNum();
-      this.setState({ fork, star });
-    } catch (err) {
-      this.setState({ fork: 0, star: 0 });
-      console.log(err);
-    }
-  }
+  // async getData() {
+  //   try {
+  //     const fork = await ApiProvider.GithubRequest.getForkNum();
+  //     const star = await ApiProvider.GithubRequest.getStarNum();
+  //     this.setState({ fork, star });
+  //   } catch (err) {
+  //     this.setState({ fork: 0, star: 0 });
+  //     console.log(err);
+  //   }
+  // }
 
   render() {
-    const { className } = this.props;
-    const { fork, star } = this.state;
+    const { className, fork, star } = this.props;
+    // const { fork, star } = this.state;
     return (
       <Nav className={className}>
         <NavContainer>
