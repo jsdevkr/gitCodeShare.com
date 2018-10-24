@@ -90,7 +90,7 @@ class MainPage extends Component<IProps> {
               코드쉐어를 위해 필요한 github 정보이외에 어떤 정보도 필요 하지 않습니다.
             </div>
             <SignUpButton icon="github" onClick={editor.login}>
-              SIGNUP WITH GITHUB
+              ADD GIT WITH GITHUB
             </SignUpButton>
             <div data-description-2>By joining, you agree to our Terms of Service and Privacy Policy.</div>
             <img group-11 src="../../static/images/group-11.png" />
