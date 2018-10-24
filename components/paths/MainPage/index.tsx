@@ -259,7 +259,6 @@ class MainPage extends Component<IProps> {
             <img data-svg data-svg-3 src="/static/images/svg/main-graphic-02.svg" alt="슬라이드 배경 애니메이션" />
           </div>
           <div data-bg />
-          {/* <img data-bg src="../../static/images/slide_bg.svg?" alt="슬라이드 배경 애니메이션" /> */}
           <div data-layer-1>
             <h3 data-title>Share your code beautifully</h3>
             <p data-desc>
@@ -267,11 +266,9 @@ class MainPage extends Component<IProps> {
               <br />
               gitCodeShare is your essential guide to sharing remarkable ideas and talents.
             </p>
-            <Link href="/extension">
-              <a>
-                <DownloadButton icon="chrome">Add GitCodeShare to Chrome</DownloadButton>
-              </a>
-            </Link>
+            <a href="//chrome.google.com/webstore/detail/gitcodeshare/fegiblhnedcljeapaigmgnfjceochhhg" target="blank">
+              <DownloadButton icon="chrome">Add GitCodeShare to Chrome</DownloadButton>
+            </a>
           </div>
           <BorderlessButton data-scroll-btn>SCROLL</BorderlessButton>
         </SlideWrap>
@@ -372,9 +369,14 @@ class MainPage extends Component<IProps> {
                   The GitCodeShare Chrome plug-in allows you to easily share your code in a clean, visually enticing
                   manner straight to your Social Media timeline. No hassle. No more blocks of text.
                 </p>
-                <DownloadButton icon="plus" style={{ marginTop: '35px' }}>
-                  Add GitCodeShare to Chrome
-                </DownloadButton>
+                <a
+                  href="//chrome.google.com/webstore/detail/gitcodeshare/fegiblhnedcljeapaigmgnfjceochhhg"
+                  target="blank"
+                >
+                  <DownloadButton icon="plus" style={{ marginTop: '35px' }}>
+                    Add GitCodeShare to Chrome
+                  </DownloadButton>
+                </a>
               </div>
             </RowFlexBox>
           </SContainer>
