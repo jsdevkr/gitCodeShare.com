@@ -217,23 +217,30 @@ class MainPage extends Component<IProps> {
   animatedDOM: HTMLElement[] = [];
 
   handleAnimation = () => {
-    let offsetTop = window.pageYOffset + 600;
-
-    if (this.animatedDOM[0] && offsetTop > this.animatedDOM[0].offsetTop) {
+    if (this.animatedDOM[0] && this.isShowInPage(this.animatedDOM[0])) {
       const $img = this.animatedDOM[0].querySelectorAll('img');
       $img[0].setAttribute('data-bounce-in', '');
       $img[1].setAttribute('data-fade-in-left', '');
-      $img[2].setAttribute('data-bounce-in', '');
-      $img[3].setAttribute('data-fade-in', '');
+      $img[2].setAttribute('data-fade-in', '');
+      $img[3].setAttribute('data-bounce-in', '');
     }
 
-    if (this.animatedDOM[1] && offsetTop > this.animatedDOM[1].offsetTop) {
+    if (this.animatedDOM[1] && this.isShowInPage(this.animatedDOM[1])) {
       const $img = this.animatedDOM[1].querySelectorAll('img');
       $img[0].setAttribute('data-fade-in-left', '');
       $img[1].setAttribute('data-fade-in-right', '');
       $img[2].setAttribute('data-bounce-in', '');
     }
   };
+
+  isShowInPage(el) {
+    let rect = el.getBoundingClientRect();
+    let elTop = rect.top;
+    let elBottom = rect.bottom;
+
+    let isVisible = elTop + 150 < window.innerHeight && elBottom >= 0;
+    return isVisible;
+  }
 
   componentDidMount() {
     if (typeof window !== 'undefined') {
