@@ -61,17 +61,11 @@ ShallowWrapper {
               <br />
               gitCodeShare is your essential guide to sharing remarkable ideas and talents.
             </p>
-            <Link
-              href="/extension"
+            <ForwardRef
+              icon="chrome"
             >
-              <a>
-                <ForwardRef
-                  icon="chrome"
-                >
-                  Add GitCodeShare to Chrome
-                </ForwardRef>
-              </a>
-            </Link>
+              Add GitCodeShare to Chrome
+            </ForwardRef>
           </div>
           <ForwardRef
             data-scroll-btn={true}
@@ -299,17 +293,11 @@ ShallowWrapper {
                 <br />
                 gitCodeShare is your essential guide to sharing remarkable ideas and talents.
               </p>
-              <Link
-                href="/extension"
+              <ForwardRef
+                icon="chrome"
               >
-                <a>
-                  <ForwardRef
-                    icon="chrome"
-                  >
-                    Add GitCodeShare to Chrome
-                  </ForwardRef>
-                </a>
-              </Link>
+                Add GitCodeShare to Chrome
+              </ForwardRef>
             </div>,
             <ForwardRef
               data-scroll-btn={true}
@@ -423,17 +411,11 @@ ShallowWrapper {
                   <br />
                   gitCodeShare is your essential guide to sharing remarkable ideas and talents.
                 </p>,
-                <Link
-                  href="/extension"
+                <ForwardRef
+                  icon="chrome"
                 >
-                  <a>
-                    <ForwardRef
-                      icon="chrome"
-                    >
-                      Add GitCodeShare to Chrome
-                    </ForwardRef>
-                  </a>
-                </Link>,
+                  Add GitCodeShare to Chrome
+                </ForwardRef>,
               ],
               "data-layer-1": true,
             },
@@ -482,74 +464,43 @@ ShallowWrapper {
               Object {
                 "instance": null,
                 "key": undefined,
-                "nodeType": "class",
+                "nodeType": "function",
                 "props": Object {
-                  "children": <a>
-                    <ForwardRef
-                      icon="chrome"
-                    >
-                      Add GitCodeShare to Chrome
-                    </ForwardRef>
-                  </a>,
-                  "href": "/extension",
+                  "children": "Add GitCodeShare to Chrome",
+                  "icon": "chrome",
                 },
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": <ForwardRef
-                      icon="chrome"
-                    >
-                      Add GitCodeShare to Chrome
-                    </ForwardRef>,
+                "rendered": "Add GitCodeShare to Chrome",
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "Group": [Function],
+                  "__ANT_BUTTON": true,
+                  "attrs": undefined,
+                  "componentStyle": ComponentStyle {
+                    "componentId": "StyledButton__DownloadButton-rhr4ab-5",
+                    "isStatic": false,
+                    "rules": Array [
+                      "&.ant-btn{display:inline-flex;justify-content:center;align-items:center;line-height:1;background-color:transparent;color:",
+                      [Function],
+                      ";&:hover,&:focus,&:active{background-color:transparent;}i{display:inherit;align-items:inherit;justify-content:inherit;}}",
+                      "&.ant-btn{border-radius:4px;}",
+                      "&.ant-btn{max-width:340px;width:100%;height:50px;background-color:",
+                      [Function],
+                      ";border:none;box-shadow:0 2px 4px 0 ",
+                      [Function],
+                      ";&:hover,&:focus,&:active{background-color:",
+                      [Function],
+                      ";}span{font-size:16px;font-weight:600;}}",
+                    ],
                   },
-                  "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "function",
-                    "props": Object {
-                      "children": "Add GitCodeShare to Chrome",
-                      "icon": "chrome",
-                    },
-                    "ref": null,
-                    "rendered": "Add GitCodeShare to Chrome",
-                    "type": Object {
-                      "$$typeof": Symbol(react.forward_ref),
-                      "Group": [Function],
-                      "__ANT_BUTTON": true,
-                      "attrs": undefined,
-                      "componentStyle": ComponentStyle {
-                        "componentId": "StyledButton__DownloadButton-rhr4ab-5",
-                        "isStatic": false,
-                        "rules": Array [
-                          "&.ant-btn{display:inline-flex;justify-content:center;align-items:center;line-height:1;background-color:transparent;color:",
-                          [Function],
-                          ";&:hover,&:focus,&:active{background-color:transparent;}i{display:inherit;align-items:inherit;justify-content:inherit;}}",
-                          "&.ant-btn{border-radius:4px;}",
-                          "&.ant-btn{max-width:340px;width:100%;height:50px;background-color:",
-                          [Function],
-                          ";border:none;box-shadow:0 2px 4px 0 ",
-                          [Function],
-                          ";&:hover,&:focus,&:active{background-color:",
-                          [Function],
-                          ";}span{font-size:16px;font-weight:600;}}",
-                        ],
-                      },
-                      "displayName": "StyledButton__DownloadButton",
-                      "render": [Function],
-                      "styledComponentId": "StyledButton__DownloadButton-rhr4ab-5",
-                      "target": [Function],
-                      "warnTooManyClasses": [Function],
-                      "withComponent": [Function],
-                      Symbol(Symbol.hasInstance): [Function],
-                    },
-                  },
-                  "type": "a",
+                  "displayName": "StyledButton__DownloadButton",
+                  "render": [Function],
+                  "styledComponentId": "StyledButton__DownloadButton-rhr4ab-5",
+                  "target": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                  Symbol(Symbol.hasInstance): [Function],
                 },
-                "type": [Function],
               },
             ],
             "type": "div",
@@ -2521,17 +2472,11 @@ ShallowWrapper {
                 <br />
                 gitCodeShare is your essential guide to sharing remarkable ideas and talents.
               </p>
-              <Link
-                href="/extension"
+              <ForwardRef
+                icon="chrome"
               >
-                <a>
-                  <ForwardRef
-                    icon="chrome"
-                  >
-                    Add GitCodeShare to Chrome
-                  </ForwardRef>
-                </a>
-              </Link>
+                Add GitCodeShare to Chrome
+              </ForwardRef>
             </div>
             <ForwardRef
               data-scroll-btn={true}
@@ -2759,17 +2704,11 @@ ShallowWrapper {
                   <br />
                   gitCodeShare is your essential guide to sharing remarkable ideas and talents.
                 </p>
-                <Link
-                  href="/extension"
+                <ForwardRef
+                  icon="chrome"
                 >
-                  <a>
-                    <ForwardRef
-                      icon="chrome"
-                    >
-                      Add GitCodeShare to Chrome
-                    </ForwardRef>
-                  </a>
-                </Link>
+                  Add GitCodeShare to Chrome
+                </ForwardRef>
               </div>,
               <ForwardRef
                 data-scroll-btn={true}
@@ -2883,17 +2822,11 @@ ShallowWrapper {
                     <br />
                     gitCodeShare is your essential guide to sharing remarkable ideas and talents.
                   </p>,
-                  <Link
-                    href="/extension"
+                  <ForwardRef
+                    icon="chrome"
                   >
-                    <a>
-                      <ForwardRef
-                        icon="chrome"
-                      >
-                        Add GitCodeShare to Chrome
-                      </ForwardRef>
-                    </a>
-                  </Link>,
+                    Add GitCodeShare to Chrome
+                  </ForwardRef>,
                 ],
                 "data-layer-1": true,
               },
@@ -2942,74 +2875,43 @@ ShallowWrapper {
                 Object {
                   "instance": null,
                   "key": undefined,
-                  "nodeType": "class",
+                  "nodeType": "function",
                   "props": Object {
-                    "children": <a>
-                      <ForwardRef
-                        icon="chrome"
-                      >
-                        Add GitCodeShare to Chrome
-                      </ForwardRef>
-                    </a>,
-                    "href": "/extension",
+                    "children": "Add GitCodeShare to Chrome",
+                    "icon": "chrome",
                   },
                   "ref": null,
-                  "rendered": Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": <ForwardRef
-                        icon="chrome"
-                      >
-                        Add GitCodeShare to Chrome
-                      </ForwardRef>,
+                  "rendered": "Add GitCodeShare to Chrome",
+                  "type": Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "Group": [Function],
+                    "__ANT_BUTTON": true,
+                    "attrs": undefined,
+                    "componentStyle": ComponentStyle {
+                      "componentId": "StyledButton__DownloadButton-rhr4ab-5",
+                      "isStatic": false,
+                      "rules": Array [
+                        "&.ant-btn{display:inline-flex;justify-content:center;align-items:center;line-height:1;background-color:transparent;color:",
+                        [Function],
+                        ";&:hover,&:focus,&:active{background-color:transparent;}i{display:inherit;align-items:inherit;justify-content:inherit;}}",
+                        "&.ant-btn{border-radius:4px;}",
+                        "&.ant-btn{max-width:340px;width:100%;height:50px;background-color:",
+                        [Function],
+                        ";border:none;box-shadow:0 2px 4px 0 ",
+                        [Function],
+                        ";&:hover,&:focus,&:active{background-color:",
+                        [Function],
+                        ";}span{font-size:16px;font-weight:600;}}",
+                      ],
                     },
-                    "ref": null,
-                    "rendered": Object {
-                      "instance": null,
-                      "key": undefined,
-                      "nodeType": "function",
-                      "props": Object {
-                        "children": "Add GitCodeShare to Chrome",
-                        "icon": "chrome",
-                      },
-                      "ref": null,
-                      "rendered": "Add GitCodeShare to Chrome",
-                      "type": Object {
-                        "$$typeof": Symbol(react.forward_ref),
-                        "Group": [Function],
-                        "__ANT_BUTTON": true,
-                        "attrs": undefined,
-                        "componentStyle": ComponentStyle {
-                          "componentId": "StyledButton__DownloadButton-rhr4ab-5",
-                          "isStatic": false,
-                          "rules": Array [
-                            "&.ant-btn{display:inline-flex;justify-content:center;align-items:center;line-height:1;background-color:transparent;color:",
-                            [Function],
-                            ";&:hover,&:focus,&:active{background-color:transparent;}i{display:inherit;align-items:inherit;justify-content:inherit;}}",
-                            "&.ant-btn{border-radius:4px;}",
-                            "&.ant-btn{max-width:340px;width:100%;height:50px;background-color:",
-                            [Function],
-                            ";border:none;box-shadow:0 2px 4px 0 ",
-                            [Function],
-                            ";&:hover,&:focus,&:active{background-color:",
-                            [Function],
-                            ";}span{font-size:16px;font-weight:600;}}",
-                          ],
-                        },
-                        "displayName": "StyledButton__DownloadButton",
-                        "render": [Function],
-                        "styledComponentId": "StyledButton__DownloadButton-rhr4ab-5",
-                        "target": [Function],
-                        "warnTooManyClasses": [Function],
-                        "withComponent": [Function],
-                        Symbol(Symbol.hasInstance): [Function],
-                      },
-                    },
-                    "type": "a",
+                    "displayName": "StyledButton__DownloadButton",
+                    "render": [Function],
+                    "styledComponentId": "StyledButton__DownloadButton-rhr4ab-5",
+                    "target": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                    Symbol(Symbol.hasInstance): [Function],
                   },
-                  "type": [Function],
                 },
               ],
               "type": "div",

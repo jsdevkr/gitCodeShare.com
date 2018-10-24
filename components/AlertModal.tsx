@@ -35,7 +35,7 @@ class Create extends React.Component<IAppProps> {
       <Modal
         width={400}
         visible={true}
-        title={'SQLGate DRIVE'}
+        title={'Alert'}
         onCancel={this.handleCancel}
         footer={[
           <Button key="submit" type="primary" onClick={this.handleOk}>
