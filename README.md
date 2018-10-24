@@ -1,6 +1,6 @@
 # Contributhon 2018 - gitCodeShare.com (a.k.a gitShare)
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors) [![Build Status](https://travis-ci.org/kosslab-kr/gitCodeShare.com.svg?branch=master)](https://travis-ci.org/kosslab-kr/gitCodeShare.com)
 
 https://contributhon.kr/project#gitshare
 
@@ -36,7 +36,7 @@ https://github.com/kosslab-kr/gitCodeShare.com/blob/master/docs/index.md
 | plugin: 🔌         | `npm run contributors:add <username> plugin`         | question: 💬        | `npm run contributors:add <username> question`        |
 | review: 👀         | `npm run contributors:add <username> review`         | talk: 📢            | `npm run contributors:add <username> talk`            |
 | test: ⚠️           | `npm run contributors:add <username> test`           | tool: 🔧            | `npm run contributors:add <username> tool`            |
-| translation: 🌍    | `npm run contributors:add <username> translation`    | tutorial: ✅        | `npm run contributors:add <username> tutorial`        |
+| translation: 🌍    | `npm run contributors:add <username> translation`    | tutorial: ✅         | `npm run contributors:add <username> tutorial`        |
 | video: 📹          | `npm run contributors:add <username> video`          |                     |                                                       |
 
 > We follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification.
