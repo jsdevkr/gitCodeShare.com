@@ -32,13 +32,13 @@
     "linters": {
       "*.{js,jsx}": [
         "prettier --parser flow --write",
-        "jest --bail --findRelatedTests",
+        "jest --bail --passWithNoTests",
         "git add"
       ],
       "*.{ts,tsx}": [
         "prettier --parser typescript --write",
         "tslint --fix",
-        "jest --bail --findRelatedTests",
+        "jest --bail --passWithNoTests",
         "git add"
       ]
     }

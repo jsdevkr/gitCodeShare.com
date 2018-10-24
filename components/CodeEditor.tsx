@@ -18,10 +18,6 @@ declare module 'react' {
   }
 }
 
-// const PageContainer = styled.div`
-//   padding: 20px 20px;
-// `;
-
 const InputFontNumber = styled(InputNumber as any)`
   position: absolute;
   margin-left: 120px;
