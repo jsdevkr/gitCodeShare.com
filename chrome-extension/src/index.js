@@ -1,19 +1,24 @@
+const isDevMode = () => !('update_url' in chrome.runtime.getManifest());
+const productionURL = 'https://gitcodeshare.com';
+const developmentURL = 'http://localhost:3000';
+const getURL = () => (isDevMode() ? developmentURL : productionURL);
+
 let editor;
 let iframe;
 
-function injectGitCodeShareWindow() {
+const injectGitCodeShareWindow = () => {
   const div = document.createElement('div');
   div.innerHTML = `
     <div class="editor">
       <div class="editor__back">
-        <iframe id="gitCodeShare" class="editor__iframe" src="https://gitcodeshare.com/fbeditor"></iframe>
+        <iframe id="gitCodeShare" class="editor__iframe" src="${getURL()}/fbeditor"></iframe>
       </div>
     </div>
   `;
   document.body.appendChild(div);
   editor = document.querySelector('.editor');
   iframe = div.querySelector('#gitCodeShare');
-}
+};
 
 const showEditor = () => {
   editor.style.display = 'block';
@@ -43,7 +48,7 @@ function bindToggleEditorEventTo(target) {
 }
 
 /* This function is messy dom approach process for searching suitable location in Facebook DOM jungle. */
-function injectBtn() {
+const injectBtn = () => {
   const contBtns = Array.prototype.filter.call(
     document.querySelectorAll(`div[data-testid="expanded-sprout-list"] td`) || [],
     n => n.hasChildNodes(),
@@ -91,7 +96,7 @@ function injectBtn() {
         .lastChild.lastChild.appendChild(btn);
     }
   }
-}
+};
 
 const isReadyToInsertBtn = () => document.querySelector('div[data-testid="expanded-sprout-list"]>table');
 const isHaveBtnAleady = () => document.querySelector('#codeShareBtn');
@@ -102,17 +107,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
   injectGitCodeShareWindow();
   console.log('gitCodeShare is injected!');
 
-  // We cannot call "clearInterval" because btn can be removed when user change page.
-  const insertBtnInterval = setInterval(() => {
-    if (isReadyToInsertBtn()) {
-      if (!isHaveBtnAleady()) {
-        injectBtn();
-      }
-    }
-  }, 1000);
-
   window.addEventListener('message', e => {
-    if (e.origin !== 'http://localhost:3000') return;
     if (e.data.type === 'setHeight') {
       iframe.style.height = `${e.data.value}px`;
       return;
@@ -124,3 +119,9 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
     }
   });
 }
+
+window.addEventListener('click', e => {
+  if (document.querySelector('._1fng') && !isHaveBtnAleady()) {
+    injectBtn();
+  }
+});

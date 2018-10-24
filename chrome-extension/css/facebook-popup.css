@@ -61,9 +61,9 @@
 }
 
 .goDown {
-  animation: goDown 0.3s cubic-bezier(0.14, 0.95, 0.46, 1.15);
+  animation: goDown 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .goUp {
-  animation: goUp 0.25s cubic-bezier(.76,-0.2,.87,.24);
+  animation: goUp 0.25s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
