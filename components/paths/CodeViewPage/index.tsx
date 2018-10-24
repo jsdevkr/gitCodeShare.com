@@ -133,7 +133,7 @@ class CodeViewPage extends Component<IProps> {
               <CodeEditor />
               <ButtonWrap>
                 <LinkButton onClick={this.copyUrl}>Copy URL</LinkButton>
-                <a href={gistDetail.owner.html_url} target="blank">
+                <a href={gistDetail.html_url} target="blank">
                   <LinkButton>Visit git</LinkButton>
                 </a>
               </ButtonWrap>
