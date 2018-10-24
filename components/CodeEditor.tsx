@@ -12,6 +12,7 @@ if (typeof navigator !== 'undefined') {
 }
 
 declare module 'react' {
+  // tslint:disable-next-line:interface-name
   interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
     jsx?: string;
   }
