@@ -76,6 +76,7 @@ const DownloadButton: typeof RoundedButton = styled(RoundedButton as any)`
     background-color: ${props => props.theme.colorPalette.neonBlue};
     border: none;
     box-shadow: 0 2px 4px 0 ${props => props.theme.colorPalette.blueCharcoal};
+    text-align: center;
 
     &:hover,
     &:focus,
