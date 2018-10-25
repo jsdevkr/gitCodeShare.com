@@ -114,7 +114,9 @@ class CodeViewPage extends Component<IProps> {
             <CodeContainer>
               <CodeHeader>
                 <div>
-                  <h3 data-title>{gistDetail.description ? gistDetail.description : 'Code Title'}</h3>
+                  <h3 data-title>
+                    {Object.keys(gistDetail.files).length ? Object.keys(gistDetail.files)[0] : 'Code Title'}
+                  </h3>
                   <p>{gistDetail.created_at}</p>
                 </div>
                 {typeof gistDetail.owner === 'undefined' ? null : (

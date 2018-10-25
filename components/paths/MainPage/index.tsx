@@ -234,7 +234,7 @@ class MainPage extends Component<IProps> {
     }
   };
 
-  isShowInPage(el) {
+  isShowInPage(el: HTMLElement) {
     let rect = el.getBoundingClientRect();
     let elTop = rect.top;
     let elBottom = rect.bottom;
@@ -405,7 +405,7 @@ class MainPage extends Component<IProps> {
                     <Link key={i} href={`?${gist.id}`}>
                       <a>
                         <SCard data-col cover={<img alt="example" src={`/api/image?source=GIST&state=${gist.id}`} />}>
-                          <SCardMeta title={gist.description} description={gist.created_at} />
+                          <SCardMeta title={Object.keys(gist.files)[0]} description={gist.created_at} />
                         </SCard>
                       </a>
                     </Link>
