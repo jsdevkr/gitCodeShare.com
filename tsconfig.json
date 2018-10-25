@@ -19,7 +19,8 @@
       "name": "typescript-styled-plugin"
     }],
     "baseUrl": ".",
-    "typeRoots": ["node_modules/@types", "@types"]
+    "typeRoots": ["node_modules/@types", "@types"],
+    "outDir": "dist"
   },
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/*.test.ts", "**/*.test.tsx", "bin"]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/*.test.ts", "**/*.test.tsx"]
 }

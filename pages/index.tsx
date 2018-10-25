@@ -17,7 +17,6 @@ interface IProps {
 @observer
 class App extends React.Component<IProps> {
   static async getInitialProps({ query }: { query: any }) {
-    console.log(process.env.BACKEND_URL);
     const appStore: IAppStore = appStoreInstance.get();
     let editorMode = false;
 
@@ -33,6 +32,7 @@ class App extends React.Component<IProps> {
           editorMode = true;
         } else {
           await appStore.getStarredGists();
+          await appStore.editor.clear();
         }
       } catch (err) {
         console.log(err);
