@@ -22,7 +22,7 @@ ShallowWrapper {
       }
     }
   >
-    <MainNav />
+    <inject-MainNav-with-appStore />
   </ThemeProvider>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

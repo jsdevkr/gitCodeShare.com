@@ -1,13 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import MainPage from '../';
+import appStore from '../../../../stores/AppStore';
 
 describe('MainPage', () => {
   it('should render', () => {
-    const props = {
-      starredList: [],
-    };
-    const tree = shallow(<MainPage {...props} />);
+    const tree = shallow(<MainPage appStore={appStore} />);
     expect(tree).toMatchSnapshot();
   });
 });

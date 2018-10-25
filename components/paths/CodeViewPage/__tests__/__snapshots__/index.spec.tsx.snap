@@ -3,7 +3,52 @@
 exports[`CodeViewPage should render 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CodeViewPage />,
+  Symbol(enzyme.__unrendered__): <inject-CodeViewPage-with-appStore
+    appStore={
+      Object {
+        "alertMessages": Array [],
+        "editor": Object {
+          "code": "// This is javascript code.
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}",
+          "fontFamily": Object {
+            "id": "Fira Code",
+            "name": "Fira Code",
+          },
+          "fontSize": 14,
+          "gists": Array [],
+          "language": Object {
+            "ext": ".js",
+            "mime": undefined,
+            "mode": "javascript",
+            "name": "JavaScript",
+            "short": "javascript",
+          },
+          "lineNumbers": true,
+          "optionDrawerVisible": false,
+          "theme": Object {
+            "id": "dracula",
+            "name": "Dracula",
+          },
+        },
+        "fork": 0,
+        "loaded": false,
+        "spinning": false,
+        "spinningTip": "",
+        "star": 0,
+        "starredGists": Object {},
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -12,9 +57,111 @@ ShallowWrapper {
     "simulateEvent": [Function],
     "unmount": [Function],
   },
-  Symbol(enzyme.__node__): null,
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "appStore": Object {
+        "alertMessages": Array [],
+        "editor": Object {
+          "code": "// This is javascript code.
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}",
+          "fontFamily": Object {
+            "id": "Fira Code",
+            "name": "Fira Code",
+          },
+          "fontSize": 14,
+          "gists": Array [],
+          "language": Object {
+            "ext": ".js",
+            "mime": undefined,
+            "mode": "javascript",
+            "name": "JavaScript",
+            "short": "javascript",
+          },
+          "lineNumbers": true,
+          "optionDrawerVisible": false,
+          "theme": Object {
+            "id": "dracula",
+            "name": "Dracula",
+          },
+        },
+        "fork": 0,
+        "loaded": false,
+        "spinning": false,
+        "spinningTip": "",
+        "star": 0,
+        "starredGists": Object {},
+      },
+    },
+    "ref": [Function],
+    "rendered": null,
+    "type": [Function],
+  },
   Symbol(enzyme.__nodes__): Array [
-    null,
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "appStore": Object {
+          "alertMessages": Array [],
+          "editor": Object {
+            "code": "// This is javascript code.
+const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+
+const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+
+const unfold = (f, seed) => {
+  const go = (f, seed, acc) => {
+    const res = f(seed)
+    return res ? go(f, res[1], acc.concat([res[0]])) : acc
+  }
+  return go(f, seed, [])
+}",
+            "fontFamily": Object {
+              "id": "Fira Code",
+              "name": "Fira Code",
+            },
+            "fontSize": 14,
+            "gists": Array [],
+            "language": Object {
+              "ext": ".js",
+              "mime": undefined,
+              "mode": "javascript",
+              "name": "JavaScript",
+              "short": "javascript",
+            },
+            "lineNumbers": true,
+            "optionDrawerVisible": false,
+            "theme": Object {
+              "id": "dracula",
+              "name": "Dracula",
+            },
+          },
+          "fork": 0,
+          "loaded": false,
+          "spinning": false,
+          "spinningTip": "",
+          "star": 0,
+          "starredGists": Object {},
+        },
+      },
+      "ref": [Function],
+      "rendered": null,
+      "type": [Function],
+    },
   ],
   Symbol(enzyme.__options__): Object {
     "adapter": ReactSixteenAdapter {
