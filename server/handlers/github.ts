@@ -2,7 +2,7 @@ import { Request, Response, NextFunction, Router } from 'express';
 import request from 'request';
 import { name, version } from './../../package.json';
 import fs from 'fs';
-import { IContributor } from 'model/contributors.js';
+import { IContributor } from 'model/contributors';
 import { cache } from './';
 
 const router: Router = Router();

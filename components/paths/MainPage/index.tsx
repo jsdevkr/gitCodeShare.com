@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 import {
   styled,
   SContainer,
@@ -13,8 +14,8 @@ import {
   StyledAnimation,
   SSpin,
 } from '../../../styledComponents';
-import { IGist } from '../../../model/gist';
 import Link from 'next/link';
+import { IAppStore } from '../../../stores/AppStore';
 
 const { fadeIn, fadeInLeft, fadeInRight, bounceIn } = StyledAnimation;
 
@@ -210,10 +211,12 @@ const AnimatedImg: any = styled.img`
 };
 
 interface IProps {
+  appStore?: IAppStore;
   className?: string;
-  starredList: IGist[];
 }
 
+@inject('appStore')
+@observer
 class MainPage extends Component<IProps> {
   animatedDOM: HTMLElement[] = [];
 
@@ -248,6 +251,12 @@ class MainPage extends Component<IProps> {
       window.addEventListener('scroll', this.handleAnimation);
       this.handleAnimation();
     }
+
+    const { appStore } = this.props;
+    const { starredList } = appStore;
+    if (!starredList.length) {
+      appStore.getStarredGists();
+    }
   }
 
   componentWillUnmount() {
@@ -257,7 +266,8 @@ class MainPage extends Component<IProps> {
   }
 
   render() {
-    const { className, starredList } = this.props;
+    const { className, appStore } = this.props;
+    const { starredList } = appStore;
     return (
       <PageContent className={className}>
         <SlideWrap>
@@ -400,7 +410,7 @@ class MainPage extends Component<IProps> {
             />
             <CodeWrap>
               {starredList.length ? (
-                starredList.map((gist: IGist, i: number) => {
+                starredList.map((gist, i: number) => {
                   return (
                     <Link key={i} href={`?${gist.id}`}>
                       <a>

@@ -15,6 +15,7 @@ import {
 import { Instance, types, getEnv, getRoot, flow } from 'mobx-state-tree';
 import { IAppStore, IStoreEnv } from './';
 import { message } from 'antd';
+import { Gist, IGist } from '../model/gist';
 
 const Language = types.model('Language', {
   mode: types.string,
@@ -56,7 +57,7 @@ export const Editor = types
     language: types.optional(Language, DEFAULT_LANGUAGE),
     theme: types.optional(Theme, DEFAULT_THEME),
     lineNumbers: types.optional(types.boolean, true),
-    gistId: types.maybe(types.string),
+    gists: types.optional(types.array(Gist), []),
   })
   .views(self => ({
     get app() {
@@ -66,7 +67,13 @@ export const Editor = types
       return getEnv<IStoreEnv>(self).provider;
     },
     get mode() {
-      return self.language.mode;
+      return self.language && self.language.mode;
+    },
+    get gistId() {
+      return self.gists.length && self.gists[0].id;
+    },
+    get gist() {
+      return self.gists.length && self.gists[0];
     },
   }))
   .actions(self => ({
@@ -126,7 +133,7 @@ export const Editor = types
           window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${data.id} ` }, '*');
           hide();
         })
-        .catch(e => {
+        .catch(() => {
           window.open(`${process.env.BACKEND_URL}/api/auth/github`, '_black');
           hide();
         });
@@ -135,20 +142,33 @@ export const Editor = types
       self.provider.AuthRequest.login();
     },
   }))
-  .actions(self => ({
-    onBeforeCodeChange: (_, $, code) => {
+  .actions(self => {
+    const onBeforeCodeChange = (_, $, code) => {
       !self.gistId && self.setCode(code);
-    },
-    getGist: flow(function*(v: string) {
-      self.code = '';
-      self.gistId = v;
-      const data = yield self.provider.GistRequest.getGist(v);
+    };
+
+    const setGist = function(data: IGist) {
+      self.gists.clear();
+      self.gists.push(data);
+
       const file = data.files[Object.keys(data.files)[0]];
-      self.setCode(file.content);
+      self.setCode(file.content || '');
+
       file.language && self.setLanguageByName(file.language);
       file.type && self.setLanguageByMime(file.type);
-    }),
-  }));
+    };
+
+    const getGist = flow(function*(v: string) {
+      const data: IGist = yield self.provider.GistRequest.getGist(v);
+      setGist(data);
+    });
+
+    return {
+      onBeforeCodeChange,
+      getGist,
+      setGist,
+    };
+  });
 
 export interface IEditor extends Instance<typeof Editor> {}
 

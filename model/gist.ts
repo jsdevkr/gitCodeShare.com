@@ -1,48 +1,59 @@
+import { types, Instance } from 'mobx-state-tree';
+
 /**
  * @description
  *  - https://developer.github.com/v3/gists/#create-a-gist
  */
-export interface IFile {
-  content?: string;
-  filename?: string;
-}
+export const File = types.model('File', {
+  content: types.maybeNull(types.string),
+  filename: types.maybeNull(types.string),
+  language: types.maybeNull(types.string),
+  raw_url: types.maybeNull(types.string),
+  size: types.maybeNull(types.number),
+  truncated: types.maybeNull(types.boolean),
+  type: types.maybeNull(types.string),
+});
 
-export interface IOwner {
-  avatar_url?: string;
-  events_url?: string;
-  followers_url?: string;
-  following_url?: string;
-  gists_url?: string;
-  gravatar_id?: string;
-  html_url?: string;
-  id?: number;
-  login?: string;
-  node_id?: string;
-  organizations_url?: string;
-  received_events_url?: string;
-  repos_url?: string;
-  site_admin?: boolean;
-  starred_url?: string;
-  subscriptions_url?: string;
-  type?: string;
-  url?: string;
-}
+export interface IFile extends Instance<typeof File> {}
 
-export interface IGist {
-  id?: string;
-  url?: string;
-  files?: {
-    [filename: string]: IFile;
-  };
-  forks?: [];
-  forks_url?: string;
-  git_pull_url?: string;
-  git_push_url?: string;
-  history?: [];
-  html_url?: string;
-  owner?: IOwner;
-  description?: string;
-  public?: boolean; // default false
-  created_at?: Date;
-  updated_at?: Date;
-}
+export const Owner = types.model('Owner', {
+  avatar_url: types.maybeNull(types.string),
+  events_url: types.maybeNull(types.string),
+  followers_url: types.maybeNull(types.string),
+  following_url: types.maybeNull(types.string),
+  gists_url: types.maybeNull(types.string),
+  gravatar_id: types.maybeNull(types.string),
+  html_url: types.maybeNull(types.string),
+  id: types.maybeNull(types.number),
+  login: types.maybeNull(types.string),
+  node_id: types.maybeNull(types.string),
+  organizations_url: types.maybeNull(types.string),
+  received_events_url: types.maybeNull(types.string),
+  repos_url: types.maybeNull(types.string),
+  site_admin: types.maybeNull(types.boolean),
+  starred_url: types.maybeNull(types.string),
+  subscriptions_url: types.maybeNull(types.string),
+  type: types.maybeNull(types.string),
+  url: types.maybeNull(types.string),
+});
+
+export interface IOwner extends Instance<typeof Owner> {}
+
+export const Gist = types.model('Gist', {
+  id: types.identifier,
+  url: types.maybeNull(types.string),
+  files: types.optional(types.map(File), {}),
+  // forks?: [];
+  forks_url: types.maybeNull(types.string),
+  git_pull_url: types.maybeNull(types.string),
+  git_push_url: types.maybeNull(types.string),
+  // history?: [];
+  html_url: types.maybeNull(types.string),
+  owner: types.optional(Owner, {}),
+  description: types.maybeNull(types.string),
+  public: types.maybeNull(types.boolean),
+  created_at: types.maybeNull(types.string),
+  updated_at: types.maybeNull(types.string),
+});
+
+export interface IGist extends Instance<typeof Gist> {}

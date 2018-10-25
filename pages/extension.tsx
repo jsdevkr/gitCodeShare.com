@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import { styled, PageContent, PageSection, SignUpButton } from '../styledComponents';
-import { IAppStore } from 'stores/AppStore';
+import { IAppStore } from '../stores/AppStore';
 
 interface IProps {
   className?: string;
@@ -74,6 +74,7 @@ const ContentSection = styled(PageSection as any)`
 `;
 
 @inject('appStore')
+@observer
 class MainPage extends Component<IProps> {
   render() {
     const { className } = this.props;
