@@ -70,17 +70,20 @@ class ContributorsPage extends Component<IProps> {
           <SContainer>
             <ContributorsWrap>
               {contributors.length ? (
-                contributors.map((contributor: IContributor, i: number) => (
-                  <a key={i} data-col href={contributor.html_url} target="blank">
-                    <SCard cover={<img alt="example" src={contributor.avatar_url} />}>
-                      <SCardMeta
-                        title={contributor.login}
-                        description={contributor.login === 'Jisookhyeon' ? 'Designer' : 'Developer'}
-                      />
-                      <SCardMetaDetail description={contributor.bio.replace(/\s+/g, ' ')} />
-                    </SCard>
-                  </a>
-                ))
+                contributors.map(
+                  (contributor: IContributor, i: number) =>
+                    typeof contributor === 'undefined' || !Object.keys(contributor).length ? null : (
+                      <a key={i} data-col href={contributor.html_url} target="blank">
+                        <SCard cover={<img alt="example" src={contributor.avatar_url} />}>
+                          <SCardMeta
+                            title={contributor.login}
+                            description={contributor.login === 'Jisookhyeon' ? 'Designer' : 'Developer'}
+                          />
+                          <SCardMetaDetail description={contributor.bio.replace(/\s+/g, ' ')} />
+                        </SCard>
+                      </a>
+                    ),
+                )
               ) : (
                 <SSpin tip="Loading..." />
               )}
