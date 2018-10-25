@@ -14,7 +14,6 @@ export default function(browser: puppeteer.Browser) {
       res.status(400).send();
     }
 
-    let page: puppeteer.Page;
     try {
       const buffer = await cache.wrap(
         `image/${source}/${
@@ -39,31 +38,37 @@ export default function(browser: puppeteer.Browser) {
               break;
           }
 
-          page = await browser.newPage();
-          await page.goto(url);
+          const page = await browser.newPage();
+          try {
+            await page.goto(url);
 
-          const selector = 'div.CodeMirror';
-          await page.waitFor(selector);
+            const selector = 'div.CodeMirror';
+            await page.waitFor(selector);
 
-          const rect = await page.evaluate(_selector => {
-            const element = document.querySelector(_selector);
+            const rect = await page.evaluate(_selector => {
+              const element = document.querySelector(_selector);
 
-            const { width: beforeWidth } = element.getBoundingClientRect();
-            const adjustHeight = (beforeWidth / 3) * 2;
-            element.style.height = `${adjustHeight}px`;
+              const { width: beforeWidth } = element.getBoundingClientRect();
+              const adjustHeight = (beforeWidth / 3) * 2;
+              element.style.height = `${adjustHeight}px`;
 
-            const { x, y, width, height } = element.getBoundingClientRect();
-            return { left: x, top: y, width, height, id: element.id };
-          }, selector);
+              const { x, y, width, height } = element.getBoundingClientRect();
+              return { left: x, top: y, width, height, id: element.id };
+            }, selector);
 
-          return await page.screenshot({
-            clip: {
-              x: rect.left,
-              y: rect.top,
-              width: rect.width,
-              height: rect.height,
-            },
-          });
+            return await page.screenshot({
+              clip: {
+                x: rect.left,
+                y: rect.top,
+                width: rect.width,
+                height: rect.height,
+              },
+            });
+          } catch (error) {
+            throw error;
+          } finally {
+            page.close();
+          }
         },
         { ttl },
       );
@@ -74,10 +79,6 @@ export default function(browser: puppeteer.Browser) {
     } catch (e) {
       console.log('error', e);
       res.status(500).send();
-    } finally {
-      if (page) {
-        page.close();
-      }
     }
   };
 }
