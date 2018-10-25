@@ -18,6 +18,10 @@ const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 process.on('SIGINT', () => process.exit());
 
+if (!dev) {
+  require('now-logs')(`[Server] `);
+}
+
 const puppeteerParams = dev
   ? {}
   : {
