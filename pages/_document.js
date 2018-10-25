@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <title>GitCodeShare</title>
           <link rel="shortcut icon" href="/static/gchFavicon.ico" />
@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:500,700|Share+Tech+Mono"
             rel="stylesheet"
           />
-          <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Sans+KR" rel="stylesheet" />
           {THEMES.map(theme => (
             <link
               key={theme.id}

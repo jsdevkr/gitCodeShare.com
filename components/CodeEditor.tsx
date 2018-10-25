@@ -262,7 +262,7 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
             overflow: hidden;
             padding: 2px;
             border-radius: 5px;
-            font-family: ${editor.fontFamily.id};
+            font-family: ${editor.fontFamily.id}, 'Noto Sans KR', 'Noto Sans JP', sans-serif;
             font-size: ${editor.fontSize}px;
           }
         `}</style>

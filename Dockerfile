@@ -12,6 +12,18 @@ RUN apk update && apk upgrade && \
       freetype@edge \
       harfbuzz@edge
 
+# Default fonts
+ENV NOTO_KR="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansKR-Regular.otf" \
+      NOTO_JP="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansJP-Regular.otf"
+RUN apk --no-cache add \
+      fontconfig \
+      wget \
+      && mkdir -p /usr/share/fonts \
+      # && wget -qO- "${SCP_URL}" | tar xz -C /usr/share/fonts \
+      && wget -q "${NOTO_KR}" -P /usr/share/fonts \
+      && wget -q "${NOTO_JP}" -P /usr/share/fonts \
+      && fc-cache -fv
+
 WORKDIR /app
 
 COPY package.json ./
