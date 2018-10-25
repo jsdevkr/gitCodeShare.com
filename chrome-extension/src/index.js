@@ -39,12 +39,8 @@ const hideEditor = () => {
 };
 
 function bindToggleEditorEventTo(target) {
-  target.addEventListener('click', () => {
-    showEditor();
-  });
-  editor.addEventListener('click', e => {
-    hideEditor();
-  });
+  target.addEventListener('click', showEditor);
+  editor.addEventListener('click', hideEditor);
 }
 
 /* This function is messy dom approach process for searching suitable location in Facebook DOM jungle. */
@@ -95,27 +91,19 @@ const injectBtn = () => {
 
 const isReadyToInsertBtn = () => document.querySelector('div[data-testid="expanded-sprout-list"]>table');
 const isHaveBtnAleady = () => document.querySelector('#codeShareBtn');
-
 const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
 
-if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getElementById('gitCodeShare')) {
-  injectGitCodeShareWindow();
-  console.log('gitCodeShare is injected!');
-
-  window.addEventListener('message', e => {
-    if (e.data.type === 'setHeight') {
-      iframe.style.height = `${e.data.value}px`;
-      return;
-    }
-    if (e.data.type === 'success') {
-      hideEditor();
-      document.querySelector('div.notranslate').focus();
-      document.execCommand('insertHTML', false, `${e.data.value}`);
-    }
-  });
-}
-
-window.addEventListener('click', e => {
+const onMessageEventFromIframe = e => {
+  const { type } = e.data;
+  if (type === 'setHeight') {
+    iframe.style.height = `${e.data.value}px`;
+  } else if (type === 'success') {
+    hideEditor();
+    document.querySelector('div.notranslate').focus();
+    document.execCommand('insertHTML', false, `${e.data.value}`);
+  }
+};
+const onClickEvent = () => {
   if (document.querySelector('[data-testid="expanded-sprout-list"] table td') && !isHaveBtnAleady()) {
     try {
       injectBtn();
@@ -123,4 +111,20 @@ window.addEventListener('click', e => {
       console.log('error');
     }
   }
-});
+};
+
+if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getElementById('gitCodeShare')) {
+  injectGitCodeShareWindow();
+  console.log('gitCodeShare is injected!');
+
+  window.addEventListener('message', onMessageEventFromIframe);
+}
+
+window.addEventListener('click', onClickEvent);
+
+window.onbeforeunload = () => {
+  window.removeEventListener('message', onMessageEvent);
+  window.removeEventListener('click', onClickEvent);
+  document.querySelector('#codeShareBtn').removeEventListener('click', showEditor);
+  document.querySelector('.editor').removeEventListener('click', hideEditor);
+};
