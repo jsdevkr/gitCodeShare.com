@@ -73,8 +73,11 @@ class ContributorsPage extends Component<IProps> {
                 contributors.map((contributor: IContributor, i: number) => (
                   <a key={i} data-col href={contributor.html_url} target="blank">
                     <SCard cover={<img alt="example" src={contributor.avatar_url} />}>
-                      <SCardMeta title={contributor.login} description="Developer" />
-                      <SCardMetaDetail description={contributor.bio} />
+                      <SCardMeta
+                        title={contributor.login}
+                        description={contributor.login === 'Jisookhyeon' ? 'Designer' : 'Developer'}
+                      />
+                      <SCardMetaDetail description={contributor.bio.replace(/\s+/g, ' ')} />
                     </SCard>
                   </a>
                 ))
