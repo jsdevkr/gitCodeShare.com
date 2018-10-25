@@ -50,7 +50,7 @@ const RowFlexBox: any = styled.div`
 
 const CodeWrap = styled(RowFlexBox as any)`
   & {
-    max-width: 770px;
+    max-width: 740px;
     margin: 0 auto;
 
     .ant-card {
@@ -146,6 +146,7 @@ const SlideWrap = styled(PageSection as any)`
       bottom: 10px;
       z-index: 99;
       transform: rotate(-90deg);
+      margin: auto;
 
       span {
         display: inherit;
@@ -373,7 +374,7 @@ class MainPage extends Component<IProps> {
                   href="//chrome.google.com/webstore/detail/gitcodeshare/fegiblhnedcljeapaigmgnfjceochhhg"
                   target="blank"
                 >
-                  <DownloadButton icon="plus" style={{ marginTop: '35px' }}>
+                  <DownloadButton icon="chrome" style={{ marginTop: '35px' }}>
                     Add GitCodeShare to Chrome
                   </DownloadButton>
                 </a>

@@ -10,7 +10,7 @@ exports[`StyledButton BorderlessButton should render 1`] = `
 
 exports[`StyledButton DownloadButton should render 1`] = `
 <button
-  className="ant-btn StyledButton__DownloadButton-rhr4ab-5 dBqyFH"
+  className="ant-btn StyledButton__DownloadButton-rhr4ab-5 bUQZgZ"
   onClick={[Function]}
   type="button"
 />
