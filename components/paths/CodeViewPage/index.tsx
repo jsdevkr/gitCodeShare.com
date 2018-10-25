@@ -13,12 +13,12 @@ import {
 } from '../../../styledComponents';
 import { CodeEditor } from '../../';
 import { Avatar } from 'antd';
-import appStore from '../../../stores/AppStore';
-import { IGist } from '../../../model/gist';
+import { inject, observer } from 'mobx-react';
+import { IAppStore } from '../../../stores/AppStore';
 
 interface IProps {
   className?: string;
-  gistDetail?: IGist;
+  appStore?: IAppStore;
 }
 
 const CodePageContent = styled(PageContent as any)`
@@ -77,9 +77,11 @@ const UserGithubButton = styled(GithubButton as any)`
   }
 `;
 
+@inject('appStore')
+@observer
 class CodeViewPage extends Component<IProps> {
   copyUrl() {
-    const { alert } = appStore;
+    const { alert } = this.props.appStore;
     let textArea = document.createElement('textarea');
     textArea.value = !(typeof window === 'undefined') && window.location.href;
     textArea.style.position = 'fixed';
@@ -95,39 +97,35 @@ class CodeViewPage extends Component<IProps> {
   }
 
   render() {
-    const { className, gistDetail } = this.props;
+    const { className, appStore } = this.props;
+    const { gist } = appStore.editor;
 
-    return typeof gistDetail === 'undefined' || !Object.keys(gistDetail).length ? null : (
+    return !gist ? null : (
       <>
         <Head>
-          <title>{gistDetail.description}</title>
-          <meta
-            property="og:image"
-            content={`${process.env.BACKEND_URL}/api/image?source=GIST&state=${gistDetail.id}`}
-          />
-          <meta property="og:url" content={`${process.env.BACKEND_URL}/?${gistDetail.id}`} />
-          <meta property="og:title" content={gistDetail.description} />
-          <meta property="og:description" content={gistDetail.description} />
+          <title>{gist.description}</title>
+          <meta property="og:image" content={`${process.env.BACKEND_URL}/api/image?source=GIST&state=${gist.id}`} />
+          <meta property="og:url" content={`${process.env.BACKEND_URL}/?${gist.id}`} />
+          <meta property="og:title" content={gist.description} />
+          <meta property="og:description" content={gist.description} />
         </Head>
         <CodePageContent className={className}>
           <PageSection>
             <CodeContainer>
               <CodeHeader>
                 <div>
-                  <h3 data-title>
-                    {Object.keys(gistDetail.files).length ? Object.keys(gistDetail.files)[0] : 'Code Title'}
-                  </h3>
-                  <p>{gistDetail.created_at}</p>
+                  <h3 data-title>{Object.keys(gist.files).length ? Object.keys(gist.files)[0] : 'Code Title'}</h3>
+                  <p>{gist.created_at}</p>
                 </div>
-                {typeof gistDetail.owner === 'undefined' ? null : (
+                {typeof gist.owner === 'undefined' ? null : (
                   <UserCard>
                     <UserCardMeta
-                      avatar={<Avatar src={gistDetail.owner.avatar_url} />}
-                      title={gistDetail.owner.login}
+                      avatar={<Avatar src={gist.owner.avatar_url} />}
+                      title={gist.owner.login}
                       description="Seoul / South Korea"
                     />
-                    <a href={gistDetail.owner.html_url} target="blank">
-                      <UserGithubButton icon="github">{gistDetail.owner.login}</UserGithubButton>
+                    <a href={gist.owner.html_url} target="blank">
+                      <UserGithubButton icon="github">{gist.owner.login}</UserGithubButton>
                     </a>
                   </UserCard>
                 )}
@@ -135,7 +133,7 @@ class CodeViewPage extends Component<IProps> {
               <CodeEditor />
               <ButtonWrap>
                 <LinkButton onClick={this.copyUrl}>Copy URL</LinkButton>
-                <a href={gistDetail.html_url} target="blank">
+                <a href={gist.html_url} target="blank">
                   <LinkButton>Visit git</LinkButton>
                 </a>
               </ButtonWrap>

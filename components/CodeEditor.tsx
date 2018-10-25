@@ -5,7 +5,7 @@ import { observer, inject } from 'mobx-react';
 import { Dropdown, Button, Icon, InputNumber, Switch } from 'antd';
 import { DropDownButton, EditorDropDown, styled, LineButton } from '../styledComponents';
 import { DropdownMenu } from './DropdownMenu';
-import { IAppStore } from 'stores/AppStore';
+import { IAppStore } from '../stores/AppStore';
 
 if (typeof navigator !== 'undefined') {
   LANGUAGES.filter(lang => lang.mode !== 'auto').map(lang => require(`codemirror/mode/${lang.mode}/${lang.mode}`));

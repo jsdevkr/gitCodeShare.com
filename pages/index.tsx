@@ -1,98 +1,55 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
 // import { observable } from 'mobx';
-import appStore, { IAppStore } from '../stores/AppStore';
-import { ApiProvider } from '../providers';
+import { IAppStore } from '../stores/AppStore';
+import { appStoreInstance } from '../stores/create';
 import { MainNav, MainFooter, MainPage } from '../components';
 import { SLayout } from '../styledComponents';
 import { CodeViewPage } from '../components';
 import { decodeParams as decode } from '../common/utils';
-import { IGist } from 'model/gist';
 
 interface IProps {
   appStore?: IAppStore;
-  gistId: string;
-  state: {
-    code: String;
-  };
-  starredList: IGist[];
-  gistDetail: IGist;
-  star?: number;
-  fork?: number;
+  editorMode?: boolean;
 }
 
 @inject('appStore')
 @observer
 class App extends React.Component<IProps> {
-  // @observable
-  // starredList: IGist[] = [];
-
-  // @observable
-  // gistDetail: IGist = {};
-
   static async getInitialProps({ query }: { query: any }) {
     console.log(process.env.BACKEND_URL);
+    const appStore: IAppStore = appStoreInstance.get();
+    let editorMode = false;
+
     if (query.state) {
-      return { state: decode(query.state) };
+      const state = decode(query.state);
+      state && state.code && appStore.editor.setCode(state.code);
+      editorMode = true;
     } else {
-      const gistId = Object.keys(query)[0];
-      let gistDetail: IGist = {};
-      let starredList: IGist[] = [];
-      let star: number = 0;
-      let fork: number = 0;
-
       try {
-        starredList = await ApiProvider.GistRequest.getStarredGists();
-        star = await ApiProvider.GithubRequest.getStarNum();
-        fork = await ApiProvider.GithubRequest.getForkNum();
-
+        const gistId = Object.keys(query)[0];
         if (gistId) {
-          gistDetail = await ApiProvider.GistRequest.getGist(gistId);
+          await appStore.editor.getGist(gistId);
+          editorMode = true;
+        } else {
+          await appStore.getStarredGists();
         }
       } catch (err) {
         console.log(err);
       }
-
-      return { gistId, gistDetail, starredList, star, fork };
     }
+
+    return { editorMode };
   }
 
-  // componentDidMount() {
-  //   this.getStarred();
-  //   this.getGistDetail();
-  // }
-
-  // async getGistDetail() {
-  //   const { gistId } = this.props;
-  //   try {
-  //     const gistDetail: IGist = await ApiProvider.GistRequest.getGist(gistId);
-  //     this.gistDetail = gistDetail;
-  //   } catch (err) {
-  //     this.gistDetail = {};
-  //     console.log(err);
-  //   }
-  // }
-
-  // async getStarred() {
-  //   try {
-  //     const starredList = await ApiProvider.GistRequest.getStarredGists();
-  //     this.starredList = starredList;
-  //   } catch (err) {
-  //     this.starredList = [];
-  //     console.log(err);
-  //   }
-  // }
-
   render() {
-    const { gistId, state, gistDetail, starredList, star, fork } = this.props;
-
-    gistId && appStore.editor.getGist(gistId);
-    state && state.code && appStore.editor.setCode(state.code);
+    const { editorMode } = this.props;
+    console.log('editorMode', editorMode);
 
     return (
       <SLayout>
-        <MainNav star={star} fork={fork} />
-        {gistId || state ? <CodeViewPage gistDetail={gistDetail} /> : <MainPage starredList={starredList} />}
+        <MainNav />
+        {editorMode ? <CodeViewPage /> : <MainPage />}
         <MainFooter />
       </SLayout>
     );

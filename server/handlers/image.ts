@@ -4,20 +4,19 @@ import { Request, Response, NextFunction } from 'express';
 import crypto from 'crypto';
 import { cache } from './';
 
-const ARBITRARY_WAIT_TIME = 1000 * 1.5;
 const ttl = 60 * 5;
 const port = parseInt(process.env.FRONT_PORT, 10) || 3000;
 
 export default function(browser: puppeteer.Browser) {
   return async (req: Request, res: Response, next: NextFunction) => {
-    const page = await browser.newPage();
     const { state, source } = req.query;
-
     if (!state) {
       res.status(400).send();
     }
 
+    let page: puppeteer.Page;
     try {
+      page = await browser.newPage();
       const buffer = await cache.wrap(
         `image/${source}/${
           source === SourceType.CODE
@@ -42,57 +41,43 @@ export default function(browser: puppeteer.Browser) {
           }
 
           await page.goto(url);
-          await delay(ARBITRARY_WAIT_TIME);
 
-          async function screenshotDOMElement(selector) {
-            if (!selector) {
-              throw Error('Please provide a selector');
-            }
+          const selector = 'div.CodeMirror';
+          await page.waitFor(selector);
 
-            const rect = await page.evaluate(selector => {
-              const element = document.querySelector(selector);
-              if (!element) {
-                return null;
-              }
+          const rect = await page.evaluate(_selector => {
+            const element = document.querySelector(_selector);
 
-              const { width: beforeWidth } = element.getBoundingClientRect();
-              const adjustHeight = (beforeWidth / 3) * 2;
-              element.style.height = `${adjustHeight}px`;
+            const { width: beforeWidth } = element.getBoundingClientRect();
+            const adjustHeight = (beforeWidth / 3) * 2;
+            element.style.height = `${adjustHeight}px`;
 
-              const { x, y, width, height } = element.getBoundingClientRect();
-              return { left: x, top: y, width, height, id: element.id };
-            }, selector);
+            const { x, y, width, height } = element.getBoundingClientRect();
+            return { left: x, top: y, width, height, id: element.id };
+          }, selector);
 
-            return await page.screenshot({
-              clip: {
-                x: rect.left,
-                y: rect.top,
-                width: rect.width,
-                height: rect.height,
-              },
-            });
-          }
-
-          return await screenshotDOMElement('div.CodeMirror');
+          return await page.screenshot({
+            clip: {
+              x: rect.left,
+              y: rect.top,
+              width: rect.width,
+              height: rect.height,
+            },
+          });
         },
         { ttl },
       );
 
-      await page.close();
-
       res.set('Content-Type', 'image/png');
       res.write(buffer, 'binary');
       res.end(null, 'binary');
+      page.close();
     } catch (e) {
-      console.error('error', e);
+      console.log('error', e);
       res.status(500).send();
-    } finally {
-      await page.close();
+      if (page) {
+        page.close();
+      }
     }
   };
-}
-
-// private
-function delay(ms) {
-  return new Promise(r => setTimeout(r, ms));
 }

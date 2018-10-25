@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { inject, observer } from 'mobx-react';
-import { IAppStore, IAlertMessage } from 'stores/AppStore';
+import { IAppStore, IAlertMessage } from '../stores/AppStore';
 
 import { Button, Modal, Divider } from 'antd';
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 import {
   styled,
   GithubButton,
@@ -12,11 +13,11 @@ import {
 } from '../../styledComponents';
 import { Layout } from 'antd';
 import Link from 'next/link';
+import { IAppStore } from '../../stores/AppStore';
 
 interface IProps {
+  appStore?: IAppStore;
   className?: string;
-  star?: number;
-  fork?: number;
 }
 
 const { Header } = Layout;
@@ -77,25 +78,12 @@ const RightBox = styled(FlexRightBox as any)`
   }
 `;
 
+@inject('appStore')
+@observer
 class MainNav extends Component<IProps> {
-  // componentDidMount() {
-  //   this.getData();
-  // }
-
-  // async getData() {
-  //   try {
-  //     const fork = await ApiProvider.GithubRequest.getForkNum();
-  //     const star = await ApiProvider.GithubRequest.getStarNum();
-  //     this.setState({ fork, star });
-  //   } catch (err) {
-  //     this.setState({ fork: 0, star: 0 });
-  //     console.log(err);
-  //   }
-  // }
-
   render() {
-    const { className, fork, star } = this.props;
-    // const { fork, star } = this.state;
+    const { className, appStore } = this.props;
+    const { fork, star } = appStore;
     return (
       <Nav className={className}>
         <NavContainer>

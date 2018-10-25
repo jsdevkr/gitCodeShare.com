@@ -4,6 +4,8 @@ import { ThemeProvider, theme } from '../styledComponents';
 import { UIWrapper, AlertModal } from '../components';
 import StoreProvider from '../stores/StoreProvider';
 import { GlobalStyle } from '../assets/styles/app';
+import { getSnapshot } from 'mobx-state-tree';
+import { appStoreInstance } from '../stores/create';
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -13,14 +15,14 @@ export default class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    return { pageProps, initialState: getSnapshot(appStoreInstance.get()) };
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, initialState } = this.props;
     return (
       <Container>
-        <StoreProvider>
+        <StoreProvider initialState={initialState}>
           <ThemeProvider theme={theme}>
             <>
               <UIWrapper>
