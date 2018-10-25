@@ -3,8 +3,10 @@ import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import next from 'next';
-import mobxReact from 'mobx-react';
 import proxy from 'http-proxy-middleware';
+
+import { useStaticRendering } from 'mobx-react';
+useStaticRendering(true);
 
 const port = parseInt(process.env.FRONT_PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -19,8 +21,6 @@ if (!dev) {
   const LOGS_ID = `${process.env.LOGS_SECRET_PREFIX}:${process.env.NOW_URL}`;
   require('now-logs')(LOGS_ID);
 }
-
-mobxReact.useStaticRendering(true);
 
 app.prepare().then(() => {
   const server = express();
