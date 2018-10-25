@@ -16,7 +16,6 @@ export default function(browser: puppeteer.Browser) {
 
     let page: puppeteer.Page;
     try {
-      page = await browser.newPage();
       const buffer = await cache.wrap(
         `image/${source}/${
           source === SourceType.CODE
@@ -40,6 +39,7 @@ export default function(browser: puppeteer.Browser) {
               break;
           }
 
+          page = await browser.newPage();
           await page.goto(url);
 
           const selector = 'div.CodeMirror';
