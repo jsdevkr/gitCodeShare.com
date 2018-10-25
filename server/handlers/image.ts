@@ -5,7 +5,7 @@ import crypto from 'crypto';
 import { cache } from './';
 
 const ttl = 60 * 5;
-const port = parseInt(process.env.FRONT_PORT, 10) || 3000;
+const PORT = parseInt(process.env.FRONT_PORT, 10) || 3000;
 
 export default function(browser: puppeteer.Browser) {
   return async (req: Request, res: Response, next: NextFunction) => {
@@ -27,7 +27,7 @@ export default function(browser: puppeteer.Browser) {
             : state
         }`,
         async () => {
-          let url: string = `${req.protocol}://${req.hostname}:${port}`;
+          let url: string = `http://localhost:${PORT}`;
           switch (source) {
             case SourceType.CODE:
               url += `/?state=${state}`;
@@ -71,10 +71,10 @@ export default function(browser: puppeteer.Browser) {
       res.set('Content-Type', 'image/png');
       res.write(buffer, 'binary');
       res.end(null, 'binary');
-      page.close();
     } catch (e) {
       console.log('error', e);
       res.status(500).send();
+    } finally {
       if (page) {
         page.close();
       }

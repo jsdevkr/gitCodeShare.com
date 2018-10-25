@@ -21,5 +21,5 @@
     "baseUrl": ".",
     "typeRoots": ["node_modules/@types", "@types"]
   },
-  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/*.test.ts", "**/*.test.tsx", "bin"]
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.spec.tsx", "**/*.test.ts", "**/*.test.tsx", "bin", "chrome-extension"]
 }
