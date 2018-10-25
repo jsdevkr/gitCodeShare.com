@@ -59,6 +59,18 @@ export const Editor = types
     lineNumbers: types.optional(types.boolean, true),
     gists: types.optional(types.array(Gist), []),
   })
+  .actions(self => ({
+    clear: () => {
+      self.code = DEFAULT_CODE;
+      self.fontFamily = DEFAULT_FONT;
+      self.fontSize = 14;
+      self.optionDrawerVisible = false;
+      self.language = DEFAULT_LANGUAGE;
+      self.theme = DEFAULT_THEME;
+      self.lineNumbers = true;
+      self.gists.clear();
+    },
+  }))
   .views(self => ({
     get app() {
       return getRoot<IAppStore>(self);
