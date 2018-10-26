@@ -80,7 +80,7 @@ const UserGithubButton = styled(GithubButton as any)`
 @inject('appStore')
 @observer
 class CodeViewPage extends Component<IProps> {
-  copyUrl() {
+  copyUrl = () => {
     const { alert } = this.props.appStore;
     let textArea = document.createElement('textarea');
     textArea.value = !(typeof window === 'undefined') && window.location.href;
@@ -94,7 +94,7 @@ class CodeViewPage extends Component<IProps> {
     document.execCommand('copy');
     document.body.removeChild(textArea);
     alert('URL is copied to clipboard!');
-  }
+  };
 
   render() {
     const { className, appStore } = this.props;
@@ -114,7 +114,7 @@ class CodeViewPage extends Component<IProps> {
             <CodeContainer>
               <CodeHeader>
                 <div>
-                  <h3 data-title>{Object.keys(gist.files).length ? Object.keys(gist.files)[0] : 'Code Title'}</h3>
+                  <h3 data-title>{[...gist.files.keys()].length ? [...gist.files.keys()][0] : 'Code Title'}</h3>
                   <p>{gist.created_at}</p>
                 </div>
                 {typeof gist.owner === 'undefined' ? null : (
