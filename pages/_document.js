@@ -16,6 +16,10 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <title>GitCodeShare</title>
+          <meta property="og:image" content="/static/og.png" />
+          <meta property="og:url" content="" />
+          <meta property="og:title" content="GitCodeShare" />
+          <meta property="og:description" content="GitCodeShare" />
           <link rel="shortcut icon" href="/static/gchFavicon.ico" />
           <link
             href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:500,700|Share+Tech+Mono"
