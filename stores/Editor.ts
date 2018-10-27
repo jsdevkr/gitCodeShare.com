@@ -139,7 +139,7 @@ export const Editor = types
       !self.gistId && self.setCode(code);
     };
 
-    const createGist = async (data: IGist) => {
+    const apiCallCreateGist = async (data: IGist) => {
       try {
         const hide = message.loading('Saving...', 0);
         const filename = `source${self.language.ext || ''}`;
@@ -157,15 +157,19 @@ export const Editor = types
         hide();
       } catch (err) {
         if (typeof err === 'object' && err.reason === 'Login Required') {
-          (window as any).loginOk = () => {
-            createGist(data);
-            (window as any).loginOk = null;
-          };
-          window.open(`${process.env.BACKEND_URL}/api/auth/github`, '_black');
+          createGist(data);
         } else {
           self.app.alert(JSON.stringify((typeof err === 'object' && err.reason) || err));
         }
       }
+    };
+
+    const createGist = async (data: IGist) => {
+      (window as any).loginOk = () => {
+        apiCallCreateGist(data);
+        (window as any).loginOk = null;
+      };
+      window.open(`${process.env.BACKEND_URL}/api/auth/github`, '_black');
     };
 
     const setGist = function(data: IGist) {
