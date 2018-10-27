@@ -6,7 +6,7 @@ import { encodeParams as encode } from '../common/utils';
 const proxyContext =
   typeof window !== 'undefined'
     ? process.env.BACKEND_PROXY_CONTEXT || '/api'
-    : `http://localhost:${process.env.BACKEND_PORT || 3030}${process.env.BACKEND_PROXY_CONTEXT || '/api'}`;
+    : `http://localhost:${process.env.FRONT_PORT || 3000}${process.env.BACKEND_PROXY_CONTEXT || '/api'}`;
 
 const ApiProvider = {
   AuthRequest: {

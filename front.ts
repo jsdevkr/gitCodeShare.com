@@ -4,9 +4,10 @@ import morgan from 'morgan';
 import path from 'path';
 import next from 'next';
 import proxy from 'http-proxy-middleware';
-
 import { useStaticRendering } from 'mobx-react';
+
 useStaticRendering(true);
+process.on('SIGINT', () => process.exit());
 
 const port = parseInt(process.env.FRONT_PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -14,12 +15,6 @@ const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 const app = next({ dev });
 const handle = app.getRequestHandler();
-
-process.on('SIGINT', () => process.exit());
-
-if (!dev) {
-  require('now-logs')(`[Front] `);
-}
 
 app.prepare().then(() => {
   const server = express();
@@ -49,7 +44,7 @@ app.prepare().then(() => {
   server.get('/service-worker.js', (req, res) => app.serveStatic(req, res, filePath));
 
   // to next.js
-  server.get('*', (req, res) => handle(req, res));
+  server.get('*', handle as any);
 
   server.listen(port, '0.0.0.0', err => {
     if (err) {

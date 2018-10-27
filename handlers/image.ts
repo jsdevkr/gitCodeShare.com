@@ -1,5 +1,5 @@
 import puppeteer from 'puppeteer';
-import { SourceType } from '../../model/image';
+import { SourceType } from '../model/image';
 import { Request, Response, NextFunction } from 'express';
 import crypto from 'crypto';
 import { cache } from './';

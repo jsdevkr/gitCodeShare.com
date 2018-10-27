@@ -11,9 +11,7 @@
     "test": "jest --noStackTrace --watch",
     "test:ci": "jest -w=4 --silent --noStackTrace --forceExit",
     "test:skip": "echo \"Skip test\" && exit 0",
-    "start": "npm-run-all -p prod:front prod:backend",
-    "prod:front": "node ./bin/front.js",
-    "prod:backend": "node ./bin/server.js",
+    "start": "node ./bin/server.js",
     "precommit": "lint-staged && npm run contributors:build && git add README.md",
     "contributors:add": "all-contributors add",
     "contributors:build": "all-contributors generate"

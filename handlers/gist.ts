@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction, Router } from 'express';
 import request from 'request';
-import { name, version } from './../../package.json';
+import { name, version } from '../package.json';
 import { isAuthenticated } from './passport';
 import { cache } from './';
 

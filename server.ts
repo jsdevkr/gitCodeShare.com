@@ -7,19 +7,22 @@ import cookieParser from 'cookie-parser';
 import puppeteer from 'puppeteer';
 import morgan from 'morgan';
 import uuid from 'uuid/v4';
-
+import path from 'path';
+import { useStaticRendering } from 'mobx-react';
 import { AuthHandler, GithubHandler, GistHandler, ImageHandler } from './handlers';
+
+useStaticRendering(true);
+process.on('SIGINT', () => process.exit());
+
+const dev = process.env.NODE_ENV !== 'production';
+const port = dev ? parseInt(process.env.BACKEND_PORT, 10) || 3030 : 3000;
+const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
 
 const MemoryStore = require('memorystore')(session);
 
-const port = parseInt(process.env.BACKEND_PORT, 10) || 3030;
-const dev = process.env.NODE_ENV !== 'production';
-const proxyContext = process.env.BACKEND_PROXY_CONTEXT || '/api';
-
-process.on('SIGINT', () => process.exit());
-
 if (!dev) {
-  require('now-logs')(`[Server] `);
+  const LOGS_ID = `${process.env.LOGS_SECRET_PREFIX}:${process.env.NOW_URL}`;
+  require('now-logs')(LOGS_ID);
 }
 
 const puppeteerParams = dev
@@ -31,7 +34,7 @@ const puppeteerParams = dev
       // args: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage'],
     };
 
-puppeteer.launch(puppeteerParams).then((browser: any) => {
+puppeteer.launch(puppeteerParams).then(async (browser: any) => {
   // set up
   const server = express();
   const imageHandler = ImageHandler(browser);
@@ -82,10 +85,23 @@ puppeteer.launch(puppeteerParams).then((browser: any) => {
     res.redirect('/');
   });
 
-  // redirect to home
-  server.get('/', (req, res) => {
-    res.redirect(`${req.protocol}://${req.hostname}`);
-  });
+  // production with next
+  if (!dev) {
+    const next = require('next');
+    const app = next({ dev });
+    await app.prepare();
+    const handle = app.getRequestHandler();
+
+    const filePath = path.join(__dirname, '.next', 'service-worker.js');
+    server.get('/service-worker.js', (req, res) => app.serveStatic(req, res, filePath));
+    // to next.js
+    server.get('*', handle as any);
+  } else {
+    // redirect to home
+    server.get('/', (req, res) => {
+      res.redirect(`${req.protocol}://${req.hostname}`);
+    });
+  }
 
   server.listen(port, '0.0.0.0', err => {
     if (err) {
