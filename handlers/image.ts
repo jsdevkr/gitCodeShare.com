@@ -28,7 +28,7 @@ export default function(browser: puppeteer.Browser) {
           let url: string = `http://localhost:${PORT}`;
           switch (source) {
             case SourceType.CODE:
-              url += `/?state=${state}`;
+              url += `/editor?state=${state}`;
               break;
             case SourceType.GIST:
               url += `/?${state}`;

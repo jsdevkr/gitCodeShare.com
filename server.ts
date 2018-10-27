@@ -103,6 +103,17 @@ puppeteer.launch(puppeteerParams).then(async (browser: any) => {
     });
   }
 
+  // error handler
+  server.use((err, req, res, next) => {
+    if (!res.headersSent) {
+      if (typeof res.writeHead === 'function') {
+        res.writeHead(500, { 'content-type': 'application/json' });
+      }
+    }
+    const json = { error: 'api_error', reason: err.message };
+    return res.status(500).end(JSON.stringify(json));
+  });
+
   server.listen(port, '0.0.0.0', err => {
     if (err) {
       throw err;

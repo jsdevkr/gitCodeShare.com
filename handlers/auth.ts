@@ -6,16 +6,17 @@ const router: Router = Router();
 router.get('/github', passport.authenticate('github'));
 router.get('/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res) => {
   req.session.save(() => {
-    res.redirect('/');
-    // res.send(
-    //   `<!DOCTYPE html>
-    //     <html>
-    //       <script type="text/javascript">
-    //         window.opener.location.reload();
-    //         window.close();
-    //       </script>
-    //     </html>`,
-    // );
+    res.send(
+      `<!DOCTYPE html>
+        <html>
+          <script type="text/javascript">
+            try {
+              window.opener.loginOk();
+            } catch (err) {}
+            window.close();
+          </script>
+        </html>`,
+    );
   });
 });
 

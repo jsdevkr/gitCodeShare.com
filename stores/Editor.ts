@@ -130,26 +130,6 @@ export const Editor = types
       link.click();
       link.remove();
     },
-    createGist: e => {
-      const hide = message.loading('Saving...', 0);
-      const filename = `source${self.language.ext || ''}`;
-      self.provider.GistRequest.createGist({
-        public: true,
-        files: {
-          [filename]: {
-            content: self.code,
-          },
-        },
-      })
-        .then(data => {
-          window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${data.id} ` }, '*');
-          hide();
-        })
-        .catch(() => {
-          window.open(`${process.env.BACKEND_URL}/api/auth/github`, '_black');
-          hide();
-        });
-    },
     login: () => {
       self.provider.AuthRequest.login();
     },
@@ -157,6 +137,35 @@ export const Editor = types
   .actions(self => {
     const onBeforeCodeChange = (_, $, code) => {
       !self.gistId && self.setCode(code);
+    };
+
+    const createGist = async (data: IGist) => {
+      try {
+        const hide = message.loading('Saving...', 0);
+        const filename = `source${self.language.ext || ''}`;
+
+        const result: IGist = await self.provider.GistRequest.createGist({
+          public: true,
+          files: {
+            [filename]: {
+              content: self.code,
+            },
+          },
+        });
+
+        window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${result.id} ` }, '*');
+        hide();
+      } catch (err) {
+        if (typeof err === 'object' && err.reason === 'Login Required') {
+          (window as any).loginOk = () => {
+            createGist(data);
+            (window as any).loginOk = null;
+          };
+          window.open(`${process.env.BACKEND_URL}/api/auth/github`, '_black');
+        } else {
+          self.app.alert(JSON.stringify((typeof err === 'object' && err.reason) || err));
+        }
+      }
     };
 
     const setGist = function(data: IGist) {
@@ -177,6 +186,7 @@ export const Editor = types
 
     return {
       onBeforeCodeChange,
+      createGist,
       getGist,
       setGist,
     };

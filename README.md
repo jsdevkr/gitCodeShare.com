@@ -23,6 +23,11 @@ https://github.com/kosslab-kr/gitCodeShare.com/blob/master/docs/index.md
 5. If you contributed something new, run `npm run contributors:add <your GitHub username> <contribution type>` to add yourself [below](#contributors)
 6. Finally, submit a [pull request](https://help.github.com/articles/creating-a-pull-request-from-a-fork/)!
 
+## Test chrome extension
+
+1. Load `chrome-extension` follow a [guide](https://support.google.com/chrome/a/answer/2714278)'s 2nd step.
+2. Open `facebook.com` and allow `Insecure content` on address bar's right 🛡 icon.
+
 ### contribution type
 
 | type               | command                                              | type                | command                                               |

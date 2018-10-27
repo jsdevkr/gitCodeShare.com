@@ -123,7 +123,7 @@ if (!window.location.ancestorOrigins.contains(extensionOrigin) && !document.getE
 window.addEventListener('click', onClickEvent);
 
 window.onbeforeunload = () => {
-  window.removeEventListener('message', onMessageEvent);
+  window.removeEventListener('message', onMessageEventFromIframe);
   window.removeEventListener('click', onClickEvent);
   document.querySelector('#codeShareBtn').removeEventListener('click', showEditor);
   document.querySelector('.editor').removeEventListener('click', hideEditor);
