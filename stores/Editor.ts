@@ -139,34 +139,35 @@ export const Editor = types
       !self.gistId && self.setCode(code);
     };
 
-    const apiCallCreateGist = async (data: IGist) => {
-      try {
-        const hide = message.loading('Saving...', 0);
-        const filename = `source${self.language.ext || ''}`;
-
-        const result: IGist = await self.provider.GistRequest.createGist({
-          public: true,
-          files: {
-            [filename]: {
-              content: self.code,
-            },
-          },
-        });
-
-        window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${result.id} ` }, '*');
-        hide();
-      } catch (err) {
-        if (typeof err === 'object' && err.reason === 'Login Required') {
-          createGist(data);
-        } else {
-          self.app.alert(JSON.stringify((typeof err === 'object' && err.reason) || err));
-        }
-      }
-    };
-
     const createGist = (data: IGist) => {
+      const apiCallCreateGist = async () => {
+        try {
+          const hide = message.loading('Saving...', 0);
+          const filename = `source${self.language.ext || ''}`;
+
+          const result: IGist = await self.provider.GistRequest.createGist({
+            public: true,
+            files: {
+              [filename]: {
+                content: self.code,
+              },
+            },
+          });
+
+          window.parent.postMessage({ type: 'success', value: `http://gitcodeshare.com/?${result.id} ` }, '*');
+          hide();
+        } catch (err) {
+          if (typeof err === 'object' && err.reason === 'Login Required') {
+            createGist(data);
+          } else {
+            self.app.alert(JSON.stringify((typeof err === 'object' && err.reason) || err));
+          }
+        }
+      };
+
+      // window open
       (window as any).loginOk = () => {
-        apiCallCreateGist(data);
+        apiCallCreateGist();
         (window as any).loginOk = null;
       };
       window.open(`${process.env.BACKEND_URL}/api/auth/github`, '_black');
