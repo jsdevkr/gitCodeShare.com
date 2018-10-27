@@ -1,5 +1,4 @@
 import { IGist } from '../model/gist';
-import { SourceType } from '../model/image';
 import { IContributor } from '../model/contributors';
 import { encodeParams as encode } from '../common/utils';
 
@@ -101,7 +100,7 @@ const ApiProvider = {
   },
   ImageRequest: {
     async getImageUrl(state: string) {
-      return `${proxyContext}/image?source=${SourceType.CODE}&state=${encode(state)}`;
+      return `${proxyContext}/image?state=${encode(state)}`;
     },
   },
 };

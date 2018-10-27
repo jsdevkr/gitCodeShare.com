@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const PageContainer = styled.div`
-  /* padding: 20px 20px; */
+  background-color: black;
 `;
 
 @inject('appStore')

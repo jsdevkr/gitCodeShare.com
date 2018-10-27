@@ -414,7 +414,7 @@ class MainPage extends Component<IProps> {
                   return (
                     <Link key={i} href={`?${gist.id}`}>
                       <a>
-                        <SCard data-col cover={<img alt="example" src={`/api/image?source=GIST&state=${gist.id}`} />}>
+                        <SCard data-col cover={<img alt="example" src={`/api/image?id=${gist.id}`} />}>
                           <SCardMeta title={[...gist.files.keys()][0]} description={gist.created_at} />
                         </SCard>
                       </a>

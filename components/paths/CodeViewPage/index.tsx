@@ -103,11 +103,11 @@ class CodeViewPage extends Component<IProps> {
     return !gist ? null : (
       <>
         <Head>
-          <title>{gist.description}</title>
-          <meta property="og:image" content={`${process.env.BACKEND_URL}/api/image?source=GIST&state=${gist.id}`} />
+          <title>{gist.description || 'gitCodeShare.com'}</title>
+          <meta property="og:image" content={`${process.env.BACKEND_URL}/api/image?id=${gist.id}`} />
           <meta property="og:url" content={`${process.env.BACKEND_URL}/?${gist.id}`} />
-          <meta property="og:title" content={gist.description} />
-          <meta property="og:description" content={gist.description} />
+          <meta property="og:title" content={gist.description || 'gitCodeShare.com'} />
+          <meta property="og:description" content={gist.description || 'gitCodeShare.com'} />
         </Head>
         <CodePageContent className={className}>
           <PageSection>

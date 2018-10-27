@@ -1,5 +1,4 @@
 import puppeteer from 'puppeteer';
-import { SourceType } from '../model/image';
 import { Request, Response, NextFunction } from 'express';
 import crypto from 'crypto';
 import { cache } from './';
@@ -9,34 +8,33 @@ const PORT = parseInt(process.env.FRONT_PORT, 10) || 3000;
 
 export default function(browser: puppeteer.Browser) {
   return async (req: Request, res: Response, next: NextFunction) => {
-    const { state, source } = req.query;
-    if (!state) {
+    const { state, id } = req.query;
+    if (!state && !id) {
       res.status(400).send();
     }
 
     try {
       const buffer = await cache.wrap(
-        `image/${source}/${
-          source === SourceType.CODE
-            ? crypto
-                .createHash('sha1')
-                .update(state)
-                .digest('hex')
-            : state
-        }`,
+        state
+          ? `image/code/${crypto
+              .createHash('sha1')
+              .update(state)
+              .digest('hex')}`
+          : `image/id/${id}`,
         async () => {
           let url: string = `http://localhost:${PORT}`;
-          switch (source) {
-            case SourceType.CODE:
+          switch (!!state) {
+            case true:
               url += `/editor?state=${state}`;
               break;
-            case SourceType.GIST:
-              url += `/?${state}`;
+            case false:
+              url += `/?${id}`;
               break;
             default:
               res.status(400).send();
               break;
           }
+          console.log(url);
 
           const page = await browser.newPage();
           try {
