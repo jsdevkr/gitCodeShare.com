@@ -4,7 +4,7 @@ const developmentURL = 'http://localhost:3000';
 const getURL = () => (isDevMode() ? developmentURL : productionURL);
 
 chrome.browserAction.onClicked.addListener(popup => {
-  let URL = `${getURL()}/api/auth/github/`;
+  let URL = `${getURL()}`;
   chrome.tabs.create({ url: URL });
 });
 
