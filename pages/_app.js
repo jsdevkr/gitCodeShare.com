@@ -29,10 +29,10 @@ export default class MyApp extends App {
               <UIWrapper>
                 <Head>
                   <title>GitCodeShare</title>
-                  <meta property="og:image" content="/static/og.png" />
-                  <meta property="og:url" content="" />
-                  <meta property="og:title" content="GitCodeShare" />
-                  <meta property="og:description" content="GitCodeShare" />
+                  <meta property="og:image" content="/static/og.png" key="og:image" />
+                  <meta property="og:url" content="" key="og:url" />
+                  <meta property="og:title" content="GitCodeShare" key="og:title" />
+                  <meta property="og:description" content="GitCodeShare" key="og:description" />
                   <link rel="shortcut icon" href="/static/gchFavicon.ico" />
                 </Head>
                 <Component {...pageProps} />
