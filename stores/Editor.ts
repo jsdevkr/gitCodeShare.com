@@ -164,7 +164,7 @@ export const Editor = types
       }
     };
 
-    const createGist = async (data: IGist) => {
+    const createGist = (data: IGist) => {
       (window as any).loginOk = () => {
         apiCallCreateGist(data);
         (window as any).loginOk = null;
