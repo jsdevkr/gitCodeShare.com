@@ -167,13 +167,15 @@ const HorizontalDivider = styled.div`
 interface ICodeEditorProps {
   appStore?: IAppStore;
   gistId?: string;
+  isReadOnly?: boolean;
 }
 
 @inject('appStore')
 @observer
 export default class CodeEditor extends React.Component<ICodeEditorProps> {
   render() {
-    const { editor } = this.props.appStore;
+    const { appStore, isReadOnly } = this.props;
+    const { editor } = appStore;
 
     const options = {
       mode: editor.mode,
@@ -205,7 +207,7 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
           <HorizontalDivider />
           <EditorBody>
             <CodeMirror
-              onBeforeChange={editor.onBeforeCodeChange}
+              onBeforeChange={!isReadOnly ? editor.onBeforeCodeChange : null}
               value={editor.code}
               options={options}
               onUpdate={editor.onUpdate}
@@ -233,7 +235,7 @@ export default class CodeEditor extends React.Component<ICodeEditorProps> {
               <LineSwitch defaultChecked onChange={editor.setLineNumbers} />
             </OptionItem>
           </OptionDrawer>
-          {!editor.gistId && (
+          {!isReadOnly && (
             <ViewsBottom>
               <LineButton style={{ position: 'absolute', right: '220px' }} onClick={editor.downloadImage}>
                 Save

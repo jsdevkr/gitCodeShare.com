@@ -136,7 +136,7 @@ export const Editor = types
   }))
   .actions(self => {
     const onBeforeCodeChange = (_, $, code) => {
-      !self.gistId && self.setCode(code);
+      self.setCode(code);
     };
 
     const createGist = (data: IGist) => {

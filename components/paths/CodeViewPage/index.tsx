@@ -130,7 +130,7 @@ class CodeViewPage extends Component<IProps> {
                   </UserCard>
                 )}
               </CodeHeader>
-              <CodeEditor />
+              <CodeEditor isReadOnly={true} />
               <ButtonWrap>
                 <LinkButton onClick={this.copyUrl}>Copy URL</LinkButton>
                 <a href={gist.html_url} target="blank">
