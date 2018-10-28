@@ -15,7 +15,10 @@ RUN apk update && apk upgrade && \
 # Default fonts
 ENV NOTO_KR="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansKR-Regular.otf" \
       NOTO_JP="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansJP-Regular.otf"
-RUN apk --no-cache add \
+RUN apk update && apk upgrade && \
+      echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
+      echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
+      apk --no-cache add \
       fontconfig \
       wget \
       && mkdir -p /usr/share/fonts \
