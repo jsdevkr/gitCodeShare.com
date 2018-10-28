@@ -1,4 +1,4 @@
-FROM node:9-alpine
+FROM node:10-alpine
 
 # Source https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
 # Installs latest Chromium package.
@@ -13,13 +13,15 @@ RUN apk update && apk upgrade && \
       harfbuzz@edge
 
 # Default fonts
-# && wget -qO- "${SCP_URL}" | tar xz -C /usr/share/fonts \
+ENV NOTO_KR="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansKR-Regular.otf" \
+      NOTO_JP="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansJP-Regular.otf"
 RUN apk --no-cache add \
       fontconfig \
       wget \
       && mkdir -p /usr/share/fonts \
-      && wget -q "https://github.com/googlei18n/noto-cjk/raw/master/NotoSansKR-Regular.otf" -P /usr/share/fonts \
-      && wget -q "https://github.com/googlei18n/noto-cjk/raw/master/NotoSansJP-Regular.otf" -P /usr/share/fonts \
+      # && wget -qO- "${SCP_URL}" | tar xz -C /usr/share/fonts \
+      && wget -q "${NOTO_KR}" -P /usr/share/fonts \
+      && wget -q "${NOTO_JP}" -P /usr/share/fonts \
       && fc-cache -fv
 
 WORKDIR /app
