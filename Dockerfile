@@ -9,7 +9,8 @@ RUN apk update && apk upgrade && \
       apk add --update ca-certificates && \
       apk add --no-cache \
       ttf-freefont \
-      chromium@edge
+      chromium@edge \
+      nss@edge
 
 # Help prevent zombie chrome processes
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
@@ -43,15 +44,6 @@ RUN npm install
 COPY . .
 
 RUN npm run build
-
-# Add user so we don't need --no-sandbox.
-RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
-      && mkdir -p /home/pptruser/Downloads \
-      && chown -R pptruser:pptruser /home/pptruser \
-      && chown -R pptruser:pptruser /app
-
-# Run everything after as non-privileged user.
-USER pptruser
 
 ENV NODE_ENV production
 EXPOSE 3000

@@ -16,7 +16,7 @@ const SCard = styled(Card as any)`
 
   .ant-card-cover {
     width: 100%;
-    height: 250px;
+    height: 220px;
     padding: 15px;
 
     img {
