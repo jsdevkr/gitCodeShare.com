@@ -8,12 +8,8 @@ RUN apk update && apk upgrade && \
       echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
       apk add --update ca-certificates && \
       apk add --no-cache \
-      udev \
       ttf-freefont \
-      chromium@edge \
-      nss@edge \
-      freetype@edge \
-      harfbuzz@edge
+      chromium@edge
 
 # Help prevent zombie chrome processes
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
