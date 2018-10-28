@@ -1,4 +1,3 @@
-import 'isomorphic-unfetch';
 import passport from 'passport';
 import express from 'express';
 import session from 'express-session';
@@ -109,7 +108,7 @@ puppeteer.launch(puppeteerParams).then(async (browser: any) => {
       }
     }
     const json = { error: 'api_error', reason: err.message };
-    return res.status(500).end(JSON.stringify(json));
+    return res.end(JSON.stringify(json));
   });
 
   server.listen(port, '0.0.0.0', err => {

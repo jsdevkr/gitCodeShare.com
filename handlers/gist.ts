@@ -3,6 +3,7 @@ import request from 'request';
 import { name, version } from '../package.json';
 import { isAuthenticated } from './passport';
 import { cache } from './';
+import axios from 'axios';
 
 const router: Router = Router();
 
@@ -32,18 +33,17 @@ const putStar = (gistId: string): void => {
 };
 router.get('/starred', async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const body = await cache.wrap('gist/starred', async () => {
-      const result = await fetch(`https://api.github.com/gists/starred`, {
+    const data = await cache.wrap('gist/starred', async () => {
+      return (await axios(`https://api.github.com/gists/starred`, {
         method: 'GET',
         headers: {
           ...headers,
           'Content-Type': 'application/json; charset=utf-8',
           'User-Agent': `${name}/${version}`,
         },
-      });
-      return result.json();
+      })).data;
     });
-    return res.status(200).json(body);
+    return res.status(200).json(data);
   } catch (err) {
     console.log(err);
     return next(err);

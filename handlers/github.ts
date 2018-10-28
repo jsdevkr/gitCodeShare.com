@@ -4,6 +4,7 @@ import { name, version } from '../package.json';
 import fs from 'fs';
 import { IContributor } from '../model/contributors';
 import { cache } from './';
+import axios from 'axios';
 
 const router: Router = Router();
 const ttl = 60 * 60;
@@ -44,14 +45,13 @@ router.get('/contributors', async (req: Request, res: Response, next: NextFuncti
       'github/contributors',
       async () => {
         const getDetails = async login => {
-          const result = await fetch(`${apiBaseUrl}/users/${login}`, {
+          const { data } = await axios(`${apiBaseUrl}/users/${login}`, {
             headers: {
               ...headers,
               'Content-Type': 'application/json; charset=utf-8',
               'User-Agent': `${name}/${version}`,
             },
           });
-          const data = await result.json();
           return data as IContributor;
         };
 

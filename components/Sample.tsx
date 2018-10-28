@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { styled, RoundedButton } from '../styledComponents';
+import axios from 'axios';
 
 interface IProps {}
 
@@ -30,24 +31,24 @@ class Sample extends React.Component<IProps> {
       },
     };
 
-    const data = await (await fetch('/gists', {
+    const { data } = await axios('/gists', {
       method: 'POST',
-      body: JSON.stringify(gist),
+      data: gist,
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
-    })).json();
+    });
 
     console.log(data);
   };
 
   getGists = async () => {
-    const data = await (await fetch('/gists', {
+    const { data } = await axios('/gists', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
       },
-    })).json();
+    });
 
     console.log(data);
   };

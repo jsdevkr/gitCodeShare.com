@@ -1,6 +1,7 @@
 import { IGist } from '../model/gist';
 import { IContributor } from '../model/contributors';
 import { encodeParams as encode } from '../common/utils';
+import axios from 'axios';
 
 const proxyContext =
   typeof window !== 'undefined'
@@ -20,74 +21,34 @@ const ApiProvider = {
   },
   GistRequest: {
     async getGists(): Promise<IGist[]> {
-      const res = await fetch(`${proxyContext}/gists`, { method: 'GET' });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+      return (await axios(`${proxyContext}/gists`, { method: 'GET' })).data;
     },
     async getStarredGists(): Promise<IGist[]> {
-      const res = await fetch(`${proxyContext}/gists/starred`, { method: 'GET' });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+      return (await axios(`${proxyContext}/gists/starred`, { method: 'GET' })).data;
     },
     async getGist(gistId: number | string): Promise<IGist> {
-      const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'GET' });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+      return (await axios(`${proxyContext}/gists/${gistId}`, { method: 'GET' })).data;
     },
     async createGist(body: object): Promise<IGist> {
-      const res = await fetch(`${proxyContext}/gists`, {
+      return (await axios(`${proxyContext}/gists`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+        data: body,
+      })).data;
     },
     async modifyGist(gistId: number | string): Promise<IGist> {
-      const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'PATCH' });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+      return (await axios(`${proxyContext}/gists/${gistId}`, { method: 'PATCH' })).data;
     },
     async deleteGist(gistId: number | string) {
-      const res = await fetch(`${proxyContext}/gists/${gistId}`, { method: 'DELETE' });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+      return (await axios(`${proxyContext}/gists/${gistId}`, { method: 'DELETE' })).data;
     },
   },
   GithubRequest: {
     async getRepoData() {
-      const res = await fetch(`${proxyContext}/github/repos`, { method: 'GET' });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+      return (await axios(`${proxyContext}/github/repos`, { method: 'GET' })).data;
     },
     async getContributors(): Promise<IContributor[]> {
-      const res = await fetch(`${proxyContext}/github/contributors`, { method: 'GET' });
-      if (res.ok) {
-        return await res.json();
-      } else {
-        throw await res.json();
-      }
+      return (await axios(`${proxyContext}/github/contributors`, { method: 'GET' })).data;
     },
     async getStarNum() {
       const data = await this.getRepoData();
