@@ -45,13 +45,13 @@ COPY . .
 RUN npm run build
 
 # Add user so we don't need --no-sandbox.
-RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
-      && mkdir -p /home/pptruser/Downloads \
-      && chown -R pptruser:pptruser /home/pptruser \
-      && chown -R pptruser:pptruser /app
+# RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
+#       && mkdir -p /home/pptruser/Downloads \
+#       && chown -R pptruser:pptruser /home/pptruser \
+#       && chown -R pptruser:pptruser /app
 
 # Run everything after as non-privileged user.
-USER pptruser
+# USER pptruser
 
 ENV NODE_ENV production
 EXPOSE 3000
