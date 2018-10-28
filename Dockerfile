@@ -49,4 +49,7 @@ ENV NODE_ENV production
 EXPOSE 3000
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD [ "npm", "start" ]
+
+# Change dns (because error: getaddrinfo EAI_AGAIN)
+CMD echo "nameserver 1.1.1.1" > /etc/resolv.conf && \
+      npm start
