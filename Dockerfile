@@ -24,13 +24,16 @@ RUN apk --no-cache add \
       && wget -q "${NOTO_JP}" -P /usr/share/fonts \
       && fc-cache -fv
 
+# Set language to UTF8
+ENV LANG="C.UTF-8"
+
+# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+
 WORKDIR /app
 
 COPY package.json ./
 COPY package-lock.json ./
-
-# Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
 RUN npm install
 
@@ -39,13 +42,13 @@ COPY . .
 RUN npm run build
 
 # Add user so we don't need --no-sandbox.
-# RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
-#       && mkdir -p /home/pptruser/Downloads \
-#       && chown -R pptruser:pptruser /home/pptruser \
-#       && chown -R pptruser:pptruser /app
+RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
+      && mkdir -p /home/pptruser/Downloads \
+      && chown -R pptruser:pptruser /home/pptruser \
+      && chown -R pptruser:pptruser /app
 
 # Run everything after as non-privileged user.
-# USER pptruser
+USER pptruser
 
 ENV NODE_ENV production
 EXPOSE 3000
