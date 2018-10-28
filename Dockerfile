@@ -15,6 +15,10 @@ RUN apk update && apk upgrade && \
       freetype@edge \
       harfbuzz@edge
 
+# Help prevent zombie chrome processes
+ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
+RUN chmod +x /usr/local/bin/dumb-init
+
 # Default fonts
 ENV NOTO_KR="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansKR-Regular.otf" \
       NOTO_JP="https://github.com/googlei18n/noto-cjk/raw/master/NotoSansJP-Regular.otf"
@@ -45,13 +49,13 @@ COPY . .
 RUN npm run build
 
 # Add user so we don't need --no-sandbox.
-# RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
-#       && mkdir -p /home/pptruser/Downloads \
-#       && chown -R pptruser:pptruser /home/pptruser \
-#       && chown -R pptruser:pptruser /app
+RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
+      && mkdir -p /home/pptruser/Downloads \
+      && chown -R pptruser:pptruser /home/pptruser \
+      && chown -R pptruser:pptruser /app
 
 # Run everything after as non-privileged user.
-# USER pptruser
+USER pptruser
 
 ENV NODE_ENV production
 EXPOSE 3000
