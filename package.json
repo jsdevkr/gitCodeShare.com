@@ -91,6 +91,7 @@
     "morgan": "^1.9.1",
     "next": "^7.0.2",
     "next-compose-plugins": "^2.1.1",
+    "node-fetch": "^2.2.0",
     "node-sass": "^4.9.4",
     "now-logs": "0.0.7",
     "passport": "^0.4.0",
