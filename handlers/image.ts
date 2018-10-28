@@ -47,7 +47,7 @@ export default function(browser: puppeteer.Browser) {
               const element = document.querySelector(_selector);
 
               const { width: beforeWidth } = element.getBoundingClientRect();
-              const adjustHeight = (beforeWidth / 3) * 2;
+              const adjustHeight = (beforeWidth / 500) * 261;
               element.style.height = `${adjustHeight}px`;
 
               const { x, y, width, height } = element.getBoundingClientRect();
