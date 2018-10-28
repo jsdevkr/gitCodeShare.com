@@ -6,7 +6,7 @@ import { cache } from './';
 const ttl = 60 * 5;
 const PORT = parseInt(process.env.FRONT_PORT, 10) || 3000;
 
-export default function(browser: puppeteer.Browser) {
+export default function(browser: { instance: puppeteer.Browser }) {
   return async (req: Request, res: Response, next: NextFunction) => {
     const { state, id } = req.query;
     if (!state && !id) {
@@ -36,7 +36,7 @@ export default function(browser: puppeteer.Browser) {
           }
           console.log(url);
 
-          const page = await browser.newPage();
+          const page = await browser.instance.newPage();
           try {
             await page.goto(url);
 

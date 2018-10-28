@@ -31,7 +31,15 @@ const puppeteerParams = dev
       args: ['--no-sandbox', '--disable-dev-shm-usage'],
     };
 
-puppeteer.launch(puppeteerParams).then(async (browser: any) => {
+const browser: { instance: puppeteer.Browser } = { instance: null };
+const puppeteerLaunch = async () => {
+  browser.instance = await puppeteer.launch(puppeteerParams);
+  browser.instance.on('disconnected', puppeteerLaunch);
+};
+
+(async () => {
+  await puppeteerLaunch();
+
   // set up
   const server = express();
   const imageHandler = ImageHandler(browser);
@@ -117,4 +125,4 @@ puppeteer.launch(puppeteerParams).then(async (browser: any) => {
     }
     console.log(`> Ready on http://localhost:${port}`);
   });
-});
+})();
