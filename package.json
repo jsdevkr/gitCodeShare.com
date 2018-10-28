@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@types/cache-manager": "^1.2.6",
-    "@types/chrome": "0.0.74",
+    "@types/chrome": "0.0.75",
     "@types/codemirror": "0.0.65",
     "@types/connect-redis": "^0.0.7",
     "@types/cookie-parser": "^1.4.1",
