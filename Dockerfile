@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:8-alpine
 
 # Source https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
 # Installs latest Chromium package.
