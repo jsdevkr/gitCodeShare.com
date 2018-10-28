@@ -6,7 +6,10 @@ ENV CHROME_BIN=/usr/bin/chromium-browser
 RUN apk update && apk upgrade && \
       echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
       echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
+      apk add --update ca-certificates && \
       apk add --no-cache \
+      udev \
+      ttf-freefont \
       chromium@edge \
       nss@edge \
       freetype@edge \
