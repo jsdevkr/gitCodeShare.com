@@ -40,44 +40,42 @@ router.get('/repos', (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.get('/contributors', async (req: Request, res: Response, next: NextFunction) => {
-  try {
-    const body = await cache.wrap(
-      'github/contributors',
-      async () => {
-        const getDetails = async login => {
-          const { data } = await axios(`${apiBaseUrl}/users/${login}`, {
-            headers: {
-              ...headers,
-              'Content-Type': 'application/json; charset=utf-8',
-              'User-Agent': `${name}/${version}`,
-            },
-          });
-          return data as IContributor;
-        };
-
-        let promises = [];
-        let contributors = await readContributorFile();
-        contributors.forEach(i => {
-          promises.push(getDetails(i.login));
+  const body = await cache.wrap(
+    'github/contributors',
+    async () => {
+      const getDetails = async login => {
+        const { data } = await axios(`${apiBaseUrl}/users/${login}`, {
+          headers: {
+            ...headers,
+            'Content-Type': 'application/json; charset=utf-8',
+            'User-Agent': `${name}/${version}`,
+          },
         });
+        return data as IContributor;
+      };
 
-        return await Promise.all(promises)
-          .then(values => {
-            return values as IContributor[];
-          })
-          .catch(err => {
-            console.log(err);
-            next(err);
-          });
-      },
-      { ttl },
-    );
+      let promises = [];
+      let contributors = await readContributorFile();
+      contributors.forEach(i => {
+        promises.push(
+          getDetails(i.login)
+            .then(data => data)
+            .catch(err => {
+              console.log(err);
+              return err;
+            }),
+        );
+      });
 
-    return res.status(200).json(body);
-  } catch (err) {
-    console.log(err);
-    return next(err);
-  }
+      return await Promise.all(promises).then(values => {
+        values = values.filter(value => !(value instanceof Error));
+        return values as IContributor[];
+      });
+    },
+    { ttl },
+  );
+
+  return res.status(200).json(body);
 
   function readContributorFile(): Promise<IContributor[]> {
     return new Promise(resolve => {
