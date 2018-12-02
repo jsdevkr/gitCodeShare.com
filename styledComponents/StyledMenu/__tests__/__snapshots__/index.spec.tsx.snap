@@ -3,6 +3,8 @@
 exports[`StyledMenu DropDownMenu should render 1`] = `
 <ul
   className="ant-menu StyledMenu__DropDownMenu-l7ya14-1 gskOfi ant-menu-light ant-menu-root ant-menu-vertical"
+  onMouseEnter={[Function]}
+  onTransitionEnd={[Function]}
   role="menu"
   style={Object {}}
 />
@@ -11,6 +13,8 @@ exports[`StyledMenu DropDownMenu should render 1`] = `
 exports[`StyledMenu MainNavMenu should render 1`] = `
 <ul
   className="ant-menu StyledMenu__MainNavMenu-l7ya14-0 fsqjob ant-menu-light ant-menu-root ant-menu-vertical"
+  onMouseEnter={[Function]}
+  onTransitionEnd={[Function]}
   role="menu"
   style={Object {}}
 />
