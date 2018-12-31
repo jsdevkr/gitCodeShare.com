@@ -10,7 +10,8 @@ RUN apk update && apk upgrade && \
       apk add --no-cache \
       ttf-freefont \
       chromium@edge \
-      nss@edge
+      nss@edge \
+      harfbuzz@edge
 
 # Help prevent zombie chrome processes
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 /usr/local/bin/dumb-init
