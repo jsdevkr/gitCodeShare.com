@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import { Request, Response, NextFunction } from 'express';
 import crypto from 'crypto';
-import debounce from 'lodash.debounce';
+import { debounce } from 'lodash';
 import ms from 'ms';
 import { cache } from './';
 

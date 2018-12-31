@@ -1,4 +1,4 @@
-import debounce from 'lodash.debounce';
+import { debounce } from 'lodash';
 import { highlightAuto } from 'highlight.js';
 import {
   FONTS_HASH,
